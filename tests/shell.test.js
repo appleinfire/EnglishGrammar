@@ -28,6 +28,7 @@ Object.assign(a, {
 });
 a.stats = { answers: 50, correct: 35, fixed: 4, sessions: 5, endlessBest: 12, lightning: 7 };
 a.scenes = { doctor: 60, camp: 100 };
+a.facts = { 'pass.f1': '2026-10-05', 'comp.f2': '2026-10-09' };
 Object.assign(b, {
   rev: 200,
   topics: { pp: { tier: 2, reached: 1, done: 5, a: 35, c: 25, check: 80 }, q: { tier: 1, reached: 1, done: 1, a: 10, c: 9, check: 0 } },
@@ -44,6 +45,7 @@ Object.assign(b, {
 });
 b.stats = { answers: 45, correct: 30, fixed: 6, sessions: 4, endlessBest: 9, lightning: 11 };
 b.scenes = { doctor: 85, trip: 70 };
+b.facts = { 'pass.f1': '2026-10-07', 'q.f3': '2026-10-08' };
 const m = S.mergeProfiles(a, b);
 assert.deepStrictEqual(m.topics.pp, { tier: 2, reached: 2, done: 5, a: 40, c: 30, check: 80 }, 'a topic keeps the best of both; the current tier comes from the newer copy');
 assert.ok(m.topics.art && m.topics.q, 'topics practiced on either device are kept');
@@ -54,6 +56,7 @@ assert.deepStrictEqual(m.seen, { 'pp.x1': 200, 'pp.x2': 300 }, 'seen times keep 
 assert.deepStrictEqual(m.time, { '2026-10-09': 600, '2026-10-10': 420 }, 'minutes per day keep the higher value');
 assert.deepStrictEqual(m.stats, { answers: 50, correct: 35, fixed: 6, sessions: 5, endlessBest: 12, lightning: 11 }, 'totals and records keep the higher value');
 assert.deepStrictEqual(m.scenes, { doctor: 85, camp: 100, trip: 70 }, 'dialogs done on either device are kept, with the best score');
+assert.deepStrictEqual(m.facts, { 'pass.f1': '2026-10-05', 'comp.f2': '2026-10-09', 'q.f3': '2026-10-08' }, 'facts found on either device are kept, with the first day');
 assert.deepStrictEqual(m.diag, { day: '2026-10-01', tiers: { pp: 2 } }, 'a level check from either device is kept');
 assert.strictEqual(m.recent[0].g, 'new', 'recent mistakes come from the newer copy');
 assert.strictEqual(m.settings.l1, 'uk', 'settings come from the newer copy');

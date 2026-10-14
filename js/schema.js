@@ -18,6 +18,7 @@
       time: {}, // 'YYYY-MM-DD': seconds of practice
       log: {}, // 'YYYY-MM-DD': { f (mistakes fixed), l (patterns learned), u (tiers passed), t / r: { topicId: answers / right answers }, e: { error id: times } } — for the weekly report
       scenes: {}, // dialog id: best % right
+      facts: {}, // fact item id: 'YYYY-MM-DD' when she first answered it right (the fact is in her collection)
       endless: null, // the last Endless choice: { topics: [ids] or [] (my topics), src, timer }
       reportSeen: '', // Monday of the last week whose report she opened
       recent: [], // last mistakes, newest first: { id, g (her answer), d (day) }
@@ -36,6 +37,7 @@
       out.seen = M.union(old.seen, nw.seen, M.max);
       out.time = M.union(old.time, nw.time, M.max);
       out.scenes = M.union(old.scenes, nw.scenes, M.max);
+      out.facts = M.union(old.facts, nw.facts, (a, b) => (a < b ? a : b));
       out.log = M.union(old.log, nw.log, (a, b) => ({
         f: M.max(a.f, b.f), l: M.max(a.l, b.l), u: M.max(a.u, b.u),
         t: M.union(a.t, b.t, M.max), r: M.union(a.r, b.r, M.max), e: M.union(a.e, b.e, M.max),

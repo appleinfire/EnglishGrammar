@@ -206,4 +206,28 @@ const again = L.scene(st, 'doctor');
 again.queue.forEach((it) => { L.next(again, st, {}); L.answer(again, st, it, false, 'x', D0); });
 L.finish(again, st, D0);
 assert.strictEqual(st.scenes.doctor, Math.round(((scn.n - 1) / scn.n) * 100), 'the best score stays');
+// Did you know: a right answer puts a fact in her collection once; facts are topic sentences; Endless 'facts'.
+st = fresh();
+const fact = C.facts.find((it) => it.topic === 'pass');
+assert.ok(C.byId.pass.items.includes(fact), 'a fact is one of its topic items');
+assert.strictEqual(L.record(st, fact, false, 'x', D0).newFact, false, 'a wrong answer does not find a fact');
+assert.ok(!st.facts[fact.id]);
+assert.strictEqual(L.record(st, fact, true, fact.a[0], D0).newFact, true, 'a right answer finds it');
+assert.strictEqual(st.facts[fact.id], D0);
+assert.strictEqual(L.record(st, fact, true, fact.a[0], '2026-10-02').newFact, false, 'only once');
+assert.strictEqual(st.facts[fact.id], D0);
+en = L.endless(st, { src: 'facts' });
+assert.ok(en.topics.length >= C.topics.length - 1, 'facts: all topics that have facts');
+const factTopic = en.topics.find((id) => C.facts.filter((it) => it.topic === id).length >= 2);
+en = L.endless(st, { src: 'facts', topics: [factTopic] });
+const firstFacts = [];
+for (let i = 0; i < 2; i++) { const c = L.next(en, st, { day: D0 }); assert.ok(c.it.fact, 'facts only'); firstFacts.push(c.it.id); L.answer(en, st, c.it, true, c.it.a[0], D0); }
+assert.strictEqual(new Set(firstFacts).size, 2);
+const st2 = fresh();
+const known = C.facts.filter((it) => it.topic === factTopic);
+known.slice(1).forEach((it) => (st2.facts[it.id] = D0));
+const en2 = L.endless(st2, { src: 'facts', topics: [factTopic] });
+assert.strictEqual(L.next(en2, st2, { day: D0 }).it.id, known[0].id, 'a fact not in her collection comes first');
+res = L.finish(en, st, D0);
+assert.ok(res.newFacts >= 1, 'the results count new facts');
 console.log('level tests passed');

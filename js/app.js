@@ -238,7 +238,7 @@
     const id = cur.startsWith('topic:') ? cur.slice(6) : '';
     const wk = cur.startsWith('week:') ? cur.slice(5) : '';
     const sc = cur.startsWith('scene:') ? cur.slice(6) : '';
-    const screen = id ? () => topic(id) : wk ? () => week(wk) : sc ? () => sceneIntro(sc) : { who, home, topics, progress, mistakes, scenes }[cur];
+    const screen = id ? () => topic(id) : wk ? () => week(wk) : sc ? () => sceneIntro(sc) : { who, home, topics, progress, mistakes, scenes, facts }[cur];
     if (screen) redraw(screen); // new data from another device: same screen, same scroll position
   }
 
@@ -265,6 +265,7 @@
         <button class="tile" data-act="go" data-arg="topics"><span>📚</span><b>Topics</b><small>${C.topics.length} topics · Core → Use → Pro</small></button>
         <button class="tile" data-act="go" data-arg="scenes"><span>🎬</span><b>Situations</b><small>${C.scenes.length} dialogs from real life</small></button>
         <button class="tile" data-act="go" data-arg="endless"><span>♾️</span><b>Endless</b><small>Mixed, adapts to you${st.stats.endlessBest ? ` · best run ${st.stats.endlessBest}` : ''}</small></button>
+        <button class="tile" data-act="go" data-arg="facts"><span>💡</span><b>Did you know</b><small>${factsKnown()} of ${C.facts.length} facts found</small></button>
         <button class="tile" data-act="challenge"><span>⚡</span><b>Challenge</b><small>Started topics mixed, no hints</small></button>
         <button class="tile" data-act="go" data-arg="mistakes"><span>🧩</span><b>My mistakes</b><small>What goes wrong most often</small></button>
         <button class="tile" data-act="go" data-arg="progress"><span>📈</span><b>Progress</b><small>Accuracy, days, tiers</small></button>
@@ -438,8 +439,28 @@
     if (note) note.textContent = 'Listening… speak now.';
   }
 
+  // ---------------------------------------------------------------- did you know
+  const factsKnown = () => C.facts.filter((it) => st.facts[it.id]).length;
+  function facts() {
+    const n = factsKnown();
+    render(header('💡 Did you know') + `<main class="topics facts">
+      <p class="muted">Some sentences in the exercises are true facts — about the US and the world, science, nature and people. Answer one right and it goes into your collection. ${n} of ${C.facts.length} found.</p>
+      <button class="btn big" data-act="factsGo">Discover more →</button>
+      <p class="muted">Endless with facts only, the ones you haven't found first.</p>
+      ${C.FACT_THEMES.map(([id, icon, name]) => {
+        const list = C.facts.filter((it) => it.theme === id);
+        const got = list.filter((it) => st.facts[it.id]);
+        return `<section><h2>${icon} ${name} <small class="muted">${got.length} of ${list.length}</small></h2>
+          ${got.map((it) => { const t = C.sentence(it); return `<div class="factcard"><p class="fs">${esc(t)} ${speakBtn(t)}</p>${I.block(it.fact)}</div>`; }).join('')}
+          ${list.length > got.length ? `<p class="locked">${'🔒'.repeat(Math.min(5, list.length - got.length))} ${list.length - got.length} more to find</p>` : '<p class="good">✓ All found!</p>'}
+        </section>`;
+      }).join('')}
+    </main>`);
+    cur = 'facts';
+  }
+
   // ---------------------------------------------------------------- endless
-  const SRC = [['grammar', '📚 Grammar', 'sentences from the topics'], ['scenes', '🎬 Situations', 'your lines from the dialogs, with what was said before'], ['mix', '🔀 Mixed', 'both']];
+  const SRC = [['grammar', '📚 Grammar', 'sentences from the topics'], ['scenes', '🎬 Situations', 'your lines from the dialogs, with what was said before'], ['mix', '🔀 Mixed', 'both'], ['facts', '💡 Facts', 'only the Did-you-know sentences, the ones you haven’t found first; “My topics” means all topics here']];
   function endlessSetup() {
     if (!ui.endless) ui.endless = Object.assign({ topics: [], src: 'grammar', timer: 0 }, st.endless || {}, { topics: ((st.endless || {}).topics || []).filter((id) => C.byId[id]) });
     const e = ui.endless, mine = L.myTopics(st);
@@ -592,6 +613,7 @@
       if (it.a.length > 1 && free) html += `<p class="muted">Also right: ${it.a.slice(1, 3).map((a) => '<i>' + esc(a) + '</i>').join(' · ')}</p>`;
     }
     if (it.n) html += `<div class="why">${I.block({ en: it.n })}</div>`;
+    if (it.fact) html += `<div class="fact"><p class="ft">💡 Did you know?</p>${I.block(it.fact)}${rec.newFact ? `<p class="note">✨ New fact in your collection · ${factsKnown()} of ${C.facts.length}</p>` : ''}</div>`;
     html += `<div class="tools">
         ${speakBtn(right, '🔊 Listen')}${speakBtn(right, '🐢 Slow', true)}
         ${V.canRecord ? '<button class="iconbtn sm" data-act="recMe" id="recbtn">🎙 Say it yourself</button><button class="iconbtn sm" data-act="playMe" id="playme" hidden>▶ Me</button>' : ''}
@@ -674,6 +696,7 @@
     st.recent.splice(0, st.recent.length - sess.snap.recentLen);
     if (sess.snap.card) st.cards[R.key(it)] = sess.snap.card; else delete st.cards[R.key(it)];
     R.record(st, it, true);
+    if (it.fact && !st.facts[it.id]) { st.facts[it.id] = today(); entry.newFact = true; }
     if (sess.mode === 'lesson') { sess.miss = Math.max(0, sess.miss - 1); }
     if (sess.mode === 'endless') {
       sess.misses[it.topic] = Math.max(0, (sess.misses[it.topic] || 0) - 1);
@@ -725,6 +748,7 @@
         <p class="muted">Topics where you start at Core are the best place to begin. Topics above your level were not checked: they start from Core.</p>`;
       if (CFG.kinds.some((k) => k.id === res.level)) { S.update(st.id, { kind: res.level }); st = APP.state; }
     }
+    if (res.newFacts) extra += `<p class="lead">💡 ${res.newFacts} new fact${res.newFacts > 1 ? 's' : ''} in your collection. <button class="linkbtn" data-act="go" data-arg="facts">See them</button></p>`;
     const missed = res.missed;
     render(`<main class="result">
       <h1 class="title center">${score >= 90 ? '🌟' : score >= 70 ? '👍' : '💪'} ${res.right} of ${res.total}</h1>
@@ -928,7 +952,7 @@
     if (scr === 'scene') return sceneIntro(arg);
     if (scr === 'roleplay') { ui.rp = null; return roleplay(arg); }
     if (scr === 'endless') { ui.endless = null; return endlessSetup(); }
-    ({ home, topics, mistakes, progress, settings, scenes }[scr] || home)();
+    ({ home, topics, mistakes, progress, settings, scenes, facts }[scr] || home)();
   }
 
   const ACTIONS = {
@@ -989,6 +1013,7 @@
       if (!t.length) toast('No topic chosen: your topics are used');
       redraw(endlessSetup);
     },
+    factsGo: () => { ui.endless = { topics: [], src: 'facts', timer: 0 }; ACTIONS.endlessGo(); },
     endlessTimer: (a) => { ui.endless.timer = +a; redraw(endlessSetup); },
     endlessGo: () => {
       const e = ui.endless || st.endless || { topics: [], src: 'grammar', timer: 0 };
