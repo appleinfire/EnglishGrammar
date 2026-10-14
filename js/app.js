@@ -39,6 +39,12 @@
     r.innerHTML = html;
     window.scrollTo(0, 0);
   }
+  // Draw the same screen again after a choice on it (a chip, a toggle, "tap again to…"), keeping the scroll position.
+  function redraw(screen) {
+    const y = window.scrollY;
+    screen();
+    window.scrollTo(0, y);
+  }
   function header(title, back = 'home') {
     return `<header class="bar"><button class="iconbtn" data-act="go" data-arg="${back}" aria-label="Back">←</button><h1>${title}</h1>
       <button class="mini-av" data-act="go" data-arg="who" aria-label="Switch ${WORD} (now ${esc(st.name)})" title="Switch ${WORD}">${st.avatar}</button></header>`;
@@ -229,9 +235,9 @@
     if (st && APP.state !== st) { st = null; return who(); } // this profile was deleted on another device
     if (cur === 'start') { if (S.profiles().length) startScreen(); return; }
     if (!cur) return;
-    const redraw = { who, home, topics, progress, mistakes }[cur];
-    if (redraw) redraw();
-    else if (cur.startsWith('topic:')) topic(cur.slice(6));
+    const id = cur.startsWith('topic:') ? cur.slice(6) : '';
+    const screen = id ? () => topic(id) : { who, home, topics, progress, mistakes }[cur];
+    if (screen) redraw(screen); // new data from another device: same screen, same scroll position
   }
 
   // ---------------------------------------------------------------- home
@@ -302,8 +308,8 @@
         <div class="col">
           <section class="practice"><h2>Practice</h2>
             <p class="muted">${s.state === 'new' ? 'Not started yet.' : `${pct(t.c, t.a)}% right of ${t.a} answers · ${s.state === 'mastered' ? 'mastered ✓' : 'passed: ' + (s.reached ? L.TIERS.slice(0, s.reached).join(', ') : 'none yet')}`}</p>
-            <div class="tierpick">${[1, 2, 3].map((n) => `<button class="tierbtn ${sel === n ? 'sel' : ''} ${s.reached >= n ? 'done' : ''}" data-act="pickTier" data-arg="${id}:${n}"><b>${L.TIERS[n - 1]}</b><small>${['the form, with hints', 'in context', 'translate, fix, say'][n - 1]}</small></button>`).join('')}</div>
-            <button class="btn big" data-act="lesson" data-arg="${id}:${sel}">Practice · ${L.TIERS[sel - 1]} →</button>
+            <div class="tierpick">${[1, 2, 3].map((n) => `<button class="tierbtn ${sel === n ? 'sel' : ''} ${s.reached >= n ? 'done' : ''}" data-act="pickTier" data-arg="${id}:${n}" aria-pressed="${sel === n}"><b>${L.TIERS[n - 1]}</b><small>${['the form, with hints', 'in context', 'translate, fix, say'][n - 1]}</small></button>`).join('')}</div>
+            <button class="btn big" id="practicebtn" data-act="lesson" data-arg="${id}:${sel}">Practice · ${L.TIERS[sel - 1]} →</button>
             <p class="muted">10 exercises. The tier moves up after 3 right answers in a row and down after 2 mistakes.</p>
             <button class="btn ghost wide" data-act="check" data-arg="${id}">🎓 Topic check (Pro)${t.check ? ` · best ${t.check}%` : ''}</button>
             ${s.due ? `<p class="muted">🔁 ${s.due} pattern${s.due > 1 ? 's' : ''} of this topic to review today.</p>` : ''}
@@ -621,9 +627,9 @@
     go: (a) => go(a),
     closeModal: () => closeModal(),
     openProfile: (a) => openProfile(a),
-    pickKind: (a) => { keepNewKid(); ui.newKid.kind = a; newProfile(); },
-    pickAvatar: (a) => { keepNewKid(); ui.newKid.avatar = a; newProfile(); },
-    pickL1: (a) => { keepNewKid(); ui.newKid.l1 = a; newProfile(); },
+    pickKind: (a) => { keepNewKid(); ui.newKid.kind = a; redraw(newProfile); },
+    pickAvatar: (a) => { keepNewKid(); ui.newKid.avatar = a; redraw(newProfile); },
+    pickL1: (a) => { keepNewKid(); ui.newKid.l1 = a; redraw(newProfile); },
     createProfile: () => {
       keepNewKid();
       const k = ui.newKid;
@@ -641,11 +647,11 @@
     famSibling: () => famSibling(),
     localOnly: () => { try { localStorage.setItem(CFG.id + '-localonly', '1'); } catch (e) { /* ignore */ } ui.newKid = null; startScreen(); },
     famDisconnect: () => {
-      if (!ui.discArmed) { ui.discArmed = true; return settings(); }
+      if (!ui.discArmed) { ui.discArmed = true; return redraw(settings); }
       ui.discArmed = false;
       APP.cloud.disconnect();
       toast('This device is no longer synced');
-      settings();
+      redraw(settings);
     },
     // sessions
     lesson: (a) => { const [id, t] = a.split(':'); ui.tierPick = null; start(L.lesson(st, id, +t || undefined)); },
@@ -663,7 +669,14 @@
     diagGo: () => { closeModal(); start(L.diag()); },
     fixNow: () => start(L.fix(st, ui.lastMissed || [])),
     drill: (a) => start(L.drill(st, a)),
-    pickTier: (a) => { const [id, t] = a.split(':'); ui.tierPick = { id, tier: +t }; topic(id); },
+    // Choosing a tier changes the picker and the button in place: no redraw, the page stays where it is.
+    pickTier: (a) => {
+      const [id, t] = a.split(':');
+      ui.tierPick = { id, tier: +t };
+      document.querySelectorAll('.tierbtn').forEach((b) => { const on = b.dataset.arg === a; b.classList.toggle('sel', on); b.setAttribute('aria-pressed', on); });
+      const btn = $('#practicebtn');
+      if (btn) { btn.dataset.arg = a; btn.textContent = `Practice · ${L.TIERS[+t - 1]} →`; }
+    },
     // inside a session
     pick: (a) => { if (!sess || sess.done) return; sess.cur.picked = +a; checkAnswer(); },
     tile: (a) => { const c = sess && sess.cur; if (!c || sess.done || c.built.includes(+a)) return; c.built.push(+a); $('.question').innerHTML = X.html(c); },
@@ -689,24 +702,24 @@
     tr: (a, el) => I.toggle(a, el),
     ruleModal: (a) => ruleModal(a),
     // settings
-    setting: (a, el) => { st.settings[a] = el.checked; S.save(); if (a === 'alwaysL1') settings(); },
-    setL1: (a) => { st.settings.l1 = a; S.save(); settings(); },
-    setGoal: (a) => { st.settings.goal = +a; S.save(); settings(); },
+    setting: (a, el) => { st.settings[a] = el.checked; S.save(); if (a === 'alwaysL1') redraw(settings); },
+    setL1: (a) => { st.settings.l1 = a; S.save(); redraw(settings); },
+    setGoal: (a) => { st.settings.goal = +a; S.save(); redraw(settings); },
     setVoice: (a, el) => { st.settings.voice = el.value; S.save(); V.speak('This is how I sound.'); },
     saveName: () => { st.name = $('#set-name').value.trim().slice(0, 16) || st.name; S.save(); toast('Saved'); },
     setKind: (a) => {
       const [id, kind] = a.split(':');
       S.update(id, { kind });
       if (st.id === id) st = S.open(id);
-      settings();
+      redraw(settings);
     },
     delProfile: (a) => {
-      if (ui.delArmed !== a) { ui.delArmed = a; return settings(); }
+      if (ui.delArmed !== a) { ui.delArmed = a; return redraw(settings); }
       ui.delArmed = null;
       const self = st.id === a;
       S.remove(a);
       if (self) { st = null; return who(); }
-      settings();
+      redraw(settings);
     },
     exportSave: () => {
       const code = S.exportCode(), ta = $('#savecode');
@@ -719,7 +732,7 @@
       try { st = S.importCode($('#savecode').value); toast('Progress loaded'); settings(); } catch (e) { $('#save-msg').textContent = 'That code did not work. Copy the whole code and try again.'; }
     },
     reset: () => {
-      if (!ui.resetArmed) { ui.resetArmed = true; return settings(); }
+      if (!ui.resetArmed) { ui.resetArmed = true; return redraw(settings); }
       ui.resetArmed = false;
       const l1 = st.settings.l1;
       S.reset();
