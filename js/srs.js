@@ -16,11 +16,12 @@
   };
   R.key = (it) => it.topic + ':' + it.pt;
 
-  // Record one answer. Returns { fixed } when a pattern she had got wrong is now right.
+  // Record one answer. Returns { fixed } when a pattern she had got wrong is now right, { learned } when it just reached box 3.
   R.record = (st, it, ok, day = U.dateKey(), now = Date.now()) => {
     const k = R.key(it);
     const c = st.cards[k] || { box: 0, due: day, ok: 0, miss: 0 };
     let fixed = false;
+    const before = c.box || 0;
     c.seen = Math.max(now, (c.seen || 0) + 1);
     c.last = it.id;
     if (ok) {
@@ -41,7 +42,7 @@
       c.pend = true;
     }
     st.cards[k] = c;
-    return { fixed };
+    return { fixed, learned: before < R.LEARNED && c.box >= R.LEARNED };
   };
 
   // Cards due today (or earlier): mistakes and low boxes first.

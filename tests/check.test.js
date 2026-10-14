@@ -54,4 +54,24 @@ assert.strictEqual(X.asSentence({ it: dictIt, mode: 'type' }, 'saw'), 'I saw thi
 // Which mistake a wrong answer is
 assert.strictEqual(APP.level.errorOf(dictIt, 'saw'), 'pp:ps-exp');
 assert.strictEqual(APP.level.errorOf(dictIt, 'have see'), 'pp:form', 'an unknown wrong answer gets the item\'s usual mistake');
+
+// Answers from the 🎙 button: every version the recognizer heard is tried, exact matches before forgiven ones;
+// once she edits the text it is judged like typing; reading back the wrong sentence of a "fix" never passes.
+const flIt = C.byId.pp.items.find((i) => i.t === 'tl' && i.a.includes('Have you ever been to Florida?'));
+const heard = (it, alts, mode = 'type') => ({ it, mode, heard: alts[0], alts });
+let m = X.judge(heard(flIt, ['Have you ever been to Flori', 'Have you ever been to Florida']), 'Have you ever been to Flori');
+assert.ok(m.ok && !m.close, 'the second version the recognizer heard is right');
+m = X.judge(heard(flIt, ['Have you ever been to Florida', 'Have you ever be to Florida']), 'Have you ever been to Florida');
+assert.ok(m.ok && !m.close);
+m = X.judge(heard(flIt, ['Have you ever been to the Florida']), 'Have you ever been to the Florida');
+assert.ok(m.ok && m.close, 'only an article differs: forgiven, with a note');
+m = X.judge(heard(flIt, ['Have you ever been to the Florida']), 'Have you ever went to Florida');
+assert.ok(!m.ok, 'edited text is judged as typed');
+m = X.judge({ it: flIt, mode: 'type' }, 'Have you ever been to the Florida');
+assert.ok(!m.ok, 'typed: an extra article is a mistake');
+const fixIt = C.byId.art.items.find((i) => i.t === 'fix' && i.p === 'My husband is engineer.');
+m = X.judge(heard(fixIt, ['My husband is engineer']), 'My husband is engineer');
+assert.ok(!m.ok, 'saying the wrong sentence of a fix exercise back is not forgiven');
+m = X.judge(heard(fixIt, ['My husband is engineer', 'My husband is an engineer']), 'My husband is engineer');
+assert.ok(m.ok && !m.close, 'but another version the recognizer heard can be right');
 console.log('check tests passed');

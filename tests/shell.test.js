@@ -22,6 +22,8 @@ Object.assign(a, {
   recent: [{ id: 'pp.x1', g: 'old', d: '2026-10-09' }],
   diag: { day: '2026-10-01', tiers: { pp: 2 } },
   days: { '2026-10-09': { a: 10, c: 8 } },
+  log: { '2026-10-09': { f: 1, l: 0, u: 1, t: { pp: 10 }, r: { pp: 8 }, e: { 'pp:form': 2 } } },
+  reportSeen: '2026-10-05',
   settings: Object.assign({}, kid.settings, { l1: 'ru' }),
 });
 a.stats = { answers: 50, correct: 35, fixed: 4, sessions: 5 };
@@ -35,6 +37,8 @@ Object.assign(b, {
   recent: [{ id: 'q.y', g: 'new', d: '2026-10-10' }],
   diag: null,
   days: { '2026-10-09': { a: 4, c: 4 }, '2026-10-10': { a: 6, c: 5 } },
+  log: { '2026-10-09': { f: 2, l: 1, u: 0, t: { pp: 4, q: 3 }, r: { pp: 4, q: 3 }, e: {} }, '2026-10-10': { f: 0, l: 0, u: 0, t: { q: 6 }, r: { q: 5 }, e: { 'q:be': 1 } } },
+  reportSeen: '',
   settings: Object.assign({}, kid.settings, { l1: 'uk', goal: 15 }),
 });
 b.stats = { answers: 45, correct: 30, fixed: 6, sessions: 4 };
@@ -52,6 +56,9 @@ assert.strictEqual(m.recent[0].g, 'new', 'recent mistakes come from the newer co
 assert.strictEqual(m.settings.l1, 'uk', 'settings come from the newer copy');
 assert.strictEqual(m.settings.goal, 15);
 assert.deepStrictEqual(m.days, { '2026-10-09': { a: 10, c: 8 }, '2026-10-10': { a: 6, c: 5 } });
+assert.deepStrictEqual(m.log['2026-10-09'], { f: 2, l: 1, u: 1, t: { pp: 10, q: 3 }, r: { pp: 8, q: 3 }, e: { 'pp:form': 2 } }, 'the report log keeps the higher number per day, topic and mistake');
+assert.ok(m.log['2026-10-10'], 'report days from either device are kept');
+assert.strictEqual(m.reportSeen, '2026-10-05', 'an opened weekly report stays opened');
 assert.strictEqual(m.rev, 200);
 assert.deepStrictEqual(S.mergeProfiles(b, a), m, 'merge order does not matter');
 

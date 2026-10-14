@@ -1,5 +1,6 @@
 // Listening and speaking: read-aloud (speechSynthesis, American voice by default), recording her own voice
-// to compare with the model (MediaRecorder), and short sounds. Everything is free and runs on the device.
+// to compare with the model (MediaRecorder), speech to text for spoken answers (SpeechRecognition), and short sounds.
+// All free; only speech to text leaves the device (the browser's own service).
 (function () {
   const APP = (globalThis.APP = globalThis.APP || {});
   const V = {};
@@ -64,7 +65,64 @@
   };
   V.stop = () => { if (rec && rec.state !== 'inactive') rec.stop(); };
   V.play = () => { if (clip) new Audio(clip).play().catch(() => {}); };
-  V.forget = () => { V.stop(); if (clip) URL.revokeObjectURL(clip); clip = null; };
+  V.forget = () => { V.stop(); V.abortListening(); if (clip) URL.revokeObjectURL(clip); clip = null; };
+
+  // ---------- speech to text (the 🎙 button) ----------
+  // Safari (iOS 14.5+, with Siri or Dictation turned on) and Chrome. The browser sends the sound to Apple or Google
+  // and gets text back; nothing is stored by the app. If it fails (some home-screen apps on iOS), the keyboard
+  // microphone still works.
+  const SR = typeof window !== 'undefined' && (window.SpeechRecognition || window.webkitSpeechRecognition);
+  V.canListen = !!SR;
+  V.micBroken = false; // set after "not allowed": the 🎙 button hides until the app is opened again
+  let rcg = null;
+  V.listening = () => !!rcg;
+  // Listens for one sentence. on.interim(text) while she speaks; on.final([text, …alternatives]);
+  // on.error(code) ('not-allowed', 'service-not-allowed', 'no-speech', 'audio-capture', 'network', …); on.end().
+  V.listen = (on = {}) => {
+    if (!SR || rcg) return false;
+    V.hush();
+    let r;
+    try { r = new SR(); } catch (e) { if (on.error) on.error('unsupported'); return false; }
+    r.lang = 'en-US';
+    r.interimResults = true;
+    r.continuous = false;
+    r.maxAlternatives = 5;
+    let alts = null, failed = false;
+    r.onresult = (e) => {
+      const finals = [];
+      let interim = '';
+      for (let i = 0; i < e.results.length; i++) {
+        const res = e.results[i];
+        if (res.isFinal) finals.push(res);
+        else interim += res[0].transcript;
+      }
+      const head = finals.slice(0, -1).map((x) => x[0].transcript.trim()).join(' ');
+      if (finals.length) {
+        const last = finals[finals.length - 1];
+        const list = [];
+        for (let i = 0; i < last.length; i++) list.push((head + ' ' + last[i].transcript).trim());
+        alts = [...new Set(list.filter(Boolean))];
+      }
+      const shown = ((alts ? alts[0] : head) + ' ' + interim).trim();
+      if (on.interim && shown) on.interim(shown);
+    };
+    r.onerror = (e) => { failed = true; if (on.error) on.error(e.error || 'error'); };
+    r.onend = () => {
+      if (rcg !== r) return; // aborted
+      rcg = null;
+      if (alts && alts.length) { if (on.final) on.final(alts); } else if (!failed && on.error) on.error('no-speech');
+      if (on.end) on.end();
+    };
+    try { r.start(); } catch (e) { if (on.error) on.error('busy'); return false; }
+    rcg = r;
+    return true;
+  };
+  V.stopListening = () => { if (rcg) { try { rcg.stop(); } catch (e) { /* already stopped */ } } };
+  V.abortListening = () => {
+    const r = rcg;
+    rcg = null;
+    if (r) { try { r.abort(); } catch (e) { /* already stopped */ } }
+  };
 
   // ---------- short sounds (WebAudio, no files) ----------
   let ctx = null;

@@ -159,6 +159,17 @@
     for (const [ans, err] of Object.entries(it.w)) if (K.sameTokens(g, K.tokens(ans))) return err;
     return it.e;
   };
+  // The day's entry of the weekly-report log (kept for 120 days).
+  L.LOG_DAYS = 120;
+  L.dayLog = (st, day = U.dateKey()) => {
+    st.log = st.log || {};
+    if (!st.log[day]) {
+      st.log[day] = { f: 0, l: 0, u: 0, t: {}, r: {}, e: {} };
+      const keys = Object.keys(st.log).sort();
+      while (keys.length > L.LOG_DAYS) delete st.log[keys.shift()];
+    }
+    return st.log[day];
+  };
   // Record one answer in the profile: totals, the topic, the card, the type of mistake, recent mistakes.
   L.record = (st, it, ok, given, day = U.dateKey()) => {
     st.stats.answers++;
@@ -167,12 +178,17 @@
     t.a++;
     if (ok) t.c++;
     st.seen[it.id] = Date.now();
-    const { fixed } = R.record(st, it, ok, day);
+    const { fixed, learned } = R.record(st, it, ok, day);
     if (fixed) st.stats.fixed++;
+    const lg = L.dayLog(st, day);
+    lg.t[it.topic] = (lg.t[it.topic] || 0) + 1;
+    if (ok) lg.r[it.topic] = (lg.r[it.topic] || 0) + 1;
+    if (fixed) lg.f++;
+    if (learned) lg.l++;
     let err = null;
     if (!ok) {
       err = L.errorOf(it, given);
-      if (err) st.errors[err] = (st.errors[err] || 0) + 1;
+      if (err) { st.errors[err] = (st.errors[err] || 0) + 1; lg.e[err] = (lg.e[err] || 0) + 1; }
       st.recent.unshift({ id: it.id, g: String(given).slice(0, 200), d: day });
       st.recent = st.recent.slice(0, 40);
     }
@@ -210,6 +226,7 @@
         if (at.length >= 4 && at.filter((x) => x.ok).length / at.length >= 0.8) t.reached = Math.max(t.reached, tier);
       }
       out.up = t.reached - before;
+      if (out.up > 0) L.dayLog(st, day).u += out.up;
       out.tierFrom = sess.startTier;
       out.tierTo = sess.tier;
     }
@@ -218,7 +235,7 @@
       const score = Math.round((right / total) * 100);
       t.check = Math.max(t.check || 0, score);
       st.lastTopic = sess.topic;
-      if (score >= 75) { const before = t.reached; t.reached = 3; t.tier = 3; out.up = 3 - before; out.passed = true; }
+      if (score >= 75) { const before = t.reached; t.reached = 3; t.tier = 3; out.up = 3 - before; out.passed = true; if (out.up > 0) L.dayLog(st, day).u += out.up; }
     }
     if (sess.mode === 'diag' && total) {
       // Per level: the share of right answers. Per topic: right → start at Pro; wrong → Use if the level
