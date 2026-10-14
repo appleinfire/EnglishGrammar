@@ -270,17 +270,20 @@
   }
 
   // ---------------------------------------------------------------- topics
+  const LEVEL_NAME = { A2: 'Pre-intermediate', B1: 'Intermediate', B2: 'Upper-intermediate', C1: 'Advanced' };
   function topics() {
-    const groups = [];
-    for (const T of C.topics) { let g = groups.find((x) => x.name === T.group); if (!g) groups.push((g = { name: T.group, list: [] })); g.list.push(T); }
+    const levels = L.LEVELS.map((lv) => ({ lv, list: C.topics.filter((T) => T.level === lv) })).filter((x) => x.list.length);
     render(header('Topics') + `<main class="topics">
       <p class="muted">Every topic has three tiers: <b>Core</b> (the form, with hints), <b>Use</b> (in context, no hints), <b>Pro</b> (translate, fix, say it). Nothing is locked.</p>
-      ${groups.map((g) => `<section><h2>${esc(g.name)}</h2>${g.list.map((T) => {
+      ${levels.map((g) => {
+        const done = g.list.filter((T) => L.status(st, T.id).state === 'mastered').length;
+        return `<section id="lv-${g.lv}"><h2>${g.lv} · ${LEVEL_NAME[g.lv]} <small class="muted">${done} of ${g.list.length} mastered</small></h2>${g.list.map((T) => {
         const s = L.status(st, T.id);
         const label = s.state === 'mastered' ? 'Mastered ✓' : s.state === 'new' ? 'New' : `${L.TIERS[s.tier - 1]} tier`;
         return `<button class="trow" data-act="go" data-arg="topic:${T.id}"><span class="ti">${T.icon}</span><span class="tt"><b>${esc(T.title)}</b><small>${esc(T.about)}</small></span>
           <span class="ts">${tierDots(s.reached, s.tier)}<small class="${s.state}">${label}${s.due ? ` · 🔁 ${s.due}` : ''}</small></span></button>`;
-      }).join('')}</section>`).join('')}
+      }).join('')}</section>`;
+      }).join('')}
     </main>`);
     cur = 'topics';
   }
@@ -337,7 +340,7 @@
     sess.picked = null;
     const it = c.it;
     const n = sess.log.length + 1;
-    const tierChip = sess.mode === 'lesson' ? `<span class="tchip t${sess.tier}">${L.TIERS[sess.tier - 1]}</span>` : sess.mode === 'diag' ? '' : `<span class="tchip t${it.l}">${esc(C.byId[it.topic].title)}</span>`;
+    const tierChip = sess.mode === 'lesson' ? `<span class="tchip t${sess.tier}">${L.TIERS[sess.tier - 1]}</span>` : sess.mode === 'diag' ? `<span class="tchip">${C.byId[it.topic].level}</span>` : `<span class="tchip t${it.l}">${esc(C.byId[it.topic].title)}</span>`;
     render(`<main class="play">
       <header class="bar"><button class="iconbtn" data-act="quit" aria-label="Stop">✕</button><h1>${esc(TITLE[sess.mode]())}</h1><span class="pill">${n} / ${sess.n}</span></header>
       <div class="progress"><span style="width:${Math.round(((n - 1) / sess.n) * 100)}%"></span></div>
@@ -484,8 +487,11 @@
     }
     if (s.mode === 'check') extra = res.passed ? '<p class="lead">🎓 Passed — topic mastered!</p>' : '<p class="lead">You need 75% to pass. Practice the Pro tier and try again.</p>';
     if (s.mode === 'diag') {
-      extra = `<p class="lead">Your starting tiers:</p><ul class="diagres">${C.topics.map((T) => res.tiers[T.id] ? `<li><span>${T.icon} ${esc(T.title)}</span><b class="tchip t${res.tiers[T.id]}">${L.TIERS[res.tiers[T.id] - 1]}</b></li>` : '').join('')}</ul>
-        <p class="muted">Topics where you start at Core are the best place to begin.</p>`;
+      extra = `<p class="lead">Your level: <b>${res.level} · ${LEVEL_NAME[res.level]}</b></p>
+        <p class="muted">${L.LEVELS.filter((lv) => res.score[lv] != null).map((lv) => `${lv}: ${Math.round(res.score[lv] * 100)}% right`).join(' · ')}</p>
+        <p class="lead">Your starting tiers:</p><ul class="diagres">${C.topics.map((T) => res.tiers[T.id] ? `<li><span>${T.icon} ${esc(T.title)}</span><b class="tchip t${res.tiers[T.id]}">${L.TIERS[res.tiers[T.id] - 1]}</b></li>` : '').join('')}</ul>
+        <p class="muted">Topics where you start at Core are the best place to begin. Topics above your level were not checked: they start from Core.</p>`;
+      if (CFG.kinds.some((k) => k.id === res.level)) { S.update(st.id, { kind: res.level }); st = APP.state; }
     }
     const missed = res.missed;
     render(`<main class="result">
@@ -663,7 +669,7 @@
     },
     challengeGo: (a) => { closeModal(); const s = L.challenge(st); s.timer = a === '1'; start(s); },
     diag: () => {
-      modal(`<h2>📏 Level check</h2><p>About ${C.topics.length * 2} short exercises, two from every topic. You type every answer — no multiple choice, so the result shows what you can really <i>use</i>.</p><p class="muted">No explanations during the check. At the end you get a starting tier for every topic.</p>
+      modal(`<h2>📏 Level check</h2><p>One short exercise from each topic, from A2 up to C1 (at most ${C.topics.length}). It stops when a level gets too hard, so it usually takes 7–12 minutes. You type every answer — no multiple choice, so the result shows what you can really <i>use</i>.</p><p class="muted">No explanations during the check. At the end you get your level and a starting tier for every topic you met.</p>
         <div class="row"><button class="btn" data-act="diagGo">Start</button><button class="btn ghost" data-act="closeModal">Later</button></div>`);
     },
     diagGo: () => { closeModal(); start(L.diag()); },
