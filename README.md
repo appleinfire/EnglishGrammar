@@ -8,7 +8,11 @@ Built on the family app shell from [Math Expedition](https://github.com/appleinf
 
 ## How it works
 
-- **12 topics** (≈590 exercises), chosen for the typical mistakes of Ukrainian and Russian speakers: Present Perfect, Past Simple vs Present Perfect, *for / since / ago*, Present Perfect Continuous, questions and *do*, polite and indirect questions, articles, the future, *if*, the passive, reported speech, *-ing* or *to*.
+- **37 topics** (≈1 800 exercises) from A2 to C1, grouped by level and chosen for the typical mistakes of Ukrainian and Russian speakers:
+  - **A2:** present simple and continuous, past simple and continuous, *some / any / much / many*, comparatives, prepositions, *can / must / have to*, questions and *do*.
+  - **B1:** Present Perfect, Past Simple vs Present Perfect, *for / since / ago*, Present Perfect Continuous, *used to*, Past Perfect, the future, polite and indirect questions, articles, relative clauses, *should / might*, phrasal verbs, linking words, *too / enough*, *if*, the passive, reported speech, *-ing* or *to*.
+  - **B2:** third and mixed conditionals, *wish*, *must have / can't have*, future continuous and perfect, advanced passive (*have it done, it is said*), reporting verbs, advanced articles.
+  - **C1:** inversion, cleft sentences (*What I need is…*), participle clauses, the subjunctive (*I suggest he go, it's time we left, I'd rather you didn't*), *should have / needn't have / was supposed to*.
 - **English first, translation on demand.** Rules and explanations are in simple English; the 🌐 button shows them in Ukrainian or Russian (Settings). Exercise sentences open in Google Translate.
 - **Three tiers in every topic:** **Core** (the form, with hints) → **Use** (in context, no hints) → **Pro** (translate from Ukrainian/Russian, fix a mistake, rewrite, say it). A topic is mastered only at Pro. Inside a lesson the tier moves up after 3 right answers in a row and down after 2 mistakes.
 - **Exercise types:** choose (only as a warm-up), fill in the blank, put the words in order, find and fix the mistake, rewrite, translate, listen and type, say it out loud.
@@ -16,7 +20,7 @@ Built on the family app shell from [Math Expedition](https://github.com/appleinf
 - **Checking answers** runs on the device: contractions equal full forms (*I've = I have*), iPhone quotes and capitals don't matter, a one-letter typo in a long word is forgiven, grammar endings (*-s, -ed*, *began / begun*) are not. Autocorrect is off in answer fields so the phone doesn't fix the grammar.
 - **American English is the norm:** American voice, and answers like *Did you eat yet? / I just finished* are accepted with a note about the textbook form.
 - **Spaced review:** every pattern she practices becomes a card (Leitner boxes: 1, 3, 7, 14, 30 days). A mistake brings the card back today; a card comes back with a **different sentence of the same pattern**. **Review** mixes all topics.
-- **Level check** (24 typed exercises, 2 per topic) sets a starting tier for every topic. **Challenge** mixes the started topics with no hints and an optional 40-second timer. **Topic check** (Pro, 75% to pass).
+- **Level check** (adaptive: one Pro exercise per topic, level by level, stops when a level is too hard) sets your level and a starting tier for every topic. **Challenge** mixes the started topics with no hints and an optional 40-second timer. **Topic check** (Pro, 75% to pass).
 - **My mistakes:** the types of mistakes made most often, each with an explanation and a *Practice this* button; recent mistakes with the right sentence.
 - **Progress:** answers, accuracy, active days, streak (one missed day a week is forgiven), mistakes fixed, patterns learned, minutes per day for 30 days, tiers per topic. A daily goal (5–30 minutes) on the home screen.
 

@@ -37,7 +37,7 @@
     if (it.t === 'fill') {
       let k = 0;
       const s = esc(it.p).replace(BLANK, () => `<input class="blank" id="b${k++}" ${NOFIX} aria-label="blank ${k}">`);
-      return `<p class="sentence fill">${s}</p>`;
+      return `${it.i ? `<p class="task">${esc(it.i)}</p>` : ''}<p class="sentence fill">${s}</p>`;
     }
     if (it.t === 'build') {
       if (!cur.tiles) {
