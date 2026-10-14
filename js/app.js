@@ -237,7 +237,8 @@
     if (!cur) return;
     const id = cur.startsWith('topic:') ? cur.slice(6) : '';
     const wk = cur.startsWith('week:') ? cur.slice(5) : '';
-    const screen = id ? () => topic(id) : wk ? () => week(wk) : { who, home, topics, progress, mistakes }[cur];
+    const sc = cur.startsWith('scene:') ? cur.slice(6) : '';
+    const screen = id ? () => topic(id) : wk ? () => week(wk) : sc ? () => sceneIntro(sc) : { who, home, topics, progress, mistakes, scenes }[cur];
     if (screen) redraw(screen); // new data from another device: same screen, same scroll position
   }
 
@@ -262,6 +263,8 @@
       ${st.diag ? '' : '<button class="hero soft" data-act="diag"><span>📏</span><span><b>Level check · 7–10 min</b><small>Typed answers only. Sets the starting tier for every topic.</small></span></button>'}
       <div class="tiles">
         <button class="tile" data-act="go" data-arg="topics"><span>📚</span><b>Topics</b><small>${C.topics.length} topics · Core → Use → Pro</small></button>
+        <button class="tile" data-act="go" data-arg="scenes"><span>🎬</span><b>Situations</b><small>${C.scenes.length} dialogs from real life</small></button>
+        <button class="tile" data-act="go" data-arg="endless"><span>♾️</span><b>Endless</b><small>Mixed, adapts to you${st.stats.endlessBest ? ` · best run ${st.stats.endlessBest}` : ''}</small></button>
         <button class="tile" data-act="challenge"><span>⚡</span><b>Challenge</b><small>Started topics mixed, no hints</small></button>
         <button class="tile" data-act="go" data-arg="mistakes"><span>🧩</span><b>My mistakes</b><small>What goes wrong most often</small></button>
         <button class="tile" data-act="go" data-arg="progress"><span>📈</span><b>Progress</b><small>Accuracy, days, tiers</small></button>
@@ -334,8 +337,131 @@
     cur = 'topic:' + id;
   }
 
+  // ---------------------------------------------------------------- situations
+  const THEMES = [['life', '🏠', 'Life in the US'], ['school', '🎒', 'School & kids'], ['work', '💼', 'Work'], ['social', '☕', 'People & fun']];
+  function scenes() {
+    const done = C.scenes.filter((D) => st.scenes[D.id] != null).length;
+    render(header('Situations') + `<main class="topics scenes">
+      <p class="muted">Short dialogs from real life. Your lines are exercises on the grammar of the topics, so a mistake here comes back in Review and in My mistakes. ${done} of ${C.scenes.length} done.</p>
+      ${THEMES.map(([id, icon, name]) => {
+        const list = C.scenes.filter((D) => D.theme === id);
+        return list.length ? `<section><h2>${icon} ${name}</h2>${list.map((D) => {
+          const b = st.scenes[D.id];
+          return `<button class="trow" data-act="go" data-arg="scene:${D.id}"><span class="ti">${D.icon}</span><span class="tt"><b>${esc(D.title)}</b><small>${esc(D.about)}</small></span>
+            <span class="ts"><small class="${b != null ? 'mastered' : ''}">${D.level}${b != null ? ` · ✓ ${b}%` : ''}</small></span></button>`;
+        }).join('')}</section>` : '';
+      }).join('')}
+    </main>`);
+    cur = 'scenes';
+  }
+  const lineText = (ln) => ln.them || (typeof ln.me === 'string' ? ln.me : C.sentence(ln.me));
+  // One line of a dialog. log (optional): her answers, to mark her exercise lines ✓ / ✗.
+  function bubble(D, ln, log, now) {
+    const me = !ln.them, text = lineText(ln);
+    const x = log && me && typeof ln.me === 'object' ? log.find((e) => e.id === ln.me.id) : null;
+    return `<div class="bubble ${me ? 'me' : 'them'}${now ? ' now' : ''}"><small>${me ? 'You' : esc(D.who)}${x ? (x.ok ? ' ✓' : ' · corrected') : ''}</small><p>${esc(text)} ${speakBtn(text)}</p></div>`;
+  }
+  const chat = (D, upto, log) => D.lines.slice(0, upto).map((ln) => bubble(D, ln, log)).join('');
+  const phrasesHtml = (D) => `<section class="phrases"><h2>💬 How people say it</h2>${D.phrases.map((ph) => `<div class="phrase">${speakBtn(ph.en)}${I.block(ph)}</div>`).join('')}</section>
+    <section class="tip"><h2>💡 Good to know</h2>${I.block(D.tip)}</section>`;
+  const nextScene = (D) => {
+    const i = C.scenes.indexOf(D), order = C.scenes.slice(i + 1).concat(C.scenes.slice(0, i));
+    return order.find((x) => st.scenes[x.id] == null) || order[0] || null;
+  };
+  function sceneIntro(id) {
+    const D = C.sceneById[id];
+    if (!D) return scenes();
+    const b = st.scenes[id];
+    const grammar = [...new Set(D.items.map((i) => i.topic))].map((t) => C.byId[t]);
+    render(header(`${D.icon} ${esc(D.title)}`, 'scenes') + `<main class="topic scene-intro">
+      <div class="cols"><div class="col">
+        <section>${I.block(D.intro)}
+          <p class="muted">${D.level} · ${D.lines.length} lines, ${D.items.length} of them are your turn${b != null ? ` · best ${b}%` : ''}</p>
+          <p class="muted">Grammar: ${grammar.map((T) => `${T.icon} ${esc(T.title)}`).join(' · ')}</p>
+          <button class="btn big" data-act="scene" data-arg="${id}">${b != null ? 'Play it again' : 'Start the dialog'} →</button>
+          ${b != null ? `<button class="btn ghost wide" data-act="go" data-arg="roleplay:${id}">🎭 Say your lines</button>` : ''}
+        </section>
+      </div><div class="col">${b != null ? phrasesHtml(D) : '<section><p class="muted">Useful phrases and a tip about this situation open after the dialog.</p></section>'}</div></div>
+    </main>`);
+    cur = 'scene:' + id;
+  }
+  // 🎭 Say your lines: the dialog line by line; their lines are read aloud, she says hers (🎙 checks it when it works).
+  function roleplay(id) {
+    const D = C.sceneById[id];
+    if (!D) return scenes();
+    if (!ui.rp || ui.rp.id !== id) ui.rp = { id, i: 0, heard: '', ok: null };
+    const rp = ui.rp, ln = D.lines[rp.i];
+    const end = !ln;
+    let panel;
+    if (end) panel = `<p class="lead">🎉 That’s the whole dialog.</p><div class="row"><button class="btn" data-act="rpAgain">Again</button><button class="btn ghost" data-act="go" data-arg="scene:${id}">Back</button></div>`;
+    else if (ln.them) panel = `<p class="muted">${esc(D.who)} says this. Listen, then go on.</p><button class="btn big" data-act="rpNext">Next →</button>`;
+    else {
+      const text = lineText(ln);
+      panel = `<p class="task">Your turn: say it out loud.</p>
+        ${X.mic() ? '<div class="row left"><button class="micbtn" data-act="rpMic" aria-label="Say your line" aria-pressed="false">🎙</button></div>' : ''}
+        <p class="micnote muted" id="micnote" aria-live="polite">${rp.heard ? (rp.ok ? `✅ Clear! I heard: <i>${esc(rp.heard)}</i>` : `I heard: <i>${esc(rp.heard)}</i>. Try again, or go on.`) : X.mic() ? 'Tap 🎙 and say your line.' : 'Say it, then tap Next.'}</p>
+        <div class="tools">${speakBtn(text, '🔊 Listen')}${speakBtn(text, '🐢 Slow', true)}</div>
+        <button class="btn big" data-act="rpNext">Next →</button>`;
+    }
+    render(header(`🎭 ${esc(D.title)}`, 'scene:' + id) + `<main class="play roleplay">
+      <div class="chat" id="chat">${D.lines.slice(0, rp.i + 1).map((l, i) => bubble(D, l, null, i === rp.i)).join('')}</div>
+      <div class="question">${panel}</div>
+    </main>`, 'is-play-lite');
+    const ch = $('#chat');
+    if (ch) ch.scrollTop = ch.scrollHeight;
+    if (ln && ln.them && !rp.heard) V.speak(ln.them);
+    cur = '';
+  }
+  function rpMic() {
+    const rp = ui.rp, D = rp && C.sceneById[rp.id], ln = D && D.lines[rp.i];
+    if (!ln || ln.them) return;
+    if (V.listening()) { V.stopListening(); return; }
+    const btn = $('.micbtn'), note = $('#micnote');
+    const started = V.listen({
+      interim: (t) => { if (note) note.textContent = t; },
+      final: (alts) => {
+        const text = lineText(ln);
+        rp.ok = alts.some((a) => K.check(a, [text], { spoken: true }).ok);
+        rp.heard = alts[0];
+        redraw(() => roleplay(rp.id));
+      },
+      error: (code) => {
+        if (code === 'aborted') return;
+        if (code === 'not-allowed' || code === 'service-not-allowed' || code === 'unsupported') { V.micBroken = true; if (btn) btn.remove(); }
+        if (note) note.textContent = MIC_ERR[code] || 'Speech recognition stopped. Tap 🎙 to try again.';
+      },
+      end: () => { if (btn) { btn.classList.remove('rec'); btn.setAttribute('aria-pressed', 'false'); } },
+    });
+    if (!started || !btn) return;
+    btn.classList.add('rec');
+    btn.setAttribute('aria-pressed', 'true');
+    if (note) note.textContent = 'Listening… speak now.';
+  }
+
+  // ---------------------------------------------------------------- endless
+  const SRC = [['grammar', '📚 Grammar', 'sentences from the topics'], ['scenes', '🎬 Situations', 'your lines from the dialogs, with what was said before'], ['mix', '🔀 Mixed', 'both']];
+  function endlessSetup() {
+    if (!ui.endless) ui.endless = Object.assign({ topics: [], src: 'grammar', timer: 0 }, st.endless || {}, { topics: ((st.endless || {}).topics || []).filter((id) => C.byId[id]) });
+    const e = ui.endless, mine = L.myTopics(st);
+    const picking = e.topics.length > 0;
+    const levels = L.LEVELS.map((lv) => ({ lv, list: C.topics.filter((T) => T.level === lv) })).filter((x) => x.list.length);
+    render(header('♾️ Endless') + `<main class="endless-setup">
+      <p class="muted">Exercises never run out. Topics are mixed; weak topics and your mistakes come more often, and every 4th exercise is a pattern to review. Every topic keeps its own tier: 3 right in a row → up, 2 mistakes → down. Stop whenever you like.</p>
+      <section><h2>Records</h2><p>🔥 Longest run: <b>${st.stats.endlessBest || 0}</b> right in a row<br>⚡ Lightning: <b>${st.stats.lightning || 0}</b> right in 2 minutes</p></section>
+      <section><h2>Sentences</h2><div class="chips">${SRC.map(([id, name]) => `<button class="chip ${e.src === id ? 'sel' : ''}" data-act="endlessSrc" data-arg="${id}" aria-pressed="${e.src === id}">${name}</button>`).join('')}</div>
+        <p class="muted">${SRC.find((x) => x[0] === e.src)[2]}</p></section>
+      <section><h2>Topics</h2><div class="chips"><button class="chip ${picking ? '' : 'sel'}" data-act="endlessMine" aria-pressed="${!picking}">My topics (${mine.length})</button><button class="chip ${picking ? 'sel' : ''}" data-act="endlessPick" aria-pressed="${picking}">Choose${picking ? ` (${e.topics.length})` : '…'}</button></div>
+        ${picking ? levels.map((g) => `<h3 class="lvh">${g.lv}</h3><div class="chips">${g.list.map((T) => `<button class="chip ${e.topics.includes(T.id) ? 'sel' : ''}" data-act="endlessTopic" data-arg="${T.id}" aria-pressed="${e.topics.includes(T.id)}">${T.icon} ${esc(T.title)}</button>`).join('')}</div>`).join('')
+          : `<p class="muted">${mine.map((id) => `${C.byId[id].icon} ${esc(C.byId[id].title)}`).join(' · ')}</p><p class="muted">${Object.keys(st.topics).length >= 2 ? 'The topics you have started.' : 'The topics of your level. Once you start topics, they are used instead.'}</p>`}
+      </section>
+      <section><h2>Mode</h2><div class="chips"><button class="chip ${e.timer ? '' : 'sel'}" data-act="endlessTimer" data-arg="0" aria-pressed="${!e.timer}">♾️ No clock</button><button class="chip ${e.timer ? 'sel' : ''}" data-act="endlessTimer" data-arg="120" aria-pressed="${!!e.timer}">⚡ Lightning · 2 min</button></div></section>
+      <button class="btn big" data-act="endlessGo">Start →</button>
+    </main>`);
+    cur = '';
+  }
+
   // ---------------------------------------------------------------- sessions
-  const TITLE = { lesson: () => C.byId[sess.topic].title, review: () => 'Review', check: () => 'Topic check', challenge: () => 'Challenge', diag: () => 'Level check', fix: () => 'Fix my mistakes', drill: () => 'Practice a mistake' };
+  const TITLE = { lesson: (s) => C.byId[s.topic].title, review: () => 'Review', check: () => 'Topic check', challenge: () => 'Challenge', diag: () => 'Level check', fix: () => 'Fix my mistakes', drill: () => 'Practice a mistake', endless: (s) => (s.timer ? '⚡ Lightning' : '♾️ Endless'), scene: (s) => C.sceneById[s.scene].title };
   function start(s) {
     if (!s || !s.n) { toast('Nothing to practice here yet'); return; }
     sess = s;
@@ -350,13 +476,22 @@
     sess.picked = null;
     const it = c.it;
     const n = sess.log.length + 1;
-    const tierChip = sess.mode === 'lesson' ? `<span class="tchip t${sess.tier}">${L.TIERS[sess.tier - 1]}</span>` : sess.mode === 'diag' ? `<span class="tchip">${C.byId[it.topic].level}</span>` : `<span class="tchip t${it.l}">${esc(C.byId[it.topic].title)}</span>`;
+    const endless = sess.mode === 'endless';
+    const etier = endless ? L.endlessTier(sess, st, it.topic) : 0;
+    const tierChip = sess.mode === 'lesson' ? `<span class="tchip t${sess.tier}">${L.TIERS[sess.tier - 1]}</span>` : sess.mode === 'diag' ? `<span class="tchip">${C.byId[it.topic].level}</span>`
+      : endless ? `${c.review ? '<span class="tchip rv">🔁 Review</span>' : ''}<span class="tchip t${etier}">${esc(C.byId[it.topic].title)} · ${L.TIERS[etier - 1]}</span>` : `<span class="tchip t${it.l}">${esc(C.byId[it.topic].title)}</span>`;
+    // A line of a dialog: the dialog so far (in a dialog), or what was said just before (in Endless).
+    const D = it.scene && C.sceneById[it.scene];
+    let talk = '';
+    if (D && sess.mode === 'scene') talk = `<div class="chat" id="chat">${chat(D, it.line, sess.log)}</div>`;
+    else if (D && C.context(it)) talk = `<div class="chat"><div class="bubble them"><small>${esc(D.who)} · ${D.icon} ${esc(D.title)}</small><p>${esc(C.context(it))} ${speakBtn(C.context(it))}</p></div></div>`;
     render(`<main class="play">
-      <header class="bar"><button class="iconbtn" data-act="quit" aria-label="Stop">✕</button><h1>${esc(TITLE[sess.mode]())}</h1><span class="pill">${n} / ${sess.n}</span></header>
-      <div class="progress"><span style="width:${Math.round(((n - 1) / sess.n) * 100)}%"></span></div>
+      <header class="bar"><button class="iconbtn" data-act="quit" aria-label="Stop">✕</button><h1>${esc(TITLE[sess.mode](sess))}</h1><span class="pill" id="pill">${endless ? `🔥 ${sess.streak || 0}` : `${n} / ${sess.n}`}</span></header>
+      ${endless ? '' : `<div class="progress"><span style="width:${Math.round(((n - 1) / sess.n) * 100)}%"></span></div>`}
       <div class="cols">
         <div class="col">
-          <div class="qhead">${tierChip}<span class="qlabel">${X.label(c)}</span>${sess.timer ? '<span class="timer" id="timer"></span>' : ''}</div>
+          ${talk}
+          <div class="qhead">${tierChip}<span class="qlabel">${D ? 'Your turn · ' : ''}${X.label(c)}</span>${sess.timer ? '<span class="timer" id="timer"></span>' : ''}</div>
           <div class="question">${X.html(c)}</div>
           ${it.t === 'choose' ? '' : '<button class="btn big" id="checkbtn" data-act="checkAnswer">Check</button>'}
         </div>
@@ -364,9 +499,24 @@
       </div>
     </main>`, 'is-play');
     if (c.mode === 'dict') V.speak(APP.content.sentence(it));
+    const ch = $('#chat');
+    if (ch) ch.scrollTop = ch.scrollHeight;
     const first = $('.blank') || $('#ans');
     if (first) { first.focus(); if (first.setSelectionRange && first.value) first.setSelectionRange(first.value.length, first.value.length); }
-    if (sess.timer) startTimer();
+    if (endless) { if (sess.timer) roundTimer(); } else if (sess.timer) startTimer();
+  }
+  // Lightning: one clock for the whole round; when it runs out, the round is over.
+  function roundTimer() {
+    const s = sess;
+    const tick = () => {
+      if (sess !== s) return;
+      const left = Math.max(0, Math.ceil((s.ends - Date.now()) / 1000));
+      const el = $('#timer');
+      if (el) { el.textContent = `⏱ ${Math.floor(left / 60)}:${String(left % 60).padStart(2, '0')}`; el.classList.toggle('low', left <= 15); }
+      if (left <= 0) return finish();
+      later(tick, 250);
+    };
+    tick();
   }
   function startTimer() {
     const end = Date.now() + 40000;
@@ -450,8 +600,11 @@
       </div>`;
     if (!j.ok && free) html += '<button class="linkbtn override" data-act="override">My answer was right too</button>';
     html += '</div>';
-    if (rec.change > 0) html += `<p class="tierup">⬆ Moving up to <b>${L.TIERS[sess.tier - 1]}</b></p>`;
-    if (rec.change < 0) html += `<p class="tierdown">⬇ Back to <b>${L.TIERS[sess.tier - 1]}</b> for a moment</p>`;
+    const tierNow = sess.mode === 'endless' ? sess.tiers[it.topic] : sess.tier;
+    const whose = sess.mode === 'endless' ? esc(C.byId[it.topic].title) + ': ' : '';
+    if (rec.change > 0) html += `<p class="tierup">⬆ ${whose}moving up to <b>${L.TIERS[tierNow - 1]}</b></p>`;
+    if (rec.change < 0) html += `<p class="tierdown">⬇ ${whose}back to <b>${L.TIERS[tierNow - 1]}</b> for a moment</p>`;
+    if (sess.mode === 'endless') { const p = $('#pill'); if (p) p.textContent = `🔥 ${sess.streak}`; if (j.ok && sess.streak >= 5 && sess.streak % 5 === 0) html += `<p class="tierup">🔥 ${sess.streak} in a row!</p>`; }
     fb.innerHTML = html + nextBtn;
     if (window.matchMedia && !window.matchMedia('(min-width: 900px)').matches) fb.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     $('#nextbtn').focus({ preventScroll: true });
@@ -522,11 +675,19 @@
     if (sess.snap.card) st.cards[R.key(it)] = sess.snap.card; else delete st.cards[R.key(it)];
     R.record(st, it, true);
     if (sess.mode === 'lesson') { sess.miss = Math.max(0, sess.miss - 1); }
+    if (sess.mode === 'endless') {
+      sess.misses[it.topic] = Math.max(0, (sess.misses[it.topic] || 0) - 1);
+      sess.streak = (sess.prevStreak || 0) + 1;
+      sess.best = Math.max(sess.best, sess.streak);
+      const p = $('#pill');
+      if (p) p.textContent = `🔥 ${sess.streak}`;
+    }
     S.save();
     const b = $('.override');
     if (b) b.outerHTML = '<p class="note">👍 Counted as right.</p>';
   }
   function quit() {
+    if (sess && sess.mode === 'endless') { if (sess.log.length) return finish(); sess = null; return go('endless'); } // Stop is how Endless ends
     modal(`<p class="lead">Stop now? Your answers so far are saved.</p>
       <div class="row"><button class="btn ghost" data-act="closeModal">Keep going</button><button class="btn" data-act="leave">Stop</button></div>`);
   }
@@ -537,7 +698,7 @@
     S.save();
     sess = null;
     ui.lastMissed = res.missed;
-    ui.lastSess = { mode: s.mode, topic: s.topic, tier: s.tier, error: s.error };
+    ui.lastSess = { mode: s.mode, topic: s.topic, tier: s.tier, error: s.error, scene: s.scene };
     V.sfx.done();
     const score = pct(res.right, res.total);
     let extra = '';
@@ -546,6 +707,15 @@
       extra = res.tierTo > res.tierFrom ? `<p class="lead">⬆ You moved up to <b>${L.TIERS[res.tierTo - 1]}</b> in ${esc(T.title)}.</p>`
         : res.tierTo < res.tierFrom ? `<p class="lead">Next time: <b>${L.TIERS[res.tierTo - 1]}</b> tier — a step back to make it solid.</p>` : '';
       if (res.up > 0) extra += `<p class="lead">✓ ${L.TIERS[st.topics[s.topic].reached - 1]} tier passed${st.topics[s.topic].reached >= 3 ? ' — topic mastered! 🎉' : ''}.</p>`;
+    }
+    if (s.mode === 'endless') {
+      extra = s.timer ? `<p class="lead">⚡ <b>${res.right}</b> right in 2 minutes${res.record ? ' — a new record! 🎉' : ` · best ${st.stats.lightning}`}</p>`
+        : `<p class="lead">🔥 Longest run: <b>${res.best}</b> right in a row${res.record ? ' — a new record! 🎉' : ` · best ${st.stats.endlessBest}`}</p>`;
+      if (res.changes.length) extra += `<p class="lead">Tiers that changed (your next lesson starts there):</p><ul class="diagres">${res.changes.map((x) => `<li><span>${C.byId[x.id].icon} ${esc(C.byId[x.id].title)}</span><b class="tchip t${x.to}">${x.to > x.from ? '⬆' : '⬇'} ${L.TIERS[x.to - 1]}</b></li>`).join('')}</ul>`;
+    }
+    if (s.mode === 'scene') {
+      const D = C.sceneById[s.scene];
+      extra = `<section class="chat done">${chat(D, D.lines.length, s.log)}</section>${phrasesHtml(D)}`;
     }
     if (s.mode === 'check') extra = res.passed ? '<p class="lead">🎓 Passed — topic mastered!</p>' : '<p class="lead">You need 75% to pass. Practice the Pro tier and try again.</p>';
     if (s.mode === 'diag') {
@@ -558,7 +728,7 @@
     const missed = res.missed;
     render(`<main class="result">
       <h1 class="title center">${score >= 90 ? '🌟' : score >= 70 ? '👍' : '💪'} ${res.right} of ${res.total}</h1>
-      <p class="lead center">${score}% right · ${esc(TITLE[s.mode] ? (s.mode === 'lesson' ? C.byId[s.topic].title : TITLE[s.mode]()) : '')}</p>
+      <p class="lead center">${score}% right · ${esc(TITLE[s.mode] ? TITLE[s.mode](s) : '')}</p>
       ${extra}
       ${missed.length && s.mode !== 'diag' ? `<section class="missed"><h2>Your mistakes</h2>${s.log.filter((x) => !x.ok).map((x) => {
         const it = C.itemById[x.id];
@@ -568,6 +738,8 @@
       <div class="row">
         ${missed.length && s.mode !== 'diag' ? `<button class="btn" data-act="fixNow">🔁 Fix my mistakes (${missed.length})</button>` : ''}
         ${s.mode === 'lesson' ? `<button class="btn ${missed.length ? 'ghost' : ''}" data-act="lesson" data-arg="${s.topic}:${st.topics[s.topic].tier}">Continue practice</button>` : ''}
+        ${s.mode === 'endless' ? `<button class="btn ${missed.length ? 'ghost' : ''}" data-act="endlessGo">Again</button>` : ''}
+        ${s.mode === 'scene' ? `<button class="btn ghost" data-act="go" data-arg="roleplay:${s.scene}">🎭 Say your lines</button>${nextScene(C.sceneById[s.scene]) ? `<button class="btn ghost" data-act="go" data-arg="scene:${nextScene(C.sceneById[s.scene]).id}">Next dialog →</button>` : ''}` : ''}
         <button class="btn ghost" data-act="go" data-arg="home">Home</button>
       </div>
     </main>`, 'is-result');
@@ -753,7 +925,10 @@
     if (!st) return who();
     if (scr === 'topic') return topic(arg);
     if (scr === 'week') return week(arg);
-    ({ home, topics, mistakes, progress, settings }[scr] || home)();
+    if (scr === 'scene') return sceneIntro(arg);
+    if (scr === 'roleplay') { ui.rp = null; return roleplay(arg); }
+    if (scr === 'endless') { ui.endless = null; return endlessSetup(); }
+    ({ home, topics, mistakes, progress, settings, scenes }[scr] || home)();
   }
 
   const ACTIONS = {
@@ -801,6 +976,26 @@
     },
     diagGo: () => { closeModal(); start(L.diag()); },
     fixNow: () => start(L.fix(st, ui.lastMissed || [])),
+    scene: (a) => start(L.scene(st, a)),
+    rpNext: () => { if (!ui.rp) return; V.abortListening(); ui.rp.i++; ui.rp.heard = ''; ui.rp.ok = null; roleplay(ui.rp.id); },
+    rpAgain: () => { if (ui.rp) { ui.rp.i = 0; ui.rp.heard = ''; roleplay(ui.rp.id); } },
+    rpMic: () => rpMic(),
+    endlessSrc: (a) => { ui.endless.src = a; redraw(endlessSetup); },
+    endlessMine: () => { ui.endless.topics = []; redraw(endlessSetup); },
+    endlessPick: () => { if (!ui.endless.topics.length) ui.endless.topics = L.myTopics(st).slice(); redraw(endlessSetup); },
+    endlessTopic: (a) => {
+      const t = ui.endless.topics, i = t.indexOf(a);
+      if (i >= 0) t.splice(i, 1); else t.push(a);
+      if (!t.length) toast('No topic chosen: your topics are used');
+      redraw(endlessSetup);
+    },
+    endlessTimer: (a) => { ui.endless.timer = +a; redraw(endlessSetup); },
+    endlessGo: () => {
+      const e = ui.endless || st.endless || { topics: [], src: 'grammar', timer: 0 };
+      st.endless = { topics: e.topics.slice(), src: e.src, timer: e.timer };
+      S.save();
+      start(L.endless(st, st.endless));
+    },
     drill: (a) => start(L.drill(st, a)),
     // Choosing a tier changes the picker and the button in place: no redraw, the page stays where it is.
     pickTier: (a) => {

@@ -3,7 +3,8 @@
 // Inside a lesson the tier adapts: 3 right in a row → one tier up, 2 mistakes at a tier → one tier down.
 // Sessions: lesson (one topic), review (due cards from all topics, mixed), check (Pro test of a topic),
 // challenge (all started topics mixed, no hints), diag (level check), fix (mistakes of the last session again),
-// drill (one type of mistake). Pure logic: the screens live in app.js.
+// drill (one type of mistake), endless (topics mixed without end, each topic adapting its own tier),
+// scene (one dialog from real life). Pure logic: the screens live in app.js.
 (function () {
   const APP = (globalThis.APP = globalThis.APP || {});
   const U = APP.U, R = APP.srs, C = APP.content, K = APP.check;
@@ -80,6 +81,36 @@
     }
     return base('challenge', { queue, n: queue.length, topics: ids });
   };
+  // Endless: exercises never run out. Topics are mixed (weaker topics and topics with more mistakes come more often),
+  // every topic keeps its own tier (3 right in a row → up, 2 mistakes → down), every 4th exercise is a pattern due
+  // for review when there is one. Sources: 'grammar' (topic sentences), 'scenes' (lines of the dialogs), 'mix'.
+  // timer = seconds for a lightning round (0 = no clock).
+  L.SOURCES = ['grammar', 'scenes', 'mix'];
+  L.myTopics = (st) => {
+    const started = C.topics.filter((t) => st.topics[t.id] && (st.topics[t.id].done || st.topics[t.id].a)).map((t) => t.id);
+    if (started.length >= 2) return started;
+    const atLevel = C.topics.filter((t) => t.level === (L.LEVELS.includes(st.kind) ? st.kind : 'B1')).map((t) => t.id);
+    return atLevel.length >= 2 ? atLevel : C.topics.map((t) => t.id);
+  };
+  L.endless = (st, opts = {}) => {
+    const src = L.SOURCES.includes(opts.src) ? opts.src : 'grammar';
+    let topics = (opts.topics || []).filter((id) => C.byId[id]);
+    if (!topics.length) topics = L.myTopics(st);
+    if (src === 'scenes') {
+      const inScenes = new Set(C.sceneItems.map((i) => i.topic));
+      topics = topics.filter((id) => inScenes.has(id));
+      if (!topics.length) topics = [...inScenes];
+    }
+    const timer = opts.timer || 0;
+    return base('endless', { n: Infinity, src, topics, timer, ends: timer ? Date.now() + timer * 1000 : 0, tiers: {}, from: {}, runs: {}, misses: {}, streak: 0, best: 0, reviewed: new Set() });
+  };
+  // A dialog: its exercises in order.
+  L.scene = (st, id) => {
+    const S = C.sceneById[id];
+    if (!S) return null;
+    return base('scene', { scene: id, queue: S.items.slice(), n: S.items.length });
+  };
+
   // Level check, adaptive by level: one Pro exercise per topic, A2 topics first, then B1, B2, C1.
   // All typed (multiple choice would show a level above the real one). After a level where fewer than half
   // the answers are right, the check stops: the topics above are left for later.
@@ -123,19 +154,69 @@
       else sess.n = sess.log.length; // the check ends here
     }
     if (sess.log.length >= sess.n) return null;
-    let it;
+    if (sess.ends && (opts.now || Date.now()) >= sess.ends) return null;
+    let it, review = false;
     if (sess.queue) it = sess.queue[sess.log.length];
+    else if (sess.mode === 'endless') ({ it, review } = pickEndless(sess, st, opts.day) || {});
     else it = pickLesson(sess, st);
     if (!it) return null;
     sess.used.add(it.id);
     let mode = 'type';
     if (sess.mode !== 'diag') {
       if (it.t === 'tl' && opts.say && sess.rand() < 0.35) mode = 'say';
-      else if ((it.t === 'fill' || it.t === 'build') && it.l >= 2 && opts.tts && sess.mode === 'lesson' && !/[→"]/.test(it.p || '') && sess.rand() < 0.2) mode = 'dict';
+      else if ((it.t === 'fill' || it.t === 'build') && it.l >= 2 && opts.tts && (sess.mode === 'lesson' || sess.mode === 'endless') && !it.scene && !/[→"]/.test(it.p || '') && sess.rand() < 0.2) mode = 'dict';
     }
-    sess.cur = { it, mode };
+    sess.cur = { it, mode, review };
     return sess.cur;
   };
+  // Endless: the tier of a topic in this session (starts at the topic's own tier).
+  L.endlessTier = (sess, st, id) => (sess.tiers[id] != null ? sess.tiers[id] : L.tier(st, id));
+  const sourceItems = (sess, id) => {
+    const scenes = () => C.sceneItems.filter((i) => i.topic === id);
+    if (sess.src === 'scenes') return scenes();
+    if (sess.src === 'mix') { const sc = scenes(); return sc.length && sess.rand() < 0.4 ? sc : C.byId[id].items; }
+    return C.byId[id].items;
+  };
+  function pickEndless(sess, st, day = U.dateKey()) {
+    const lastIt = sess.log.length ? C.itemById[sess.log[sess.log.length - 1].id] : null;
+    const lastTopic = lastIt ? lastIt.topic : null;
+    // Every 4th: a pattern due for review (each at most once a session).
+    if (sess.log.length % 4 === 3) {
+      const key = R.due(st, day).find((k) => !sess.reviewed.has(k) && sess.topics.includes(k.split(':')[0]) && k.split(':')[0] !== lastTopic);
+      if (key) {
+        sess.reviewed.add(key);
+        const it = R.pick(st, key, L.endlessTier(sess, st, key.split(':')[0]), sess.used);
+        if (it) return { it, review: true };
+      }
+    }
+    // A topic: weaker topics and topics with more mistakes more often; never the same topic twice in a row.
+    let ids = sess.topics.filter((id) => id !== lastTopic);
+    if (!ids.length) ids = sess.topics.slice();
+    const weight = (id) => {
+      const t = st.topics[id];
+      const acc = t && t.a ? t.c / t.a : 0.6;
+      const errs = Object.keys(C.byId[id].errors).reduce((x, e) => x + (st.errors[e] || 0), 0);
+      return 1 + 2 * (1 - acc) + Math.min(2, errs / 5);
+    };
+    const ws = ids.map(weight);
+    let r = sess.rand() * ws.reduce((x, y) => x + y, 0), k = 0;
+    while (k < ids.length - 1 && r >= ws[k]) r -= ws[k++];
+    const id = ids[k];
+    // An exercise of that topic near its tier; seen longest ago; new types and patterns first.
+    const tier = L.endlessTier(sess, st, id);
+    const items = sourceItems(sess, id);
+    const lastTypes = sess.log.slice(-2).map((x) => (C.itemById[x.id] || {}).t);
+    for (const fresh of [true, false]) {
+      for (const d of [0, -1, 1, -2, 2]) {
+        let pool = items.filter((i) => i.l === tier + d && (!fresh || !sess.used.has(i.id)));
+        if (pool.some((i) => i.t !== 'choose')) pool = pool.filter((i) => i.t !== 'choose');
+        if (!pool.length) continue;
+        const score = (i) => (lastTypes.includes(i.t) ? 2e13 : 0) + (lastIt && i.pt === lastIt.pt ? 1e13 : 0) + (st.seen[i.id] || 0) + sess.rand();
+        return { it: pool.map((i) => [score(i), i]).sort((a, b) => a[0] - b[0])[0][1], review: false };
+      }
+    }
+    return null;
+  }
   function pickLesson(sess, st) {
     const T = C.byId[sess.topic];
     const last = sess.log.slice(-2).map((x) => C.itemById[x.id]).filter(Boolean);
@@ -194,8 +275,16 @@
     }
     return { err, fixed };
   };
-  // Adapt the tier of a lesson after an answer. Returns +1, -1 or 0.
-  L.adapt = (sess, ok) => {
+  // Adapt the tier of a lesson (or of the topic, in Endless) after an answer. Returns +1, -1 or 0.
+  L.adapt = (sess, ok, it) => {
+    if (sess.mode === 'endless' && it) {
+      const id = it.topic;
+      const tier = sess.tiers[id] || 1;
+      if (ok) { sess.runs[id] = (sess.runs[id] || 0) + 1; } else { sess.runs[id] = 0; sess.misses[id] = (sess.misses[id] || 0) + 1; }
+      if (sess.runs[id] >= 3 && tier < 3) { sess.tiers[id]++; sess.runs[id] = 0; sess.misses[id] = 0; return 1; }
+      if (sess.misses[id] >= 2 && tier > 1) { sess.tiers[id]--; sess.runs[id] = 0; sess.misses[id] = 0; return -1; }
+      return 0;
+    }
     if (sess.mode !== 'lesson') return 0;
     if (ok) { sess.run++; } else { sess.run = 0; sess.miss++; }
     if (sess.run >= 3 && sess.tier < 3) { sess.tier++; sess.run = 0; sess.miss = 0; return 1; }
@@ -205,8 +294,12 @@
   L.answer = (sess, st, it, ok, given, day) => {
     const tier = sess.mode === 'lesson' ? sess.tier : it.l;
     const rec = L.record(st, it, ok, given, day);
+    if (sess.mode === 'endless' && sess.tiers[it.topic] == null) sess.tiers[it.topic] = sess.from[it.topic] = L.tier(st, it.topic);
     sess.log.push({ id: it.id, ok, given, tier, err: rec.err });
-    const change = L.adapt(sess, ok);
+    sess.prevStreak = sess.streak || 0;
+    sess.streak = ok ? sess.prevStreak + 1 : 0;
+    sess.best = Math.max(sess.best || 0, sess.streak);
+    const change = L.adapt(sess, ok, it);
     return Object.assign(rec, { change });
   };
 
@@ -236,6 +329,25 @@
       t.check = Math.max(t.check || 0, score);
       st.lastTopic = sess.topic;
       if (score >= 75) { const before = t.reached; t.reached = 3; t.tier = 3; out.up = 3 - before; out.passed = true; if (out.up > 0) L.dayLog(st, day).u += out.up; }
+    }
+    if (sess.mode === 'endless' && total) {
+      // The tiers reached here are where the next lesson of each topic starts; passing a tier still needs a lesson.
+      out.changes = [];
+      for (const [id, tier] of Object.entries(sess.tiers)) {
+        const t = topicState(st, id);
+        if (sess.from[id] !== tier) out.changes.push({ id, from: sess.from[id], to: tier });
+        t.tier = tier;
+      }
+      out.best = sess.best;
+      const k = sess.timer ? 'lightning' : 'endlessBest', v = sess.timer ? right : sess.best;
+      out.record = v > (st.stats[k] || 0) && v >= 5;
+      st.stats[k] = Math.max(st.stats[k] || 0, v);
+    }
+    if (sess.mode === 'scene' && sess.scene && total) {
+      st.scenes = st.scenes || {};
+      const score = Math.round((right / total) * 100);
+      out.first = st.scenes[sess.scene] == null;
+      st.scenes[sess.scene] = Math.max(st.scenes[sess.scene] || 0, score);
     }
     if (sess.mode === 'diag' && total) {
       // Per level: the share of right answers. Per topic: right → start at Pro; wrong → Use if the level

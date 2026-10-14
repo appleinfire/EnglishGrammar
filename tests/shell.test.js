@@ -26,7 +26,8 @@ Object.assign(a, {
   reportSeen: '2026-10-05',
   settings: Object.assign({}, kid.settings, { l1: 'ru' }),
 });
-a.stats = { answers: 50, correct: 35, fixed: 4, sessions: 5 };
+a.stats = { answers: 50, correct: 35, fixed: 4, sessions: 5, endlessBest: 12, lightning: 7 };
+a.scenes = { doctor: 60, camp: 100 };
 Object.assign(b, {
   rev: 200,
   topics: { pp: { tier: 2, reached: 1, done: 5, a: 35, c: 25, check: 80 }, q: { tier: 1, reached: 1, done: 1, a: 10, c: 9, check: 0 } },
@@ -41,7 +42,8 @@ Object.assign(b, {
   reportSeen: '',
   settings: Object.assign({}, kid.settings, { l1: 'uk', goal: 15 }),
 });
-b.stats = { answers: 45, correct: 30, fixed: 6, sessions: 4 };
+b.stats = { answers: 45, correct: 30, fixed: 6, sessions: 4, endlessBest: 9, lightning: 11 };
+b.scenes = { doctor: 85, trip: 70 };
 const m = S.mergeProfiles(a, b);
 assert.deepStrictEqual(m.topics.pp, { tier: 2, reached: 2, done: 5, a: 40, c: 30, check: 80 }, 'a topic keeps the best of both; the current tier comes from the newer copy');
 assert.ok(m.topics.art && m.topics.q, 'topics practiced on either device are kept');
@@ -50,7 +52,8 @@ assert.strictEqual(m.cards['pp:news'].box, 1, 'the more recent answer wins on th
 assert.deepStrictEqual(m.errors, { 'pp:form': 3, 'art:no-a': 1, 'q:be': 1 }, 'mistake counts keep the higher number');
 assert.deepStrictEqual(m.seen, { 'pp.x1': 200, 'pp.x2': 300 }, 'seen times keep the latest');
 assert.deepStrictEqual(m.time, { '2026-10-09': 600, '2026-10-10': 420 }, 'minutes per day keep the higher value');
-assert.deepStrictEqual(m.stats, { answers: 50, correct: 35, fixed: 6, sessions: 5 }, 'totals keep the higher value');
+assert.deepStrictEqual(m.stats, { answers: 50, correct: 35, fixed: 6, sessions: 5, endlessBest: 12, lightning: 11 }, 'totals and records keep the higher value');
+assert.deepStrictEqual(m.scenes, { doctor: 85, camp: 100, trip: 70 }, 'dialogs done on either device are kept, with the best score');
 assert.deepStrictEqual(m.diag, { day: '2026-10-01', tiers: { pp: 2 } }, 'a level check from either device is kept');
 assert.strictEqual(m.recent[0].g, 'new', 'recent mistakes come from the newer copy');
 assert.strictEqual(m.settings.l1, 'uk', 'settings come from the newer copy');

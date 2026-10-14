@@ -13,6 +13,8 @@ Built on the family app shell from [Math Expedition](https://github.com/appleinf
   - **B1:** Present Perfect, Past Simple vs Present Perfect, *for / since / ago*, Present Perfect Continuous, *used to*, Past Perfect, the future, polite and indirect questions, articles, relative clauses, *should / might*, phrasal verbs, linking words, *too / enough*, *if*, the passive, reported speech, *-ing* or *to*.
   - **B2:** third and mixed conditionals, *wish*, *must have / can't have*, future continuous and perfect, advanced passive (*have it done, it is said*), reporting verbs, advanced articles.
   - **C1:** inversion, cleft sentences (*What I need is…*), participle clauses, the subjunctive (*I suggest he go, it's time we left, I'd rather you didn't*), *should have / needn't have / was supposed to*.
+- **🎬 Situations:** 12 short dialogs from real life, played as a chat — *Life in the US* (booking a doctor's appointment, returning a jacket, calling the insurance company, a leaking dishwasher and the landlord, the pharmacy), *School & kids* (a message to the teacher, a parent-teacher conference, summer camp), *Work* (a job interview, catching up with a colleague), *People & fun* (small talk with a neighbor, back from Yellowstone). Her lines are exercises of the usual types, each training a pattern of a grammar topic: a mistake gets that topic's explanation, counts for the topic, and comes back in Review as an ordinary sentence of the same pattern. At the end: the whole dialog, *How people say it* (useful phrases with 🔊 and 🌐) and *Good to know* (a practical note: copay, pre-approval, store credit, small talk…). **🎭 Say your lines** replays the dialog: their lines are read aloud, she says hers, and 🎙 checks them.
+- **♾️ Endless:** exercises never run out. Topics are mixed (my topics = the started ones, else the topics of her level; or chosen), weaker topics and topics with more mistakes come more often, never the same topic twice in a row, and every 4th exercise is a pattern due for review (🔁). Every topic keeps its own tier: 3 right in a row → up, 2 mistakes → down; the next lesson of the topic starts there (passing a tier still needs a lesson). Sentences: *Grammar*, *Situations* (dialog lines, with what was said just before) or *Mixed*. A run counter 🔥 and records: the longest run of right answers, and the most right in a **⚡ Lightning** round of 2 minutes. *Stop* shows the results.
 - **English first, translation on demand.** Rules and explanations are in simple English; the 🌐 button shows them in Ukrainian or Russian (Settings). Exercise sentences open in Google Translate.
 - **Three tiers in every topic:** **Core** (the form, with hints) → **Use** (in context, no hints) → **Pro** (translate from Ukrainian/Russian, fix a mistake, rewrite, say it). A topic is mastered only at Pro. Inside a lesson the tier moves up after 3 right answers in a row and down after 2 mistakes.
 - **Exercise types:** choose (only as a warm-up), fill in the blank, put the words in order, find and fix the mistake, rewrite, translate, listen and type, say it out loud.
@@ -42,10 +44,10 @@ Same as Math Expedition and WritingPower: **Create a family** (code + PIN) on th
 
 | What | When two copies differ |
 |---|---|
-| Topics (best tier passed, lessons, answers, best topic check), mistake counts, minutes per day, the weekly-report log (per day, topic and mistake), seen sentences | kept from both; the higher value wins |
+| Topics (best tier passed, lessons, answers, best topic check), mistake counts, minutes per day, the weekly-report log (per day, topic and mistake), seen sentences, dialogs (best score) | kept from both; the higher value wins |
 | Review cards | kept from both; for one card, the copy answered more recently wins (a mistake can lower a box) |
-| Totals (answers, right, fixed, sessions) | the higher value |
-| Current tier of a topic, settings, recent mistakes | the newer copy |
+| Totals (answers, right, fixed, sessions) and Endless records | the higher value |
+| Current tier of a topic, settings, recent mistakes, the last Endless choices | the newer copy |
 
 Mastery and topic status are not stored; they are computed from the cards and answers.
 
@@ -58,9 +60,10 @@ js/config.js           name, storage id 'english-grammar' (never change), levels
 js/schema.js           what a profile holds and how two copies merge
 js/content.js          the content registry and the format of a topic (see the comment at the top)
 js/topics/*.js         one file per topic: rule (en/uk/ru), typical mistake, error explanations (en/uk/ru), exercises
+js/scenes/*.js         one file per dialog: intro, lines (her lines are exercises of a grammar topic), phrases, tip (en/uk/ru)
 js/check.js            judging typed answers: contractions, quotes, typos, word-by-word comparison
 js/srs.js              spaced repetition cards
-js/level.js            tiers, lessons, review, level check, challenge, topic check, drills; recording answers (and the day log)
+js/level.js            tiers, lessons, review, level check, challenge, topic check, drills, Endless, dialogs; recording answers (and the day log)
 js/report.js           the weekly report: one week's numbers, the week before, a focus, the text to share
 js/i18n.js             🌐 translations, Google Translate links, the tiny text format
 js/voice.js            read-aloud, record yourself, speech to text (🎙), sounds
@@ -73,6 +76,8 @@ tests/                 see below
 
 To add a topic: copy a file in `js/topics/`, add it to `index.html` and to `FILES` in `sw.js`, run `node tests/content.test.js`. The test checks three languages for every rule and explanation, at least 10 exercises per tier and 3 per pattern, that every right answer is accepted and every listed wrong answer is not.
 
+To add a dialog: copy a file in `js/scenes/` (the format is described at the top of `js/content.js`), add it to `index.html` and to `FILES` in `sw.js`, run `node tests/content.test.js`. Every exercise names its grammar topic (`g`) and an existing pattern of it (`pt`); its errors are that topic's errors. The test checks this, three languages for the intro, phrases and tip, and the same answer checks as for topics.
+
 ## Tests
 
 ```sh
@@ -81,7 +86,7 @@ node tests/content.test.js   # every topic and exercise
 node tests/report.test.js    # day log, weeks, comparison, focus, the home-screen reminder
 node tests/check.test.js     # judging answers
 node tests/srs.test.js       # review cards
-node tests/level.test.js     # tiers and sessions
+node tests/level.test.js     # tiers and sessions, Endless, dialogs
 node tests/smoke.mjs         # in Chromium, iPhone and iPad sizes (needs Playwright)
 node tests/cloud-e2e.mjs     # two "devices" syncing through the real Firebase project (needs Playwright and internet)
 ```

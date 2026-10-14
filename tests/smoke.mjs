@@ -125,6 +125,53 @@ await page.click('[data-act=leave]');
 await page.click('[data-act=go][data-arg=progress]');
 ok(await page.isVisible('.kpis') && await page.isVisible('.ttable'), 'progress shows totals and topics');
 
+// Situations: a dialog as a chat; answers count for the grammar topics; phrases and a tip at the end; role-play.
+await page.click('[data-act=go][data-arg=home]');
+await page.click('[data-act=go][data-arg=scenes]');
+ok(await page.isVisible('text=Life in the US') && await page.isVisible('text=School & kids'), 'situations are grouped by theme');
+await page.click('[data-act=go][data-arg="scene:doctor"]');
+ok(await page.isVisible('text=fever since yesterday'), 'a dialog starts with where we are');
+await page.click('[data-act=scene]');
+ok(await page.evaluate(() => APP.app.session().mode === 'scene') && await page.isVisible('.chat .bubble.them'), 'the dialog plays as a chat');
+const sceneN = await page.evaluate(() => APP.app.session().n);
+await answer(false);
+ok(await page.isVisible('.fb.no') && await page.isVisible('.why'), 'a mistake in a dialog gets the explanation of its grammar topic');
+await page.click('#nextbtn');
+for (let i = 1; i < sceneN; i++) {
+  if (i === 1) ok(await page.isVisible('.chat .bubble.me'), 'her answered line stays in the chat');
+  await answer(true);
+  await page.click('#nextbtn');
+}
+ok(await page.isVisible('.result .chat') && await page.isVisible('.phrases') && await page.isVisible('.tip'), 'the end: the whole dialog, phrases and a tip');
+ok(await page.evaluate(() => APP.state.scenes.doctor > 0 && APP.state.topics.gi.a >= 1 && APP.srs.due(APP.state).some((k) => k.startsWith('gi:'))), 'the score is saved; the mistake is a review card of the grammar topic');
+await page.click('[data-act=go][data-arg="roleplay:doctor"]');
+ok(await page.isVisible('.bubble.now'), 'role-play starts with their first line');
+await page.click('[data-act=rpNext]');
+await page.evaluate(() => { window.__sr = { alts: ["Hi, I'd like to make an appointment for my son, please."] }; });
+await page.click('.roleplay .micbtn');
+await page.waitForSelector('text=Clear!');
+ok(true, 'role-play: her line said with the microphone is checked');
+await page.click('.bar [data-act=go]');
+ok(await page.isVisible('text=Play it again') && await page.isVisible('.phrases'), 'back to the dialog: it can be played again, the phrases stay');
+await page.click('.bar [data-act=go]');
+await page.click('.bar [data-act=go]');
+ok(await page.evaluate(() => !document.querySelector('.micbtn.rec')), 'nothing is left listening');
+
+// Endless: the choices, a run counter, Stop shows the results and the record.
+await page.click('[data-act=go][data-arg=endless]');
+ok(await page.isVisible('text=Longest run'), 'Endless shows the records');
+await page.click('[data-act=endlessPick]');
+ok(await page.isVisible('[data-act=endlessTopic]'), 'topics can be chosen');
+await page.click('[data-act=endlessMine]');
+await page.click('[data-act=endlessSrc][data-arg=mix]');
+await page.click('[data-act=endlessGo]');
+ok(await page.evaluate(() => APP.app.session().mode === 'endless' && APP.app.session().n === Infinity), 'Endless starts');
+for (let i = 0; i < 6; i++) { await answer(true); await page.click('#nextbtn'); }
+ok((await page.textContent('#pill')).includes('6'), 'the run counter grows');
+await page.click('[data-act=quit]');
+ok((await page.textContent('.result')).includes('Longest run: 6'), 'Stop shows the results with the longest run');
+ok(await page.evaluate(() => APP.state.stats.endlessBest === 6 && APP.state.endless.src === 'mix'), 'the record and the choices are saved');
+
 // The 🎙 button: what the recognizer heard goes into the answer; any version it heard can be the right one.
 const startWith = (id) => page.evaluate((id) => { const s = APP.level.fix(APP.state, []); s.queue = [APP.content.itemById[id]]; s.n = 1; APP.app.start(s); }, id);
 const tlId = await page.evaluate(() => APP.content.byId.pp.items.find((i) => i.t === 'tl' && i.a.includes('Have you ever been to Florida?')).id);
