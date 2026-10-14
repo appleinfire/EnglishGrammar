@@ -53,8 +53,15 @@ await page.click('.trbtn >> nth=0');
 ok(await page.isVisible('.trb .l1 >> nth=0') && (await page.textContent('.trb .l1 >> nth=0')).includes('Используем'), '🌐 shows the Russian translation');
 
 // A lesson: one mistake, then right answers
+// Choosing a tier at the bottom of the page: the page does not jump to the top, the button follows the choice
+await page.locator('.tierpick').scrollIntoViewIfNeeded();
+const y0 = await page.evaluate(() => window.scrollY);
+await page.click('[data-act=pickTier][data-arg="pp:2"]');
+ok(y0 > 300 && Math.abs((await page.evaluate(() => window.scrollY)) - y0) < 5, 'choosing a tier keeps the scroll position');
+ok((await page.textContent('#practicebtn')).includes('Use') && await page.getAttribute('[data-arg="pp:2"]', 'aria-pressed') === 'true', 'the Practice button shows the chosen tier');
+await page.click('[data-act=pickTier][data-arg="pp:1"]');
 await page.click('[data-act=lesson]');
-ok(await page.evaluate(() => APP.app.session().mode === 'lesson'), 'lesson starts');
+ok(await page.evaluate(() => APP.app.session().mode === 'lesson' && APP.app.session().tier === 1), 'lesson starts at the chosen tier');
 const first = await answer(false);
 ok(await page.isVisible('.fb.no'), 'a wrong answer gets "Not quite"');
 ok(first.t === 'choose' || (await page.isVisible('.cmp')), 'her answer and the right one are compared');
@@ -104,7 +111,10 @@ ok(await page.isVisible('.kpis') && await page.isVisible('.ttable'), 'progress s
 // Settings: goal, translation language
 await page.click('[data-act=go][data-arg=home]');
 await page.click('[data-act=go][data-arg=settings]');
+await page.evaluate(() => document.querySelector('[data-act=setGoal]').scrollIntoView({ block: 'center' }));
+const y1 = await page.evaluate(() => window.scrollY);
 await page.click('[data-act=setGoal][data-arg="15"]');
+ok(y1 > 0 && Math.abs((await page.evaluate(() => window.scrollY)) - y1) < 5, 'choosing a daily goal keeps the scroll position');
 await page.click('[data-act=setL1][data-arg=uk]');
 ok(await page.evaluate(() => APP.state.settings.goal === 15 && APP.state.settings.l1 === 'uk'), 'settings change');
 ok(!(await page.isVisible('[data-act=gate]')), 'no grown-ups gate in this app');
