@@ -1,6 +1,7 @@
 // Run: node tests/level.test.js
 // Tiers and sessions: a lesson adapts its tier, a lesson result moves a topic forward, the level check sets starting
 // tiers, Challenge uses only started topics, Review mixes topics, and recording an answer updates the profile.
+// Endless never ends and adapts every topic on its own; a dialog counts for the grammar topics it trains.
 const assert = require('assert');
 const APP = require('./load');
 const L = APP.level, C = APP.content, R = APP.srs;
@@ -132,4 +133,77 @@ assert.strictEqual(L.upNext(Object.assign(fresh('A2'))).id, C.topics[0].id, 'an 
 st.topics.cond = { tier: 2, reached: 1, done: 2, a: 20, c: 15, check: 0 };
 st.lastTopic = 'cond';
 assert.strictEqual(L.upNext(st).id, 'cond');
+// Endless: never the same topic twice in a row, every topic keeps its own tier, a due pattern comes back every 4th.
+const seeded = (n) => () => ((n = (n * 16807) % 2147483647) / 2147483647);
+const D0 = '2026-10-01';
+st = fresh();
+st.topics.pp = { tier: 1, reached: 0, done: 1, a: 10, c: 8, check: 0 };
+st.topics.art = { tier: 2, reached: 1, done: 1, a: 10, c: 5, check: 0 };
+st.topics.fut = { tier: 1, reached: 0, done: 1, a: 10, c: 9, check: 0 };
+R.record(st, C.byId.fut.items[0], false, D0);
+const dueKey = R.key(C.byId.fut.items[0]);
+let en = L.endless(st, {});
+en.rand = seeded(7);
+assert.deepStrictEqual(en.topics.slice().sort(), ['art', 'fut', 'pp'], 'my topics = the started ones');
+assert.strictEqual(en.n, Infinity);
+let prevTopic = null, reviewed = false;
+for (let i = 0; i < 60; i++) {
+  const c = L.next(en, st, { day: D0 });
+  assert.ok(c, 'Endless never runs out');
+  assert.notStrictEqual(c.it.topic, prevTopic, 'never the same topic twice in a row');
+  assert.ok(['pp', 'art', 'fut'].includes(c.it.topic));
+  assert.ok(!c.it.scene, 'grammar sentences only');
+  if (c.review) { assert.strictEqual(en.log.length % 4, 3, 'a review comes as every 4th'); if (R.key(c.it) === dueKey) reviewed = true; }
+  prevTopic = c.it.topic;
+  L.answer(en, st, c.it, c.it.topic !== 'art', 'x', D0);
+}
+assert.ok(reviewed, 'the pattern due for review came back');
+assert.strictEqual(en.tiers.pp, 3, 'pp: right answers → up to Pro');
+assert.strictEqual(en.tiers.art, 1, 'art: mistakes → down to Core');
+res = L.finish(en, st, D0);
+assert.strictEqual(st.topics.pp.tier, 3, 'the next lesson starts at the tier reached');
+assert.strictEqual(st.topics.pp.reached, 0, 'passing a tier still needs a lesson');
+assert.strictEqual(st.topics.art.tier, 1);
+assert.deepStrictEqual(res.changes.map((x) => x.id).sort(), ['art', 'fut', 'pp'], 'every topic moved on its own');
+assert.ok(res.best >= 1 && st.stats.endlessBest === res.best, 'the longest run is the record');
+// One topic: sentences are reused when they run out; a lightning round ends when its time is up.
+st = fresh();
+en = L.endless(st, { topics: ['too'] });
+for (let i = 0; i < 120; i++) { const c = L.next(en, st, { day: D0 }); assert.ok(c && c.it.topic === 'too'); L.answer(en, st, c.it, true, c.it.a[0], D0); }
+en = L.endless(st, { timer: 120 });
+assert.ok(L.next(en, st, { day: D0 }));
+assert.strictEqual(L.next(en, st, { day: D0, now: Date.now() + 121000 }), null, 'time is up');
+// Sources: lines of the dialogs, or both.
+en = L.endless(fresh(), { src: 'scenes' });
+for (let i = 0; i < 20; i++) { const c = L.next(en, st, { day: D0 }); assert.ok(c.it.scene && C.context(c.it) !== undefined); L.answer(en, st, c.it, true, c.it.a[0], D0); }
+en = L.endless(fresh(), { src: 'mix', topics: ['iq', 'pp', 'fut', 'gi'] });
+en.rand = seeded(3);
+const kinds = new Set();
+for (let i = 0; i < 40; i++) { const c = L.next(en, st, { day: D0 }); kinds.add(!!c.it.scene); L.answer(en, st, c.it, true, c.it.a[0], D0); }
+assert.strictEqual(kinds.size, 2, 'mixed: topic sentences and dialog lines');
+
+// A dialog: its exercises in order; the best score is kept; a mistake counts for the grammar topic, and the review
+// card brings an ordinary sentence of that topic.
+st = fresh();
+const scn = L.scene(st, 'doctor');
+assert.strictEqual(scn.n, C.sceneById.doctor.items.length);
+let first = null;
+for (let i = 0; i < scn.n; i++) {
+  const c = L.next(scn, st, {});
+  assert.strictEqual(c.it, C.sceneById.doctor.items[i]);
+  if (!first) first = c.it;
+  L.answer(scn, st, c.it, i > 0, i > 0 ? c.it.a[0] : 'wrong', D0);
+}
+assert.strictEqual(L.next(scn, st, {}), null);
+res = L.finish(scn, st, D0);
+assert.strictEqual(st.scenes.doctor, Math.round(((scn.n - 1) / scn.n) * 100));
+assert.ok(st.topics[first.topic].a >= 1, 'the answer counts for the grammar topic');
+assert.ok(R.due(st, D0).includes(R.key(first)), 'the mistake is a review card of the grammar topic');
+const back = R.pick(st, R.key(first), 2);
+assert.ok(back && !back.scene && back.topic === first.topic && back.pt === first.pt, 'review brings a topic sentence of the same pattern');
+assert.ok(!L.drill(st, first.e).queue.some((it) => it.scene), 'practicing a mistake uses topic sentences');
+const again = L.scene(st, 'doctor');
+again.queue.forEach((it) => { L.next(again, st, {}); L.answer(again, st, it, false, 'x', D0); });
+L.finish(again, st, D0);
+assert.strictEqual(st.scenes.doctor, Math.round(((scn.n - 1) / scn.n) * 100), 'the best score stays');
 console.log('level tests passed');
