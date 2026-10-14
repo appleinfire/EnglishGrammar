@@ -13,6 +13,7 @@
       { id: 'A2', label: 'Pre-intermediate (A2)', icon: '🌱', color: '#5aa469', about: 'Start every topic from Core' },
       { id: 'B1', label: 'Intermediate (B1)', icon: '🌿', color: '#3f7fbf', about: 'Most people who speak but make mistakes' },
       { id: 'B2', label: 'Upper-intermediate (B2)', icon: '🌳', color: '#7a5cc2', about: 'Start every topic from Use' },
+      { id: 'C1', label: 'Advanced (C1)', icon: '🏔️', color: '#b0563f', about: 'Start every topic from Use; aim for the C1 topics' },
     ],
     avatars: ['🌻', '🌿', '☕', '📚', '🌙', '🦋', '🌸', '⭐'],
     // Our apps. The picker and settings link to every app except this one (matched by id).

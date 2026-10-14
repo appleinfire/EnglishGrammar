@@ -43,7 +43,8 @@
     'ride rode ridden ring rang rung rise rose risen sing sang sung sink sank sunk swim swam swum write wrote written ' +
     'speak spoke spoken steal stole stolen wake woke woken throw threw thrown grow grew grown know knew known ' +
     'forget forgot forgotten freeze froze frozen bring brought buy bought think thought teach taught catch caught ' +
-    'fight fought seek sought sleep slept spend spent build built lose lost leave left lend lent bend bent')
+    'fight fought seek sought sleep slept spend spent build built lose lost leave left lend lent bend bent ' +
+    'worse worst less least loose lose quiet quite')
     .split(' '));
   const formsOfOneWord = (a, b) => {
     if (IRREGULAR.has(a) && IRREGULAR.has(b)) return true;

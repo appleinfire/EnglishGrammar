@@ -124,9 +124,10 @@ await page.click('[data-act=go][data-arg=home]');
 await page.click('.hero.soft');
 await page.click('[data-act=diagGo]');
 const n = await page.evaluate(() => APP.app.session().n);
-ok(n === 24, 'level check has 2 exercises per topic');
-for (let i = 0; i < n; i++) { await answer(i % 3 !== 0); await page.click('#nextbtn'); }
-ok(await page.isVisible('text=Your starting tiers'), 'level check shows the starting tiers');
+ok(n === (await page.evaluate(() => APP.content.topics.length)), 'level check: at most one exercise per topic');
+let asked = 0;
+while (await page.evaluate(() => !!APP.app.session())) { await answer(asked++ % 3 !== 0); await page.click('#nextbtn'); }
+ok(asked <= n && await page.isVisible('text=Your starting tiers') && await page.isVisible('text=Your level'), 'level check shows the level and the starting tiers');
 ok(await page.evaluate(() => !!APP.state.diag), 'level check saved');
 
 // Second profile and the picker

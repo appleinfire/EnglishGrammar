@@ -11,10 +11,12 @@
   const LEN = { lesson: 10, review: 12, check: 8, challenge: 15, drill: 10 };
   const PRODUCE = new Set(['fill', 'fix', 'tr', 'tl']);
   L.TIERS = ['Core', 'Use', 'Pro'];
+  L.LEVELS = ['A2', 'B1', 'B2', 'C1'];
+  const levelIdx = (lv) => Math.max(0, L.LEVELS.indexOf(lv));
   L.LEN = LEN;
 
   const topicState = (st, id) => (st.topics[id] = st.topics[id] || { tier: L.startTier(st), reached: 0, done: 0, a: 0, c: 0, check: 0 });
-  L.startTier = (st) => (st.kind === 'B2' ? 2 : 1);
+  L.startTier = (st) => (st.kind === 'B2' || st.kind === 'C1' ? 2 : 1);
   L.tier = (st, id) => (st.topics[id] ? st.topics[id].tier : L.startTier(st));
   L.reached = (st, id) => (st.topics[id] ? st.topics[id].reached : 0);
 
@@ -26,11 +28,20 @@
     return { state, due, tier: L.tier(st, id), reached: L.reached(st, id) };
   };
   // What to study next: the topic she worked on last if it is not mastered, else the first one not mastered.
+  // After a level check: the weakest topics first (start tier Core, then Use), in curriculum order.
+  // Without one: a started topic at her level or above, else the first new topic at her level or above.
   L.upNext = (st) => {
     const open = (t) => L.reached(st, t.id) < 3;
     const last = C.byId[st.lastTopic];
     if (last && open(last)) return last;
-    return C.topics.find((t) => open(t) && st.topics[t.id]) || C.topics.find(open) || null;
+    if (st.diag && st.diag.tiers) {
+      for (const tier of [1, 2]) {
+        const t = C.topics.find((x) => open(x) && st.diag.tiers[x.id] === tier);
+        if (t) return t;
+      }
+    }
+    const atLevel = (t) => levelIdx(t.level) >= levelIdx(st.kind);
+    return C.topics.find((t) => open(t) && atLevel(t) && st.topics[t.id]) || C.topics.find((t) => open(t) && atLevel(t)) || C.topics.find(open) || null;
   };
 
   // ---------------------------------------------------------------- building sessions
@@ -69,16 +80,21 @@
     }
     return base('challenge', { queue, n: queue.length, topics: ids });
   };
-  // Level check: per topic one Use item and one Pro item, all typed (no multiple choice: it would show a level above the real one).
+  // Level check, adaptive by level: one Pro exercise per topic, A2 topics first, then B1, B2, C1.
+  // All typed (multiple choice would show a level above the real one). After a level where fewer than half
+  // the answers are right, the check stops: the topics above are left for later.
+  L.DIAG_PASS = 0.5;
+  const diagItem = (T) => U.shuffle(T.items.filter((i) => i.l === 3 && PRODUCE.has(i.t)))[0] || U.shuffle(T.items.filter((i) => i.l === 2 && PRODUCE.has(i.t)))[0];
   L.diag = () => {
-    const queue = [];
-    for (const T of C.topics) {
-      const two = U.shuffle(T.items.filter((i) => i.l === 2 && PRODUCE.has(i.t)))[0];
-      const three = U.shuffle(T.items.filter((i) => i.l === 3 && PRODUCE.has(i.t)))[0];
-      if (two) queue.push(two);
-      if (three) queue.push(three);
-    }
-    return base('diag', { queue, n: queue.length });
+    const blocks = L.LEVELS.map((lv) => C.topics.filter((T) => T.level === lv).map(diagItem).filter(Boolean)).filter((b) => b.length);
+    const n = blocks.reduce((x, b) => x + b.length, 0);
+    return base('diag', { queue: blocks.shift(), blocks, n });
+  };
+  // Right share of the answers to the last level block of a level check.
+  const lastBlockScore = (sess) => {
+    const lv = C.byId[C.itemById[sess.log[sess.log.length - 1].id].topic].level;
+    const res = sess.log.filter((x) => C.byId[C.itemById[x.id].topic].level === lv);
+    return res.filter((x) => x.ok).length / res.length;
   };
   // The mistakes of a session again, each with a different sentence of the same pattern.
   L.fix = (st, missed) => {
@@ -102,6 +118,10 @@
   // Returns { it, mode } or null when the session is over. mode: 'type' (as written), 'say' (answer aloud),
   // 'dict' (listen and type the whole sentence).
   L.next = (sess, st, opts = {}) => {
+    if (sess.mode === 'diag' && sess.log.length === sess.queue.length && sess.log.length < sess.n) {
+      if (sess.blocks.length && lastBlockScore(sess) >= L.DIAG_PASS) sess.queue = sess.queue.concat(sess.blocks.shift());
+      else sess.n = sess.log.length; // the check ends here
+    }
     if (sess.log.length >= sess.n) return null;
     let it;
     if (sess.queue) it = sess.queue[sess.log.length];
@@ -201,18 +221,26 @@
       if (score >= 75) { const before = t.reached; t.reached = 3; t.tier = 3; out.up = 3 - before; out.passed = true; }
     }
     if (sess.mode === 'diag' && total) {
+      // Per level: the share of right answers. Per topic: right → start at Pro; wrong → Use if the level
+      // went well (70%+), else Core. The level is the highest one with at least half right.
+      const score = {};
+      for (const lv of L.LEVELS) {
+        const res = sess.log.filter((x) => C.byId[C.itemById[x.id].topic].level === lv);
+        if (res.length) score[lv] = res.filter((x) => x.ok).length / res.length;
+      }
       const tiers = {};
-      for (const T of C.topics) {
-        const res = sess.log.filter((x) => C.itemById[x.id] && C.itemById[x.id].topic === T.id);
-        if (!res.length) continue;
-        const ok = res.filter((x) => x.ok).length;
-        const tier = ok === res.length ? 3 : ok ? 2 : 1;
+      for (const x of sess.log) {
+        const T = C.byId[C.itemById[x.id].topic];
+        const tier = x.ok ? 3 : score[T.level] >= 0.7 ? 2 : 1;
         tiers[T.id] = tier;
         const t = topicState(st, T.id);
         t.tier = tier;
         t.reached = Math.max(t.reached, tier - 1);
       }
-      st.diag = { day, tiers };
+      const passed = L.LEVELS.filter((lv) => score[lv] >= L.DIAG_PASS);
+      out.level = passed.length ? passed[passed.length - 1] : 'A2';
+      out.score = score;
+      st.diag = { day, tiers, level: out.level };
       out.tiers = tiers;
     }
     out.missed = sess.log.filter((x) => !x.ok).map((x) => C.itemById[x.id]).filter(Boolean);
