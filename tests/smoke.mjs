@@ -172,6 +172,22 @@ await page.click('[data-act=quit]');
 ok((await page.textContent('.result')).includes('Longest run: 6'), 'Stop shows the results with the longest run');
 ok(await page.evaluate(() => APP.state.stats.endlessBest === 6 && APP.state.endless.src === 'mix'), 'the record and the choices are saved');
 
+// Did you know: a fact gets its detail after the answer and goes into the collection; Discover more = Endless Facts.
+const factId = await page.evaluate(() => APP.content.facts.find((it) => it.t === 'fill' && !APP.state.facts[it.id]).id);
+await page.evaluate((id) => { const s = APP.level.fix(APP.state, []); s.queue = [APP.content.itemById[id]]; s.n = 1; APP.app.start(s); }, factId);
+await answer(true);
+ok(await page.isVisible('.fb .fact') && (await page.textContent('.fb .fact')).includes('New fact in your collection'), 'a fact shows "Did you know?" and joins the collection');
+await page.click('#nextbtn');
+ok(await page.isVisible('text=new fact in your collection'), 'the results count the new fact');
+await page.click('[data-act=go][data-arg=home]');
+ok((await page.textContent('.tiles')).includes('facts found'), 'home shows the facts found');
+await page.click('[data-act=go][data-arg=facts]');
+ok(await page.evaluate((id) => document.querySelectorAll('.factcard').length >= 1 && document.querySelector('.facts').textContent.includes(APP.content.sentence(APP.content.itemById[id])), factId), 'the collection shows the fact found');
+await page.click('[data-act=factsGo]');
+ok(await page.evaluate(() => { const s = APP.app.session(); return s.mode === 'endless' && s.src === 'facts' && !!s.cur.it.fact; }), 'Discover more starts Endless with facts');
+await page.click('[data-act=quit]');
+await page.click('[data-act=go][data-arg=home]');
+
 // The 🎙 button: what the recognizer heard goes into the answer; any version it heard can be the right one.
 const startWith = (id) => page.evaluate((id) => { const s = APP.level.fix(APP.state, []); s.queue = [APP.content.itemById[id]]; s.n = 1; APP.app.start(s); }, id);
 const tlId = await page.evaluate(() => APP.content.byId.pp.items.find((i) => i.t === 'tl' && i.a.includes('Have you ever been to Florida?')).id);

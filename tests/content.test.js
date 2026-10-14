@@ -2,7 +2,8 @@
 // Every topic and exercise is complete and consistent: three languages for rules and explanations, every tier and
 // pattern has enough sentences (review brings a different sentence of the same pattern), right answers are accepted
 // by the checker, and the known wrong answers are not. Dialogs (js/scenes): three languages, every exercise trains
-// an existing pattern of an existing topic, and the same checks for every exercise.
+// an existing pattern of an existing topic, and the same checks for every exercise. Facts (js/facts): the same, plus
+// the detail in three languages, at least 2 facts per topic and 25 per theme.
 const fs = require('fs');
 const path = require('path');
 const assert = require('assert');
@@ -15,6 +16,9 @@ for (const f of topicFiles) require(path.join(root, f));
 const sceneFiles = [...fs.readFileSync(path.join(root, 'index.html'), 'utf8').matchAll(/<script src="(js\/scenes\/[^"]+)"/g)].map((m) => m[1]);
 assert.deepStrictEqual(sceneFiles.slice().sort(), fs.readdirSync(path.join(root, 'js', 'scenes')).map((f) => 'js/scenes/' + f).sort(), 'every file in js/scenes is loaded by index.html');
 for (const f of sceneFiles) require(path.join(root, f));
+const factFiles = [...fs.readFileSync(path.join(root, 'index.html'), 'utf8').matchAll(/<script src="(js\/facts\/[^"]+)"/g)].map((m) => m[1]);
+assert.deepStrictEqual(factFiles.slice().sort(), fs.readdirSync(path.join(root, 'js', 'facts')).map((f) => 'js/facts/' + f).sort(), 'every file in js/facts is loaded by index.html');
+for (const f of factFiles) require(path.join(root, f));
 const APP = globalThis.APP, C = APP.content, K = APP.check;
 APP.state = null;
 global.document = undefined;
@@ -118,5 +122,21 @@ for (const D of C.scenes) {
   }
 }
 
+// Facts were checked with their topic above; here what only facts have.
+const THEME_IDS = C.FACT_THEMES.map((x) => x[0]);
+for (const it of C.facts) {
+  const w = (s) => `fact ${it.topic} "${it.p || it.uk || it.a[0]}": ${s}`;
+  need(C.byId[it.topic], w('g must be a topic id'));
+  if (!C.byId[it.topic]) continue;
+  need(C.byId[it.topic].items.includes(it), w('a fact is one of its topic items'));
+  const own = new Set(C.byId[it.topic].items.filter((i) => !i.fact).map((i) => i.pt));
+  need(own.has(it.pt), w(`pattern ${it.pt} is not a pattern of ${it.topic} (${[...own].join(', ')})`));
+  for (const e of [it.e, ...Object.values(it.w)]) need(e.startsWith(it.topic + ':'), w('error ' + e + ' is not an error of ' + it.topic));
+  need(THEME_IDS.includes(it.theme), w('theme ' + it.theme));
+  for (const l of LANGS) need(it.fact && it.fact[l], w('fact detail in ' + l));
+}
+for (const T of C.topics) { const n = C.facts.filter((it) => it.topic === T.id).length; need(n >= 2, `${T.id}: at least 2 facts (has ${n})`); }
+for (const th of THEME_IDS) { const n = C.facts.filter((it) => it.theme === th).length; need(n >= 25, `facts: theme ${th} needs at least 25 (has ${n})`); }
+
 if (problems.length) { console.error(problems.join('\n')); console.error(`\n${problems.length} problem(s)`); process.exit(1); }
-console.log(`content tests passed: ${C.topics.length} topics, ${C.scenes.length} dialogs, ${total} exercises`);
+console.log(`content tests passed: ${C.topics.length} topics, ${C.scenes.length} dialogs, ${C.facts.length} facts, ${total} exercises`);

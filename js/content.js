@@ -26,11 +26,17 @@
 //            So a mistake in a dialog counts for the grammar topic, its review card and "My mistakes".
 //   phrases: [ { en, uk, ru } ]   how people really say it (each gets a 🔊 button)
 //   tip:     { en, uk, ru }   a practical note about the situation
+// Did you know: every file in js/facts/ calls APP.addFacts({ theme, items: [...] }) with sentences that are facts
+// (theme: one of C.FACT_THEMES). A fact is an exercise written like a dialog's (g = its topic, pt = an existing pattern,
+// e and w = that topic's errors, l = tier) plus f: { en, uk, ru } — a line or two more about it, shown after the answer.
+// Facts ARE items of their topic: they come up in lessons, review, Challenge and Endless like any other sentence.
+//
 // Exercises of a dialog are not part of their topic's items: lessons and review bring sentences that make sense
 // on their own, and a card made in a dialog comes back with an ordinary sentence of the same pattern.
 (function () {
   const APP = (globalThis.APP = globalThis.APP || {});
-  const C = (APP.content = { topics: [], byId: {}, items: [], itemById: {}, errors: {}, scenes: [], sceneById: {}, sceneItems: [] });
+  const C = (APP.content = { topics: [], byId: {}, items: [], itemById: {}, errors: {}, scenes: [], sceneById: {}, sceneItems: [], facts: [] });
+  C.FACT_THEMES = [['world', '🇺🇸', 'The US & the world'], ['science', '🔭', 'Science & space'], ['nature', '🐾', 'Nature & animals'], ['people', '🧠', 'People & everyday life']];
 
   const hash = (s) => { let h = 5381; for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0; return h.toString(36); };
   const list = (x) => (x == null ? [] : Array.isArray(x) ? x : [x]);
@@ -91,6 +97,20 @@
     C.scenes.push(scene);
     C.sceneById[s.id] = scene;
     return scene;
+  };
+  APP.addFacts = (group) => {
+    for (const raw of group.items || []) {
+      const T = C.byId[raw.g];
+      const it = item(raw, raw.g, '');
+      delete it.g;
+      it.fact = raw.f;
+      delete it.f;
+      it.theme = group.theme;
+      C.facts.push(it);
+      C.items.push(it);
+      C.itemById[it.id] = it;
+      if (T) T.items.push(it);
+    }
   };
   // What the other speaker said just before a dialog exercise (shown with it outside the dialog).
   C.context = (it) => {

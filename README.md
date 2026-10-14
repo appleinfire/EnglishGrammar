@@ -14,7 +14,8 @@ Built on the family app shell from [Math Expedition](https://github.com/appleinf
   - **B2:** third and mixed conditionals, *wish*, *must have / can't have*, future continuous and perfect, advanced passive (*have it done, it is said*), reporting verbs, advanced articles.
   - **C1:** inversion, cleft sentences (*What I need is…*), participle clauses, the subjunctive (*I suggest he go, it's time we left, I'd rather you didn't*), *should have / needn't have / was supposed to*.
 - **🎬 Situations:** 12 short dialogs from real life, played as a chat — *Life in the US* (booking a doctor's appointment, returning a jacket, calling the insurance company, a leaking dishwasher and the landlord, the pharmacy), *School & kids* (a message to the teacher, a parent-teacher conference, summer camp), *Work* (a job interview, catching up with a colleague), *People & fun* (small talk with a neighbor, back from Yellowstone). Her lines are exercises of the usual types, each training a pattern of a grammar topic: a mistake gets that topic's explanation, counts for the topic, and comes back in Review as an ordinary sentence of the same pattern. At the end: the whole dialog, *How people say it* (useful phrases with 🔊 and 🌐) and *Good to know* (a practical note: copay, pre-approval, store credit, small talk…). **🎭 Say your lines** replays the dialog: their lines are read aloud, she says hers, and 🎙 checks them.
-- **♾️ Endless:** exercises never run out. Topics are mixed (my topics = the started ones, else the topics of her level; or chosen), weaker topics and topics with more mistakes come more often, never the same topic twice in a row, and every 4th exercise is a pattern due for review (🔁). Every topic keeps its own tier: 3 right in a row → up, 2 mistakes → down; the next lesson of the topic starts there (passing a tier still needs a lesson). Sentences: *Grammar*, *Situations* (dialog lines, with what was said just before) or *Mixed*. A run counter 🔥 and records: the longest run of right answers, and the most right in a **⚡ Lightning** round of 2 minutes. *Stop* shows the results.
+- **💡 Did you know:** 131 sentences in the exercises are true facts (*The Statue of Liberty was given to the US by France. A day on Venus is longer than a year on Venus. Octopuses have three hearts.*), in four themes: *The US & the world*, *Science & space*, *Nature & animals*, *People & everyday life*. Each one trains a pattern of its grammar topic, at least 2 per topic, chosen so the grammar fits the fact (passive for inventions, the third conditional for discoveries, superlatives for records, *used to* for old beliefs, myths and how they are wrong). Facts are ordinary sentences of their topic, so they come up in lessons, review, Challenge and Endless. After the answer: **💡 Did you know?** with a line or two more (🌐 translation). A right answer puts the fact in her **collection** (*27 of 131 found*), sorted by theme, with 🔊; **Discover more** starts Endless with facts only, the ones not found first.
+- **♾️ Endless:** exercises never run out. Topics are mixed (my topics = the started ones, else the topics of her level; or chosen), weaker topics and topics with more mistakes come more often, never the same topic twice in a row, and every 4th exercise is a pattern due for review (🔁). Every topic keeps its own tier: 3 right in a row → up, 2 mistakes → down; the next lesson of the topic starts there (passing a tier still needs a lesson). Sentences: *Grammar*, *Situations* (dialog lines, with what was said just before), *Mixed* or *💡 Facts* (from all topics, those not found first). A run counter 🔥 and records: the longest run of right answers, and the most right in a **⚡ Lightning** round of 2 minutes. *Stop* shows the results.
 - **English first, translation on demand.** Rules and explanations are in simple English; the 🌐 button shows them in Ukrainian or Russian (Settings). Exercise sentences open in Google Translate.
 - **Three tiers in every topic:** **Core** (the form, with hints) → **Use** (in context, no hints) → **Pro** (translate from Ukrainian/Russian, fix a mistake, rewrite, say it). A topic is mastered only at Pro. Inside a lesson the tier moves up after 3 right answers in a row and down after 2 mistakes.
 - **Exercise types:** choose (only as a warm-up), fill in the blank, put the words in order, find and fix the mistake, rewrite, translate, listen and type, say it out loud.
@@ -45,6 +46,7 @@ Same as Math Expedition and WritingPower: **Create a family** (code + PIN) on th
 | What | When two copies differ |
 |---|---|
 | Topics (best tier passed, lessons, answers, best topic check), mistake counts, minutes per day, the weekly-report log (per day, topic and mistake), seen sentences, dialogs (best score) | kept from both; the higher value wins |
+| Facts found | kept from both; the first day wins |
 | Review cards | kept from both; for one card, the copy answered more recently wins (a mistake can lower a box) |
 | Totals (answers, right, fixed, sessions) and Endless records | the higher value |
 | Current tier of a topic, settings, recent mistakes, the last Endless choices | the newer copy |
@@ -60,6 +62,7 @@ js/config.js           name, storage id 'english-grammar' (never change), levels
 js/schema.js           what a profile holds and how two copies merge
 js/content.js          the content registry and the format of a topic (see the comment at the top)
 js/topics/*.js         one file per topic: rule (en/uk/ru), typical mistake, error explanations (en/uk/ru), exercises
+js/facts/*.js          one file per theme of Did-you-know facts: an exercise of a grammar topic plus a detail (en/uk/ru)
 js/scenes/*.js         one file per dialog: intro, lines (her lines are exercises of a grammar topic), phrases, tip (en/uk/ru)
 js/check.js            judging typed answers: contractions, quotes, typos, word-by-word comparison
 js/srs.js              spaced repetition cards
@@ -76,6 +79,8 @@ tests/                 see below
 
 To add a topic: copy a file in `js/topics/`, add it to `index.html` and to `FILES` in `sw.js`, run `node tests/content.test.js`. The test checks three languages for every rule and explanation, at least 10 exercises per tier and 3 per pattern, that every right answer is accepted and every listed wrong answer is not.
 
+To add a fact: add it to a file in `js/facts/` (the format is at the top of `js/content.js`): an exercise with its topic (`g`), an existing pattern (`pt`), that topic's errors, a tier (`l`) and `f: { en, uk, ru }`. The content test checks it like any topic sentence, plus the three languages of the detail, at least 2 facts per topic and 25 per theme, and that no fact repeats a topic sentence.
+
 To add a dialog: copy a file in `js/scenes/` (the format is described at the top of `js/content.js`), add it to `index.html` and to `FILES` in `sw.js`, run `node tests/content.test.js`. Every exercise names its grammar topic (`g`) and an existing pattern of it (`pt`); its errors are that topic's errors. The test checks this, three languages for the intro, phrases and tip, and the same answer checks as for topics.
 
 ## Tests
@@ -86,7 +91,7 @@ node tests/content.test.js   # every topic and exercise
 node tests/report.test.js    # day log, weeks, comparison, focus, the home-screen reminder
 node tests/check.test.js     # judging answers
 node tests/srs.test.js       # review cards
-node tests/level.test.js     # tiers and sessions, Endless, dialogs
+node tests/level.test.js     # tiers and sessions, Endless, dialogs, facts
 node tests/smoke.mjs         # in Chromium, iPhone and iPad sizes (needs Playwright)
 node tests/cloud-e2e.mjs     # two "devices" syncing through the real Firebase project (needs Playwright and internet)
 ```

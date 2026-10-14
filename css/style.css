@@ -129,6 +129,7 @@ textarea.field { resize: vertical; }
 .tile { display: flex; flex-direction: column; gap: 2px; padding: 14px; border: 0; border-radius: var(--r); background: var(--card); text-align: left; box-shadow: inset 0 0 0 1px var(--line); }
 .tile span { font-size: 1.6rem; }
 .tile small { color: var(--ink-soft); font-size: 0.84rem; }
+.tiles > :last-child:nth-child(odd) { grid-column: span 2; }
 
 /* topics */
 .topics section { margin-top: 16px; }
@@ -238,6 +239,13 @@ textarea.field { resize: vertical; }
 .phrase .en p { margin: 0.3em 0; font-family: var(--serif); font-size: 1.05rem; }
 .lvh { margin: 12px 0 6px; font-size: 0.9rem; color: var(--ink-soft); }
 .roleplay .micbtn { margin-top: 6px; }
+.fact { margin-top: 10px; padding: 10px 12px; border-radius: 12px; background: var(--warn-soft); }
+.fact .ft { margin: 0 0 4px; font-weight: 800; }
+.facts section { background: var(--card); border-radius: var(--r); padding: 16px; margin: 12px 0; box-shadow: inset 0 0 0 1px var(--line); }
+.factcard { padding: 10px 0; border-bottom: 1px solid var(--line); }
+.factcard .fs { font-family: var(--serif); font-size: 1.08rem; margin: 0 0 4px; }
+.factcard .trb .en { color: var(--ink-soft); font-size: 0.94rem; }
+.locked { color: var(--ink-soft); font-weight: 600; }
 
 /* results, mistakes, progress */
 .mrow { padding: 10px 0; border-bottom: 1px solid var(--line); }

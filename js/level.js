@@ -83,9 +83,10 @@
   };
   // Endless: exercises never run out. Topics are mixed (weaker topics and topics with more mistakes come more often),
   // every topic keeps its own tier (3 right in a row → up, 2 mistakes → down), every 4th exercise is a pattern due
-  // for review when there is one. Sources: 'grammar' (topic sentences), 'scenes' (lines of the dialogs), 'mix'.
+  // for review when there is one. Sources: 'grammar' (topic sentences), 'scenes' (lines of the dialogs), 'mix',
+  // 'facts' (only the Did-you-know sentences, the ones not in her collection first).
   // timer = seconds for a lightning round (0 = no clock).
-  L.SOURCES = ['grammar', 'scenes', 'mix'];
+  L.SOURCES = ['grammar', 'scenes', 'mix', 'facts'];
   L.myTopics = (st) => {
     const started = C.topics.filter((t) => st.topics[t.id] && (st.topics[t.id].done || st.topics[t.id].a)).map((t) => t.id);
     if (started.length >= 2) return started;
@@ -95,11 +96,11 @@
   L.endless = (st, opts = {}) => {
     const src = L.SOURCES.includes(opts.src) ? opts.src : 'grammar';
     let topics = (opts.topics || []).filter((id) => C.byId[id]);
-    if (!topics.length) topics = L.myTopics(st);
-    if (src === 'scenes') {
-      const inScenes = new Set(C.sceneItems.map((i) => i.topic));
-      topics = topics.filter((id) => inScenes.has(id));
-      if (!topics.length) topics = [...inScenes];
+    if (!topics.length) topics = src === 'facts' ? C.topics.map((t) => t.id) : L.myTopics(st); // the whole collection is open to discover
+    if (src === 'scenes' || src === 'facts') {
+      const have = new Set((src === 'scenes' ? C.sceneItems : C.facts).map((i) => i.topic));
+      topics = topics.filter((id) => have.has(id));
+      if (!topics.length) topics = [...have];
     }
     const timer = opts.timer || 0;
     return base('endless', { n: Infinity, src, topics, timer, ends: timer ? Date.now() + timer * 1000 : 0, tiers: {}, from: {}, runs: {}, misses: {}, streak: 0, best: 0, reviewed: new Set() });
@@ -174,6 +175,7 @@
   const sourceItems = (sess, id) => {
     const scenes = () => C.sceneItems.filter((i) => i.topic === id);
     if (sess.src === 'scenes') return scenes();
+    if (sess.src === 'facts') return C.byId[id].items.filter((i) => i.fact);
     if (sess.src === 'mix') { const sc = scenes(); return sc.length && sess.rand() < 0.4 ? sc : C.byId[id].items; }
     return C.byId[id].items;
   };
@@ -211,7 +213,8 @@
         let pool = items.filter((i) => i.l === tier + d && (!fresh || !sess.used.has(i.id)));
         if (pool.some((i) => i.t !== 'choose')) pool = pool.filter((i) => i.t !== 'choose');
         if (!pool.length) continue;
-        const score = (i) => (lastTypes.includes(i.t) ? 2e13 : 0) + (lastIt && i.pt === lastIt.pt ? 1e13 : 0) + (st.seen[i.id] || 0) + sess.rand();
+        const known = (i) => (sess.src === 'facts' && st.facts && st.facts[i.id] ? 4e13 : 0); // facts not in her collection first
+        const score = (i) => known(i) + (lastTypes.includes(i.t) ? 2e13 : 0) + (lastIt && i.pt === lastIt.pt ? 1e13 : 0) + (st.seen[i.id] || 0) + sess.rand();
         return { it: pool.map((i) => [score(i), i]).sort((a, b) => a[0] - b[0])[0][1], review: false };
       }
     }
@@ -266,14 +269,18 @@
     if (ok) lg.r[it.topic] = (lg.r[it.topic] || 0) + 1;
     if (fixed) lg.f++;
     if (learned) lg.l++;
-    let err = null;
+    let err = null, newFact = false;
+    if (ok && it.fact) {
+      st.facts = st.facts || {};
+      if (!st.facts[it.id]) { st.facts[it.id] = day; newFact = true; }
+    }
     if (!ok) {
       err = L.errorOf(it, given);
       if (err) { st.errors[err] = (st.errors[err] || 0) + 1; lg.e[err] = (lg.e[err] || 0) + 1; }
       st.recent.unshift({ id: it.id, g: String(given).slice(0, 200), d: day });
       st.recent = st.recent.slice(0, 40);
     }
-    return { err, fixed };
+    return { err, fixed, newFact };
   };
   // Adapt the tier of a lesson (or of the topic, in Endless) after an answer. Returns +1, -1 or 0.
   L.adapt = (sess, ok, it) => {
@@ -295,7 +302,7 @@
     const tier = sess.mode === 'lesson' ? sess.tier : it.l;
     const rec = L.record(st, it, ok, given, day);
     if (sess.mode === 'endless' && sess.tiers[it.topic] == null) sess.tiers[it.topic] = sess.from[it.topic] = L.tier(st, it.topic);
-    sess.log.push({ id: it.id, ok, given, tier, err: rec.err });
+    sess.log.push({ id: it.id, ok, given, tier, err: rec.err, newFact: rec.newFact });
     sess.prevStreak = sess.streak || 0;
     sess.streak = ok ? sess.prevStreak + 1 : 0;
     sess.best = Math.max(sess.best || 0, sess.streak);
@@ -372,6 +379,7 @@
       st.diag = { day, tiers, level: out.level };
       out.tiers = tiers;
     }
+    out.newFacts = sess.log.filter((x) => x.newFact).length;
     out.missed = sess.log.filter((x) => !x.ok).map((x) => C.itemById[x.id]).filter(Boolean);
     return out;
   };
