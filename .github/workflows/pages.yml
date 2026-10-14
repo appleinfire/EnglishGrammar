@@ -33,6 +33,7 @@ jobs:
           node tests/check.test.js
           node tests/srs.test.js
           node tests/level.test.js
+          node tests/report.test.js
       - name: Build site
         run: |
           mkdir _site

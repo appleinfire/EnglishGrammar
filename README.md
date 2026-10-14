@@ -23,6 +23,7 @@ Built on the family app shell from [Math Expedition](https://github.com/appleinf
 - **Level check** (adaptive: one Pro exercise per topic, level by level, stops when a level is too hard) sets your level and a starting tier for every topic. **Challenge** mixes the started topics with no hints and an optional 40-second timer. **Topic check** (Pro, 75% to pass).
 - **My mistakes:** the types of mistakes made most often, each with an explanation and a *Practice this* button; recent mistakes with the right sentence.
 - **Progress:** answers, accuracy, active days, streak (one missed day a week is forgiven), mistakes fixed, patterns learned, minutes per day for 30 days, tiers per topic. A daily goal (5–30 minutes) on the home screen.
+- **Weekly report** (Monday to Sunday): minutes, answers, accuracy, active days, mistakes fixed, patterns learned, tiers passed — each compared with the week before; minutes by day against the daily goal; the topics practiced with their accuracy; the most frequent mistakes with *Practice this*; one focus for the next week (the weakest topic, else the most frequent mistake). Last week's report waits on the home screen until it is opened; older weeks are one tap back. *Share the report* sends it as text (iPhone share sheet, or copied).
 
 ## Voice
 
@@ -30,8 +31,8 @@ Built on the family app shell from [Math Expedition](https://github.com/appleinf
 |---|---|---|
 | Listen | `speechSynthesis` — Siri voices on iPhone/iPad (choose one in Settings; download *Enhanced / Premium* voices in iOS Settings → Accessibility → Spoken Content) | free |
 | Record yourself and compare | `MediaRecorder`, nothing leaves the device | free |
-| Say it out loud | *Say it* exercises: tap the microphone on the iPhone keyboard (iOS dictation) and the text is checked like a typed answer. Articles and endings that dictation may mishear do not count as mistakes. | free |
-| Later | a microphone button with `webkitSpeechRecognition` (if it is reliable on the device); pronunciation scores with Azure Pronunciation Assessment through a small proxy | Azure: about 5 free audio hours a month |
+| Say it out loud | 🎙 next to every sentence answer (translate, rewrite, fix, *Say it*): the browser's speech to text (`SpeechRecognition`; Safari on iOS 14.5+ with Siri or Dictation on, Chrome). She sees what was heard and can edit it before *Check*. Every version the recognizer offers is tried; articles and endings it may mishear do not count as mistakes, but reading back the wrong sentence of a *fix* exercise never passes. If speech to text is not allowed (some home-screen apps on iOS), the button hides and the keyboard microphone (iOS dictation) does the same job. Can be turned off in Settings. | free (the sound goes to Apple or Google for recognition) |
+| Later | pronunciation scores with Azure Pronunciation Assessment through a small proxy | Azure: about 5 free audio hours a month |
 
 `aiProxy` in `js/config.js` is reserved for a later "Explain my mistake" button (Claude through a Cloudflare Worker); with `null` nothing is shown.
 
@@ -41,7 +42,7 @@ Same as Math Expedition and WritingPower: **Create a family** (code + PIN) on th
 
 | What | When two copies differ |
 |---|---|
-| Topics (best tier passed, lessons, answers, best topic check), mistake counts, minutes per day, seen sentences | kept from both; the higher value wins |
+| Topics (best tier passed, lessons, answers, best topic check), mistake counts, minutes per day, the weekly-report log (per day, topic and mistake), seen sentences | kept from both; the higher value wins |
 | Review cards | kept from both; for one card, the copy answered more recently wins (a mistake can lower a box) |
 | Totals (answers, right, fixed, sessions) | the higher value |
 | Current tier of a topic, settings, recent mistakes | the newer copy |
@@ -59,9 +60,10 @@ js/content.js          the content registry and the format of a topic (see the c
 js/topics/*.js         one file per topic: rule (en/uk/ru), typical mistake, error explanations (en/uk/ru), exercises
 js/check.js            judging typed answers: contractions, quotes, typos, word-by-word comparison
 js/srs.js              spaced repetition cards
-js/level.js            tiers, lessons, review, level check, challenge, topic check, drills; recording answers
+js/level.js            tiers, lessons, review, level check, challenge, topic check, drills; recording answers (and the day log)
+js/report.js           the weekly report: one week's numbers, the week before, a focus, the text to share
 js/i18n.js             🌐 translations, Google Translate links, the tiny text format
-js/voice.js            read-aloud, record yourself, sounds
+js/voice.js            read-aloud, record yourself, speech to text (🎙), sounds
 js/exercises.js        how each exercise type looks and how an answer is read and judged
 js/app.js              screens and routing (profiles, family, home, topics, session, results, mistakes, progress, settings)
 js/util.js, js/store.js, js/cloud.js, js/vendor/   the app shell: helpers, profiles, Firebase sync, Firebase SDK 10.14.1
@@ -76,6 +78,7 @@ To add a topic: copy a file in `js/topics/`, add it to `index.html` and to `FILE
 ```sh
 node tests/shell.test.js     # merging two copies, storage, save code, family key, offline file list
 node tests/content.test.js   # every topic and exercise
+node tests/report.test.js    # day log, weeks, comparison, focus, the home-screen reminder
 node tests/check.test.js     # judging answers
 node tests/srs.test.js       # review cards
 node tests/level.test.js     # tiers and sessions

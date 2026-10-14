@@ -16,10 +16,12 @@
       errors: {}, // error id: times made
       seen: {}, // item id: time last shown
       time: {}, // 'YYYY-MM-DD': seconds of practice
+      log: {}, // 'YYYY-MM-DD': { f (mistakes fixed), l (patterns learned), u (tiers passed), t / r: { topicId: answers / right answers }, e: { error id: times } } — for the weekly report
+      reportSeen: '', // Monday of the last week whose report she opened
       recent: [], // last mistakes, newest first: { id, g (her answer), d (day) }
       diag: null, // level check: { day, tiers: { topicId: start tier } }
       lastTopic: '',
-      settings: { sound: true, unlockAll: false, l1: 'uk', voice: '', slow: false, goal: 10, say: true, alwaysL1: false },
+      settings: { sound: true, unlockAll: false, l1: 'uk', voice: '', slow: false, goal: 10, say: true, mic: true, alwaysL1: false },
     }),
     // out = a copy of the newer profile `nw`; `old` is the other copy. M = helpers from the store (union, max).
     mergeProgress(out, nw, old, M) {
@@ -31,6 +33,11 @@
       out.errors = M.union(old.errors, nw.errors, M.max);
       out.seen = M.union(old.seen, nw.seen, M.max);
       out.time = M.union(old.time, nw.time, M.max);
+      out.log = M.union(old.log, nw.log, (a, b) => ({
+        f: M.max(a.f, b.f), l: M.max(a.l, b.l), u: M.max(a.u, b.u),
+        t: M.union(a.t, b.t, M.max), r: M.union(a.r, b.r, M.max), e: M.union(a.e, b.e, M.max),
+      }));
+      if ((old.reportSeen || '') > (out.reportSeen || '')) out.reportSeen = old.reportSeen;
       for (const k of STATS) out.stats[k] = M.max(nw.stats[k], old.stats[k]);
       if (!out.diag && old.diag) out.diag = old.diag;
     },

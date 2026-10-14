@@ -2,7 +2,7 @@
 // The profile picker, family sync and save code come from the family app shell (appleinfire/Math templates/app-shell).
 (function () {
   const APP = globalThis.APP, U = APP.U, S = APP.store, CFG = APP.CONFIG;
-  const C = APP.content, L = APP.level, R = APP.srs, I = APP.i18n, V = APP.voice, X = APP.ex, K = APP.check;
+  const C = APP.content, L = APP.level, R = APP.srs, I = APP.i18n, V = APP.voice, X = APP.ex, K = APP.check, W = APP.report;
   const esc = U.esc;
   const WORD = CFG.profileWord;
   const Word = WORD[0].toUpperCase() + WORD.slice(1);
@@ -236,7 +236,8 @@
     if (cur === 'start') { if (S.profiles().length) startScreen(); return; }
     if (!cur) return;
     const id = cur.startsWith('topic:') ? cur.slice(6) : '';
-    const screen = id ? () => topic(id) : { who, home, topics, progress, mistakes }[cur];
+    const wk = cur.startsWith('week:') ? cur.slice(5) : '';
+    const screen = id ? () => topic(id) : wk ? () => week(wk) : { who, home, topics, progress, mistakes }[cur];
     if (screen) redraw(screen); // new data from another device: same screen, same scroll position
   }
 
@@ -255,6 +256,7 @@
         <div><p class="lead">${mins >= goal ? 'Goal done for today. 🎉' : 'Today’s goal: ' + goal + ' minutes.'}</p>
           <p class="muted">${s ? `🔥 ${s} day${s > 1 ? 's' : ''} in a row` : 'Practice 5 answers a day to start a streak.'} · ${(st.days[today()] || {}).a || 0} answers today</p></div>
       </section>
+      ${weekBanner()}
       ${due ? `<button class="hero review" data-act="review"><span>🔁</span><span><b>Review · ${due} to repeat</b><small>Your mistakes and earlier topics, mixed. Do this first.</small></span></button>` : ''}
       ${next ? `<button class="hero" data-act="go" data-arg="topic:${next.id}"><span>${next.icon}</span><span><b>${nx.state === 'new' ? 'Start' : 'Continue'}: ${esc(next.title)}</b><small>${L.TIERS[nx.tier - 1]} tier · ${esc(next.about)}</small></span></button>` : '<p class="lead">Every topic is mastered. Keep them fresh with Review and Challenge.</p>'}
       ${st.diag ? '' : '<button class="hero soft" data-act="diag"><span>📏</span><span><b>Level check · 7–10 min</b><small>Typed answers only. Sets the starting tier for every topic.</small></span></button>'}
@@ -267,6 +269,14 @@
       ${syncLine()}
     </main>`, 'is-home');
     cur = 'home';
+  }
+
+  // Last week's report, until she opens it.
+  function weekBanner() {
+    const start = W.pending(st, today());
+    if (!start) return '';
+    const w = W.week(st, start);
+    return `<button class="hero soft week" data-act="go" data-arg="week:${start}"><span>📊</span><span><b>Your week: ${W.range(w)}</b><small>${w.min} min · ${w.a} answers · ${w.acc}% right. See the report →</small></span></button>`;
   }
 
   // ---------------------------------------------------------------- topics
@@ -387,6 +397,7 @@
       if (el) { el.classList.remove('shake'); void el.offsetWidth; el.classList.add('shake'); }
       return;
     }
+    if (V.listening()) { V.abortListening(); const mb = $('.micbtn'); if (mb) mb.classList.remove('rec'); }
     sess.done = true;
     const j = X.judge(c, given);
     // Keep what the card and counters looked like, so "My answer was right too" can undo the mistake.
@@ -445,6 +456,54 @@
     if (window.matchMedia && !window.matchMedia('(min-width: 900px)').matches) fb.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     $('#nextbtn').focus({ preventScroll: true });
   }
+  // The 🎙 button: speech to text into the answer field. She sees what was heard and can edit it before Check.
+  const MIC_ERR = {
+    'not-allowed': 'The microphone is not allowed for this page. Allow it in the browser settings, or use 🎤 on the keyboard.',
+    'service-not-allowed': 'Speech recognition is not available here. On iPhone, turn on Siri or Dictation in Settings. Meanwhile, use 🎤 on the keyboard.',
+    'no-speech': 'I didn’t hear anything. Tap 🎙 and speak again.',
+    'audio-capture': 'No microphone found.',
+    network: 'Speech recognition needs the internet. Offline, use 🎤 on the keyboard.',
+  };
+  function mic() {
+    const c = sess && sess.cur;
+    if (!c || sess.done) return;
+    if (V.listening()) { V.stopListening(); return; }
+    const ta = $('#ans'), btn = $('.micbtn'), note = $('#micnote');
+    if (!ta || !btn) return;
+    const before = ta.value;
+    const say = (t) => { if (note) note.textContent = t; };
+    const started = V.listen({
+      interim: (t) => { ta.value = t; },
+      final: (alts) => {
+        const nice = alts.map((t) => t.charAt(0).toUpperCase() + t.slice(1));
+        ta.value = nice[0];
+        c.heard = nice[0].trim();
+        c.alts = nice;
+        say('This is what I heard. Fix it by typing if needed, then tap Check.');
+        const b = $('#checkbtn');
+        if (b) b.focus({ preventScroll: true });
+      },
+      error: (code) => {
+        if (code === 'aborted') return;
+        ta.value = before;
+        if (code === 'not-allowed' || code === 'service-not-allowed' || code === 'unsupported') {
+          V.micBroken = true;
+          btn.remove();
+        }
+        say(MIC_ERR[code] || 'Speech recognition stopped. Tap 🎙 to try again, or use 🎤 on the keyboard.');
+      },
+      end: () => { btn.classList.remove('rec'); btn.setAttribute('aria-pressed', 'false'); btn.setAttribute('aria-label', 'Speak your answer'); },
+    });
+    if (!started) return;
+    btn.classList.add('rec');
+    btn.setAttribute('aria-pressed', 'true');
+    btn.setAttribute('aria-label', 'Stop listening');
+    c.heard = null;
+    c.alts = null;
+    ta.value = '';
+    say('Listening… speak now. Tap 🎙 again to stop.');
+  }
+
   // She is sure her answer was also right (a translation can be said many ways): count it as right.
   function override() {
     const entry = sess.log[sess.log.length - 1];
@@ -456,6 +515,9 @@
     const d = st.days[today()];
     if (d) d.c++;
     if (entry.err && st.errors[entry.err]) { st.errors[entry.err]--; if (!st.errors[entry.err]) delete st.errors[entry.err]; }
+    const lg = L.dayLog(st, today());
+    lg.r[it.topic] = (lg.r[it.topic] || 0) + 1;
+    if (entry.err && lg.e[entry.err]) { lg.e[entry.err]--; if (!lg.e[entry.err]) delete lg.e[entry.err]; }
     st.recent.splice(0, st.recent.length - sess.snap.recentLen);
     if (sess.snap.card) st.cards[R.key(it)] = sess.snap.card; else delete st.cards[R.key(it)];
     R.record(st, it, true);
@@ -537,11 +599,73 @@
         <div><b>${s.fixed}</b><small>mistakes fixed</small></div>
         <div><b>${learned}</b><small>patterns learned</small></div>
       </section>
+      ${weekCard()}
       <section><h2>Minutes a day · last 30 days</h2><div class="days">${days.map((d) => `<div class="day ${d.m >= (st.settings.goal || 10) ? 'goal' : ''}" title="${d.k}: ${d.m} min"><span style="height:${Math.round((d.m / maxM) * 100)}%"></span></div>`).join('')}</div></section>
       <section><h2>Topics</h2><table class="ttable"><tbody>${C.topics.map((T) => { const t = st.topics[T.id] || { a: 0, c: 0 }; const x = L.status(st, T.id); return `<tr><td>${T.icon} ${esc(T.title)}</td><td>${tierDots(x.reached, x.tier)}</td><td class="num">${t.a ? pct(t.c, t.a) + '%' : '—'}</td></tr>`; }).join('')}</tbody></table>
         <p class="muted">Dots: Core · Use · Pro passed. ${st.diag ? 'Level check done on ' + st.diag.day + '. <button class="linkbtn" data-act="diag">Take it again</button>' : '<button class="linkbtn" data-act="diag">Take the level check</button>'}</p></section>
     </main>`);
     cur = 'progress';
+  }
+
+  function weekCard() {
+    const w = W.week(st, W.monday(today()));
+    return `<section class="weekcard"><h2>This week · ${W.range(w)}</h2>
+      <p>${w.a ? `${w.min} min · ${w.a} answers · ${w.acc}% right · ${w.f} mistakes fixed` : 'No practice yet this week.'}</p>
+      <button class="btn ghost" data-act="go" data-arg="week">Weekly report →</button></section>`;
+  }
+
+  // ---------------------------------------------------------------- weekly report
+  const DOW = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  // A change against the week before: "+12" in green, "−5" in red, nothing when there is no week before.
+  function delta(now, before, unit = '') {
+    if (before == null || now == null) return '';
+    const d = now - before;
+    if (!d) return '<i class="delta">=</i>';
+    return `<i class="delta ${d > 0 ? 'up' : 'down'}">${d > 0 ? '+' : '−'}${Math.abs(d)}${unit}</i>`;
+  }
+  function week(start) {
+    const thisMon = W.monday(today());
+    start = start && /^\d{4}-\d\d-\d\d$/.test(start) ? W.monday(start) : thisMon;
+    if (start > thisMon) start = thisMon;
+    const rep = W.report(st, start), w = rep.cur, p = rep.prev;
+    const isNow = start === thisMon;
+    const had = p.a > 0;
+    // Opening a finished week's report marks it as seen (the home banner goes away).
+    if (!isNow && (st.reportSeen || '') < start) { st.reportSeen = start; S.save(); }
+    const maxM = Math.max(w.goal, ...w.days.map((d) => d.min));
+    const first = Object.keys(st.days).sort()[0] || today();
+    const canBack = R.addDays(start, -1) >= first;
+    const f = rep.focus;
+    let focus = '';
+    if (f && f.kind === 'topic') { const T = C.byId[f.id]; focus = `<p>${T.icon} <b>${esc(T.title)}</b> — ${f.acc}% right this week. A lesson at your tier makes it solid.</p><button class="btn" data-act="go" data-arg="topic:${f.id}">Open the topic</button>`; }
+    else if (f && f.kind === 'error') { const E = C.error(f.id), T = C.byId[E.topic]; focus = `<p>${T.icon} <b>${esc(T.title)}</b> — your most frequent mistake (${f.n}×).</p>${I.block(E)}<button class="btn" data-act="drill" data-arg="${f.id}">Practice this mistake</button>`; }
+    else if (f) { const T = C.byId[f.id]; focus = `<p>Next on your path: ${T.icon} <b>${esc(T.title)}</b>.</p><button class="btn" data-act="go" data-arg="topic:${f.id}">Open the topic</button>`; }
+    render(header('Weekly report', 'progress') + `<main class="report">
+      <div class="weeknav">
+        <button class="iconbtn" data-act="go" data-arg="week:${R.addDays(start, -7)}" aria-label="Week before" ${canBack ? '' : 'disabled'}>‹</button>
+        <div><h2>${W.range(w)}</h2><small class="muted">${isNow ? 'This week so far' : start === R.addDays(thisMon, -7) ? 'Last week' : 'Week of ' + W.range(w)}</small></div>
+        <button class="iconbtn" data-act="go" data-arg="week:${R.addDays(start, 7)}" aria-label="Next week" ${isNow ? 'disabled' : ''}>›</button>
+      </div>
+      ${w.a ? `<section class="kpis">
+        <div><b>${w.min}</b><small>minutes</small>${had ? delta(w.min, p.min) : ''}</div>
+        <div><b>${w.a}</b><small>answers</small>${had ? delta(w.a, p.a) : ''}</div>
+        <div><b>${w.acc}%</b><small>right</small>${had ? delta(w.acc, p.acc, ' pts') : ''}</div>
+        <div><b>${w.active}/7</b><small>active days</small>${had ? delta(w.active, p.active) : ''}</div>
+        <div><b>${w.f}</b><small>mistakes fixed</small></div>
+        <div><b>${w.l}</b><small>patterns learned</small></div>
+      </section>
+      <section><h2>Minutes a day</h2>
+        <div class="wdays">${w.days.map((d, i) => `<div class="wday ${d.min >= w.goal ? 'goal' : ''} ${d.k === today() ? 'today' : ''}"><small>${d.min || ''}</small><span style="height:${Math.round((d.min / maxM) * 100)}%"></span><b>${DOW[i]}</b></div>`).join('')}</div>
+        <p class="muted">${w.goalDays} of 7 days at your ${w.goal}-minute goal${w.u ? ` · ⬆ ${w.u} tier${w.u > 1 ? 's' : ''} passed` : ''}.</p>
+      </section>
+      ${w.topicList.length ? `<section><h2>Topics this week</h2><table class="ttable"><tbody>${w.topicList.map((t) => { const T = C.byId[t.id]; return `<tr><td><button class="linkbtn" data-act="go" data-arg="topic:${t.id}">${T.icon} ${esc(T.title)}</button></td><td class="num">${t.a}</td><td class="num">${Math.round((t.c / t.a) * 100)}%</td></tr>`; }).join('')}</tbody></table><p class="muted">Answers and share of right answers.</p></section>` : ''}
+      ${w.errorList.length ? `<section><h2>Mistakes this week</h2>${w.errorList.slice(0, 3).map((e) => { const E = C.error(e.id), T = C.byId[E.topic]; return `<div class="errline"><span class="count">${e.n}×</span><div><p class="muted">${T.icon} ${esc(T.title)}</p>${I.block(E)}<button class="linkbtn" data-act="drill" data-arg="${e.id}">Practice this</button></div></div>`; }).join('')}</section>` : ''}
+      ${focus ? `<section class="focus"><h2>${isNow ? 'Focus for the rest of the week' : 'Focus for next week'}</h2>${focus}</section>` : ''}
+      <div class="row"><button class="btn ghost" data-act="shareWeek" data-arg="${start}">Share the report</button></div>
+      <p class="muted center" id="share-msg"></p>`
+      : `<section><p class="lead">${isNow ? 'No practice yet this week.' : 'No practice this week.'}</p>${isNow ? '<button class="btn" data-act="go" data-arg="home">Start practicing</button>' : ''}</section>`}
+    </main>`);
+    cur = 'week:' + start;
   }
 
   // ---------------------------------------------------------------- settings
@@ -564,7 +688,9 @@
           <div class="row left"><button class="btn ghost" data-act="speak" data-arg="I've lived here since 2022, and I've never been happier.">🔊 Test</button></div>
           <p class="muted">On iPhone and iPad, better voices are free: Settings → Accessibility → Spoken Content → Voices → English → choose a voice marked <b>Enhanced</b> or <b>Premium</b> and download it. Then pick it here.</p>` : '<p class="muted">This browser cannot read aloud.</p>'}
         <label class="toggle"><input type="checkbox" data-act="setting" data-arg="slow" ${set.slow ? 'checked' : ''}> Read more slowly</label>
-        <label class="toggle"><input type="checkbox" data-act="setting" data-arg="say" ${set.say !== false ? 'checked' : ''}> “Say it out loud” exercises (with the microphone on the keyboard)</label>
+        <label class="toggle"><input type="checkbox" data-act="setting" data-arg="say" ${set.say !== false ? 'checked' : ''}> “Say it out loud” exercises</label>
+        ${V.canListen ? `<label class="toggle"><input type="checkbox" data-act="setting" data-arg="mic" ${set.mic !== false ? 'checked' : ''}> 🎙 Microphone button next to answers</label>
+          <p class="muted">Speech to text is done by your browser (Apple or Google): the sound goes to them and comes back as text. If it doesn’t work in the app on your home screen, turn it off and use 🎤 on the keyboard — it works the same way.</p>` : '<p class="muted">For spoken answers, use 🎤 on the keyboard.</p>'}
         <label class="toggle"><input type="checkbox" data-act="setting" data-arg="sound" ${set.sound ? 'checked' : ''}> Sounds for right and wrong answers</label>
       </section>
       <section><h2>Daily goal</h2><div class="chips">${[5, 10, 15, 20, 30].map((m) => `<button class="chip ${(set.goal || 10) === m ? 'sel' : ''}" data-act="setGoal" data-arg="${m}">${m} min</button>`).join('')}</div></section>
@@ -626,6 +752,7 @@
     if (scr === 'family') { ui.fam = null; return family(); }
     if (!st) return who();
     if (scr === 'topic') return topic(arg);
+    if (scr === 'week') return week(arg);
     ({ home, topics, mistakes, progress, settings }[scr] || home)();
   }
 
@@ -705,6 +832,13 @@
       } catch (e) { toast('The microphone is not available. Allow it in the browser settings.'); }
     },
     playMe: () => V.play(),
+    mic: () => mic(),
+    shareWeek: (a) => {
+      const text = W.text(st, W.report(st, a));
+      const msg = (t) => { const m = $('#share-msg'); if (m) m.textContent = t; };
+      if (navigator.share) { navigator.share({ title: 'English Grammar · weekly report', text }).catch(() => {}); return; }
+      try { navigator.clipboard.writeText(text).then(() => msg('Copied. Paste it into a message.'), () => msg(text)); } catch (e) { msg(text); }
+    },
     tr: (a, el) => I.toggle(a, el),
     ruleModal: (a) => ruleModal(a),
     // settings

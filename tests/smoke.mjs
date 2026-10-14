@@ -17,6 +17,23 @@ const browser = await pw.chromium.launch({ executablePath: process.env.CHROMIUM 
 const page = await browser.newPage({ viewport: { width: 390, height: 844 }, hasTouch: true });
 page.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()); });
 page.on('pageerror', (e) => errors.push(String(e)));
+// A stand-in for the browser's speech to text: window.__sr = { alts: [...] } or { error: 'code' }.
+await page.addInitScript(() => {
+  window.__sr = { alts: ['hello'] };
+  window.SpeechRecognition = window.webkitSpeechRecognition = class {
+    start() {
+      setTimeout(() => {
+        const o = window.__sr;
+        if (o.error) { this.onerror && this.onerror({ error: o.error }); this.onend && this.onend(); return; }
+        const res = Object.assign(o.alts.map((t) => ({ transcript: t })), { isFinal: true });
+        this.onresult && this.onresult({ results: [res] });
+        this.onend && this.onend();
+      }, 30);
+    }
+    stop() {}
+    abort() {}
+  };
+});
 await page.goto(url);
 
 // Answer the exercise on screen: right (the first right answer) or wrong.
@@ -107,6 +124,48 @@ await page.click('[data-act=quit]');
 await page.click('[data-act=leave]');
 await page.click('[data-act=go][data-arg=progress]');
 ok(await page.isVisible('.kpis') && await page.isVisible('.ttable'), 'progress shows totals and topics');
+
+// The 🎙 button: what the recognizer heard goes into the answer; any version it heard can be the right one.
+const startWith = (id) => page.evaluate((id) => { const s = APP.level.fix(APP.state, []); s.queue = [APP.content.itemById[id]]; s.n = 1; APP.app.start(s); }, id);
+const tlId = await page.evaluate(() => APP.content.byId.pp.items.find((i) => i.t === 'tl' && i.a.includes('Have you ever been to Florida?')).id);
+await page.evaluate(() => { window.__sr = { alts: ['have you ever been to Flori', 'have you ever been to Florida'] }; });
+await startWith(tlId);
+ok(await page.isVisible('.micbtn'), 'a sentence answer has a microphone button');
+await page.click('.micbtn');
+await page.waitForFunction(() => document.querySelector('#ans').value === 'Have you ever been to Flori');
+ok((await page.textContent('#micnote')).includes('heard'), 'she sees what was heard and can edit it');
+await page.click('#checkbtn');
+ok(await page.isVisible('.fb.ok'), 'another version the recognizer heard is right');
+await page.click('#nextbtn');
+const frId = await page.evaluate(() => APP.content.byId.art.items.find((i) => i.t === 'fix').id);
+await page.evaluate(() => { window.__sr = { error: 'service-not-allowed' }; });
+await startWith(frId);
+await page.click('.micbtn');
+await page.waitForSelector('.micbtn', { state: 'detached' });
+ok((await page.textContent('#micnote')).includes('keyboard') && (await page.inputValue('#ans')).length > 0, 'speech to text not allowed: the button goes, the keyboard is suggested, the text stays');
+await page.click('[data-act=quit]');
+await page.click('[data-act=leave]');
+
+// Weekly report: last week's practice waits on the home screen until the report is opened.
+await page.evaluate(() => {
+  const st = APP.state, W = APP.report, R = APP.srs;
+  const mon = R.addDays(W.monday(), -7);
+  [0, 1, 3].forEach((i, n) => { const d = R.addDays(mon, i); st.days[d] = { a: 12, c: 9 }; st.time[d] = 600 + n * 120; st.log[d] = { f: 1, l: 0, u: 0, t: { pp: 12 }, r: { pp: 9 }, e: { 'pp:form': 3 } }; });
+  APP.store.save();
+  APP.app.go('home');
+});
+ok(await page.isVisible('.hero.week'), 'home shows last week’s report');
+await page.click('.hero.week');
+ok(await page.isVisible('.wdays') && (await page.textContent('.kpis')).includes('36'), 'the report shows the week: 36 answers, minutes by day');
+ok(await page.isVisible('.report .focus') && await page.isVisible('text=Mistakes this week'), 'the report suggests a focus and lists the mistakes');
+await page.click('.weeknav [aria-label="Next week"]');
+ok(await page.isVisible('text=This week so far'), 'the next week is this week');
+ok(await page.evaluate(() => document.querySelector('.weeknav [aria-label="Next week"]').disabled), 'no weeks in the future');
+await page.click('.bar [data-act=go][data-arg=progress]');
+ok(await page.isVisible('.weekcard'), 'back from the report goes to progress, which links to it');
+await page.click('[data-act=go][data-arg=home]');
+ok(!(await page.isVisible('.hero.week')), 'an opened report leaves the home screen');
+await page.click('[data-act=go][data-arg=progress]');
 
 // Settings: goal, translation language
 await page.click('[data-act=go][data-arg=home]');
