@@ -5,32 +5,411 @@ APP.addTopic({
   group: 'Articles & nouns',
   icon: '🅰️',
   about: 'a nurse, the door, I love dogs, go to work',
-  rule: {
-    en: `- One thing of many, mentioned for the first time, or a job → **a / an**: *I need a new phone. She's a nurse.*
-- Both people know **which one** (mentioned before, only one, clear from the situation) → **the**: *Close the door. I bought a dress — the dress was expensive. The sun.*
-- Things **in general** (plural or uncountable) → **no article**: *I love dogs. Coffee is expensive here. Life in America is different.*
-- **a** before a consonant **sound**, **an** before a vowel **sound**: *an hour, an MRI, an honest mistake — a university, a one-way ticket.*
-- No article: *go to work / school / bed, go home, at home, at work*; most countries, cities, streets, meals: *in Texas, on Main Street, for lunch*. But: **the** US, **the** UK, **the** Netherlands, **the** Philippines.
-- Fixed phrases: *twice a week, in the morning, the same, the first time*.
-- In American English: *in **the** hospital, go to **the** doctor, go to **the** store*.
-A singular countable noun almost never stands alone: *a car, the car, my car* — not just *car*.`,
-    uk: `- Одна річ із багатьох, згадана вперше, або професія → **a / an**: *I need a new phone. She's a nurse.*
-- Обидва знають, **яка саме** (вже згадували, єдина, зрозуміло з ситуації) → **the**: *Close the door. I bought a dress — the dress was expensive. The sun.*
-- Про речі **загалом** (множина або незлічувані) → **без артикля**: *I love dogs. Coffee is expensive here. Life in America is different.*
-- **a** перед приголосним **звуком**, **an** перед голосним **звуком**: *an hour, an MRI, an honest mistake — a university, a one-way ticket.*
-- Без артикля: *go to work / school / bed, go home, at home, at work*; більшість країн, міст, вулиць, назви прийомів їжі: *in Texas, on Main Street, for lunch*. Але: **the** US, **the** UK, **the** Netherlands, **the** Philippines.
-- Сталі вирази: *twice a week, in the morning, the same, the first time*.
-- В американській англійській: *in **the** hospital, go to **the** doctor, go to **the** store*.
-Злічуваний іменник в однині майже ніколи не стоїть сам: *a car, the car, my car* — а не просто *car*.`,
-    ru: `- Одна вещь из многих, упомянутая впервые, или профессия → **a / an**: *I need a new phone. She's a nurse.*
-- Оба знают, **какая именно** (уже упоминали, единственная, ясно из ситуации) → **the**: *Close the door. I bought a dress — the dress was expensive. The sun.*
-- О вещах **вообще** (множественное число или неисчисляемые) → **без артикля**: *I love dogs. Coffee is expensive here. Life in America is different.*
-- **a** перед согласным **звуком**, **an** перед гласным **звуком**: *an hour, an MRI, an honest mistake — a university, a one-way ticket.*
-- Без артикля: *go to work / school / bed, go home, at home, at work*; большинство стран, городов, улиц, названия приёмов пищи: *in Texas, on Main Street, for lunch*. Но: **the** US, **the** UK, **the** Netherlands, **the** Philippines.
-- Устойчивые выражения: *twice a week, in the morning, the same, the first time*.
-- В американском английском: *in **the** hospital, go to **the** doctor, go to **the** store*.
-Исчисляемое существительное в единственном числе почти никогда не стоит одно: *a car, the car, my car* — а не просто *car*.`,
-  },
+  points: [
+    {
+      for: ['no-a', 'a-first'],
+      rule: {
+        en: `One thing of many, mentioned for the first time, or a job → **a / an**: *I need a new phone. She's a nurse.* A singular countable noun almost never stands alone: *a car, the car, my car* — not just *car*.`,
+        uk: `Одна річ із багатьох, згадана вперше, або професія → **a / an**: *I need a new phone. She's a nurse.* Злічуваний іменник в однині майже ніколи не стоїть сам: *a car, the car, my car* — а не просто *car*.`,
+        ru: `Одна вещь из многих, упомянутая впервые, или профессия → **a / an**: *I need a new phone. She's a nurse.* Исчисляемое существительное в единственном числе почти никогда не стоит одно: *a car, the car, my car* — а не просто *car*.`,
+      },
+      more: {
+        en: `**The idea.** Ukrainian and Russian have no articles, so English ones feel like extra words. But for English speakers a singular noun without a "little word" in front sounds broken. A **singular countable** noun almost always needs one: *a, an, the, my, this, his…*
+
+**a / an** = "one of many", "some", new information — often like «один / якийсь — один / какой-то»:
+- *I need a new phone.* — any phone, not a specific one
+- *Can I ask a question?*
+
+**Jobs** always take *a / an*: *She's a nurse. My husband is an engineer.* — In Ukrainian and Russian «Він інженер / Он инженер» has no word, so people say *He is engineer*.
+
+✅ *My husband is an engineer.*
+❌ *My husband is engineer.*
+
+✅ *I need a new phone. Mine is broken.*
+❌ *I need new phone. Mine is broken.*
+
+**Check yourself:** a single thing you can count (*phone, car, job*) with nothing before it? Add *a / an* (or *the, my*).`,
+        uk: `**Суть.** В українській немає артиклів, тож англійські здаються зайвими словами. Але для англійця іменник в однині без «маленького слова» попереду звучить зламано. **Злічуваний іменник в однині** майже завжди потребує його: *a, an, the, my, this, his…*
+
+**a / an** = «один з багатьох», «якийсь», нова інформація:
+- *I need a new phone.* — будь-який телефон, не конкретний
+- *Can I ask a question?*
+
+**Професії** завжди з *a / an*: *She's a nurse. My husband is an engineer.* — Українською «Він інженер» без жодного слова, тому кажуть *He is engineer*.
+
+✅ *My husband is an engineer.*
+❌ *My husband is engineer.*
+
+✅ *I need a new phone. Mine is broken.*
+❌ *I need new phone. Mine is broken.*
+
+**Перевір себе:** одна річ, яку можна порахувати (*phone, car, job*), і перед нею нічого немає? Додай *a / an* (або *the, my*).`,
+        ru: `**Суть.** В русском нет артиклей, поэтому английские кажутся лишними словами. Но для англичанина существительное в единственном числе без «маленького слова» впереди звучит сломанно. **Исчисляемое существительное в единственном числе** почти всегда требует его: *a, an, the, my, this, his…*
+
+**a / an** = «один из многих», «какой-то», новая информация:
+- *I need a new phone.* — любой телефон, не конкретный
+- *Can I ask a question?*
+
+**Профессии** всегда с *a / an*: *She's a nurse. My husband is an engineer.* — По-русски «Он инженер» без всякого слова, поэтому говорят *He is engineer*.
+
+✅ *My husband is an engineer.*
+❌ *My husband is engineer.*
+
+✅ *I need a new phone. Mine is broken.*
+❌ *I need new phone. Mine is broken.*
+
+**Проверь себя:** одна вещь, которую можно посчитать (*phone, car, job*), и перед ней ничего нет? Добавь *a / an* (или *the, my*).`,
+      },
+    },
+    {
+      for: ['a-the', 'the-known'],
+      rule: {
+        en: `Both people know **which one** (mentioned before, only one, clear from the situation) → **the**: *Close the door. I bought a dress — the dress was expensive. The sun.*`,
+        uk: `Обидва знають, **яка саме** (вже згадували, єдина, зрозуміло з ситуації) → **the**: *Close the door. I bought a dress — the dress was expensive. The sun.*`,
+        ru: `Оба знают, **какая именно** (уже упоминали, единственная, ясно из ситуации) → **the**: *Close the door. I bought a dress — the dress was expensive. The sun.*`,
+      },
+      more: {
+        en: `**The idea.** **the** = "**you know which one**". Both people can point to the same thing:
+- it was **mentioned before**: *I bought a dress and a bag. **The** dress was expensive.* — first *a* (new), then *the* (that one)
+- it's the **only one** around: *the sun, the president, the kitchen* (in our home)
+- it's **clear from the situation**: *Can you close **the** door?* — the door of this room; *Pass me **the** salt.*
+
+A good way to feel it: *the* is like «цей / той / этот / тот», *a* is like «один / якийсь / один / какой-то».
+
+✅ *Can you close the door, please?*
+❌ *Can you close a door, please?* — sounds like any door anywhere
+
+✅ *I bought a dress and a bag. The dress was expensive.*
+❌ *I bought a dress and a bag. A dress was expensive.*
+
+**Check yourself:** could the other person ask "which one?" → *a*. They already know which → *the*.`,
+        uk: `**Суть.** **the** = «**ти знаєш, який саме**». Обидва можуть показати на одну й ту саму річ:
+- про неї **вже говорили**: *I bought a dress and a bag. The dress was expensive.* — спочатку *a* (нове), потім *the* (та сама)
+- вона **єдина** поруч: *the sun, the president, the kitchen* (у нашому домі)
+- **зрозуміло з ситуації**: *Can you close the door?* — двері цієї кімнати; *Pass me the salt.*
+
+Як відчути: *the* — це наче «цей / той», *a* — наче «один / якийсь».
+
+✅ *Can you close the door, please?*
+❌ *Can you close a door, please?* — звучить як «якісь двері, будь-де»
+
+✅ *I bought a dress and a bag. The dress was expensive.*
+❌ *I bought a dress and a bag. A dress was expensive.*
+
+**Перевір себе:** співрозмовник міг би спитати «який саме?» → *a*. Він уже знає, який → *the*.`,
+        ru: `**Суть.** **the** = «**ты знаешь, какой именно**». Оба могут показать на одну и ту же вещь:
+- о ней **уже говорили**: *I bought a dress and a bag. The dress was expensive.* — сначала *a* (новое), потом *the* (то самое)
+- она **единственная** рядом: *the sun, the president, the kitchen* (в нашем доме)
+- **понятно из ситуации**: *Can you close the door?* — дверь этой комнаты; *Pass me the salt.*
+
+Как почувствовать: *the* — это как «этот / тот», *a* — как «один / какой-то».
+
+✅ *Can you close the door, please?*
+❌ *Can you close a door, please?* — звучит как «какую-нибудь дверь, где-нибудь»
+
+✅ *I bought a dress and a bag. The dress was expensive.*
+❌ *I bought a dress and a bag. A dress was expensive.*
+
+**Проверь себя:** собеседник мог бы спросить «какой именно?» → *a*. Он уже знает какой → *the*.`,
+      },
+    },
+    {
+      for: ['general'],
+      rule: {
+        en: `Things **in general** (plural or uncountable) → **no article**: *I love dogs. Coffee is expensive here. Life in America is different.*`,
+        uk: `Про речі **загалом** (множина або незлічувані) → **без артикля**: *I love dogs. Coffee is expensive here. Life in America is different.*`,
+        ru: `О вещах **вообще** (множественное число или неисчисляемые) → **без артикля**: *I love dogs. Coffee is expensive here. Life in America is different.*`,
+      },
+      more: {
+        en: `**The idea.** When you talk about things **in general** — all dogs, coffee as such, life as a whole — English uses **no article** with plural and uncountable nouns:
+- *I love dogs.* — dogs in general
+- *Coffee is expensive here.*
+- *Life in America is different.*
+- *Children need attention.*
+
+*the* would make it specific — **these** particular ones:
+- *I love the dogs.* — those dogs we're talking about
+- *The coffee here is great.* — the coffee in this café
+
+✅ *I love dogs.*
+❌ *I love the dogs.* — unless you mean specific dogs
+
+✅ *Life is short.*
+❌ *The life is short.*
+
+**Check yourself:** do you mean all of them, the idea in general? → no article. Specific ones you both know? → *the*.`,
+        uk: `**Суть.** Коли говориш про речі **загалом** — усіх собак, каву як таку, життя в цілому — англійська **не ставить артикль** з множиною і незлічуваними:
+- *I love dogs.* — собак загалом
+- *Coffee is expensive here.*
+- *Life in America is different.*
+- *Children need attention.*
+
+*the* зробило б це конкретним — саме **ці**:
+- *I love the dogs.* — тих собак, про яких ми говоримо
+- *The coffee here is great.* — кава в цьому кафе
+
+✅ *I love dogs.*
+❌ *I love the dogs.* — якщо не маєш на увазі конкретних собак
+
+✅ *Life is short.*
+❌ *The life is short.*
+
+**Перевір себе:** маєш на увазі всіх, ідею загалом? → без артикля. Конкретних, відомих обом? → *the*.`,
+        ru: `**Суть.** Когда говоришь о вещах **вообще** — всех собаках, кофе как таковом, жизни в целом — английский **не ставит артикль** с множественным числом и неисчисляемыми:
+- *I love dogs.* — собак вообще
+- *Coffee is expensive here.*
+- *Life in America is different.*
+- *Children need attention.*
+
+*the* сделало бы это конкретным — именно **эти**:
+- *I love the dogs.* — тех собак, о которых мы говорим
+- *The coffee here is great.* — кофе в этом кафе
+
+✅ *I love dogs.*
+❌ *I love the dogs.* — если не имеешь в виду конкретных собак
+
+✅ *Life is short.*
+❌ *The life is short.*
+
+**Проверь себя:** имеешь в виду всех, идею вообще? → без артикля. Конкретных, известных обоим? → *the*.`,
+      },
+    },
+    {
+      for: ['a-an', 'an'],
+      rule: {
+        en: `**a** before a consonant **sound**, **an** before a vowel **sound**: *an hour, an MRI, an honest mistake — a university, a one-way ticket.*`,
+        uk: `**a** перед приголосним **звуком**, **an** перед голосним **звуком**: *an hour, an MRI, an honest mistake — a university, a one-way ticket.*`,
+        ru: `**a** перед согласным **звуком**, **an** перед гласным **звуком**: *an hour, an MRI, an honest mistake — a university, a one-way ticket.*`,
+      },
+      more: {
+        en: `**The idea.** *a* and *an* are the same word; *an* just makes it easier to say before a vowel. What matters is the **sound** you hear, not the letter you see:
+- **an** + a vowel sound: *an apple, an hour* (*h* is silent), *an MRI* ("em"), *an 18-year-old* ("eighteen"), *an honest mistake*
+- **a** + a consonant sound: *a university* ("yoo"), *a European* ("yoo"), *a one-way ticket* ("wan"), *a house*
+
+✅ *I'll be back in an hour.*
+❌ *I'll be back in a hour.*
+
+✅ *She goes to a university in Boston.*
+❌ *She goes to an university in Boston.*
+
+✅ *The doctor ordered an MRI.*
+❌ *The doctor ordered a MRI.*
+
+**Check yourself:** say the next word out loud. Starts with a vowel sound → *an*. Starts with a consonant sound (including "yoo", "wa") → *a*.`,
+        uk: `**Суть.** *a* і *an* — одне й те саме слово; *an* просто легше вимовити перед голосною. Важить **звук**, який чуєш, а не літера, яку бачиш:
+- **an** + голосний звук: *an apple, an hour* (*h* не читається), *an MRI* («ем»), *an 18-year-old* («ейтін»), *an honest mistake*
+- **a** + приголосний звук: *a university* («ю»), *a European* («ю»), *a one-way ticket* («ван»), *a house*
+
+✅ *I'll be back in an hour.*
+❌ *I'll be back in a hour.*
+
+✅ *She goes to a university in Boston.*
+❌ *She goes to an university in Boston.*
+
+✅ *The doctor ordered an MRI.*
+❌ *The doctor ordered a MRI.*
+
+**Перевір себе:** вимов наступне слово вголос. Починається з голосного звуку → *an*. З приголосного (включно з «ю», «ва») → *a*.`,
+        ru: `**Суть.** *a* и *an* — одно и то же слово; *an* просто легче произнести перед гласной. Важен **звук**, который слышишь, а не буква, которую видишь:
+- **an** + гласный звук: *an apple, an hour* (*h* не читается), *an MRI* («эм»), *an 18-year-old* («эйтин»), *an honest mistake*
+- **a** + согласный звук: *a university* («ю»), *a European* («ю»), *a one-way ticket* («ван»), *a house*
+
+✅ *I'll be back in an hour.*
+❌ *I'll be back in a hour.*
+
+✅ *She goes to a university in Boston.*
+❌ *She goes to an university in Boston.*
+
+✅ *The doctor ordered an MRI.*
+❌ *The doctor ordered a MRI.*
+
+**Проверь себя:** произнеси следующее слово вслух. Начинается с гласного звука → *an*. С согласного (включая «ю», «ва») → *a*.`,
+      },
+    },
+    {
+      for: ['places'],
+      rule: {
+        en: `No article: *go to work / school / bed, go home, at home, at work*. In American English: *in **the** hospital, go to **the** doctor, go to **the** store*.`,
+        uk: `Без артикля: *go to work / school / bed, go home, at home, at work*. В американській англійській: *in **the** hospital, go to **the** doctor, go to **the** store*.`,
+        ru: `Без артикля: *go to work / school / bed, go home, at home, at work*. В американском английском: *in **the** hospital, go to **the** doctor, go to **the** store*.`,
+      },
+      more: {
+        en: `**The idea.** Some places are about the **activity**, not the building, and then there's no article:
+- *go to work, at work* — working
+- *go to school, at school* — studying
+- *go to bed, in bed* — sleeping
+- *go home, at home* — no *to* with *go home*
+
+If you mean the building itself, the article comes back: *I left my bag at **the** school* (the building).
+
+American English has its own habits with some places: *in **the** hospital, go to **the** doctor, go to **the** store, go to **the** gym*.
+
+✅ *I usually go to bed at eleven.*
+❌ *I usually go to the bed at eleven.*
+
+✅ *I usually walk to work.*
+❌ *I usually walk to the work.*
+
+✅ *She's in the hospital.* (American English)
+
+**Check yourself:** *work, school, bed, home* as an activity → no article.`,
+        uk: `**Суть.** Деякі місця — про **заняття**, а не про будівлю, і тоді артикля немає:
+- *go to work, at work* — працювати
+- *go to school, at school* — навчатися
+- *go to bed, in bed* — спати
+- *go home, at home* — з *go home* без *to*
+
+Якщо йдеться про саму будівлю, артикль повертається: *I left my bag at the school* (у будівлі школи).
+
+В американській англійській свої звички з деякими місцями: *in the hospital, go to the doctor, go to the store, go to the gym*.
+
+✅ *I usually go to bed at eleven.*
+❌ *I usually go to the bed at eleven.*
+
+✅ *I usually walk to work.*
+❌ *I usually walk to the work.*
+
+✅ *She's in the hospital.* (американська англійська)
+
+**Перевір себе:** *work, school, bed, home* як заняття → без артикля.`,
+        ru: `**Суть.** Некоторые места — про **занятие**, а не про здание, и тогда артикля нет:
+- *go to work, at work* — работать
+- *go to school, at school* — учиться
+- *go to bed, in bed* — спать
+- *go home, at home* — с *go home* без *to*
+
+Если речь о самом здании, артикль возвращается: *I left my bag at the school* (в здании школы).
+
+В американском английском свои привычки с некоторыми местами: *in the hospital, go to the doctor, go to the store, go to the gym*.
+
+✅ *I usually go to bed at eleven.*
+❌ *I usually go to the bed at eleven.*
+
+✅ *I usually walk to work.*
+❌ *I usually walk to the work.*
+
+✅ *She's in the hospital.* (американский английский)
+
+**Проверь себя:** *work, school, bed, home* как занятие → без артикля.`,
+      },
+    },
+    {
+      for: ['names'],
+      rule: {
+        en: `No article with most countries, cities, streets and meals: *in Texas, on Main Street, for lunch*. But: **the** US, **the** UK, **the** Netherlands, **the** Philippines.`,
+        uk: `Без артикля — більшість країн, міст, вулиць і назви прийомів їжі: *in Texas, on Main Street, for lunch*. Але: **the** US, **the** UK, **the** Netherlands, **the** Philippines.`,
+        ru: `Без артикля — большинство стран, городов, улиц и названия приёмов пищи: *in Texas, on Main Street, for lunch*. Но: **the** US, **the** UK, **the** Netherlands, **the** Philippines.`,
+      },
+      more: {
+        en: `**The idea.** A name already says which one, so most names take **no article**:
+- countries, states, cities: *Ukraine, Canada, Texas, New York, Chicago*
+- streets and parks: *Main Street, Central Park*
+- meals: *for breakfast, for lunch, after dinner*
+
+**the** comes with names that are plural or a "union" — they sound like a description:
+- *the United States (the US), the United Kingdom (the UK), the Netherlands, the Philippines*
+- also rivers, seas and oceans: *the Mississippi, the Black Sea, the Pacific*
+
+✅ *We live in Texas.*
+❌ *We live in the Texas.*
+
+✅ *We moved to the United States in 2022.*
+❌ *We moved to United States in 2022.*
+
+**Check yourself:** a plain name → no article. *States, Kingdom*, a plural name, a river or an ocean → *the*.`,
+        uk: `**Суть.** Назва вже каже, про що йдеться, тому більшість назв **без артикля**:
+- країни, штати, міста: *Ukraine, Canada, Texas, New York, Chicago*
+- вулиці й парки: *Main Street, Central Park*
+- прийоми їжі: *for breakfast, for lunch, after dinner*
+
+**the** — з назвами у множині або з «об'єднанням»: вони звучать як опис:
+- *the United States (the US), the United Kingdom (the UK), the Netherlands, the Philippines*
+- також річки, моря й океани: *the Mississippi, the Black Sea, the Pacific*
+
+✅ *We live in Texas.*
+❌ *We live in the Texas.*
+
+✅ *We moved to the United States in 2022.*
+❌ *We moved to United States in 2022.*
+
+**Перевір себе:** проста назва → без артикля. *States, Kingdom*, назва в множині, річка чи океан → *the*.`,
+        ru: `**Суть.** Название уже говорит, о чём речь, поэтому большинство названий **без артикля**:
+- страны, штаты, города: *Ukraine, Canada, Texas, New York, Chicago*
+- улицы и парки: *Main Street, Central Park*
+- приёмы пищи: *for breakfast, for lunch, after dinner*
+
+**the** — с названиями во множественном числе или с «объединением»: они звучат как описание:
+- *the United States (the US), the United Kingdom (the UK), the Netherlands, the Philippines*
+- также реки, моря и океаны: *the Mississippi, the Black Sea, the Pacific*
+
+✅ *We live in Texas.*
+❌ *We live in the Texas.*
+
+✅ *We moved to the United States in 2022.*
+❌ *We moved to United States in 2022.*
+
+**Проверь себя:** простое название → без артикля. *States, Kingdom*, название во множественном, река или океан → *the*.`,
+      },
+    },
+    {
+      for: ['phrases'],
+      rule: {
+        en: `Fixed phrases: *twice a week, in the morning, the same, the first time*.`,
+        uk: `Сталі вирази: *twice a week, in the morning, the same, the first time*.`,
+        ru: `Устойчивые выражения: *twice a week, in the morning, the same, the first time*.`,
+      },
+      more: {
+        en: `**The idea.** Some phrases just have their article, and it's easier to learn them as whole chunks than to think about rules:
+- *twice **a** week, three times **a** day, $20 **an** hour* — «на тиждень / в неделю» → *a*
+- ***in the** morning / afternoon / evening* (but *at night*)
+- ***the** same, **the** first time, **the** next day, **the** last one*
+- *What **a** day! What **a** nice surprise!*
+
+✅ *I go to the gym three times a week.*
+❌ *I go to the gym three times in week.*
+
+✅ *I'll call you in the morning.*
+❌ *I'll call you in morning.*
+
+✅ *We have the same phone.*
+❌ *We have same phone.*
+
+**Check yourself:** *times a week*, *in the morning*, *the same* — say them as one word.`,
+        uk: `**Суть.** Деякі фрази просто мають свій артикль, і легше вивчити їх цілими шматками, ніж думати про правила:
+- *twice a week, three times a day, $20 an hour* — «на тиждень, на день, за годину» → *a*
+- *in the morning / afternoon / evening* (але *at night*)
+- *the same, the first time, the next day, the last one*
+- *What a day! What a nice surprise!*
+
+✅ *I go to the gym three times a week.*
+❌ *I go to the gym three times in week.*
+
+✅ *I'll call you in the morning.*
+❌ *I'll call you in morning.*
+
+✅ *We have the same phone.*
+❌ *We have same phone.*
+
+**Перевір себе:** *times a week*, *in the morning*, *the same* — вимовляй як одне слово.`,
+        ru: `**Суть.** Некоторые фразы просто имеют свой артикль, и проще выучить их целыми кусками, чем думать о правилах:
+- *twice a week, three times a day, $20 an hour* — «в неделю, в день, в час» → *a*
+- *in the morning / afternoon / evening* (но *at night*)
+- *the same, the first time, the next day, the last one*
+- *What a day! What a nice surprise!*
+
+✅ *I go to the gym three times a week.*
+❌ *I go to the gym three times in week.*
+
+✅ *I'll call you in the morning.*
+❌ *I'll call you in morning.*
+
+✅ *We have the same phone.*
+❌ *We have same phone.*
+
+**Проверь себя:** *times a week*, *in the morning*, *the same* — произноси как одно слово.`,
+      },
+    },
+  ],
   examples: ["My sister is a nurse.", 'Can you close the door, please?', 'I love dogs.', "I'll be back in an hour.", 'We moved to the United States in 2022.'],
   trap: {
     uk: 'Мій чоловік — інженер.',

@@ -5,26 +5,329 @@ APP.addTopic({
   group: 'Tenses',
   icon: '🕰',
   about: 'I used to live… / I\'m used to living…',
-  rule: {
-    en: `- **used to + verb** — a past habit or state that is **not true now**: *I used to live in Kharkiv. We used to have a dog.* Negative and question: **didn't use to, Did you use to…?** (no *-d*).
-- **would + verb** — repeated actions in the past (a story, a memory), **not** states: *Every summer we would go to the sea.* But *I used to have a dog* (not *would have*).
-- *used to* is only past. For now say **usually** + Present Simple: *I usually get up at 7.*
-- **be used to + -ing / noun** — accustomed to it, it feels normal: *I'm used to driving on the right. She isn't used to the heat.*
-- **get used to + -ing / noun** — become accustomed (a process): *I'm getting used to the weather. You'll get used to it.*
-The difference: *I used to get up early* (I did, but not now) — *I'm used to getting up early* (it's normal for me).`,
-    uk: `- **used to + дієслово** — звичка чи стан у минулому, яких **зараз немає**: *I used to live in Kharkiv* — «Раніше я жила в Харкові». *We used to have a dog.* Заперечення й питання: **didn't use to, Did you use to…?** (без *-d*).
-- **would + дієслово** — дії, що повторювалися в минулому (розповідь, спогад), **не** стани: *Every summer we would go to the sea.* Але *I used to have a dog* (не *would have*).
-- *used to* — лише про минуле. Про теперішнє: **usually** + Present Simple: *I usually get up at 7.*
-- **be used to + -ing / іменник** — звикла, це для мене нормально: *I'm used to driving on the right. She isn't used to the heat.*
-- **get used to + -ing / іменник** — звикати (процес): *I'm getting used to the weather. You'll get used to it.*
-Різниця: *I used to get up early* (раніше вставала, тепер ні) — *I'm used to getting up early* (мені звично рано вставати).`,
-    ru: `- **used to + глагол** — привычка или состояние в прошлом, которых **сейчас нет**: *I used to live in Kharkiv* — «Раньше я жила в Харькове». *We used to have a dog.* Отрицание и вопрос: **didn't use to, Did you use to…?** (без *-d*).
-- **would + глагол** — повторявшиеся действия в прошлом (рассказ, воспоминание), **не** состояния: *Every summer we would go to the sea.* Но *I used to have a dog* (не *would have*).
-- *used to* — только о прошлом. О настоящем: **usually** + Present Simple: *I usually get up at 7.*
-- **be used to + -ing / существительное** — привыкла, мне это нормально: *I'm used to driving on the right. She isn't used to the heat.*
-- **get used to + -ing / существительное** — привыкать (процесс): *I'm getting used to the weather. You'll get used to it.*
-Разница: *I used to get up early* (раньше вставала, теперь нет) — *I'm used to getting up early* (мне привычно рано вставать).`,
-  },
+  points: [
+    {
+      for: ['used-form', 'used'],
+      rule: {
+        en: `**used to + verb** — a past habit or state that is **not true now**: *I used to live in Kharkiv. We used to have a dog.* Negative and question: **didn't use to, Did you use to…?** (no *-d*).`,
+        uk: `**used to + дієслово** — звичка чи стан у минулому, яких **зараз немає**: *I used to live in Kharkiv* — «Раніше я жила в Харкові». *We used to have a dog.* Заперечення й питання: **didn't use to, Did you use to…?** (без *-d*).`,
+        ru: `**used to + глагол** — привычка или состояние в прошлом, которых **сейчас нет**: *I used to live in Kharkiv* — «Раньше я жила в Харькове». *We used to have a dog.* Отрицание и вопрос: **didn't use to, Did you use to…?** (без *-d*).`,
+      },
+      more: {
+        en: `**The idea.** **used to + verb** = something was true in the past, **but not now**. It's the English way to say «раніше / колись — раньше / когда-то»:
+- *I used to live in Kharkiv.* — I don't live there now
+- *We used to have a dog.*
+- *She used to smoke.*
+
+The tricky part is questions and negatives. After *did* the verb loses its past ending, so it's **use to**, without *-d*:
+- *I didn't use to like coffee.*
+- *Did you use to play sports?*
+
+✅ *We didn't use to have a car in Ukraine.*
+❌ *We didn't used to have a car in Ukraine.*
+
+✅ *I used to live in Kharkiv.*
+❌ *I use to live in Kharkiv.*
+
+**Check yourself:** "before, but not any more" → *used to*. After *did / didn't* → *use to*.`,
+        uk: `**Суть.** **used to + дієслово** = щось було правдою в минулому, **але не зараз**. Так англійською кажуть «раніше / колись»:
+- *I used to live in Kharkiv.* — зараз я там не живу
+- *We used to have a dog.*
+- *She used to smoke.*
+
+Складність — у питаннях і запереченнях. Після *did* дієслово втрачає закінчення минулого, тому **use to**, без *-d*:
+- *I didn't use to like coffee.*
+- *Did you use to play sports?*
+
+✅ *We didn't use to have a car in Ukraine.*
+❌ *We didn't used to have a car in Ukraine.*
+
+✅ *I used to live in Kharkiv.*
+❌ *I use to live in Kharkiv.*
+
+**Перевір себе:** «раніше, а тепер ні» → *used to*. Після *did / didn't* → *use to*.`,
+        ru: `**Суть.** **used to + глагол** = что-то было правдой в прошлом, **но не сейчас**. Так по-английски говорят «раньше / когда-то»:
+- *I used to live in Kharkiv.* — сейчас я там не живу
+- *We used to have a dog.*
+- *She used to smoke.*
+
+Сложность — в вопросах и отрицаниях. После *did* глагол теряет окончание прошедшего, поэтому **use to**, без *-d*:
+- *I didn't use to like coffee.*
+- *Did you use to play sports?*
+
+✅ *We didn't use to have a car in Ukraine.*
+❌ *We didn't used to have a car in Ukraine.*
+
+✅ *I used to live in Kharkiv.*
+❌ *I use to live in Kharkiv.*
+
+**Проверь себя:** «раньше, а теперь нет» → *used to*. После *did / didn't* → *use to*.`,
+      },
+    },
+    {
+      for: ['would-state', 'would'],
+      rule: {
+        en: `**would + verb** — repeated actions in the past (a story, a memory), **not** states: *Every summer we would go to the sea.* But *I used to have a dog* (not *would have*).`,
+        uk: `**would + дієслово** — дії, що повторювалися в минулому (розповідь, спогад), **не** стани: *Every summer we would go to the sea.* Але *I used to have a dog* (не *would have*).`,
+        ru: `**would + глагол** — повторявшиеся действия в прошлом (рассказ, воспоминание), **не** состояния: *Every summer we would go to the sea.* Но *I used to have a dog* (не *would have*).`,
+      },
+      more: {
+        en: `**The idea.** **would + verb** can also describe the past — when you remember **repeated actions**, like in a story: «бувало, щоліта ми… / бывало, каждое лето мы…»:
+- *Every summer my grandma would bake cherry pies.*
+- *On Sundays we would walk in the park.*
+
+But *would* works only for **actions**, not **states**. For states (*have, live, be, like, know*) use **used to**:
+- *We used to have a cat.* (not *would have*)
+- *I used to live near the sea.* (not *would live*)
+
+✅ *When I was little, we used to have a cat.*
+❌ *When I was little, we would have a cat.*
+
+✅ *Every evening my dad would read to us.*
+✅ *Every evening my dad used to read to us.*
+
+**Check yourself:** an action that happened again and again → *would* or *used to*. A state → only *used to*.`,
+        uk: `**Суть.** **would + дієслово** теж може описувати минуле — коли згадуєш **повторювані дії**, як в історії: «бувало, щоліта ми…»:
+- *Every summer my grandma would bake cherry pies.*
+- *On Sundays we would walk in the park.*
+
+Але *would* працює лише для **дій**, а не **станів**. Для станів (*have, live, be, like, know*) — **used to**:
+- *We used to have a cat.* (не *would have*)
+- *I used to live near the sea.* (не *would live*)
+
+✅ *When I was little, we used to have a cat.*
+❌ *When I was little, we would have a cat.*
+
+✅ *Every evening my dad would read to us.*
+✅ *Every evening my dad used to read to us.*
+
+**Перевір себе:** дія, що повторювалася знову й знову → *would* або *used to*. Стан → лише *used to*.`,
+        ru: `**Суть.** **would + глагол** тоже может описывать прошлое — когда вспоминаешь **повторяющиеся действия**, как в истории: «бывало, каждое лето мы…»:
+- *Every summer my grandma would bake cherry pies.*
+- *On Sundays we would walk in the park.*
+
+Но *would* работает только для **действий**, а не **состояний**. Для состояний (*have, live, be, like, know*) — **used to**:
+- *We used to have a cat.* (не *would have*)
+- *I used to live near the sea.* (не *would live*)
+
+✅ *When I was little, we used to have a cat.*
+❌ *When I was little, we would have a cat.*
+
+✅ *Every evening my dad would read to us.*
+✅ *Every evening my dad used to read to us.*
+
+**Проверь себя:** действие, которое повторялось снова и снова → *would* или *used to*. Состояние → только *used to*.`,
+      },
+    },
+    {
+      for: ['used-present', 'present'],
+      rule: {
+        en: `*used to* is only past. For now say **usually** + Present Simple: *I usually get up at 7.*`,
+        uk: `*used to* — лише про минуле. Про теперішнє: **usually** + Present Simple: *I usually get up at 7.*`,
+        ru: `*used to* — только о прошлом. О настоящем: **usually** + Present Simple: *I usually get up at 7.*`,
+      },
+      more: {
+        en: `**The idea.** *used to* exists only in the **past**. There is no *I use to* for the present. For a habit **now**, say **usually** + Present Simple:
+- *I usually get up at 7.* — «Я зазвичай встаю о сьомій / Я обычно встаю в семь»
+- *Now I usually walk to work.*
+
+✅ *I usually get up at seven on weekdays.*
+❌ *I use to get up at seven on weekdays.*
+
+✅ *We usually eat out on Fridays.*
+❌ *We use to eat out on Fridays.*
+
+**Check yourself:** about **now** → *usually*. About the past, not true any more → *used to*.`,
+        uk: `**Суть.** *used to* існує лише в **минулому**. Форми *I use to* для теперішнього немає. Для звички **зараз** кажи **usually** + Present Simple:
+- *I usually get up at 7.* — «Я зазвичай встаю о сьомій»
+- *Now I usually walk to work.*
+
+✅ *I usually get up at seven on weekdays.*
+❌ *I use to get up at seven on weekdays.*
+
+✅ *We usually eat out on Fridays.*
+❌ *We use to eat out on Fridays.*
+
+**Перевір себе:** про **зараз** → *usually*. Про минуле, якого вже немає → *used to*.`,
+        ru: `**Суть.** *used to* существует только в **прошлом**. Формы *I use to* для настоящего нет. Для привычки **сейчас** говори **usually** + Present Simple:
+- *I usually get up at 7.* — «Я обычно встаю в семь»
+- *Now I usually walk to work.*
+
+✅ *I usually get up at seven on weekdays.*
+❌ *I use to get up at seven on weekdays.*
+
+✅ *We usually eat out on Fridays.*
+❌ *We use to eat out on Fridays.*
+
+**Проверь себя:** про **сейчас** → *usually*. Про прошлое, которого уже нет → *used to*.`,
+      },
+    },
+    {
+      for: ['be-used'],
+      rule: {
+        en: `**be used to + -ing / noun** — accustomed to it, it feels normal: *I'm used to driving on the right. She isn't used to the heat.*`,
+        uk: `**be used to + -ing / іменник** — звикла, це для мене нормально: *I'm used to driving on the right. She isn't used to the heat.*`,
+        ru: `**be used to + -ing / существительное** — привыкла, мне это нормально: *I'm used to driving on the right. She isn't used to the heat.*`,
+      },
+      more: {
+        en: `**The idea.** **be used to** is a different expression: «звикла / привыкла» — something feels **normal** to you, it isn't strange any more:
+- *I'm used to driving on the right.*
+- *She isn't used to the heat.*
+- *Are you used to the food here?*
+
+Here *to* is a **preposition**, so after it comes a **noun** or a verb with **-ing** — not the bare verb:
+- *I'm used to working at night.* (not *to work*)
+
+✅ *I'm already used to the heat.*
+❌ *I already used to the heat.* — *be* is missing
+
+✅ *She isn't used to working at night.*
+❌ *She isn't used to work at night.*
+
+**Check yourself:** «звикла / привыкла» → *am / is / are + used to + -ing / noun*.`,
+        uk: `**Суть.** **be used to** — інший вираз: «звикла» — щось здається тобі **нормальним**, уже не дивним:
+- *I'm used to driving on the right.*
+- *She isn't used to the heat.*
+- *Are you used to the food here?*
+
+Тут *to* — це **прийменник**, тож після нього **іменник** або дієслово з **-ing**, а не голе дієслово:
+- *I'm used to working at night.* (не *to work*)
+
+✅ *I'm already used to the heat.*
+❌ *I already used to the heat.* — бракує *be*
+
+✅ *She isn't used to working at night.*
+❌ *She isn't used to work at night.*
+
+**Перевір себе:** «звикла» → *am / is / are + used to + -ing / іменник*.`,
+        ru: `**Суть.** **be used to** — другое выражение: «привыкла» — что-то кажется тебе **нормальным**, уже не странным:
+- *I'm used to driving on the right.*
+- *She isn't used to the heat.*
+- *Are you used to the food here?*
+
+Здесь *to* — это **предлог**, поэтому после него **существительное** или глагол с **-ing**, а не голый глагол:
+- *I'm used to working at night.* (не *to work*)
+
+✅ *I'm already used to the heat.*
+❌ *I already used to the heat.* — не хватает *be*
+
+✅ *She isn't used to working at night.*
+❌ *She isn't used to work at night.*
+
+**Проверь себя:** «привыкла» → *am / is / are + used to + -ing / существительное*.`,
+      },
+    },
+    {
+      for: ['get-used'],
+      rule: {
+        en: `**get used to + -ing / noun** — become accustomed (a process): *I'm getting used to the weather. You'll get used to it.*`,
+        uk: `**get used to + -ing / іменник** — звикати (процес): *I'm getting used to the weather. You'll get used to it.*`,
+        ru: `**get used to + -ing / существительное** — привыкать (процесс): *I'm getting used to the weather. You'll get used to it.*`,
+      },
+      more: {
+        en: `**The idea.** **get used to** = the **process** of becoming used to something: «звикати / привыкать». It changes like any verb:
+- *I'm getting used to the weather.* — I'm in the process
+- *You'll get used to it.* — in the future
+- *It took me a year to get used to the time difference.*
+
+After it, just like after *be used to*: a noun or **-ing**:
+- *You'll get used to working nights.*
+
+✅ *Don't worry, you'll get used to it.*
+❌ *Don't worry, you'll used to it.*
+
+✅ *I'm still getting used to driving here.*
+❌ *I'm still getting used to drive here.*
+
+**Check yourself:** "it's normal for me now" → *be used to*. "It's becoming normal" → *get used to*.`,
+        uk: `**Суть.** **get used to** = **процес** звикання: «звикати». Змінюється, як будь-яке дієслово:
+- *I'm getting used to the weather.* — я в процесі
+- *You'll get used to it.* — у майбутньому
+- *It took me a year to get used to the time difference.*
+
+Після нього, як і після *be used to*: іменник або **-ing**:
+- *You'll get used to working nights.*
+
+✅ *Don't worry, you'll get used to it.*
+❌ *Don't worry, you'll used to it.*
+
+✅ *I'm still getting used to driving here.*
+❌ *I'm still getting used to drive here.*
+
+**Перевір себе:** «для мене це вже норма» → *be used to*. «Стає нормою» → *get used to*.`,
+        ru: `**Суть.** **get used to** = **процесс** привыкания: «привыкать». Меняется, как любой глагол:
+- *I'm getting used to the weather.* — я в процессе
+- *You'll get used to it.* — в будущем
+- *It took me a year to get used to the time difference.*
+
+После него, как и после *be used to*: существительное или **-ing**:
+- *You'll get used to working nights.*
+
+✅ *Don't worry, you'll get used to it.*
+❌ *Don't worry, you'll used to it.*
+
+✅ *I'm still getting used to driving here.*
+❌ *I'm still getting used to drive here.*
+
+**Проверь себя:** «для меня это уже норма» → *be used to*. «Становится нормой» → *get used to*.`,
+      },
+    },
+    {
+      for: ['mix'],
+      rule: {
+        en: `The difference: *I used to get up early* (I did, but not now) — *I'm used to getting up early* (it's normal for me).`,
+        uk: `Різниця: *I used to get up early* (раніше вставала, тепер ні) — *I'm used to getting up early* (мені звично рано вставати).`,
+        ru: `Разница: *I used to get up early* (раньше вставала, теперь нет) — *I'm used to getting up early* (мне привычно рано вставать).`,
+      },
+      more: {
+        en: `**The idea.** Two very similar phrases with completely different meanings:
+- *I used to get up early.* = I did it in the past, **but not now** — no *be*, the bare verb follows
+- *I'm used to getting up early.* = it's **normal** for me, I'm accustomed — *be* + *-ing*
+
+Compare:
+- *I used to work at night.* — «Раніше я працювала вночі / Раньше я работала по ночам» (not any more)
+- *I'm used to working at night.* — «Я звикла працювати вночі / Я привыкла работать по ночам» (it's normal)
+
+✅ *After three years, I'm used to driving on American highways.*
+❌ *After three years, I used to drive on American highways.*
+
+✅ *I used to get up at five when I worked at the bakery.*
+❌ *I was used to get up at five when I worked at the bakery.*
+
+**Check yourself:** *am / is / are / was* before *used to*? → "accustomed", and *-ing* follows. No *be*? → "in the past, not now", and the bare verb follows.`,
+        uk: `**Суть.** Дві дуже схожі фрази з зовсім різним значенням:
+- *I used to get up early.* = я так робила раніше, **а тепер ні** — без *be*, далі голе дієслово
+- *I'm used to getting up early.* = для мене це **нормально**, я звикла — *be* + *-ing*
+
+Порівняй:
+- *I used to work at night.* — «Раніше я працювала вночі» (тепер ні)
+- *I'm used to working at night.* — «Я звикла працювати вночі» (це норма)
+
+✅ *After three years, I'm used to driving on American highways.*
+❌ *After three years, I used to drive on American highways.*
+
+✅ *I used to get up at five when I worked at the bakery.*
+❌ *I was used to get up at five when I worked at the bakery.*
+
+**Перевір себе:** перед *used to* стоїть *am / is / are / was*? → «звикла», і далі *-ing*. Немає *be*? → «раніше, а тепер ні», і далі голе дієслово.`,
+        ru: `**Суть.** Две очень похожие фразы с совершенно разным значением:
+- *I used to get up early.* = я так делала раньше, **а теперь нет** — без *be*, дальше голый глагол
+- *I'm used to getting up early.* = для меня это **нормально**, я привыкла — *be* + *-ing*
+
+Сравни:
+- *I used to work at night.* — «Раньше я работала по ночам» (теперь нет)
+- *I'm used to working at night.* — «Я привыкла работать по ночам» (это норма)
+
+✅ *After three years, I'm used to driving on American highways.*
+❌ *After three years, I used to drive on American highways.*
+
+✅ *I used to get up at five when I worked at the bakery.*
+❌ *I was used to get up at five when I worked at the bakery.*
+
+**Проверь себя:** перед *used to* стоит *am / is / are / was*? → «привыкла», и дальше *-ing*. Нет *be*? → «раньше, а теперь нет», и дальше голый глагол.`,
+      },
+    },
+  ],
   examples: ['I used to live in Kharkiv.', 'Every summer we would go to the sea.', "I'm used to driving on the right now.", "I'm getting used to the weather here.", "Did you use to play the piano?"],
   trap: {
     uk: 'Я вже звикла до спеки.',

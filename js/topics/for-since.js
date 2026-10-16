@@ -5,29 +5,344 @@ APP.addTopic({
   group: 'Tenses',
   icon: '🕰️',
   about: 'how long until now, and how far back',
-  rule: {
-    en: `- **for** + a period: *for three years, for a week, for ages*.
-- **since** + a starting point: *since 2019, since Monday, since I was a child*.
-- With *for / since* up to now, use the **Present Perfect** (or Present Perfect Continuous), not the Present Simple: *I've lived here for three years.*
-- **How long have you…?** asks about a situation that is still going on: *How long have you lived in Texas?*
-- **ago** = back from now, with the **Past Simple**, after the period: *two years ago*. Not *before two years*.
-- *It's been two years since we moved.* After **since** in a clause, use the **Past Simple**: *since we moved, since I was a student*.
-- **during** + a noun (when?): *during the meeting*. **for** + a length of time (how long?): *for two weeks*.`,
-    uk: `- **for** + проміжок часу: *for three years, for a week, for ages*.
-- **since** + точка початку: *since 2019, since Monday, since I was a child* — «з…».
-- Коли з *for / since* мова про «досі», потрібен **Present Perfect** (або Present Perfect Continuous), а не Present Simple: *I've lived here for three years* — «Я живу тут три роки».
-- **How long have you…?** — про ситуацію, яка ще триває: *How long have you lived in Texas?*
-- **ago** = «тому», з **Past Simple**, після проміжку: *two years ago*. Не *before two years*.
-- *It's been two years since we moved* — «Минуло два роки, відколи ми переїхали». Після **since** у підрядному реченні — **Past Simple**: *since we moved, since I was a student*.
-- **during** + іменник (коли?): *during the meeting* — «під час зустрічі». **for** + тривалість (як довго?): *for two weeks*.`,
-    ru: `- **for** + промежуток времени: *for three years, for a week, for ages*.
-- **since** + точка начала: *since 2019, since Monday, since I was a child* — «с…».
-- Когда с *for / since* речь о «до сих пор», нужен **Present Perfect** (или Present Perfect Continuous), а не Present Simple: *I've lived here for three years* — «Я живу здесь три года».
-- **How long have you…?** — о ситуации, которая ещё длится: *How long have you lived in Texas?*
-- **ago** = «назад», с **Past Simple**, после промежутка: *two years ago*. Не *before two years*.
-- *It's been two years since we moved* — «Прошло два года с тех пор, как мы переехали». После **since** в придаточном — **Past Simple**: *since we moved, since I was a student*.
-- **during** + существительное (когда?): *during the meeting* — «во время встречи». **for** + длительность (как долго?): *for two weeks*.`,
-  },
+  points: [
+    {
+      for: ['since-for', 'for', 'since'],
+      rule: {
+        en: `**for** + a period: *for three years, for a week, for ages*. **since** + a starting point: *since 2019, since Monday, since I was a child*.`,
+        uk: `**for** + проміжок часу: *for three years, for a week, for ages*. **since** + точка початку: *since 2019, since Monday, since I was a child* — «з…».`,
+        ru: `**for** + промежуток времени: *for three years, for a week, for ages*. **since** + точка начала: *since 2019, since Monday, since I was a child* — «с…».`,
+      },
+      more: {
+        en: `**The idea.** Both translate as «з / с» or «протягом / в течение», but they answer different questions:
+- **for** + a **length** of time — "how long?": *for three years, for a week, for two hours, for ages*
+- **since** + a **starting point** — "since when?": *since 2019, since Monday, since breakfast, since I was a child*
+
+Picture a timeline: *since* marks the dot where it started; *for* measures the whole line up to now.
+
+«Я тут з 2019 / Я здесь с 2019» → *since 2019*. Not *from 2019* — *from* needs a *to*: *from 2019 to 2022*.
+
+✅ *I've lived in Seattle for six years.*
+❌ *I've lived in Seattle since six years.*
+
+✅ *She's worked at the hospital since 2020.*
+❌ *She's worked at the hospital from 2020.*
+
+**Check yourself:** can you put "how many?" before it — *six years, two weeks*? → **for**. Is it a date, a day or an event? → **since**.`,
+        uk: `**Суть.** Обидва можуть перекладатися як «з» або «протягом», але відповідають на різні питання:
+- **for** + **тривалість** — «як довго?»: *for three years, for a week, for two hours, for ages*
+- **since** + **точка початку** — «відколи?»: *since 2019, since Monday, since breakfast, since I was a child*
+
+Уяви лінію часу: *since* — це точка, де все почалося; *for* міряє всю лінію до сьогодні.
+
+«Я тут з 2019» → *since 2019*. Не *from 2019* — *from* потребує *to*: *from 2019 to 2022*.
+
+✅ *I've lived in Seattle for six years.*
+❌ *I've lived in Seattle since six years.*
+
+✅ *She's worked at the hospital since 2020.*
+❌ *She's worked at the hospital from 2020.*
+
+**Перевір себе:** можна поставити «скільки?» — *six years, two weeks*? → **for**. Це дата, день чи подія? → **since**.`,
+        ru: `**Суть.** Оба могут переводиться как «с» или «в течение», но отвечают на разные вопросы:
+- **for** + **продолжительность** — «как долго?»: *for three years, for a week, for two hours, for ages*
+- **since** + **точка начала** — «с каких пор?»: *since 2019, since Monday, since breakfast, since I was a child*
+
+Представь линию времени: *since* — это точка, где всё началось; *for* измеряет всю линию до сегодня.
+
+«Я здесь с 2019» → *since 2019*. Не *from 2019* — *from* нужен *to*: *from 2019 to 2022*.
+
+✅ *I've lived in Seattle for six years.*
+❌ *I've lived in Seattle since six years.*
+
+✅ *She's worked at the hospital since 2020.*
+❌ *She's worked at the hospital from 2020.*
+
+**Проверь себя:** можно поставить «сколько?» — *six years, two weeks*? → **for**. Это дата, день или событие? → **since**.`,
+      },
+    },
+    {
+      for: ['tense'],
+      rule: {
+        en: `With *for / since* up to now, use the **Present Perfect** (or Present Perfect Continuous), not the Present Simple: *I've lived here for three years.*`,
+        uk: `Коли з *for / since* мова про «досі», потрібен **Present Perfect** (або Present Perfect Continuous), а не Present Simple: *I've lived here for three years* — «Я живу тут три роки».`,
+        ru: `Когда с *for / since* речь о «до сих пор», нужен **Present Perfect** (или Present Perfect Continuous), а не Present Simple: *I've lived here for three years* — «Я живу здесь три года».`,
+      },
+      more: {
+        en: `**The idea.** When something started in the past and is **still true now**, and you say *for* or *since*, English needs the **Present Perfect**:
+- *I've lived here for three years.* — I came three years ago, I still live here
+- *We've been married since 2015.*
+- for an activity that's going on: *I've been learning English for two years.* (Present Perfect Continuous)
+
+In Ukrainian and Russian it's the present: «Я живу в Америці три роки / Я живу в Америке три года». In English the present here sounds wrong, because the situation has a past part too.
+
+✅ *I've lived in America for three years.*
+❌ *I live in America for three years.*
+
+✅ *They've been married for a long time.*
+❌ *They are married for a long time.*
+
+✅ *I've been waiting since 9 o'clock.*
+❌ *I'm waiting since 9 o'clock.*
+
+**Check yourself:** *for / since* + still true now → *have / has + 3rd form* (or *have been + -ing*), never *I live / I'm living*.`,
+        uk: `**Суть.** Коли щось почалося в минулому і **досі правда**, а ти кажеш *for* чи *since*, англійській потрібен **Present Perfect**:
+- *I've lived here for three years.* — приїхала три роки тому і досі тут живу
+- *We've been married since 2015.*
+- для дії, що триває: *I've been learning English for two years.* (Present Perfect Continuous)
+
+Українською тут теперішній: «Я живу в Америці три роки». Англійською теперішній тут звучить неправильно, бо в ситуації є й минула частина.
+
+✅ *I've lived in America for three years.*
+❌ *I live in America for three years.*
+
+✅ *They've been married for a long time.*
+❌ *They are married for a long time.*
+
+✅ *I've been waiting since 9 o'clock.*
+❌ *I'm waiting since 9 o'clock.*
+
+**Перевір себе:** *for / since* + це правда й зараз → *have / has + третя форма* (або *have been + -ing*), ніколи *I live / I'm living*.`,
+        ru: `**Суть.** Когда что-то началось в прошлом и **до сих пор верно**, а ты говоришь *for* или *since*, английскому нужен **Present Perfect**:
+- *I've lived here for three years.* — приехала три года назад и до сих пор здесь живу
+- *We've been married since 2015.*
+- для действия, которое идёт: *I've been learning English for two years.* (Present Perfect Continuous)
+
+По-русски здесь настоящее: «Я живу в Америке три года». По-английски настоящее тут звучит неправильно, потому что у ситуации есть и прошлая часть.
+
+✅ *I've lived in America for three years.*
+❌ *I live in America for three years.*
+
+✅ *They've been married for a long time.*
+❌ *They are married for a long time.*
+
+✅ *I've been waiting since 9 o'clock.*
+❌ *I'm waiting since 9 o'clock.*
+
+**Проверь себя:** *for / since* + это верно и сейчас → *have / has + третья форма* (или *have been + -ing*), никогда *I live / I'm living*.`,
+      },
+    },
+    {
+      for: ['howlong'],
+      rule: {
+        en: `**How long have you…?** asks about a situation that is still going on: *How long have you lived in Texas?*`,
+        uk: `**How long have you…?** — про ситуацію, яка ще триває: *How long have you lived in Texas?*`,
+        ru: `**How long have you…?** — о ситуации, которая ещё длится: *How long have you lived in Texas?*`,
+      },
+      more: {
+        en: `**The idea.** «Як довго ти тут живеш? / Сколько ты здесь живёшь?» — in Ukrainian and Russian the present. In English, a question about a situation that **started in the past and still goes on** takes the Present Perfect:
+- *How long have you lived in Texas?*
+- *How long have you known your best friend?*
+- *How long have you been waiting?* — an activity, with *-ing*
+
+*How long do you live here?* is a typical mistake — it sounds like "for how long do you usually live here?".
+
+For something **finished**, use the Past Simple: *How long did you live in Kyiv?* — you don't live there now.
+
+✅ *How long have you had your dog?*
+❌ *How long do you have your dog?*
+
+✅ *How long have you been married?*
+❌ *How long are you married?*
+
+**Check yourself:** *How long* + still going on → *How long have you + 3rd form?*`,
+        uk: `**Суть.** «Як довго ти тут живеш?» — українською теперішній час. Англійською питання про ситуацію, що **почалася в минулому і триває досі**, — у Present Perfect:
+- *How long have you lived in Texas?*
+- *How long have you known your best friend?*
+- *How long have you been waiting?* — дія, з *-ing*
+
+*How long do you live here?* — типова помилка: звучить як «скільки ти зазвичай тут живеш?».
+
+Для **закінченого** — Past Simple: *How long did you live in Kyiv?* — зараз ти там не живеш.
+
+✅ *How long have you had your dog?*
+❌ *How long do you have your dog?*
+
+✅ *How long have you been married?*
+❌ *How long are you married?*
+
+**Перевір себе:** *How long* + досі триває → *How long have you + третя форма?*`,
+        ru: `**Суть.** «Сколько ты здесь живёшь?» — по-русски настоящее время. По-английски вопрос о ситуации, которая **началась в прошлом и длится до сих пор**, — в Present Perfect:
+- *How long have you lived in Texas?*
+- *How long have you known your best friend?*
+- *How long have you been waiting?* — действие, с *-ing*
+
+*How long do you live here?* — типичная ошибка: звучит как «сколько ты обычно здесь живёшь?».
+
+Для **законченного** — Past Simple: *How long did you live in Kyiv?* — сейчас ты там не живёшь.
+
+✅ *How long have you had your dog?*
+❌ *How long do you have your dog?*
+
+✅ *How long have you been married?*
+❌ *How long are you married?*
+
+**Проверь себя:** *How long* + до сих пор длится → *How long have you + третья форма?*`,
+      },
+    },
+    {
+      for: ['ago'],
+      rule: {
+        en: `**ago** = back from now, with the **Past Simple**, after the period: *two years ago*. Not *before two years*.`,
+        uk: `**ago** = «тому», з **Past Simple**, після проміжку: *two years ago*. Не *before two years*.`,
+        ru: `**ago** = «назад», с **Past Simple**, после промежутка: *two years ago*. Не *before two years*.`,
+      },
+      more: {
+        en: `**The idea.** **ago** = back from **now**: «тому / назад». It comes **after** the period, and since it points to a finished moment, the verb is in the **Past Simple**:
+- *We met five years ago.*
+- *I started this course two weeks ago.*
+- *How long ago did it happen?*
+
+The trap: «два роки тому / два года назад» is often turned into *before two years* — but *before* means "earlier than something": *before the meeting*.
+
+✅ *We met five years ago.*
+❌ *We met before five years.*
+
+✅ *I started two weeks ago.*
+❌ *I have started two weeks ago.*
+
+**Compare:** *I moved here two years ago* (when) = *I've lived here for two years* (how long).
+
+**Check yourself:** *ago* at the end of the time phrase, and Past Simple in the verb.`,
+        uk: `**Суть.** **ago** = назад від **сьогодні**: «тому». Стоїть **після** періоду, і оскільки вказує на закінчений момент, дієслово в **Past Simple**:
+- *We met five years ago.*
+- *I started this course two weeks ago.*
+- *How long ago did it happen?*
+
+Пастка: «два роки тому» часто перетворюють на *before two years* — але *before* означає «раніше за щось»: *before the meeting*.
+
+✅ *We met five years ago.*
+❌ *We met before five years.*
+
+✅ *I started two weeks ago.*
+❌ *I have started two weeks ago.*
+
+**Порівняй:** *I moved here two years ago* (коли) = *I've lived here for two years* (як довго).
+
+**Перевір себе:** *ago* у кінці фрази про час, а дієслово — Past Simple.`,
+        ru: `**Суть.** **ago** = назад от **сегодня**: «назад». Стоит **после** периода, и поскольку указывает на законченный момент, глагол в **Past Simple**:
+- *We met five years ago.*
+- *I started this course two weeks ago.*
+- *How long ago did it happen?*
+
+Ловушка: «два года назад» часто превращают в *before two years* — но *before* значит «раньше чего-то»: *before the meeting*.
+
+✅ *We met five years ago.*
+❌ *We met before five years.*
+
+✅ *I started two weeks ago.*
+❌ *I have started two weeks ago.*
+
+**Сравни:** *I moved here two years ago* (когда) = *I've lived here for two years* (как долго).
+
+**Проверь себя:** *ago* в конце фразы о времени, а глагол — Past Simple.`,
+      },
+    },
+    {
+      for: ['since-clause', 'clause'],
+      rule: {
+        en: `*It's been two years since we moved.* After **since** in a clause, use the **Past Simple**: *since we moved, since I was a student*.`,
+        uk: `*It's been two years since we moved* — «Минуло два роки, відколи ми переїхали». Після **since** у підрядному реченні — **Past Simple**: *since we moved, since I was a student*.`,
+        ru: `*It's been two years since we moved* — «Прошло два года с тех пор, как мы переехали». После **since** в придаточном — **Past Simple**: *since we moved, since I was a student*.`,
+      },
+      more: {
+        en: `**The idea.** *since* can be followed by a whole clause — an event that started the period: *since we moved, since I was a child, since she started school*. That event happened **once**, at a finished moment, so the clause after *since* is in the **Past Simple**.
+
+The main part counts the time up to now: Present Perfect, or *It's been…*:
+- *I've known Sara **since we were at school**.*
+- *It's been two years **since we moved** to Arizona.* — «Минуло два роки, відколи ми переїхали / Прошло два года с тех пор, как мы переехали»
+
+✅ *It's been a year since I started this job.*
+❌ *It's been a year since I have started this job.*
+
+✅ *I've known her since we were kids.*
+❌ *I know her since we were kids.*
+
+**Check yourself:** two parts — before *since*: Present Perfect or *It's been*; after *since*: the starting event in the Past Simple.`,
+        uk: `**Суть.** Після *since* може стояти ціле речення — подія, з якої почався період: *since we moved, since I was a child, since she started school*. Ця подія сталася **один раз**, у закінчений момент, тому речення після *since* — у **Past Simple**.
+
+Головна частина рахує час до сьогодні: Present Perfect або *It's been…*:
+- *I've known Sara since we were at school.*
+- *It's been two years since we moved to Arizona.* — «Минуло два роки, відколи ми переїхали»
+
+✅ *It's been a year since I started this job.*
+❌ *It's been a year since I have started this job.*
+
+✅ *I've known her since we were kids.*
+❌ *I know her since we were kids.*
+
+**Перевір себе:** дві частини — до *since*: Present Perfect або *It's been*; після *since*: початкова подія в Past Simple.`,
+        ru: `**Суть.** После *since* может стоять целое предложение — событие, с которого начался период: *since we moved, since I was a child, since she started school*. Это событие случилось **один раз**, в законченный момент, поэтому предложение после *since* — в **Past Simple**.
+
+Главная часть считает время до сегодня: Present Perfect или *It's been…*:
+- *I've known Sara since we were at school.*
+- *It's been two years since we moved to Arizona.* — «Прошло два года с тех пор, как мы переехали»
+
+✅ *It's been a year since I started this job.*
+❌ *It's been a year since I have started this job.*
+
+✅ *I've known her since we were kids.*
+❌ *I know her since we were kids.*
+
+**Проверь себя:** две части — до *since*: Present Perfect или *It's been*; после *since*: начальное событие в Past Simple.`,
+      },
+    },
+    {
+      for: ['during'],
+      rule: {
+        en: `**during** + a noun (when?): *during the meeting*. **for** + a length of time (how long?): *for two weeks*.`,
+        uk: `**during** + іменник (коли?): *during the meeting* — «під час зустрічі». **for** + тривалість (як довго?): *for two weeks*.`,
+        ru: `**during** + существительное (когда?): *during the meeting* — «во время встречи». **for** + длительность (как долго?): *for two weeks*.`,
+      },
+      more: {
+        en: `**The idea.** «Під час / Во время» and «протягом / в течение» can both become *during* or *for* — but they answer different questions:
+- **during** + a noun → **when?** — at some point inside that event: *during the meeting, during the summer, during the flight*
+- **for** + a length of time → **how long?**: *for two weeks, for an hour*
+- **while** + a clause (subject + verb): *while I was waiting*
+
+✅ *My phone rang during the meeting.*
+❌ *My phone rang for the meeting.*
+
+✅ *We stayed there for two weeks.*
+❌ *We stayed there during two weeks.*
+
+✅ *I fell asleep during the movie.*
+❌ *I fell asleep while the movie.*
+
+**Check yourself:** an event (*the movie, the trip*) → *during*. A number of days, hours → *for*. A subject and a verb → *while*.`,
+        uk: `**Суть.** «Під час» і «протягом» можуть ставати і *during*, і *for* — але вони відповідають на різні питання:
+- **during** + іменник → **коли?** — у якийсь момент усередині події: *during the meeting, during the summer, during the flight*
+- **for** + тривалість → **як довго?**: *for two weeks, for an hour*
+- **while** + речення (підмет + дієслово): *while I was waiting*
+
+✅ *My phone rang during the meeting.*
+❌ *My phone rang for the meeting.*
+
+✅ *We stayed there for two weeks.*
+❌ *We stayed there during two weeks.*
+
+✅ *I fell asleep during the movie.*
+❌ *I fell asleep while the movie.*
+
+**Перевір себе:** подія (*the movie, the trip*) → *during*. Кількість днів, годин → *for*. Підмет і дієслово → *while*.`,
+        ru: `**Суть.** «Во время» и «в течение» могут становиться и *during*, и *for* — но они отвечают на разные вопросы:
+- **during** + существительное → **когда?** — в какой-то момент внутри события: *during the meeting, during the summer, during the flight*
+- **for** + продолжительность → **как долго?**: *for two weeks, for an hour*
+- **while** + предложение (подлежащее + глагол): *while I was waiting*
+
+✅ *My phone rang during the meeting.*
+❌ *My phone rang for the meeting.*
+
+✅ *We stayed there for two weeks.*
+❌ *We stayed there during two weeks.*
+
+✅ *I fell asleep during the movie.*
+❌ *I fell asleep while the movie.*
+
+**Проверь себя:** событие (*the movie, the trip*) → *during*. Количество дней, часов → *for*. Подлежащее и глагол → *while*.`,
+      },
+    },
+  ],
   examples: ["I've lived in Seattle for six years.", "She's worked at the hospital since 2020.", 'How long have you been waiting?', 'We met five years ago.', "It's been two years since we moved."],
   trap: {
     uk: 'Я живу в Америці три роки.',

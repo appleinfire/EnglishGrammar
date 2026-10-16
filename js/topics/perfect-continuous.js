@@ -5,29 +5,323 @@ APP.addTopic({
   group: 'Tenses',
   icon: '🔄',
   about: "I've been waiting: an activity up to now",
-  rule: {
-    en: `**have / has been + verb-ing**: *I've been waiting. She's been working.*
-- An activity that started in the past and is **still going on** (or just stopped), often with *for, since, How long, all day, lately*: *We've been waiting for an hour.*
-- You can **see the result** of a recent activity: *Your eyes are red. Have you been crying?*
-The **Present Perfect Simple** (*I've done*) is about the **result** or **how many / how much**:
-- *I've been painting the kitchen* (the activity; maybe not finished) — *I've painted the kitchen* (finished).
-- *I've been writing emails all morning* — *I've written five emails.*
-Verbs of state (*know, like, want, believe, own, have* = own) usually do not take *-ing*: *I've known her for years.*`,
-    uk: `**have / has been + дієслово з -ing**: *I've been waiting. She's been working.*
-- Дія почалася в минулому і **досі триває** (або щойно закінчилася), часто з *for, since, How long, all day, lately*: *We've been waiting for an hour* — «Ми чекаємо вже годину».
-- **Видно результат** недавньої дії: *Your eyes are red. Have you been crying?* — «Ти плакала?»
-**Present Perfect Simple** (*I've done*) — про **результат** або **скільки**:
-- *I've been painting the kitchen* (процес, можливо не закінчений) — *I've painted the kitchen* (готово).
-- *I've been writing emails all morning* — *I've written five emails.*
-Дієслова стану (*know, like, want, believe, own, have* = мати) зазвичай без *-ing*: *I've known her for years.*`,
-    ru: `**have / has been + глагол с -ing**: *I've been waiting. She's been working.*
-- Действие началось в прошлом и **всё ещё длится** (или только что закончилось), часто с *for, since, How long, all day, lately*: *We've been waiting for an hour* — «Мы ждём уже час».
-- **Виден результат** недавнего действия: *Your eyes are red. Have you been crying?* — «Ты плакала?»
-**Present Perfect Simple** (*I've done*) — о **результате** или **сколько**:
-- *I've been painting the kitchen* (процесс, может, не закончен) — *I've painted the kitchen* (готово).
-- *I've been writing emails all morning* — *I've written five emails.*
-Глаголы состояния (*know, like, want, believe, own, have* = иметь) обычно без *-ing*: *I've known her for years.*`,
-  },
+  points: [
+    {
+      for: ['form'],
+      rule: {
+        en: `**have / has been + verb-ing**: *I've been waiting. She's been working.*`,
+        uk: `**have / has been + дієслово з -ing**: *I've been waiting. She's been working.*`,
+        ru: `**have / has been + глагол с -ing**: *I've been waiting. She's been working.*`,
+      },
+      more: {
+        en: `**The idea.** The Present Perfect Continuous has three parts:
+**have / has** + **been** + verb**-ing**
+- *I've been waiting. She's been working. They've been playing.*
+- question: *Have you been waiting long?*
+- negative: *I haven't been sleeping well.*
+
+*been* is always there and never changes. People often lose one of the parts: *I've working*, *I'm been working*, *I have been work*.
+
+✅ *She has been working all day.*
+❌ *She has working all day.*
+
+✅ *I've been waiting for an hour.*
+❌ *I'm been waiting for an hour.*
+
+**Check yourself:** count the parts — *have / has*, *been*, *-ing*. All three there?`,
+        uk: `**Суть.** Present Perfect Continuous складається з трьох частин:
+**have / has** + **been** + дієслово з **-ing**
+- *I've been waiting. She's been working. They've been playing.*
+- питання: *Have you been waiting long?*
+- заперечення: *I haven't been sleeping well.*
+
+*been* є завжди і не змінюється. Часто губиться одна з частин: *I've working*, *I'm been working*, *I have been work*.
+
+✅ *She has been working all day.*
+❌ *She has working all day.*
+
+✅ *I've been waiting for an hour.*
+❌ *I'm been waiting for an hour.*
+
+**Перевір себе:** порахуй частини — *have / has*, *been*, *-ing*. Усі три на місці?`,
+        ru: `**Суть.** Present Perfect Continuous состоит из трёх частей:
+**have / has** + **been** + глагол с **-ing**
+- *I've been waiting. She's been working. They've been playing.*
+- вопрос: *Have you been waiting long?*
+- отрицание: *I haven't been sleeping well.*
+
+*been* есть всегда и не меняется. Часто теряется одна из частей: *I've working*, *I'm been working*, *I have been work*.
+
+✅ *She has been working all day.*
+❌ *She has working all day.*
+
+✅ *I've been waiting for an hour.*
+❌ *I'm been waiting for an hour.*
+
+**Проверь себя:** посчитай части — *have / has*, *been*, *-ing*. Все три на месте?`,
+      },
+    },
+    {
+      for: ['tense', 'duration', 'howlong'],
+      rule: {
+        en: `An activity that started in the past and is **still going on** (or just stopped), often with *for, since, How long, all day, lately*: *We've been waiting for an hour.*`,
+        uk: `Дія почалася в минулому і **досі триває** (або щойно закінчилася), часто з *for, since, How long, all day, lately*: *We've been waiting for an hour* — «Ми чекаємо вже годину».`,
+        ru: `Действие началось в прошлом и **всё ещё длится** (или только что закончилось), часто с *for, since, How long, all day, lately*: *We've been waiting for an hour* — «Мы ждём уже час».`,
+      },
+      more: {
+        en: `**The idea.** This tense is for an **activity** that started in the past and is **still going on** (or has only just stopped). It answers "how long?":
+- *I've been waiting for the bus for twenty minutes.*
+- *It's been raining since this morning.*
+- *How long have you been learning English?*
+
+Typical words: *for, since, How long, all day, all morning, lately, recently*.
+
+Ukrainian and Russian use the present here: «Я чекаю вже годину / Я жду уже час», «Я шукаю роботу з березня / Я ищу работу с марта». English can't: the activity has a past part, so it's *have been + -ing*.
+
+✅ *I've been looking for a job since March.*
+❌ *I'm looking for a job since March.*
+
+✅ *How long have you been waiting?*
+❌ *How long are you waiting?*
+
+**Check yourself:** an activity + *for / since / How long* + still going on → *have been + -ing*.`,
+        uk: `**Суть.** Цей час — для **дії**, що почалася в минулому і **досі триває** (або щойно закінчилася). Він відповідає на «як довго?»:
+- *I've been waiting for the bus for twenty minutes.*
+- *It's been raining since this morning.*
+- *How long have you been learning English?*
+
+Типові слова: *for, since, How long, all day, all morning, lately, recently*.
+
+Українською тут теперішній: «Я чекаю вже годину», «Я шукаю роботу з березня». Англійською так не можна: у дії є минула частина, тому *have been + -ing*.
+
+✅ *I've been looking for a job since March.*
+❌ *I'm looking for a job since March.*
+
+✅ *How long have you been waiting?*
+❌ *How long are you waiting?*
+
+**Перевір себе:** дія + *for / since / How long* + досі триває → *have been + -ing*.`,
+        ru: `**Суть.** Это время — для **действия**, которое началось в прошлом и **до сих пор длится** (или только что закончилось). Оно отвечает на «как долго?»:
+- *I've been waiting for the bus for twenty minutes.*
+- *It's been raining since this morning.*
+- *How long have you been learning English?*
+
+Типичные слова: *for, since, How long, all day, all morning, lately, recently*.
+
+По-русски здесь настоящее: «Я жду уже час», «Я ищу работу с марта». По-английски так нельзя: у действия есть прошлая часть, поэтому *have been + -ing*.
+
+✅ *I've been looking for a job since March.*
+❌ *I'm looking for a job since March.*
+
+✅ *How long have you been waiting?*
+❌ *How long are you waiting?*
+
+**Проверь себя:** действие + *for / since / How long* + до сих пор длится → *have been + -ing*.`,
+      },
+    },
+    {
+      for: ['evidence'],
+      rule: {
+        en: `You can **see the result** of a recent activity: *Your eyes are red. Have you been crying?*`,
+        uk: `**Видно результат** недавньої дії: *Your eyes are red. Have you been crying?* — «Ти плакала?»`,
+        ru: `**Виден результат** недавнего действия: *Your eyes are red. Have you been crying?* — «Ты плакала?»`,
+      },
+      more: {
+        en: `**The idea.** Sometimes the activity has just stopped, and you can **see, hear or feel** what it left behind: wet streets, red eyes, dirty hands, a smell. You explain it with *have been + -ing*:
+- *The ground is wet. It's been raining.*
+- *Your eyes are red. Have you been crying?*
+- *Why are your hands so dirty? — I've been fixing the car.*
+- *I'm exhausted — I've been working all day.*
+
+The focus is on the activity that caused what you see now.
+
+✅ *You're out of breath. Have you been running?*
+❌ *You're out of breath. Have you run?*
+
+✅ *Sorry about the mess — we've been cooking.*
+❌ *Sorry about the mess — we cook.*
+
+**Check yourself:** you see the traces of an activity → *Have you been …-ing?*`,
+        uk: `**Суть.** Буває, дія щойно закінчилася, і ти **бачиш, чуєш чи відчуваєш** її сліди: мокрі вулиці, червоні очі, брудні руки, запах. Це пояснюють через *have been + -ing*:
+- *The ground is wet. It's been raining.*
+- *Your eyes are red. Have you been crying?*
+- *Why are your hands so dirty? — I've been fixing the car.*
+- *I'm exhausted — I've been working all day.*
+
+Увага на дії, яка спричинила те, що ти бачиш зараз.
+
+✅ *You're out of breath. Have you been running?*
+❌ *You're out of breath. Have you run?*
+
+✅ *Sorry about the mess — we've been cooking.*
+❌ *Sorry about the mess — we cook.*
+
+**Перевір себе:** бачиш сліди дії → *Have you been …-ing?*`,
+        ru: `**Суть.** Бывает, действие только что закончилось, и ты **видишь, слышишь или чувствуешь** его следы: мокрые улицы, красные глаза, грязные руки, запах. Это объясняют через *have been + -ing*:
+- *The ground is wet. It's been raining.*
+- *Your eyes are red. Have you been crying?*
+- *Why are your hands so dirty? — I've been fixing the car.*
+- *I'm exhausted — I've been working all day.*
+
+Внимание на действии, которое вызвало то, что ты видишь сейчас.
+
+✅ *You're out of breath. Have you been running?*
+❌ *You're out of breath. Have you run?*
+
+✅ *Sorry about the mess — we've been cooking.*
+❌ *Sorry about the mess — we cook.*
+
+**Проверь себя:** видишь следы действия → *Have you been …-ing?*`,
+      },
+    },
+    {
+      for: ['result'],
+      rule: {
+        en: `The **Present Perfect Simple** (*I've done*) is about the **result** or **how many / how much**: *I've been painting the kitchen* (the activity; maybe not finished) — *I've painted the kitchen* (finished).`,
+        uk: `**Present Perfect Simple** (*I've done*) — про **результат** або **скільки**: *I've been painting the kitchen* (процес, можливо не закінчений) — *I've painted the kitchen* (готово).`,
+        ru: `**Present Perfect Simple** (*I've done*) — о **результате** или **сколько**: *I've been painting the kitchen* (процесс, может, не закончен) — *I've painted the kitchen* (готово).`,
+      },
+      more: {
+        en: `**The idea.** Two forms, two different things in focus:
+- **have been + -ing** → the **activity**, the process; it may not be finished: *I've been painting the kitchen all morning.* — that's what I've been busy with (and why I'm covered in paint)
+- **have + 3rd form** → the **result**; it's **done**: *I've painted the kitchen. Come and see!*
+
+✅ *I've finished my homework. Can I go out now?*
+❌ *I've been finishing my homework. Can I go out now?*
+
+✅ *I've been painting all morning, and it isn't finished yet.*
+❌ *I've painted all morning, and it isn't finished yet.*
+
+**Check yourself:** "it's done, look at the result" → *have + 3rd form*. "That's what I've been doing" → *have been + -ing*.`,
+        uk: `**Суть.** Дві форми — і в центрі уваги різне:
+- **have been + -ing** → **дія**, процес; може бути незакінченою: *I've been painting the kitchen all morning.* — ось чим я була зайнята (і чому я вся у фарбі)
+- **have + третя форма** → **результат**; усе **зроблено**: *I've painted the kitchen. Come and see!*
+
+✅ *I've finished my homework. Can I go out now?*
+❌ *I've been finishing my homework. Can I go out now?*
+
+✅ *I've been painting all morning, and it isn't finished yet.*
+❌ *I've painted all morning, and it isn't finished yet.*
+
+**Перевір себе:** «готово, ось результат» → *have + третя форма*. «Ось чим я займалася» → *have been + -ing*.`,
+        ru: `**Суть.** Две формы — и в центре внимания разное:
+- **have been + -ing** → **действие**, процесс; может быть незаконченным: *I've been painting the kitchen all morning.* — вот чем я была занята (и почему я вся в краске)
+- **have + третья форма** → **результат**; всё **сделано**: *I've painted the kitchen. Come and see!*
+
+✅ *I've finished my homework. Can I go out now?*
+❌ *I've been finishing my homework. Can I go out now?*
+
+✅ *I've been painting all morning, and it isn't finished yet.*
+❌ *I've painted all morning, and it isn't finished yet.*
+
+**Проверь себя:** «готово, вот результат» → *have + третья форма*. «Вот чем я занималась» → *have been + -ing*.`,
+      },
+    },
+    {
+      for: ['count'],
+      rule: {
+        en: `*I've been writing emails all morning* — *I've written five emails.*`,
+        uk: `*I've been writing emails all morning* — *I've written five emails.*`,
+        ru: `*I've been writing emails all morning* — *I've written five emails.*`,
+      },
+      more: {
+        en: `**The idea.** The *-ing* form answers "how long?". When you say **how many** or **how much** — a number, an amount — use the **Present Perfect Simple**:
+- *I've been writing emails all morning.* — how long
+- *I've written five emails.* — how many
+- *She's drunk three cups of coffee today.* — not *has been drinking three cups*
+
+A number means you're counting finished things, and finished things take the Simple form.
+
+✅ *I've read four books this month.*
+❌ *I've been reading four books this month.*
+
+✅ *She's called three times today.*
+❌ *She's been calling three times today.*
+
+**Check yourself:** is there a number — *three, five, how many*? → *have + 3rd form*, no *-ing*.`,
+        uk: `**Суть.** Форма з *-ing* відповідає на «як довго?». Коли кажеш **скільки** — число, кількість — вживай **Present Perfect Simple**:
+- *I've been writing emails all morning.* — як довго
+- *I've written five emails.* — скільки
+- *She's drunk three cups of coffee today.* — не *has been drinking three cups*
+
+Число означає, що ти рахуєш завершені речі, а завершене — це проста форма.
+
+✅ *I've read four books this month.*
+❌ *I've been reading four books this month.*
+
+✅ *She's called three times today.*
+❌ *She's been calling three times today.*
+
+**Перевір себе:** є число — *three, five, how many*? → *have + третя форма*, без *-ing*.`,
+        ru: `**Суть.** Форма с *-ing* отвечает на «как долго?». Когда говоришь **сколько** — число, количество — используй **Present Perfect Simple**:
+- *I've been writing emails all morning.* — как долго
+- *I've written five emails.* — сколько
+- *She's drunk three cups of coffee today.* — не *has been drinking three cups*
+
+Число значит, что ты считаешь завершённые вещи, а завершённое — это простая форма.
+
+✅ *I've read four books this month.*
+❌ *I've been reading four books this month.*
+
+✅ *She's called three times today.*
+❌ *She's been calling three times today.*
+
+**Проверь себя:** есть число — *three, five, how many*? → *have + третья форма*, без *-ing*.`,
+      },
+    },
+    {
+      for: ['stative'],
+      rule: {
+        en: `Verbs of state (*know, like, want, believe, own, have* = own) usually do not take *-ing*: *I've known her for years.*`,
+        uk: `Дієслова стану (*know, like, want, believe, own, have* = мати) зазвичай без *-ing*: *I've known her for years.*`,
+        ru: `Глаголы состояния (*know, like, want, believe, own, have* = иметь) обычно без *-ing*: *I've known her for years.*`,
+      },
+      more: {
+        en: `**The idea.** Verbs of **state** — *know, like, love, want, believe, own, belong, have* (= own) — don't take *-ing*. So even with *for / since* they use the **Present Perfect Simple**:
+- *We've known each other since we were kids.* (not *been knowing*)
+- *I've had this laptop for six years.* — *have* = own
+- *She's always loved music.*
+
+✅ *I've known him for ages.*
+❌ *I've been knowing him for ages.*
+
+✅ *I've had this car for ten years.*
+❌ *I've been having this car for ten years.*
+
+**But** when *have* is an action, *-ing* is fine: *We've been having problems with the car.*
+
+**Check yourself:** a state, not an activity? → *have + 3rd form*, even with *for / since*.`,
+        uk: `**Суть.** Дієслова **стану** — *know, like, love, want, believe, own, belong, have* (= мати) — не беруть *-ing*. Тож навіть з *for / since* вони йдуть у **Present Perfect Simple**:
+- *We've known each other since we were kids.* (не *been knowing*)
+- *I've had this laptop for six years.* — *have* = мати
+- *She's always loved music.*
+
+✅ *I've known him for ages.*
+❌ *I've been knowing him for ages.*
+
+✅ *I've had this car for ten years.*
+❌ *I've been having this car for ten years.*
+
+**Але** коли *have* — дія, *-ing* можна: *We've been having problems with the car.*
+
+**Перевір себе:** це стан, а не дія? → *have + третя форма*, навіть з *for / since*.`,
+        ru: `**Суть.** Глаголы **состояния** — *know, like, love, want, believe, own, belong, have* (= иметь) — не берут *-ing*. Поэтому даже с *for / since* они идут в **Present Perfect Simple**:
+- *We've known each other since we were kids.* (не *been knowing*)
+- *I've had this laptop for six years.* — *have* = иметь
+- *She's always loved music.*
+
+✅ *I've known him for ages.*
+❌ *I've been knowing him for ages.*
+
+✅ *I've had this car for ten years.*
+❌ *I've been having this car for ten years.*
+
+**Но** когда *have* — действие, *-ing* можно: *We've been having problems with the car.*
+
+**Проверь себя:** это состояние, а не действие? → *have + третья форма*, даже с *for / since*.`,
+      },
+    },
+  ],
   examples: ["We've been waiting for the doctor for an hour.", 'Your eyes are red. Have you been crying?', "I've been cleaning all day, but I haven't finished yet.", "I've written five emails this morning.", "I've known my husband for ten years."],
   trap: {
     uk: 'Я шукаю роботу з березня.',

@@ -5,35 +5,417 @@ APP.addTopic({
   group: 'Modals',
   icon: '🧭',
   about: 'advice and maybe: You should… It might…',
-  rule: {
-    en: `**Advice**
-- **should / shouldn't** + verb: *You should see a doctor. You shouldn't drive tonight.* **ought to** = should (more formal): *You ought to rest.*
-- **had better ('d better)** + verb — strong advice, a warning (something bad may happen): *You'd better take an umbrella. We'd better not be late.*
-- **could** — a softer suggestion, one option: *You could ask your neighbor.*
-**Maybe (possibility)**
-- **may / might / could** + verb = maybe: *It might rain. She may be late. That could be the problem.* Negative: **may not / might not**: *He might not come.*
-- **maybe** is a separate word at the start: *Maybe it will rain* = *It might rain.* Not *It maybe rain*.
-- **can't** = impossible: *That can't be true.*
-After all these (except *ought to*) the verb has **no to** and no *-s*: *She might call*, not *might to call / might calls*.`,
-    uk: `**Порада**
-- **should / shouldn't** + дієслово: *You should see a doctor* — «Тобі варто сходити до лікаря». *You shouldn't drive tonight.* **ought to** = should (офіційніше): *You ought to rest.*
-- **had better ('d better)** + дієслово — наполеглива порада, попередження (інакше буде погано): *You'd better take an umbrella. We'd better not be late.*
-- **could** — м'яка пропозиція, один із варіантів: *You could ask your neighbor.*
-**Можливо (ймовірність)**
-- **may / might / could** + дієслово = можливо: *It might rain. She may be late. That could be the problem.* Заперечення: **may not / might not**: *He might not come.*
-- **maybe** — окреме слово на початку: *Maybe it will rain* = *It might rain.* Не *It maybe rain*.
-- **can't** = неможливо: *That can't be true.*
-Після них усіх (крім *ought to*) дієслово **без to** і без *-s*: *She might call*, а не *might to call / might calls*.`,
-    ru: `**Совет**
-- **should / shouldn't** + глагол: *You should see a doctor* — «Тебе стоит сходить к врачу». *You shouldn't drive tonight.* **ought to** = should (официальнее): *You ought to rest.*
-- **had better ('d better)** + глагол — настойчивый совет, предупреждение (иначе будет плохо): *You'd better take an umbrella. We'd better not be late.*
-- **could** — мягкое предложение, один из вариантов: *You could ask your neighbor.*
-**Может быть (вероятность)**
-- **may / might / could** + глагол = возможно: *It might rain. She may be late. That could be the problem.* Отрицание: **may not / might not**: *He might not come.*
-- **maybe** — отдельное слово в начале: *Maybe it will rain* = *It might rain.* Не *It maybe rain*.
-- **can't** = невозможно: *That can't be true.*
-После них всех (кроме *ought to*) глагол **без to** и без *-s*: *She might call*, а не *might to call / might calls*.`,
-  },
+  points: [
+    {
+      for: ['should'],
+      rule: {
+        en: `**should / shouldn't** + verb: *You should see a doctor. You shouldn't drive tonight.* **ought to** = should (more formal): *You ought to rest.*`,
+        uk: `**should / shouldn't** + дієслово: *You should see a doctor* — «Тобі варто сходити до лікаря». *You shouldn't drive tonight.* **ought to** = should (офіційніше): *You ought to rest.*`,
+        ru: `**should / shouldn't** + глагол: *You should see a doctor* — «Тебе стоит сходить к врачу». *You shouldn't drive tonight.* **ought to** = should (официальнее): *You ought to rest.*`,
+      },
+      more: {
+        en: `**The idea.** **should** = «варто, слід, тобі б — стоит, следует, тебе бы»: your **advice** or opinion about what is right. It's friendly and soft:
+- *You have a fever. You should see a doctor.*
+- *You shouldn't eat so much sugar.*
+- *Should I call her?* — asking for advice
+
+**ought to** means the same but sounds more formal: *You ought to rest.*
+
+*must* is much stronger — a rule or an obligation: *You must wear a seat belt.* Using *must* for friendly advice can sound like an order.
+
+✅ *You should drink more water.*
+❌ *You must drink more water.* — too strong for friendly advice
+
+✅ *You shouldn't drive tonight.*
+❌ *You don't should drive tonight.*
+
+**Check yourself:** "my advice is…" → *should*. "It's the rule" → *must*.`,
+        uk: `**Суть.** **should** = «варто, слід, тобі б»: твоя **порада** чи думка про те, як правильно. Звучить дружньо й м'яко:
+- *You have a fever. You should see a doctor.*
+- *You shouldn't eat so much sugar.*
+- *Should I call her?* — питаєш поради
+
+**ought to** означає те саме, але звучить офіційніше: *You ought to rest.*
+
+*must* набагато сильніше — правило чи обов'язок: *You must wear a seat belt.* *must* у дружній пораді може звучати як наказ.
+
+✅ *You should drink more water.*
+❌ *You must drink more water.* — забагато для дружньої поради
+
+✅ *You shouldn't drive tonight.*
+❌ *You don't should drive tonight.*
+
+**Перевір себе:** «моя порада…» → *should*. «Таке правило» → *must*.`,
+        ru: `**Суть.** **should** = «стоит, следует, тебе бы»: твой **совет** или мнение о том, как правильно. Звучит дружелюбно и мягко:
+- *You have a fever. You should see a doctor.*
+- *You shouldn't eat so much sugar.*
+- *Should I call her?* — просишь совета
+
+**ought to** значит то же, но звучит официальнее: *You ought to rest.*
+
+*must* намного сильнее — правило или обязанность: *You must wear a seat belt.* *must* в дружеском совете может звучать как приказ.
+
+✅ *You should drink more water.*
+❌ *You must drink more water.* — слишком сильно для дружеского совета
+
+✅ *You shouldn't drive tonight.*
+❌ *You don't should drive tonight.*
+
+**Проверь себя:** «мой совет…» → *should*. «Таково правило» → *must*.`,
+      },
+    },
+    {
+      for: ['had-better'],
+      rule: {
+        en: `**had better ('d better)** + verb — strong advice, a warning (something bad may happen): *You'd better take an umbrella. We'd better not be late.*`,
+        uk: `**had better ('d better)** + дієслово — наполеглива порада, попередження (інакше буде погано): *You'd better take an umbrella. We'd better not be late.*`,
+        ru: `**had better ('d better)** + глагол — настойчивый совет, предупреждение (иначе будет плохо): *You'd better take an umbrella. We'd better not be late.*`,
+      },
+      more: {
+        en: `**The idea.** **had better** (usually short: *'d better*) is a **strong** advice with a warning inside: "do it, **or** something bad will happen" — «краще б тобі… / тебе лучше…, а то…»:
+- *We'd better leave now, or we'll miss the train.*
+- *You'd better take an umbrella.*
+
+It looks like the past (*had*), but it's about **now** or the future.
+
+Negative: **had better not** + verb:
+- *You'd better not tell anyone.*
+
+After it, the bare verb — no *to*.
+
+✅ *We'd better leave now.*
+❌ *We'd better to leave now.*
+
+✅ *You'd better not be late.*
+❌ *You'd not better be late.*
+
+✅ *You'd better hurry.*
+❌ *You have better hurry.*
+
+**Check yourself:** is there a hidden "or else…"? → *'d better*. Then the bare verb, and *not* after *better*.`,
+        uk: `**Суть.** **had better** (зазвичай коротко: *'d better*) — **сильна** порада із застереженням усередині: «зроби це, **бо інакше** буде погано» — «краще б тобі…, а то…»:
+- *We'd better leave now, or we'll miss the train.*
+- *You'd better take an umbrella.*
+
+Схоже на минулий час (*had*), але йдеться про **зараз** чи майбутнє.
+
+Заперечення: **had better not** + дієслово:
+- *You'd better not tell anyone.*
+
+Після нього — голе дієслово, без *to*.
+
+✅ *We'd better leave now.*
+❌ *We'd better to leave now.*
+
+✅ *You'd better not be late.*
+❌ *You'd not better be late.*
+
+✅ *You'd better hurry.*
+❌ *You have better hurry.*
+
+**Перевір себе:** є приховане «а то…»? → *'d better*. Далі голе дієслово, а *not* — після *better*.`,
+        ru: `**Суть.** **had better** (обычно коротко: *'d better*) — **сильный** совет с предупреждением внутри: «сделай это, **а то** будет плохо» — «тебе лучше…, а то…»:
+- *We'd better leave now, or we'll miss the train.*
+- *You'd better take an umbrella.*
+
+Похоже на прошедшее время (*had*), но речь о **сейчас** или будущем.
+
+Отрицание: **had better not** + глагол:
+- *You'd better not tell anyone.*
+
+После него — голый глагол, без *to*.
+
+✅ *We'd better leave now.*
+❌ *We'd better to leave now.*
+
+✅ *You'd better not be late.*
+❌ *You'd not better be late.*
+
+✅ *You'd better hurry.*
+❌ *You have better hurry.*
+
+**Проверь себя:** есть скрытое «а то…»? → *'d better*. Дальше голый глагол, а *not* — после *better*.`,
+      },
+    },
+    {
+      for: ['suggest'],
+      rule: {
+        en: `**could** — a softer suggestion, one option: *You could ask your neighbor.*`,
+        uk: `**could** — м'яка пропозиція, один із варіантів: *You could ask your neighbor.*`,
+        ru: `**could** — мягкое предложение, один из вариантов: *You could ask your neighbor.*`,
+      },
+      more: {
+        en: `**The idea.** **could** gives the softest advice: not "do this", but "here's **one option**" — «можна було б / можно было бы»:
+- *If you're bored, you could take a dance class.*
+- *Where can I get cheap furniture? — You could try IKEA or a thrift store.*
+- *We could order pizza tonight.*
+
+It leaves the choice to the other person, so it sounds very friendly. Like other modal verbs: the bare verb after it.
+
+✅ *You could ask your neighbor.*
+❌ *You could to ask your neighbor.*
+
+**Compare:**
+- *You should call the bank.* — I think it's the right thing to do
+- *You could call the bank.* — it's one idea, up to you
+
+**Check yourself:** offering an idea, not insisting? → *could*.`,
+        uk: `**Суть.** **could** — найм'якша порада: не «зроби це», а «ось **один варіант**» — «можна було б»:
+- *If you're bored, you could take a dance class.*
+- *Where can I get cheap furniture? — You could try IKEA or a thrift store.*
+- *We could order pizza tonight.*
+
+Вибір лишається за іншою людиною, тому звучить дуже дружньо. Як і з іншими модальними — голе дієслово після нього.
+
+✅ *You could ask your neighbor.*
+❌ *You could to ask your neighbor.*
+
+**Порівняй:**
+- *You should call the bank.* — я вважаю, що так правильно
+- *You could call the bank.* — це одна з ідей, вирішуй сама
+
+**Перевір себе:** пропонуєш ідею, а не наполягаєш? → *could*.`,
+        ru: `**Суть.** **could** — самый мягкий совет: не «сделай это», а «вот **один вариант**» — «можно было бы»:
+- *If you're bored, you could take a dance class.*
+- *Where can I get cheap furniture? — You could try IKEA or a thrift store.*
+- *We could order pizza tonight.*
+
+Выбор остаётся за другим человеком, поэтому звучит очень дружелюбно. Как и с другими модальными — голый глагол после него.
+
+✅ *You could ask your neighbor.*
+❌ *You could to ask your neighbor.*
+
+**Сравни:**
+- *You should call the bank.* — я считаю, что так правильно
+- *You could call the bank.* — это одна из идей, решай сама
+
+**Проверь себя:** предлагаешь идею, а не настаиваешь? → *could*.`,
+      },
+    },
+    {
+      for: ['might'],
+      rule: {
+        en: `**may / might / could** + verb = maybe: *It might rain. She may be late. That could be the problem.* Negative: **may not / might not**: *He might not come.*`,
+        uk: `**may / might / could** + дієслово = можливо: *It might rain. She may be late. That could be the problem.* Заперечення: **may not / might not**: *He might not come.*`,
+        ru: `**may / might / could** + глагол = возможно: *It might rain. She may be late. That could be the problem.* Отрицание: **may not / might not**: *He might not come.*`,
+      },
+      more: {
+        en: `**The idea.** When you're **not sure** — maybe yes, maybe no — use **may / might / could** + verb. It's like «можливо / може — возможно / может»:
+- *Take an umbrella. It might rain later.*
+- *She may be late tonight.*
+- *That could be the problem.*
+
+All three mean about the same; *might* is the most common in speech.
+
+Negative: **may not / might not** = maybe not: *He might not come.* (Not *couldn't* — that means "wasn't able".)
+
+✅ *She might be late tonight.*
+❌ *She maybe will late tonight.*
+
+✅ *I'm not sure, but I might be able to come.*
+❌ *I'm not sure, but I might to be able to come.*
+
+**Check yourself:** "maybe" in the middle of a sentence → *might / may* + the bare verb.`,
+        uk: `**Суть.** Коли **не впевнена** — може так, а може ні — кажи **may / might / could** + дієслово. Це як «можливо / може»:
+- *Take an umbrella. It might rain later.*
+- *She may be late tonight.*
+- *That could be the problem.*
+
+Усі три означають майже те саме; *might* — найчастіше в розмові.
+
+Заперечення: **may not / might not** = можливо, ні: *He might not come.* (Не *couldn't* — це «не зміг».)
+
+✅ *She might be late tonight.*
+❌ *She maybe will late tonight.*
+
+✅ *I'm not sure, but I might be able to come.*
+❌ *I'm not sure, but I might to be able to come.*
+
+**Перевір себе:** «може» посеред речення → *might / may* + голе дієслово.`,
+        ru: `**Суть.** Когда **не уверена** — может да, а может нет — говори **may / might / could** + глагол. Это как «возможно / может»:
+- *Take an umbrella. It might rain later.*
+- *She may be late tonight.*
+- *That could be the problem.*
+
+Все три значат почти одно и то же; *might* — чаще всего в разговоре.
+
+Отрицание: **may not / might not** = возможно, нет: *He might not come.* (Не *couldn't* — это «не смог».)
+
+✅ *She might be late tonight.*
+❌ *She maybe will late tonight.*
+
+✅ *I'm not sure, but I might be able to come.*
+❌ *I'm not sure, but I might to be able to come.*
+
+**Проверь себя:** «может» посреди предложения → *might / may* + голый глагол.`,
+      },
+    },
+    {
+      for: ['maybe'],
+      rule: {
+        en: `**maybe** is a separate word at the start: *Maybe it will rain* = *It might rain.* Not *It maybe rain*.`,
+        uk: `**maybe** — окреме слово на початку: *Maybe it will rain* = *It might rain.* Не *It maybe rain*.`,
+        ru: `**maybe** — отдельное слово в начале: *Maybe it will rain* = *It might rain.* Не *It maybe rain*.`,
+      },
+      more: {
+        en: `**The idea.** **maybe** is a separate word, like «може / может», and it goes at the **start** of the sentence. After it — a complete normal sentence:
+- *Maybe he's still at work.*
+- *Maybe we should call a plumber.*
+- *Maybe it will rain.* = *It might rain.*
+
+Inside the sentence, English uses **might / may** instead. *maybe* can't replace the verb:
+- *He maybe at work* — no verb at all
+- *may be* (two words) is a verb: *He may be at work.*
+
+✅ *Maybe she's sick.*
+❌ *She maybe sick.*
+
+✅ *She might be sick.*
+❌ *She maybe is sick.* — possible, but *might be* sounds much more natural
+
+**Check yourself:** *maybe* at the start + a full sentence; or *might / may* + verb in the middle.`,
+        uk: `**Суть.** **maybe** — окреме слово, як «може», і воно стоїть на **початку** речення. Після нього — повне звичайне речення:
+- *Maybe he's still at work.*
+- *Maybe we should call a plumber.*
+- *Maybe it will rain.* = *It might rain.*
+
+Усередині речення англійська вживає **might / may**. *maybe* не замінює дієслово:
+- *He maybe at work* — дієслова немає взагалі
+- *may be* (двома словами) — це дієслово: *He may be at work.*
+
+✅ *Maybe she's sick.*
+❌ *She maybe sick.*
+
+✅ *She might be sick.*
+❌ *She maybe is sick.* — можливо, але *might be* звучить набагато природніше
+
+**Перевір себе:** *maybe* на початку + повне речення; або *might / may* + дієслово посередині.`,
+        ru: `**Суть.** **maybe** — отдельное слово, как «может», и оно стоит в **начале** предложения. После него — полное обычное предложение:
+- *Maybe he's still at work.*
+- *Maybe we should call a plumber.*
+- *Maybe it will rain.* = *It might rain.*
+
+Внутри предложения английский использует **might / may**. *maybe* не заменяет глагол:
+- *He maybe at work* — глагола нет вообще
+- *may be* (двумя словами) — это глагол: *He may be at work.*
+
+✅ *Maybe she's sick.*
+❌ *She maybe sick.*
+
+✅ *She might be sick.*
+❌ *She maybe is sick.* — возможно, но *might be* звучит гораздо естественнее
+
+**Проверь себя:** *maybe* в начале + полное предложение; или *might / may* + глагол в середине.`,
+      },
+    },
+    {
+      for: ['cant-impossible', 'cant'],
+      rule: {
+        en: `**can't** = impossible: *That can't be true.*`,
+        uk: `**can't** = неможливо: *That can't be true.*`,
+        ru: `**can't** = невозможно: *That can't be true.*`,
+      },
+      more: {
+        en: `**The idea.** **can't** here doesn't mean "not able". It means you're **sure** something is **not true** — «не може бути / не может быть»:
+- *That can't be true! I saw him an hour ago.*
+- *She can't be at home — her car isn't there.*
+
+Compare the strength:
+- *He might not come.* — maybe not, I'm not sure
+- *He can't be serious.* — I'm sure he isn't
+
+✅ *That can't be true!*
+❌ *That might not be true!* — too weak when you're sure
+
+✅ *She can't be at home — her car isn't there.*
+❌ *She mustn't be at home — her car isn't there.* — *mustn't* means "not allowed"
+
+**Check yourself:** "it's impossible, I'm sure it's not so" → *can't be*.`,
+        uk: `**Суть.** **can't** тут не означає «не може фізично». Воно означає, що ти **впевнена**: це **неправда** — «не може бути»:
+- *That can't be true! I saw him an hour ago.*
+- *She can't be at home — her car isn't there.*
+
+Порівняй силу:
+- *He might not come.* — можливо, ні, я не впевнена
+- *He can't be serious.* — я впевнена, що ні
+
+✅ *That can't be true!*
+❌ *That might not be true!* — заслабко, коли ти впевнена
+
+✅ *She can't be at home — her car isn't there.*
+❌ *She mustn't be at home — her car isn't there.* — *mustn't* означає «не можна»
+
+**Перевір себе:** «неможливо, я впевнена, що це не так» → *can't be*.`,
+        ru: `**Суть.** **can't** здесь не значит «не может физически». Оно значит, что ты **уверена**: это **неправда** — «не может быть»:
+- *That can't be true! I saw him an hour ago.*
+- *She can't be at home — her car isn't there.*
+
+Сравни силу:
+- *He might not come.* — возможно, нет, я не уверена
+- *He can't be serious.* — я уверена, что нет
+
+✅ *That can't be true!*
+❌ *That might not be true!* — слишком слабо, когда ты уверена
+
+✅ *She can't be at home — her car isn't there.*
+❌ *She mustn't be at home — her car isn't there.* — *mustn't* значит «нельзя»
+
+**Проверь себя:** «невозможно, я уверена, что это не так» → *can't be*.`,
+      },
+    },
+    {
+      for: ['form'],
+      rule: {
+        en: `After all these (except *ought to*) the verb has **no to** and no *-s*: *She might call*, not *might to call / might calls*.`,
+        uk: `Після них усіх (крім *ought to*) дієслово **без to** і без *-s*: *She might call*, а не *might to call / might calls*.`,
+        ru: `После них всех (кроме *ought to*) глагол **без to** и без *-s*: *She might call*, а не *might to call / might calls*.`,
+      },
+      more: {
+        en: `**The idea.** *should, might, may, could, can't, had better* are modal verbs, and they all follow one simple pattern: **modal + the bare verb**:
+- no *to* after them: *She might call.* (not *might to call*)
+- no *-s* on the verb: *He may come.* (not *may comes*)
+- no *-s* on the modal: *She should go.* (not *shoulds*)
+
+Only *ought* takes *to*: *You ought to rest.*
+
+✅ *She might be late tonight.*
+❌ *She might to be late tonight.*
+
+✅ *He may call you tonight.*
+❌ *He may calls you tonight.*
+
+**Check yourself:** after a modal — the verb exactly as in the dictionary.`,
+        uk: `**Суть.** *should, might, may, could, can't, had better* — модальні дієслова, і всі вони йдуть за однією простою схемою: **модальне + голе дієслово**:
+- без *to* після них: *She might call.* (не *might to call*)
+- без *-s* у дієслові: *He may come.* (не *may comes*)
+- без *-s* у модальному: *She should go.* (не *shoulds*)
+
+Лише *ought* бере *to*: *You ought to rest.*
+
+✅ *She might be late tonight.*
+❌ *She might to be late tonight.*
+
+✅ *He may call you tonight.*
+❌ *He may calls you tonight.*
+
+**Перевір себе:** після модального — дієслово точно як у словнику.`,
+        ru: `**Суть.** *should, might, may, could, can't, had better* — модальные глаголы, и все они следуют одной простой схеме: **модальный + голый глагол**:
+- без *to* после них: *She might call.* (не *might to call*)
+- без *-s* у глагола: *He may come.* (не *may comes*)
+- без *-s* у модального: *She should go.* (не *shoulds*)
+
+Только *ought* берёт *to*: *You ought to rest.*
+
+✅ *She might be late tonight.*
+❌ *She might to be late tonight.*
+
+✅ *He may call you tonight.*
+❌ *He may calls you tonight.*
+
+**Проверь себя:** после модального — глагол точно как в словаре.`,
+      },
+    },
+  ],
   examples: ['You should see a doctor about that.', "You'd better take an umbrella.", 'It might rain this afternoon.', "He might not come to the party.", "You could ask your neighbor for help."],
   trap: {
     uk: 'Можливо, вона запізниться.',

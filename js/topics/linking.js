@@ -5,32 +5,369 @@ APP.addTopic({
   group: 'Linking',
   icon: '🔀',
   about: 'joining ideas: contrast, reason, result, purpose',
-  rule: {
-    en: `**Contrast**
-- **although / even though** + a clause (subject + verb): *Although it was raining, we went out.*
-- **despite / in spite of** + a noun or **-ing**: *Despite the rain, we went out. In spite of feeling tired, she finished.* (*despite* — no *of*.)
-- **however** links two sentences, with a comma: *The hotel was nice. However, it was expensive.*
-- Don't use *although* and *but* together — one is enough.
-**Reason**: **because** + a clause (*because it was late*); **because of** + a noun (*because of the traffic*).
-**Result**: **so** + a clause: *It was late, so we took a taxi.*
-**Purpose** (why?): **to / in order to** + verb (*I called to ask*); **so that** + a clause, often with *can / could / will / would* (*I left early so that I could catch the bus*).`,
-    uk: `**Протиставлення**
-- **although / even though** + речення (підмет + дієслово): *Although it was raining, we went out* — «Хоча йшов дощ…».
-- **despite / in spite of** + іменник або **-ing**: *Despite the rain, we went out* — «Попри дощ…». *In spite of feeling tired, she finished.* (*despite* — без *of*.)
-- **however** («однак») з'єднує два речення, з комою: *The hotel was nice. However, it was expensive.*
-- Не вживайте *although* і *but* разом — достатньо одного.
-**Причина**: **because** + речення (*because it was late*); **because of** + іменник (*because of the traffic*) — «через затори».
-**Наслідок**: **so** + речення: *It was late, so we took a taxi* — «тому ми взяли таксі».
-**Мета** (навіщо?): **to / in order to** + дієслово (*I called to ask*); **so that** + речення, часто з *can / could / will / would* (*I left early so that I could catch the bus*) — «щоб устигнути».`,
-    ru: `**Противопоставление**
-- **although / even though** + предложение (подлежащее + глагол): *Although it was raining, we went out* — «Хотя шёл дождь…».
-- **despite / in spite of** + существительное или **-ing**: *Despite the rain, we went out* — «Несмотря на дождь…». *In spite of feeling tired, she finished.* (*despite* — без *of*.)
-- **however** («однако») связывает два предложения, с запятой: *The hotel was nice. However, it was expensive.*
-- Не используйте *although* и *but* вместе — достаточно одного.
-**Причина**: **because** + предложение (*because it was late*); **because of** + существительное (*because of the traffic*) — «из-за пробок».
-**Следствие**: **so** + предложение: *It was late, so we took a taxi* — «поэтому мы взяли такси».
-**Цель** (зачем?): **to / in order to** + глагол (*I called to ask*); **so that** + предложение, часто с *can / could / will / would* (*I left early so that I could catch the bus*) — «чтобы успеть».`,
-  },
+  points: [
+    {
+      for: ['although'],
+      rule: {
+        en: `**although / even though** + a clause (subject + verb): *Although it was raining, we went out.*`,
+        uk: `**although / even though** + речення (підмет + дієслово): *Although it was raining, we went out* — «Хоча йшов дощ…».`,
+        ru: `**although / even though** + предложение (подлежащее + глагол): *Although it was raining, we went out* — «Хотя шёл дождь…».`,
+      },
+      more: {
+        en: `**The idea.** **although** and **even though** = «хоча / хотя». They show a **contrast**: one thing is true, but the other happens anyway. After them comes a whole **clause** — a subject and a verb:
+- *Although it was raining, we went to the park.*
+- *She went to work although she felt sick.*
+- *Even though he's rich, he lives in a small house.* — *even though* is stronger
+
+The clause can come first (then a comma) or second.
+
+✅ *Although it was raining, we went out.*
+❌ *Although the rain, we went out.* — no verb after *although*
+
+✅ *She went to work even though she felt sick.*
+❌ *She went to work even she felt sick.*
+
+**Check yourself:** after *although* — is there a subject and a verb (*it was raining, she felt*)? If it's just a noun, you need *despite*.`,
+        uk: `**Суть.** **although** і **even though** = «хоча». Вони показують **контраст**: одне правда, але інше все одно стається. Після них іде ціле **речення** — підмет і дієслово:
+- *Although it was raining, we went to the park.*
+- *She went to work although she felt sick.*
+- *Even though he's rich, he lives in a small house.* — *even though* сильніше
+
+Ця частина може йти першою (тоді кома) або другою.
+
+✅ *Although it was raining, we went out.*
+❌ *Although the rain, we went out.* — після *although* немає дієслова
+
+✅ *She went to work even though she felt sick.*
+❌ *She went to work even she felt sick.*
+
+**Перевір себе:** після *although* є підмет і дієслово (*it was raining, she felt*)? Якщо лише іменник — потрібне *despite*.`,
+        ru: `**Суть.** **although** и **even though** = «хотя». Они показывают **контраст**: одно верно, но другое всё равно происходит. После них идёт целое **предложение** — подлежащее и глагол:
+- *Although it was raining, we went to the park.*
+- *She went to work although she felt sick.*
+- *Even though he's rich, he lives in a small house.* — *even though* сильнее
+
+Эта часть может идти первой (тогда запятая) или второй.
+
+✅ *Although it was raining, we went out.*
+❌ *Although the rain, we went out.* — после *although* нет глагола
+
+✅ *She went to work even though she felt sick.*
+❌ *She went to work even she felt sick.*
+
+**Проверь себя:** после *although* есть подлежащее и глагол (*it was raining, she felt*)? Если только существительное — нужно *despite*.`,
+      },
+    },
+    {
+      for: ['although-despite', 'despite', 'despite-of'],
+      rule: {
+        en: `**despite / in spite of** + a noun or **-ing**: *Despite the rain, we went out. In spite of feeling tired, she finished.* (*despite* — no *of*.)`,
+        uk: `**despite / in spite of** + іменник або **-ing**: *Despite the rain, we went out* — «Попри дощ…». *In spite of feeling tired, she finished.* (*despite* — без *of*.)`,
+        ru: `**despite / in spite of** + существительное или **-ing**: *Despite the rain, we went out* — «Несмотря на дождь…». *In spite of feeling tired, she finished.* (*despite* — без *of*.)`,
+      },
+      more: {
+        en: `**The idea.** **despite** and **in spite of** mean the same as *although* — «незважаючи на / несмотря на» — but they work differently: after them comes a **noun** or a verb with **-ing**, not a clause:
+- *Despite the rain, we went out.*
+- *In spite of the bad weather, the flight left on time.*
+- *Despite being tired, she finished the report.*
+
+Two traps:
+- **despite** has **no of**: *despite the rain* (but *in spite **of*** the rain)
+- no subject + verb after them: *despite it was raining* is wrong → *although it was raining* or *despite the rain*
+
+✅ *Despite the rain, we went to the park.*
+❌ *Despite of the rain, we went to the park.*
+
+✅ *Although it was raining, we went to the park.*
+❌ *Despite it was raining, we went to the park.*
+
+**Check yourself:** a noun or *-ing* → *despite / in spite of*. A subject + verb → *although*.`,
+        uk: `**Суть.** **despite** і **in spite of** означають те саме, що *although* — «незважаючи на», — але працюють інакше: після них іде **іменник** або дієслово з **-ing**, а не речення:
+- *Despite the rain, we went out.*
+- *In spite of the bad weather, the flight left on time.*
+- *Despite being tired, she finished the report.*
+
+Дві пастки:
+- **despite** — **без of**: *despite the rain* (але *in spite of* the rain)
+- після них немає підмета з дієсловом: *despite it was raining* — помилка → *although it was raining* або *despite the rain*
+
+✅ *Despite the rain, we went to the park.*
+❌ *Despite of the rain, we went to the park.*
+
+✅ *Although it was raining, we went to the park.*
+❌ *Despite it was raining, we went to the park.*
+
+**Перевір себе:** іменник чи *-ing* → *despite / in spite of*. Підмет + дієслово → *although*.`,
+        ru: `**Суть.** **despite** и **in spite of** значат то же, что *although* — «несмотря на», — но работают иначе: после них идёт **существительное** или глагол с **-ing**, а не предложение:
+- *Despite the rain, we went out.*
+- *In spite of the bad weather, the flight left on time.*
+- *Despite being tired, she finished the report.*
+
+Две ловушки:
+- **despite** — **без of**: *despite the rain* (но *in spite of* the rain)
+- после них нет подлежащего с глаголом: *despite it was raining* — ошибка → *although it was raining* или *despite the rain*
+
+✅ *Despite the rain, we went to the park.*
+❌ *Despite of the rain, we went to the park.*
+
+✅ *Although it was raining, we went to the park.*
+❌ *Despite it was raining, we went to the park.*
+
+**Проверь себя:** существительное или *-ing* → *despite / in spite of*. Подлежащее + глагол → *although*.`,
+      },
+    },
+    {
+      for: ['however'],
+      rule: {
+        en: `**however** links two sentences, with a comma: *The hotel was nice. However, it was expensive.*`,
+        uk: `**however** («однак») з'єднує два речення, з комою: *The hotel was nice. However, it was expensive.*`,
+        ru: `**however** («однако») связывает два предложения, с запятой: *The hotel was nice. However, it was expensive.*`,
+      },
+      more: {
+        en: `**The idea.** **however** = «однак / однако». It connects **two separate sentences**: the first one ends with a full stop, and the second one starts with *However,* (with a comma after it):
+- *The hotel was very nice. However, it was too expensive.*
+- *I wanted to go. However, I had to work late.*
+
+It's a bit more formal than *but*. Inside one sentence, use **but** instead:
+- *The hotel was nice, but it was expensive.*
+
+✅ *The hotel was very nice. However, it was too expensive.*
+❌ *The hotel was very nice, however it was too expensive.*
+
+✅ *I wanted to go, but I had to work.*
+❌ *I wanted to go however I had to work.*
+
+**Check yourself:** *However* → a new sentence, a comma after it. One sentence with a comma → *but*.`,
+        uk: `**Суть.** **however** = «однак». Воно з'єднує **два окремі речення**: перше закінчується крапкою, а друге починається з *However,* (з комою після нього):
+- *The hotel was very nice. However, it was too expensive.*
+- *I wanted to go. However, I had to work late.*
+
+Це трохи офіційніше, ніж *but*. Усередині одного речення кажи **but**:
+- *The hotel was nice, but it was expensive.*
+
+✅ *The hotel was very nice. However, it was too expensive.*
+❌ *The hotel was very nice, however it was too expensive.*
+
+✅ *I wanted to go, but I had to work.*
+❌ *I wanted to go however I had to work.*
+
+**Перевір себе:** *However* → нове речення, кома після нього. Одне речення з комою → *but*.`,
+        ru: `**Суть.** **however** = «однако». Оно соединяет **два отдельных предложения**: первое заканчивается точкой, а второе начинается с *However,* (с запятой после него):
+- *The hotel was very nice. However, it was too expensive.*
+- *I wanted to go. However, I had to work late.*
+
+Это немного официальнее, чем *but*. Внутри одного предложения говори **but**:
+- *The hotel was nice, but it was expensive.*
+
+✅ *The hotel was very nice. However, it was too expensive.*
+❌ *The hotel was very nice, however it was too expensive.*
+
+✅ *I wanted to go, but I had to work.*
+❌ *I wanted to go however I had to work.*
+
+**Проверь себя:** *However* → новое предложение, запятая после него. Одно предложение с запятой → *but*.`,
+      },
+    },
+    {
+      for: ['double'],
+      rule: {
+        en: `Don't use *although* and *but* together — one is enough.`,
+        uk: `Не вживайте *although* і *but* разом — достатньо одного.`,
+        ru: `Не используйте *although* и *but* вместе — достаточно одного.`,
+      },
+      more: {
+        en: `**The idea.** In Ukrainian and Russian «хоча…, але… / хотя…, но…» is normal — two linking words for one contrast. In English **one is enough**: either *although* or *but*, not both.
+- *Although he was tired, he came.*
+- *He was tired, but he came.*
+
+The same with reason and result: «оскільки…, тому… / так как…, поэтому…» → either *because* or *so*:
+- *Because it was late, we took a taxi.* / *It was late, so we took a taxi.*
+
+✅ *Although she was tired, she cooked dinner.*
+❌ *Although she was tired, but she cooked dinner.*
+
+✅ *Because it was raining, we stayed home.*
+❌ *Because it was raining, so we stayed home.*
+
+**Check yourself:** count the linking words — one per sentence.`,
+        uk: `**Суть.** Українською «хоча…, але…» — нормально: два сполучники на один контраст. Англійською **вистачає одного**: або *although*, або *but*, не обидва.
+- *Although he was tired, he came.*
+- *He was tired, but he came.*
+
+Так само з причиною й наслідком: «оскільки…, тому…» → або *because*, або *so*:
+- *Because it was late, we took a taxi.* / *It was late, so we took a taxi.*
+
+✅ *Although she was tired, she cooked dinner.*
+❌ *Although she was tired, but she cooked dinner.*
+
+✅ *Because it was raining, we stayed home.*
+❌ *Because it was raining, so we stayed home.*
+
+**Перевір себе:** порахуй сполучники — один на речення.`,
+        ru: `**Суть.** По-русски «хотя…, но…» — нормально: два союза на один контраст. По-английски **хватает одного**: либо *although*, либо *but*, не оба.
+- *Although he was tired, he came.*
+- *He was tired, but he came.*
+
+Так же с причиной и следствием: «так как…, поэтому…» → либо *because*, либо *so*:
+- *Because it was late, we took a taxi.* / *It was late, so we took a taxi.*
+
+✅ *Although she was tired, she cooked dinner.*
+❌ *Although she was tired, but she cooked dinner.*
+
+✅ *Because it was raining, we stayed home.*
+❌ *Because it was raining, so we stayed home.*
+
+**Проверь себя:** посчитай союзы — один на предложение.`,
+      },
+    },
+    {
+      for: ['because-of'],
+      rule: {
+        en: `**Reason**: **because** + a clause (*because it was late*); **because of** + a noun (*because of the traffic*).`,
+        uk: `**Причина**: **because** + речення (*because it was late*); **because of** + іменник (*because of the traffic*) — «через затори».`,
+        ru: `**Причина**: **because** + предложение (*because it was late*); **because of** + существительное (*because of the traffic*) — «из-за пробок».`,
+      },
+      more: {
+        en: `**The idea.** Both give the **reason** — «бо, через / потому что, из-за» — but they need different things after them:
+- **because** + a clause (subject + verb): *because the traffic was bad, because the baby was crying*
+- **because of** + a noun: *because of the traffic, because of the rain, because of you*
+
+«Через пробки / Из-за пробок» → *because of the traffic*. «Бо були пробки / Потому что были пробки» → *because the traffic was bad*.
+
+✅ *We were late because of the traffic.*
+❌ *We were late because the traffic.*
+
+✅ *I couldn't sleep because the baby was crying.*
+❌ *I couldn't sleep because of the baby was crying.*
+
+**Check yourself:** is there a verb in the reason? → *because*. Just a noun? → *because of*.`,
+        uk: `**Суть.** Обидва називають **причину** — «бо, через», — але після них потрібне різне:
+- **because** + речення (підмет + дієслово): *because the traffic was bad, because the baby was crying*
+- **because of** + іменник: *because of the traffic, because of the rain, because of you*
+
+«Через пробки» → *because of the traffic*. «Бо були пробки» → *because the traffic was bad*.
+
+✅ *We were late because of the traffic.*
+❌ *We were late because the traffic.*
+
+✅ *I couldn't sleep because the baby was crying.*
+❌ *I couldn't sleep because of the baby was crying.*
+
+**Перевір себе:** у причині є дієслово? → *because*. Лише іменник? → *because of*.`,
+        ru: `**Суть.** Оба называют **причину** — «потому что, из-за», — но после них нужно разное:
+- **because** + предложение (подлежащее + глагол): *because the traffic was bad, because the baby was crying*
+- **because of** + существительное: *because of the traffic, because of the rain, because of you*
+
+«Из-за пробок» → *because of the traffic*. «Потому что были пробки» → *because the traffic was bad*.
+
+✅ *We were late because of the traffic.*
+❌ *We were late because the traffic.*
+
+✅ *I couldn't sleep because the baby was crying.*
+❌ *I couldn't sleep because of the baby was crying.*
+
+**Проверь себя:** в причине есть глагол? → *because*. Только существительное? → *because of*.`,
+      },
+    },
+    {
+      for: ['result'],
+      rule: {
+        en: `**Result**: **so** + a clause: *It was late, so we took a taxi.*`,
+        uk: `**Наслідок**: **so** + речення: *It was late, so we took a taxi* — «тому ми взяли таксі».`,
+        ru: `**Следствие**: **so** + предложение: *It was late, so we took a taxi* — «поэтому мы взяли такси».`,
+      },
+      more: {
+        en: `**The idea.** **so** and **because** look at the same situation from two sides:
+- **because** = the **reason** («бо / потому что»): *We took a taxi **because** it was late.*
+- **so** = the **result** («тому / поэтому»): *It was late, **so** we took a taxi.*
+
+The order of events: reason → *so* → result. Or: result → *because* → reason.
+
+✅ *It was late, so we took a taxi.*
+❌ *It was late, because we took a taxi.* — the taxi didn't cause the lateness
+
+✅ *The store was closed, so we went home.*
+❌ *The store was closed, because we went home.*
+
+**Check yourself:** read it as "and that's why…" — if it fits, it's *so*.`,
+        uk: `**Суть.** **so** і **because** дивляться на ту саму ситуацію з двох боків:
+- **because** = **причина** («бо»): *We took a taxi because it was late.*
+- **so** = **наслідок** («тому»): *It was late, so we took a taxi.*
+
+Порядок подій: причина → *so* → наслідок. Або: наслідок → *because* → причина.
+
+✅ *It was late, so we took a taxi.*
+❌ *It was late, because we took a taxi.* — таксі не було причиною того, що пізно
+
+✅ *The store was closed, so we went home.*
+❌ *The store was closed, because we went home.*
+
+**Перевір себе:** прочитай як «і саме тому…» — якщо підходить, це *so*.`,
+        ru: `**Суть.** **so** и **because** смотрят на одну и ту же ситуацию с двух сторон:
+- **because** = **причина** («потому что»): *We took a taxi because it was late.*
+- **so** = **следствие** («поэтому»): *It was late, so we took a taxi.*
+
+Порядок событий: причина → *so* → следствие. Или: следствие → *because* → причина.
+
+✅ *It was late, so we took a taxi.*
+❌ *It was late, because we took a taxi.* — такси не было причиной того, что поздно
+
+✅ *The store was closed, so we went home.*
+❌ *The store was closed, because we went home.*
+
+**Проверь себя:** прочитай как «и именно поэтому…» — если подходит, это *so*.`,
+      },
+    },
+    {
+      for: ['purpose'],
+      rule: {
+        en: `**Purpose** (why?): **to / in order to** + verb (*I called to ask*); **so that** + a clause, often with *can / could / will / would* (*I left early so that I could catch the bus*).`,
+        uk: `**Мета** (навіщо?): **to / in order to** + дієслово (*I called to ask*); **so that** + речення, часто з *can / could / will / would* (*I left early so that I could catch the bus*) — «щоб устигнути».`,
+        ru: `**Цель** (зачем?): **to / in order to** + глагол (*I called to ask*); **so that** + предложение, часто с *can / could / will / would* (*I left early so that I could catch the bus*) — «чтобы успеть».`,
+      },
+      more: {
+        en: `**The idea.** Purpose answers "why? what for?" — «щоб / чтобы». English has two ways:
+- **to + verb** (or *in order to*, more formal) — the simplest: *I went to the store **to buy** milk.* *I called **to ask** about the price.*
+- **so that + a clause**, usually with *can / could / will / would*: *I set an alarm **so that I wouldn't** oversleep.* — when there's a different subject or a negative
+
+The trap: «для того, щоб / для того, чтобы» makes people say *for buy* or *for to buy*. In English it's just *to*.
+
+✅ *I went to the store to buy some milk.*
+❌ *I went to the store for buy some milk.*
+
+✅ *I left early so that I could catch the bus.*
+❌ *I left early so I catch the bus.*
+
+**Check yourself:** «щоб / чтобы» + a verb → *to* + verb. With its own subject → *so that* + subject + *can / could*.`,
+        uk: `**Суть.** Мета відповідає на «навіщо? для чого?» — «щоб». В англійській два способи:
+- **to + дієслово** (або *in order to*, офіційніше) — найпростіше: *I went to the store to buy milk.* *I called to ask about the price.*
+- **so that + речення**, зазвичай з *can / could / will / would*: *I set an alarm so that I wouldn't oversleep.* — коли є свій підмет або заперечення
+
+Пастка: «для того, щоб» підштовхує сказати *for buy* чи *for to buy*. Англійською — просто *to*.
+
+✅ *I went to the store to buy some milk.*
+❌ *I went to the store for buy some milk.*
+
+✅ *I left early so that I could catch the bus.*
+❌ *I left early so I catch the bus.*
+
+**Перевір себе:** «щоб» + дієслово → *to* + дієслово. Зі своїм підметом → *so that* + підмет + *can / could*.`,
+        ru: `**Суть.** Цель отвечает на «зачем? для чего?» — «чтобы». В английском два способа:
+- **to + глагол** (или *in order to*, официальнее) — самое простое: *I went to the store to buy milk.* *I called to ask about the price.*
+- **so that + предложение**, обычно с *can / could / will / would*: *I set an alarm so that I wouldn't oversleep.* — когда есть своё подлежащее или отрицание
+
+Ловушка: «для того, чтобы» подталкивает сказать *for buy* или *for to buy*. По-английски — просто *to*.
+
+✅ *I went to the store to buy some milk.*
+❌ *I went to the store for buy some milk.*
+
+✅ *I left early so that I could catch the bus.*
+❌ *I left early so I catch the bus.*
+
+**Проверь себя:** «чтобы» + глагол → *to* + глагол. Со своим подлежащим → *so that* + подлежащее + *can / could*.`,
+      },
+    },
+  ],
   examples: ['Although it was raining, we went to the park.', 'Despite the rain, we went to the park.', 'We were late because of the traffic.', 'I left early so that I could catch the bus.', 'The hotel was nice. However, it was expensive.'],
   trap: {
     uk: 'Хоча він втомився, але все одно прийшов.',

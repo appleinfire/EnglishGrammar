@@ -5,32 +5,302 @@ APP.addTopic({
   group: 'Tenses',
   icon: '⏮️',
   about: 'had + 3rd form: the earlier of two past events',
-  rule: {
-    en: `**had + past participle** (the same for everyone): *I had left, she had seen, we hadn't eaten*.
-Use it to show that something happened **before another moment in the past**:
-- *When we got to the theater, the movie **had** already **started**.* (First the movie started, then we arrived.)
-- *By the time the ambulance came, he **had stopped** breathing.*
-- *I **had never seen** snow before I came to Chicago.*
-Compare: *When I arrived, she **left**.* (I arrived, then she left.) — *When I arrived, she **had left**.* (She was already gone.)
-If you tell events **in order**, the Past Simple is enough: *I got up, had breakfast and left.*
-**have done** (Present Perfect) is connected to **now**; **had done** is connected to a moment **in the past**.`,
-    uk: `**had + третя форма** (однаково для всіх): *I had left, she had seen, we hadn't eaten*.
-Вживаємо, щоб показати, що щось сталося **раніше за інший момент у минулому**:
-- *When we got to the theater, the movie **had** already **started**.* (Спершу почався фільм, потім ми прийшли.)
-- *By the time the ambulance came, he **had stopped** breathing.*
-- *I **had never seen** snow before I came to Chicago.*
-Порівняйте: *When I arrived, she **left**.* (Я прийшла — і тоді вона пішла.) — *When I arrived, she **had left**.* (Вона вже пішла.)
-Якщо розповідаєте події **по порядку**, вистачить Past Simple: *I got up, had breakfast and left.*
-**have done** (Present Perfect) пов'язаний із **зараз**; **had done** — з моментом **у минулому**.`,
-    ru: `**had + третья форма** (одинаково для всех): *I had left, she had seen, we hadn't eaten*.
-Используем, чтобы показать, что что-то произошло **раньше другого момента в прошлом**:
-- *When we got to the theater, the movie **had** already **started**.* (Сначала начался фильм, потом мы пришли.)
-- *By the time the ambulance came, he **had stopped** breathing.*
-- *I **had never seen** snow before I came to Chicago.*
-Сравните: *When I arrived, she **left**.* (Я пришла — и тогда она ушла.) — *When I arrived, she **had left**.* (Она уже ушла.)
-Если рассказываете события **по порядку**, хватит Past Simple: *I got up, had breakfast and left.*
-**have done** (Present Perfect) связан с **сейчас**; **had done** — с моментом **в прошлом**.`,
-  },
+  points: [
+    {
+      for: ['form'],
+      rule: {
+        en: `**had + past participle** (the same for everyone): *I had left, she had seen, we hadn't eaten*.`,
+        uk: `**had + третя форма** (однаково для всіх): *I had left, she had seen, we hadn't eaten*.`,
+        ru: `**had + третья форма** (одинаково для всех): *I had left, she had seen, we hadn't eaten*.`,
+      },
+      more: {
+        en: `**The idea.** The Past Perfect is the Present Perfect moved one step back into the past: *have* becomes **had**.
+**had + past participle** (the 3rd form), the same for everyone:
+- *I had left, she had seen, they had eaten*
+- negative: *She hadn't eaten breakfast.*
+- question: *Had you been there before?*
+- short form: *I'd, she'd*: *She'd already gone.*
+
+✅ *She was hungry because she hadn't eaten breakfast.*
+❌ *She was hungry because she hadn't ate breakfast.*
+
+✅ *They had been to Paris twice.*
+❌ *They had went to Paris twice.*
+
+**Check yourself:** *had* + the 3rd form (*gone, seen, eaten*) — never *had went*.`,
+        uk: `**Суть.** Past Perfect — це Present Perfect, перенесений на крок назад у минуле: *have* стає **had**.
+**had + третя форма**, однаково для всіх:
+- *I had left, she had seen, they had eaten*
+- заперечення: *She hadn't eaten breakfast.*
+- питання: *Had you been there before?*
+- коротко: *I'd, she'd*: *She'd already gone.*
+
+✅ *She was hungry because she hadn't eaten breakfast.*
+❌ *She was hungry because she hadn't ate breakfast.*
+
+✅ *They had been to Paris twice.*
+❌ *They had went to Paris twice.*
+
+**Перевір себе:** *had* + третя форма (*gone, seen, eaten*) — ніколи *had went*.`,
+        ru: `**Суть.** Past Perfect — это Present Perfect, перенесённый на шаг назад в прошлое: *have* становится **had**.
+**had + третья форма**, одинаково для всех:
+- *I had left, she had seen, they had eaten*
+- отрицание: *She hadn't eaten breakfast.*
+- вопрос: *Had you been there before?*
+- коротко: *I'd, she'd*: *She'd already gone.*
+
+✅ *She was hungry because she hadn't eaten breakfast.*
+❌ *She was hungry because she hadn't ate breakfast.*
+
+✅ *They had been to Paris twice.*
+❌ *They had went to Paris twice.*
+
+**Проверь себя:** *had* + третья форма (*gone, seen, eaten*) — никогда *had went*.`,
+      },
+    },
+    {
+      for: ['earlier'],
+      rule: {
+        en: `Use it to show that something happened **before another moment in the past**: *When we got to the theater, the movie **had** already **started**.* (First the movie started, then we arrived.)`,
+        uk: `Вживаємо, щоб показати, що щось сталося **раніше за інший момент у минулому**: *When we got to the theater, the movie **had** already **started**.* (Спершу почався фільм, потім ми прийшли.)`,
+        ru: `Используем, чтобы показать, что что-то произошло **раньше другого момента в прошлом**: *When we got to the theater, the movie **had** already **started**.* (Сначала начался фильм, потом мы пришли.)`,
+      },
+      more: {
+        en: `**The idea.** When you tell a story in the past and need to go **further back**, use the Past Perfect. It marks the **earlier** of two past events:
+- *When we got to the theater, the movie had already started.* — first the movie started, then we arrived
+- *When I arrived at the party, Anna had left.* — she left before I came, so I didn't see her
+
+Ukrainian and Russian don't have this form: «Коли ми прийшли, фільм уже почався / Когда мы пришли, фильм уже начался» — the order is clear from «уже». English shows it with *had*.
+
+✅ *When I came, they had already eaten.*
+❌ *When I came, they already ate.*
+
+✅ *When we arrived, the store had closed.*
+❌ *When we arrived, the store closed.* — sounds like it closed at that very moment
+
+**Check yourself:** two past events — which came first? That one → *had + 3rd form*.`,
+        uk: `**Суть.** Коли розповідаєш історію в минулому і треба повернутися **ще далі назад**, вживай Past Perfect. Він позначає **раніший** із двох минулих подій:
+- *When we got to the theater, the movie had already started.* — спочатку почався фільм, потім прийшли ми
+- *When I arrived at the party, Anna had left.* — вона пішла до мого приходу, тож я її не бачила
+
+В українській такої форми немає: «Коли ми прийшли, фільм уже почався» — порядок зрозумілий з «уже». Англійська показує його через *had*.
+
+✅ *When I came, they had already eaten.*
+❌ *When I came, they already ate.*
+
+✅ *When we arrived, the store had closed.*
+❌ *When we arrived, the store closed.* — звучить так, ніби він зачинився саме в ту мить
+
+**Перевір себе:** дві минулі події — яка була першою? Та → *had + третя форма*.`,
+        ru: `**Суть.** Когда рассказываешь историю в прошлом и нужно вернуться **ещё дальше назад**, используй Past Perfect. Он обозначает **более раннее** из двух прошлых событий:
+- *When we got to the theater, the movie had already started.* — сначала начался фильм, потом пришли мы
+- *When I arrived at the party, Anna had left.* — она ушла до моего прихода, поэтому я её не видела
+
+В русском такой формы нет: «Когда мы пришли, фильм уже начался» — порядок понятен из «уже». Английский показывает его через *had*.
+
+✅ *When I came, they had already eaten.*
+❌ *When I came, they already ate.*
+
+✅ *When we arrived, the store had closed.*
+❌ *When we arrived, the store closed.* — звучит так, будто он закрылся именно в тот момент
+
+**Проверь себя:** два прошлых события — какое было первым? Оно → *had + третья форма*.`,
+      },
+    },
+    {
+      for: ['by-time'],
+      rule: {
+        en: `*By the time the ambulance came, he **had stopped** breathing.*`,
+        uk: `*By the time the ambulance came, he **had stopped** breathing.*`,
+        ru: `*By the time the ambulance came, he **had stopped** breathing.*`,
+      },
+      more: {
+        en: `**The idea.** Some phrases point to a moment in the past and ask "what had already happened **before** it?". They almost always bring the Past Perfect:
+- **by the time** + Past Simple: *By the time I got home, the kids had fallen asleep.* — «Поки я дісталася додому, діти вже заснули / Пока я добралась домой, дети уже уснули»
+- **already**: *The train had already left.*
+- **before**: *I had finished before she called.*
+
+✅ *By the time the police arrived, the thief had run away.*
+❌ *By the time the police arrived, the thief ran away.*
+
+✅ *By the time we got there, everyone had gone home.*
+❌ *By the time we got there, everyone has gone home.*
+
+**Check yourself:** *by the time…* → the other part is *had + 3rd form*.`,
+        uk: `**Суть.** Деякі фрази вказують на момент у минулому і питають «що вже сталося **до** нього?». Вони майже завжди тягнуть Past Perfect:
+- **by the time** + Past Simple: *By the time I got home, the kids had fallen asleep.* — «Поки я дісталася додому, діти вже заснули»
+- **already**: *The train had already left.*
+- **before**: *I had finished before she called.*
+
+✅ *By the time the police arrived, the thief had run away.*
+❌ *By the time the police arrived, the thief ran away.*
+
+✅ *By the time we got there, everyone had gone home.*
+❌ *By the time we got there, everyone has gone home.*
+
+**Перевір себе:** *by the time…* → інша частина — *had + третя форма*.`,
+        ru: `**Суть.** Некоторые фразы указывают на момент в прошлом и спрашивают «что уже случилось **до** него?». Они почти всегда тянут Past Perfect:
+- **by the time** + Past Simple: *By the time I got home, the kids had fallen asleep.* — «Пока я добралась домой, дети уже уснули»
+- **already**: *The train had already left.*
+- **before**: *I had finished before she called.*
+
+✅ *By the time the police arrived, the thief had run away.*
+❌ *By the time the police arrived, the thief ran away.*
+
+✅ *By the time we got there, everyone had gone home.*
+❌ *By the time we got there, everyone has gone home.*
+
+**Проверь себя:** *by the time…* → другая часть — *had + третья форма*.`,
+      },
+    },
+    {
+      for: ['never'],
+      rule: {
+        en: `*I **had never seen** snow before I came to Chicago.*`,
+        uk: `*I **had never seen** snow before I came to Chicago.*`,
+        ru: `*I **had never seen** snow before I came to Chicago.*`,
+      },
+      more: {
+        en: `**The idea.** The Present Perfect says "never up to **now**": *I've never seen snow.* The Past Perfect says "never up to **a moment in the past**":
+- *I had never seen snow before I came to Chicago.* — up to that day in my life
+- *She had never flown before she came to the US.*
+- *Had you ever met him before the wedding?*
+
+✅ *I had never seen snow before I came to Chicago.*
+❌ *I have never seen snow before I came to Chicago.*
+
+✅ *We had never been abroad until 2019.*
+❌ *We have never been abroad until 2019.*
+
+**Check yourself:** *never / ever … before* + a moment in the past → *had + 3rd form*.`,
+        uk: `**Суть.** Present Perfect каже «ніколи досі, до **сьогодні**»: *I've never seen snow.* Past Perfect каже «ніколи до **певного моменту в минулому**»:
+- *I had never seen snow before I came to Chicago.* — до того дня в моєму житті
+- *She had never flown before she came to the US.*
+- *Had you ever met him before the wedding?*
+
+✅ *I had never seen snow before I came to Chicago.*
+❌ *I have never seen snow before I came to Chicago.*
+
+✅ *We had never been abroad until 2019.*
+❌ *We have never been abroad until 2019.*
+
+**Перевір себе:** *never / ever … before* + момент у минулому → *had + третя форма*.`,
+        ru: `**Суть.** Present Perfect говорит «никогда до **сегодня**»: *I've never seen snow.* Past Perfect говорит «никогда до **определённого момента в прошлом**»:
+- *I had never seen snow before I came to Chicago.* — до того дня в моей жизни
+- *She had never flown before she came to the US.*
+- *Had you ever met him before the wedding?*
+
+✅ *I had never seen snow before I came to Chicago.*
+❌ *I have never seen snow before I came to Chicago.*
+
+✅ *We had never been abroad until 2019.*
+❌ *We have never been abroad until 2019.*
+
+**Проверь себя:** *never / ever … before* + момент в прошлом → *had + третья форма*.`,
+      },
+    },
+    {
+      for: ['in-order', 'order'],
+      rule: {
+        en: `Compare: *When I arrived, she **left**.* (I arrived, then she left.) — *When I arrived, she **had left**.* (She was already gone.) If you tell events **in order**, the Past Simple is enough: *I got up, had breakfast and left.*`,
+        uk: `Порівняйте: *When I arrived, she **left**.* (Я прийшла — і тоді вона пішла.) — *When I arrived, she **had left**.* (Вона вже пішла.) Якщо розповідаєте події **по порядку**, вистачить Past Simple: *I got up, had breakfast and left.*`,
+        ru: `Сравните: *When I arrived, she **left**.* (Я пришла — и тогда она ушла.) — *When I arrived, she **had left**.* (Она уже ушла.) Если рассказываете события **по порядку**, хватит Past Simple: *I got up, had breakfast and left.*`,
+      },
+      more: {
+        en: `**The idea.** The Past Perfect is needed only to **jump back** in time. If you tell events **in the order they happened**, the Past Simple is enough:
+- *I got up, had breakfast and left.* — one after another, no *had*
+
+See how *had* changes the meaning:
+- *When I arrived, she left.* — I arrived, **then** she left
+- *When I arrived, she had left.* — she left **before**; she was already gone
+
+✅ *I got up, took a shower and went to work.*
+❌ *I had got up, had taken a shower and went to work.*
+
+✅ *She opened the door, turned on the light and screamed.*
+❌ *She had opened the door, had turned on the light and screamed.*
+
+**Check yourself:** telling events in order? → Past Simple. Jumping back? → *had*.`,
+        uk: `**Суть.** Past Perfect потрібен лише, щоб **стрибнути назад** у часі. Якщо розповідаєш події **в тому порядку, як вони відбувалися**, вистачить Past Simple:
+- *I got up, had breakfast and left.* — одна за одною, без *had*
+
+Подивись, як *had* змінює зміст:
+- *When I arrived, she left.* — я прийшла, **потім** вона пішла
+- *When I arrived, she had left.* — вона пішла **раніше**; її вже не було
+
+✅ *I got up, took a shower and went to work.*
+❌ *I had got up, had taken a shower and went to work.*
+
+✅ *She opened the door, turned on the light and screamed.*
+❌ *She had opened the door, had turned on the light and screamed.*
+
+**Перевір себе:** розповідаєш по черзі? → Past Simple. Стрибаєш назад? → *had*.`,
+        ru: `**Суть.** Past Perfect нужен только, чтобы **прыгнуть назад** во времени. Если рассказываешь события **в том порядке, как они происходили**, хватит Past Simple:
+- *I got up, had breakfast and left.* — одно за другим, без *had*
+
+Посмотри, как *had* меняет смысл:
+- *When I arrived, she left.* — я пришла, **потом** она ушла
+- *When I arrived, she had left.* — она ушла **раньше**; её уже не было
+
+✅ *I got up, took a shower and went to work.*
+❌ *I had got up, had taken a shower and went to work.*
+
+✅ *She opened the door, turned on the light and screamed.*
+❌ *She had opened the door, had turned on the light and screamed.*
+
+**Проверь себя:** рассказываешь по порядку? → Past Simple. Прыгаешь назад? → *had*.`,
+      },
+    },
+    {
+      for: ['have-had'],
+      rule: {
+        en: `**have done** (Present Perfect) is connected to **now**; **had done** is connected to a moment **in the past**.`,
+        uk: `**have done** (Present Perfect) пов'язаний із **зараз**; **had done** — з моментом **у минулому**.`,
+        ru: `**have done** (Present Perfect) связан с **сейчас**; **had done** — с моментом **в прошлом**.`,
+      },
+      more: {
+        en: `**The idea.** The two perfects look from different points:
+- **have done** (Present Perfect) looks from **now**: *I've lost my passport.* — I don't have it now
+- **had done** (Past Perfect) looks from **a moment in the past**: *She told me she had lost her passport.* — before she told me
+
+In a story about the past, everything moves one step back: *have → had*.
+
+✅ *She told me she had lost her passport the day before.*
+❌ *She told me she has lost her passport the day before.*
+
+✅ *When we arrived, the store had already closed.*
+❌ *When we arrived, the store has already closed.*
+
+**Check yourself:** where are you looking from? Now → *have*. A moment in the past → *had*.`,
+        uk: `**Суть.** Два перфекти дивляться з різних точок:
+- **have done** (Present Perfect) дивиться із **сьогодні**: *I've lost my passport.* — зараз його в мене немає
+- **had done** (Past Perfect) дивиться з **моменту в минулому**: *She told me she had lost her passport.* — до того, як вона мені сказала
+
+В історії про минуле все зсувається на крок назад: *have → had*.
+
+✅ *She told me she had lost her passport the day before.*
+❌ *She told me she has lost her passport the day before.*
+
+✅ *When we arrived, the store had already closed.*
+❌ *When we arrived, the store has already closed.*
+
+**Перевір себе:** звідки ти дивишся? Із сьогодні → *have*. З моменту в минулому → *had*.`,
+        ru: `**Суть.** Два перфекта смотрят с разных точек:
+- **have done** (Present Perfect) смотрит из **сегодня**: *I've lost my passport.* — сейчас его у меня нет
+- **had done** (Past Perfect) смотрит из **момента в прошлом**: *She told me she had lost her passport.* — до того, как она мне сказала
+
+В истории о прошлом всё сдвигается на шаг назад: *have → had*.
+
+✅ *She told me she had lost her passport the day before.*
+❌ *She told me she has lost her passport the day before.*
+
+✅ *When we arrived, the store had already closed.*
+❌ *When we arrived, the store has already closed.*
+
+**Проверь себя:** откуда ты смотришь? Из сегодня → *have*. Из момента в прошлом → *had*.`,
+      },
+    },
+  ],
   examples: ['When we got to the theater, the movie had already started.', 'I had never seen snow before I came to Chicago.', 'By the time the ambulance came, he had stopped breathing.', "She was upset because she hadn't slept all night.", 'I got up, had breakfast and left.'],
   trap: {
     uk: 'Коли я прийшла, вони вже поїли.',

@@ -5,26 +5,280 @@ APP.addTopic({
   group: 'Conditionals',
   icon: '🔀',
   about: 'If it rains, we\'ll… / If I had…, I would…',
-  rule: {
-    en: `- **Real, possible** (1st conditional): **If + present, will + verb**: *If it rains tomorrow, we'll stay home.* No *will* after *if*.
-- **Imaginary, unlikely now** (2nd conditional): **If + past, would + verb**: *If I had more time, I would learn Spanish.* (I don't have time.) No *would* after *if*.
-- Advice: **If I were you, I'd…** (*If I was you* is common in speech).
-- **unless** = *if … not*: *We'll be late unless we leave now* = *if we don't leave now*. Don't add another *not* after *unless*.
-- The *if* part can come first or second: *I'd walk if I lived closer.* (A comma only when *if* comes first.)
-Ask yourself: **can it really happen?** Yes → *will*. Only in my imagination → *would*.`,
-    uk: `- **Реальне, можливе** (1-й тип): **If + теперішній, will + дієслово**: *If it rains tomorrow, we'll stay home* — «Якщо завтра буде дощ…». Після *if* — без *will*.
-- **Уявне, малоймовірне зараз** (2-й тип): **If + минулий, would + дієслово**: *If I had more time, I would learn Spanish* — «Якби в мене було більше часу, я б…». Після *if* — без *would*.
-- Порада: **If I were you, I'd…** — «На твоєму місці я б…» (*If I was you* часто кажуть у розмові).
-- **unless** = *if … not* («якщо не»): *We'll be late unless we leave now* = *if we don't leave now*. Друге *not* після *unless* не додаємо.
-- Частина з *if* може стояти першою або другою: *I'd walk if I lived closer.* (Кома — лише коли *if* на початку.)
-Питання до себе: **це справді може статися?** Так → *will*. Лише в уяві → *would*.`,
-    ru: `- **Реальное, возможное** (1-й тип): **If + настоящее, will + глагол**: *If it rains tomorrow, we'll stay home* — «Если завтра будет дождь…». После *if* — без *will*.
-- **Воображаемое, маловероятное сейчас** (2-й тип): **If + прошедшее, would + глагол**: *If I had more time, I would learn Spanish* — «Если бы у меня было больше времени, я бы…». После *if* — без *would*.
-- Совет: **If I were you, I'd…** — «На твоём месте я бы…» (*If I was you* часто говорят в разговоре).
-- **unless** = *if … not* («если не»): *We'll be late unless we leave now* = *if we don't leave now*. Второе *not* после *unless* не добавляем.
-- Часть с *if* может стоять первой или второй: *I'd walk if I lived closer.* (Запятая — только когда *if* в начале.)
-Вопрос к себе: **это правда может случиться?** Да → *will*. Только в воображении → *would*.`,
-  },
+  points: [
+    {
+      for: ['first-form', 'first', 'if-will'],
+      rule: {
+        en: `**Real, possible** (1st conditional): **If + present, will + verb**: *If it rains tomorrow, we'll stay home.* No *will* after *if*.`,
+        uk: `**Реальне, можливе** (1-й тип): **If + теперішній, will + дієслово**: *If it rains tomorrow, we'll stay home* — «Якщо завтра буде дощ…». Після *if* — без *will*.`,
+        ru: `**Реальное, возможное** (1-й тип): **If + настоящее, will + глагол**: *If it rains tomorrow, we'll stay home* — «Если завтра будет дождь…». После *if* — без *will*.`,
+      },
+      more: {
+        en: `**The idea.** The 1st conditional is about something that **can really happen** — a real possibility:
+**If + present, will + verb**
+- *If it rains tomorrow, we'll stay home.*
+- *If you leave now, you'll catch the bus.*
+- *If you're late, text me.* — the main part can also be a request
+
+The trap: Ukrainian and Russian use the future in both parts: «Якщо завтра буде дощ, ми залишимося вдома / Если завтра будет дождь, мы останемся дома». In English the *if* part stays in the **present**, even though it's about tomorrow.
+
+✅ *If it rains tomorrow, we'll stay home.*
+❌ *If it will rain tomorrow, we'll stay home.*
+
+✅ *If she studies, she'll pass.*
+❌ *If she will study, she passes.*
+
+**Check yourself:** *if* + present; *will* only in the other part.`,
+        uk: `**Суть.** Перший умовний — про те, що **справді може статися**, реальна можливість:
+**If + теперішній, will + дієслово**
+- *If it rains tomorrow, we'll stay home.*
+- *If you leave now, you'll catch the bus.*
+- *If you're late, text me.* — головна частина може бути й проханням
+
+Пастка: українською в обох частинах майбутній: «Якщо завтра буде дощ, ми залишимося вдома». Англійською частина з *if* лишається в **теперішньому**, хоча мова про завтра.
+
+✅ *If it rains tomorrow, we'll stay home.*
+❌ *If it will rain tomorrow, we'll stay home.*
+
+✅ *If she studies, she'll pass.*
+❌ *If she will study, she passes.*
+
+**Перевір себе:** *if* + теперішній; *will* — лише в іншій частині.`,
+        ru: `**Суть.** Первое условное — о том, что **действительно может случиться**, реальная возможность:
+**If + настоящее, will + глагол**
+- *If it rains tomorrow, we'll stay home.*
+- *If you leave now, you'll catch the bus.*
+- *If you're late, text me.* — главная часть может быть и просьбой
+
+Ловушка: по-русски в обеих частях будущее: «Если завтра будет дождь, мы останемся дома». По-английски часть с *if* остаётся в **настоящем**, хотя речь о завтра.
+
+✅ *If it rains tomorrow, we'll stay home.*
+❌ *If it will rain tomorrow, we'll stay home.*
+
+✅ *If she studies, she'll pass.*
+❌ *If she will study, she passes.*
+
+**Проверь себя:** *if* + настоящее; *will* — только в другой части.`,
+      },
+    },
+    {
+      for: ['second-form', 'second', 'if-would'],
+      rule: {
+        en: `**Imaginary, unlikely now** (2nd conditional): **If + past, would + verb**: *If I had more time, I would learn Spanish.* (I don't have time.) No *would* after *if*.`,
+        uk: `**Уявне, малоймовірне зараз** (2-й тип): **If + минулий, would + дієслово**: *If I had more time, I would learn Spanish* — «Якби в мене було більше часу, я б…». Після *if* — без *would*.`,
+        ru: `**Воображаемое, маловероятное сейчас** (2-й тип): **If + прошедшее, would + глагол**: *If I had more time, I would learn Spanish* — «Если бы у меня было больше времени, я бы…». После *if* — без *would*.`,
+      },
+      more: {
+        en: `**The idea.** The 2nd conditional is about something **imaginary** — not true now, or very unlikely. You're dreaming or imagining:
+**If + past, would + verb**
+- *If I had more money, I would buy a bigger house.* — I don't have the money
+- *What would you do if you won the lottery?*
+- *If she spoke English better, she could get that job.*
+
+The past here **doesn't mean the past** — it means "not real". It's like «якби / если бы»: «Якби в мене були гроші, я б купила… / Если бы у меня были деньги, я бы купила…». But the «б / бы» part (*would*) goes only into the main part; the *if* part takes just the past.
+
+✅ *If I knew his number, I would call him.*
+❌ *If I would know his number, I would call him.*
+
+✅ *If I had a car, I'd drive to work.*
+❌ *If I have a car, I'd drive to work.*
+
+**Check yourself:** *would* lives only in the main part. The *if* part — the past: *had, knew, lived, were*.`,
+        uk: `**Суть.** Другий умовний — про **уявне**: це неправда зараз або дуже малоймовірно. Ти мрієш чи уявляєш:
+**If + минулий, would + дієслово**
+- *If I had more money, I would buy a bigger house.* — грошей у мене немає
+- *What would you do if you won the lottery?*
+- *If she spoke English better, she could get that job.*
+
+Минулий час тут **не означає минуле** — він означає «нереально». Це як «якби»: «Якби в мене були гроші, я б купила…». Але частинка «б» (*would*) іде лише в головну частину; частина з *if* — просто минулий час.
+
+✅ *If I knew his number, I would call him.*
+❌ *If I would know his number, I would call him.*
+
+✅ *If I had a car, I'd drive to work.*
+❌ *If I have a car, I'd drive to work.*
+
+**Перевір себе:** *would* живе лише в головній частині. У частині з *if* — минулий: *had, knew, lived, were*.`,
+        ru: `**Суть.** Второе условное — о **воображаемом**: это неправда сейчас или очень маловероятно. Ты мечтаешь или представляешь:
+**If + прошедшее, would + глагол**
+- *If I had more money, I would buy a bigger house.* — денег у меня нет
+- *What would you do if you won the lottery?*
+- *If she spoke English better, she could get that job.*
+
+Прошедшее время здесь **не значит прошлое** — оно значит «нереально». Это как «если бы»: «Если бы у меня были деньги, я бы купила…». Но частица «бы» (*would*) идёт только в главную часть; часть с *if* — просто прошедшее время.
+
+✅ *If I knew his number, I would call him.*
+❌ *If I would know his number, I would call him.*
+
+✅ *If I had a car, I'd drive to work.*
+❌ *If I have a car, I'd drive to work.*
+
+**Проверь себя:** *would* живёт только в главной части. В части с *if* — прошедшее: *had, knew, lived, were*.`,
+      },
+    },
+    {
+      for: ['were'],
+      rule: {
+        en: `Advice: **If I were you, I'd…** (*If I was you* is common in speech).`,
+        uk: `Порада: **If I were you, I'd…** — «На твоєму місці я б…» (*If I was you* часто кажуть у розмові).`,
+        ru: `Совет: **If I were you, I'd…** — «На твоём месте я бы…» (*If I was you* часто говорят в разговоре).`,
+      },
+      more: {
+        en: `**The idea.** The most common way to give advice in English: **If I were you, I'd…** — «На твоєму місці я б… / На твоём месте я бы…»
+- *If I were you, I'd talk to the manager.*
+- *If I were you, I wouldn't sign it.*
+
+In an imaginary *if*, **were** is used for every person: *if I were, if she were, if it were*. In everyday speech *If I was you* is common too, but *were* is the safer choice.
+
+After *I'd / I wouldn't* — the bare verb.
+
+✅ *If I were you, I'd call the bank.*
+❌ *If I am you, I'd call the bank.*
+
+✅ *If I were you, I wouldn't sign it.*
+❌ *If I were you, I won't sign it.*
+
+**Check yourself:** advice → *If I were you, I'd (not)…* + the bare verb.`,
+        uk: `**Суть.** Найпоширеніший спосіб дати пораду англійською: **If I were you, I'd…** — «На твоєму місці я б…»
+- *If I were you, I'd talk to the manager.*
+- *If I were you, I wouldn't sign it.*
+
+В уявному *if* **were** вживається для всіх осіб: *if I were, if she were, if it were*. У розмові часто кажуть і *If I was you*, але *were* — надійніший вибір.
+
+Після *I'd / I wouldn't* — голе дієслово.
+
+✅ *If I were you, I'd call the bank.*
+❌ *If I am you, I'd call the bank.*
+
+✅ *If I were you, I wouldn't sign it.*
+❌ *If I were you, I won't sign it.*
+
+**Перевір себе:** порада → *If I were you, I'd (not)…* + голе дієслово.`,
+        ru: `**Суть.** Самый частый способ дать совет по-английски: **If I were you, I'd…** — «На твоём месте я бы…»
+- *If I were you, I'd talk to the manager.*
+- *If I were you, I wouldn't sign it.*
+
+В воображаемом *if* **were** используется для всех лиц: *if I were, if she were, if it were*. В разговоре часто говорят и *If I was you*, но *were* — более надёжный выбор.
+
+После *I'd / I wouldn't* — голый глагол.
+
+✅ *If I were you, I'd call the bank.*
+❌ *If I am you, I'd call the bank.*
+
+✅ *If I were you, I wouldn't sign it.*
+❌ *If I were you, I won't sign it.*
+
+**Проверь себя:** совет → *If I were you, I'd (not)…* + голый глагол.`,
+      },
+    },
+    {
+      for: ['unless'],
+      rule: {
+        en: `**unless** = *if … not*: *We'll be late unless we leave now* = *if we don't leave now*. Don't add another *not* after *unless*.`,
+        uk: `**unless** = *if … not* («якщо не»): *We'll be late unless we leave now* = *if we don't leave now*. Друге *not* після *unless* не додаємо.`,
+        ru: `**unless** = *if … not* («если не»): *We'll be late unless we leave now* = *if we don't leave now*. Второе *not* после *unless* не добавляем.`,
+      },
+      more: {
+        en: `**The idea.** **unless** = *if … not* — «якщо не / если не». The "not" is already inside it, so don't add another one:
+- *We'll miss the flight unless we leave now.* = *…if we don't leave now.*
+- *You can't park here unless you have a permit.* = *…if you don't have a permit.*
+
+After *unless* — just like after *if* — the present, not *will*.
+
+✅ *Unless you pay, they won't fix it.*
+❌ *Unless you don't pay, they won't fix it.*
+
+✅ *We'll miss the flight unless we leave now.*
+❌ *We'll miss the flight unless we will leave now.*
+
+**Check yourself:** replace *unless* with *if … not*. If you now have two *not*s, remove one.`,
+        uk: `**Суть.** **unless** = *if … not* — «якщо не». «Не» вже всередині нього, тож ще одне не додавай:
+- *We'll miss the flight unless we leave now.* = *…if we don't leave now.*
+- *You can't park here unless you have a permit.* = *…if you don't have a permit.*
+
+Після *unless* — як і після *if* — теперішній, а не *will*.
+
+✅ *Unless you pay, they won't fix it.*
+❌ *Unless you don't pay, they won't fix it.*
+
+✅ *We'll miss the flight unless we leave now.*
+❌ *We'll miss the flight unless we will leave now.*
+
+**Перевір себе:** заміни *unless* на *if … not*. Якщо вийшло два *not* — прибери одне.`,
+        ru: `**Суть.** **unless** = *if … not* — «если не». «Не» уже внутри него, поэтому ещё одно не добавляй:
+- *We'll miss the flight unless we leave now.* = *…if we don't leave now.*
+- *You can't park here unless you have a permit.* = *…if you don't have a permit.*
+
+После *unless* — как и после *if* — настоящее, а не *will*.
+
+✅ *Unless you pay, they won't fix it.*
+❌ *Unless you don't pay, they won't fix it.*
+
+✅ *We'll miss the flight unless we leave now.*
+❌ *We'll miss the flight unless we will leave now.*
+
+**Проверь себя:** замени *unless* на *if … not*. Если получилось два *not* — убери одно.`,
+      },
+    },
+    {
+      for: ['real-unreal'],
+      rule: {
+        en: `The *if* part can come first or second: *I'd walk if I lived closer.* (A comma only when *if* comes first.) Ask yourself: **can it really happen?** Yes → *will*. Only in my imagination → *would*.`,
+        uk: `Частина з *if* може стояти першою або другою: *I'd walk if I lived closer.* (Кома — лише коли *if* на початку.) Питання до себе: **це справді може статися?** Так → *will*. Лише в уяві → *would*.`,
+        ru: `Часть с *if* может стоять первой или второй: *I'd walk if I lived closer.* (Запятая — только когда *if* в начале.) Вопрос к себе: **это правда может случиться?** Да → *will*. Только в воображении → *would*.`,
+      },
+      more: {
+        en: `**The idea.** The choice between the two conditionals isn't about time — both can be about the future. It's about **how real** it feels to you:
+- **possible**, it can really happen → *If + present, will*: *If I find your keys, I'll let you know.*
+- **imaginary** or very unlikely → *If + past, would*: *If I found a million dollars, I'd…*
+
+Compare:
+- *If I see her tomorrow, I'll tell her.* — I'll probably see her
+- *If I saw her, I'd tell her.* — I don't really expect to
+
+Don't mix the two halves: *If I find…, I'd…* doesn't work.
+
+**Word order:** the *if* part can come first or second. A comma only when *if* comes first: *If it rains, we'll stay home.* — *We'll stay home if it rains.*
+
+✅ *If I see her tomorrow, I'll give her the documents.*
+❌ *If I see her tomorrow, I'd give her the documents.*
+
+**Check yourself:** can this really happen? Yes → present + *will*. Only in my imagination → past + *would*.`,
+        uk: `**Суть.** Вибір між двома умовними — не про час: обидва можуть бути про майбутнє. Він про те, **наскільки це реально** для тебе:
+- **можливо**, справді може статися → *If + теперішній, will*: *If I find your keys, I'll let you know.*
+- **уявне** або дуже малоймовірне → *If + минулий, would*: *If I found a million dollars, I'd…*
+
+Порівняй:
+- *If I see her tomorrow, I'll tell her.* — я, мабуть, її побачу
+- *If I saw her, I'd tell her.* — я не дуже на це розраховую
+
+Не змішуй половинки: *If I find…, I'd…* — так не можна.
+
+**Порядок:** частина з *if* може бути першою або другою. Кома — лише коли *if* перше: *If it rains, we'll stay home.* — *We'll stay home if it rains.*
+
+✅ *If I see her tomorrow, I'll give her the documents.*
+❌ *If I see her tomorrow, I'd give her the documents.*
+
+**Перевір себе:** це справді може статися? Так → теперішній + *will*. Лише в уяві → минулий + *would*.`,
+        ru: `**Суть.** Выбор между двумя условными — не про время: оба могут быть о будущем. Он о том, **насколько это реально** для тебя:
+- **возможно**, действительно может случиться → *If + настоящее, will*: *If I find your keys, I'll let you know.*
+- **воображаемое** или очень маловероятное → *If + прошедшее, would*: *If I found a million dollars, I'd…*
+
+Сравни:
+- *If I see her tomorrow, I'll tell her.* — я, скорее всего, её увижу
+- *If I saw her, I'd tell her.* — я не очень на это рассчитываю
+
+Не смешивай половинки: *If I find…, I'd…* — так нельзя.
+
+**Порядок:** часть с *if* может быть первой или второй. Запятая — только когда *if* первое: *If it rains, we'll stay home.* — *We'll stay home if it rains.*
+
+✅ *If I see her tomorrow, I'll give her the documents.*
+❌ *If I see her tomorrow, I'd give her the documents.*
+
+**Проверь себя:** это действительно может случиться? Да → настоящее + *will*. Только в воображении → прошедшее + *would*.`,
+      },
+    },
+  ],
   examples: ["If it rains tomorrow, we'll stay home.", 'If I had more time, I would learn Spanish.', "If I were you, I'd talk to the manager.", "We'll miss the flight unless we leave now.", 'What would you do if you lost your passport?'],
   trap: {
     uk: 'Якби я знала його номер, я б йому подзвонила.',
