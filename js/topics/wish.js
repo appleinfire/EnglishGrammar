@@ -5,29 +5,286 @@ APP.addTopic({
   group: 'Conditionals',
   icon: '🌠',
   about: 'I wish I had, I wish I had done, I wish you would',
-  rule: {
-    en: `**wish / if only** + a form one step "back in time", like the *if* in imaginary conditionals:
-- About **now** → **past form**: *I wish I **had** more time. I wish I **lived** closer. I wish I **knew** the answer.* With *be*: **were** (*was* in casual speech): *I wish I were taller.*
-- Ability now → **could**: *I wish I **could** speak French.*
-- About the **past** (a regret) → **had + 3rd form**: *I wish I **had studied** harder. I wish I **hadn't said** that.*
-- Someone else's behavior that annoys you (a wish for change) → **would**: *I wish you **would** stop interrupting. I wish it **would** stop raining.* Not about yourself: *I wish I could…*, not *I wish I would…*
-- **If only** = a stronger *I wish*: *If only I had listened!*
-Never *will* or the present after *wish*: not *I wish I have*, not *I wish it will stop*.`,
-    uk: `**wish / if only** + форма на «крок назад у часі», як після *if* в уявних умовних реченнях:
-- Про **зараз** → **минула форма**: *I wish I **had** more time* — «Шкода, що в мене мало часу / Хотіла б я мати більше часу». *I wish I **lived** closer. I wish I **knew** the answer.* З *be*: **were** (у розмові *was*): *I wish I were taller.*
-- Вміння зараз → **could**: *I wish I **could** speak French.*
-- Про **минуле** (жаль) → **had + третя форма**: *I wish I **had studied** harder* — «Шкода, що я не вчилася старанніше». *I wish I **hadn't said** that.*
-- Чужа поведінка, яка дратує (хочеться змін) → **would**: *I wish you **would** stop interrupting. I wish it **would** stop raining.* Не про себе: *I wish I could…*, а не *I wish I would…*
-- **If only** = сильніше *I wish*: *If only I had listened!* — «Якби ж то я послухала!»
-Після *wish* ніколи не буває *will* чи теперішнього часу: не *I wish I have*, не *I wish it will stop*.`,
-    ru: `**wish / if only** + форма на «шаг назад во времени», как после *if* в воображаемых условных:
-- О **сейчас** → **прошедшая форма**: *I wish I **had** more time* — «Жаль, что у меня мало времени / Хотела бы я иметь больше времени». *I wish I **lived** closer. I wish I **knew** the answer.* С *be*: **were** (в разговоре *was*): *I wish I were taller.*
-- Умение сейчас → **could**: *I wish I **could** speak French.*
-- О **прошлом** (сожаление) → **had + третья форма**: *I wish I **had studied** harder* — «Жаль, что я не училась усерднее». *I wish I **hadn't said** that.*
-- Чужое поведение, которое раздражает (хочется перемен) → **would**: *I wish you **would** stop interrupting. I wish it **would** stop raining.* Не о себе: *I wish I could…*, а не *I wish I would…*
-- **If only** = сильнее *I wish*: *If only I had listened!* — «Если бы только я послушала!»
-После *wish* никогда не бывает *will* или настоящего времени: не *I wish I have*, не *I wish it will stop*.`,
-  },
+  points: [
+    {
+      for: ['present', 'were'],
+      rule: {
+        en: `**wish / if only** + a form one step "back in time", like the *if* in imaginary conditionals: About **now** → **past form**: *I wish I **had** more time. I wish I **lived** closer. I wish I **knew** the answer.* With *be*: **were** (*was* in casual speech): *I wish I were taller.* Never *will* or the present after *wish*: not *I wish I have*, not *I wish it will stop*.`,
+        uk: `**wish / if only** + форма на «крок назад у часі», як після *if* в уявних умовних реченнях: Про **зараз** → **минула форма**: *I wish I **had** more time* — «Шкода, що в мене мало часу / Хотіла б я мати більше часу». *I wish I **lived** closer. I wish I **knew** the answer.* З *be*: **were** (у розмові *was*): *I wish I were taller.* Після *wish* ніколи не буває *will* чи теперішнього часу: не *I wish I have*, не *I wish it will stop*.`,
+        ru: `**wish / if only** + форма на «шаг назад во времени», как после *if* в воображаемых условных: О **сейчас** → **прошедшая форма**: *I wish I **had** more time* — «Жаль, что у меня мало времени / Хотела бы я иметь больше времени». *I wish I **lived** closer. I wish I **knew** the answer.* С *be*: **were** (в разговоре *was*): *I wish I were taller.* После *wish* никогда не бывает *will* или настоящего времени: не *I wish I have*, не *I wish it will stop*.`,
+      },
+      more: {
+        en: `**The idea.** After **wish**, English steps **one step back in time** — the same trick as in imaginary *if*. The past form shows it's not real:
+- *I wish I **had** more time.* — I don't have it now
+- *I wish I **lived** closer.* — I don't
+- *I wish I **knew** the answer.*
+- with *be*: **were** for everyone: *I wish I were taller.* (*was* in casual speech)
+
+In Ukrainian and Russian «Шкода, що в мене немає… / Жаль, что у меня нет…» or «Хотіла б я… / Хотела бы я…» use the present, so people say *I wish I have*. After *wish* — never the present and never *will*.
+
+✅ *I wish I had more free time.*
+❌ *I wish I have more free time.*
+
+✅ *I wish I were taller.*
+❌ *I wish I am taller.*
+
+**Check yourself:** a wish about **now** → past form: *have → had, live → lived, am → were*.`,
+        uk: `**Суть.** Після **wish** англійська робить **крок назад у часі** — той самий прийом, що в уявному *if*. Минула форма показує, що це нереально:
+- *I wish I had more time.* — зараз його немає
+- *I wish I lived closer.* — я живу далеко
+- *I wish I knew the answer.*
+- з *be*: **were** для всіх: *I wish I were taller.* (*was* — у невимушеній розмові)
+
+Українською «Шкода, що в мене немає…» чи «Хотіла б я…» — у теперішньому, тому кажуть *I wish I have*. Після *wish* — ніколи не теперішній і ніколи не *will*.
+
+✅ *I wish I had more free time.*
+❌ *I wish I have more free time.*
+
+✅ *I wish I were taller.*
+❌ *I wish I am taller.*
+
+**Перевір себе:** бажання про **зараз** → минула форма: *have → had, live → lived, am → were*.`,
+        ru: `**Суть.** После **wish** английский делает **шаг назад во времени** — тот же приём, что в воображаемом *if*. Прошедшая форма показывает, что это нереально:
+- *I wish I had more time.* — сейчас его нет
+- *I wish I lived closer.* — я живу далеко
+- *I wish I knew the answer.*
+- с *be*: **were** для всех: *I wish I were taller.* (*was* — в непринуждённом разговоре)
+
+По-русски «Жаль, что у меня нет…» или «Хотела бы я…» — в настоящем, поэтому говорят *I wish I have*. После *wish* — никогда не настоящее и никогда не *will*.
+
+✅ *I wish I had more free time.*
+❌ *I wish I have more free time.*
+
+✅ *I wish I were taller.*
+❌ *I wish I am taller.*
+
+**Проверь себя:** желание о **сейчас** → прошедшая форма: *have → had, live → lived, am → were*.`,
+      },
+    },
+    {
+      for: ['could'],
+      rule: {
+        en: `Ability now → **could**: *I wish I **could** speak French.*`,
+        uk: `Вміння зараз → **could**: *I wish I **could** speak French.*`,
+        ru: `Умение сейчас → **could**: *I wish I **could** speak French.*`,
+      },
+      more: {
+        en: `**The idea.** When the wish is about an **ability** — something you can't do — use **could**: *can → could*, one step back like everything after *wish*:
+- *I wish I could speak French.* — I can't
+- *I wish I could come to your wedding, but I'll be away.*
+
+About the past: **could have + 3rd form**: *I wish I could have come.* — I wasn't able to
+
+About yourself it's always *could*, not *would*: *I wish I would…* sounds strange.
+
+✅ *I wish I could speak French.*
+❌ *I wish I can speak French.*
+
+✅ *I wish I could drive.*
+❌ *I wish I would drive.*
+
+**Check yourself:** "I can't, but I'd love to" → *I wish I could…*`,
+        uk: `**Суть.** Коли бажання про **вміння** — те, чого ти не можеш, — кажи **could**: *can → could*, крок назад, як усе після *wish*:
+- *I wish I could speak French.* — я не вмію
+- *I wish I could come to your wedding, but I'll be away.*
+
+Про минуле: **could have + третя форма**: *I wish I could have come.* — я не змогла
+
+Про себе — завжди *could*, а не *would*: *I wish I would…* звучить дивно.
+
+✅ *I wish I could speak French.*
+❌ *I wish I can speak French.*
+
+✅ *I wish I could drive.*
+❌ *I wish I would drive.*
+
+**Перевір себе:** «я не можу, але дуже хотіла б» → *I wish I could…*`,
+        ru: `**Суть.** Когда желание об **умении** — том, чего ты не можешь, — говори **could**: *can → could*, шаг назад, как всё после *wish*:
+- *I wish I could speak French.* — я не умею
+- *I wish I could come to your wedding, but I'll be away.*
+
+О прошлом: **could have + третья форма**: *I wish I could have come.* — я не смогла
+
+О себе — всегда *could*, а не *would*: *I wish I would…* звучит странно.
+
+✅ *I wish I could speak French.*
+❌ *I wish I can speak French.*
+
+✅ *I wish I could drive.*
+❌ *I wish I would drive.*
+
+**Проверь себя:** «я не могу, но очень хотела бы» → *I wish I could…*`,
+      },
+    },
+    {
+      for: ['past'],
+      rule: {
+        en: `About the **past** (a regret) → **had + 3rd form**: *I wish I **had studied** harder. I wish I **hadn't said** that.*`,
+        uk: `Про **минуле** (жаль) → **had + третя форма**: *I wish I **had studied** harder* — «Шкода, що я не вчилася старанніше». *I wish I **hadn't said** that.*`,
+        ru: `О **прошлом** (сожаление) → **had + третья форма**: *I wish I **had studied** harder* — «Жаль, что я не училась усерднее». *I wish I **hadn't said** that.*`,
+      },
+      more: {
+        en: `**The idea.** A **regret** about the past — «шкода, що я (не)… / жаль, что я (не)…» — goes two steps back: **had + 3rd form**:
+- *I wish I had studied harder at school.* — I didn't
+- *I wish I hadn't said that.* — I did, and now she's angry
+- *I wish we had bought that house.*
+
+The Past Simple isn't enough here: after *wish* it means **now** (*I wish I knew* = now). For the past you need *had done*.
+
+✅ *I wish I had learned English at school.*
+❌ *I wish I learned English at school.*
+
+✅ *I wish I hadn't eaten so much.*
+❌ *I wish I didn't eat so much.* — that's about your habit now
+
+**Check yourself:** about something that already happened (or didn't) → *wish + had + 3rd form*.`,
+        uk: `**Суть.** **Жаль** про минуле — «шкода, що я (не)…» — іде на два кроки назад: **had + третя форма**:
+- *I wish I had studied harder at school.* — я не вчилася
+- *I wish I hadn't said that.* — я сказала, і тепер вона сердиться
+- *I wish we had bought that house.*
+
+Past Simple тут не вистачає: після *wish* він означає **зараз** (*I wish I knew* = зараз). Для минулого потрібне *had done*.
+
+✅ *I wish I had learned English at school.*
+❌ *I wish I learned English at school.*
+
+✅ *I wish I hadn't eaten so much.*
+❌ *I wish I didn't eat so much.* — це про твою звичку зараз
+
+**Перевір себе:** про те, що вже сталося (чи не сталося) → *wish + had + третя форма*.`,
+        ru: `**Суть.** **Сожаление** о прошлом — «жаль, что я (не)…» — идёт на два шага назад: **had + третья форма**:
+- *I wish I had studied harder at school.* — я не училась
+- *I wish I hadn't said that.* — я сказала, и теперь она сердится
+- *I wish we had bought that house.*
+
+Past Simple здесь не хватает: после *wish* он значит **сейчас** (*I wish I knew* = сейчас). Для прошлого нужно *had done*.
+
+✅ *I wish I had learned English at school.*
+❌ *I wish I learned English at school.*
+
+✅ *I wish I hadn't eaten so much.*
+❌ *I wish I didn't eat so much.* — это о твоей привычке сейчас
+
+**Проверь себя:** о том, что уже случилось (или не случилось) → *wish + had + третья форма*.`,
+      },
+    },
+    {
+      for: ['would'],
+      rule: {
+        en: `Someone else's behavior that annoys you (a wish for change) → **would**: *I wish you **would** stop interrupting. I wish it **would** stop raining.* Not about yourself: *I wish I could…*, not *I wish I would…*`,
+        uk: `Чужа поведінка, яка дратує (хочеться змін) → **would**: *I wish you **would** stop interrupting. I wish it **would** stop raining.* Не про себе: *I wish I could…*, а не *I wish I would…*`,
+        ru: `Чужое поведение, которое раздражает (хочется перемен) → **would**: *I wish you **would** stop interrupting. I wish it **would** stop raining.* Не о себе: *I wish I could…*, а не *I wish I would…*`,
+      },
+      more: {
+        en: `**The idea.** **wish + would** is for when you want **someone else** (or something) to **change** — usually because it annoys you:
+- *I wish you would stop interrupting me!* — please stop
+- *I wish it would stop raining.*
+- *I wish my neighbors would turn the music down.*
+
+It's a complaint or a hope for change, a bit like «Ну коли ж ти нарешті… / Ну когда же ты наконец…».
+
+Two limits:
+- not about **yourself**: *I wish I would…* ❌ → *I wish I could…*
+- not *will*: *I wish it will stop* ❌
+
+✅ *I wish it would stop raining.*
+❌ *I wish it will stop raining.*
+
+✅ *I wish you would call more often.*
+❌ *I wish you call more often.*
+
+**Check yourself:** someone else's behavior should change → *I wish you / he / it would…*`,
+        uk: `**Суть.** **wish + would** — коли хочеш, щоб **хтось інший** (чи щось) **змінився** — зазвичай тому, що це дратує:
+- *I wish you would stop interrupting me!* — будь ласка, перестань
+- *I wish it would stop raining.*
+- *I wish my neighbors would turn the music down.*
+
+Це скарга чи надія на зміну, трохи як «Ну коли ж ти нарешті…».
+
+Два обмеження:
+- не про **себе**: *I wish I would…* ❌ → *I wish I could…*
+- не *will*: *I wish it will stop* ❌
+
+✅ *I wish it would stop raining.*
+❌ *I wish it will stop raining.*
+
+✅ *I wish you would call more often.*
+❌ *I wish you call more often.*
+
+**Перевір себе:** має змінитися чужа поведінка → *I wish you / he / it would…*`,
+        ru: `**Суть.** **wish + would** — когда хочешь, чтобы **кто-то другой** (или что-то) **изменился** — обычно потому, что это раздражает:
+- *I wish you would stop interrupting me!* — пожалуйста, перестань
+- *I wish it would stop raining.*
+- *I wish my neighbors would turn the music down.*
+
+Это жалоба или надежда на перемену, немного как «Ну когда же ты наконец…».
+
+Два ограничения:
+- не о **себе**: *I wish I would…* ❌ → *I wish I could…*
+- не *will*: *I wish it will stop* ❌
+
+✅ *I wish it would stop raining.*
+❌ *I wish it will stop raining.*
+
+✅ *I wish you would call more often.*
+❌ *I wish you call more often.*
+
+**Проверь себя:** должно измениться чужое поведение → *I wish you / he / it would…*`,
+      },
+    },
+    {
+      for: ['if-only'],
+      rule: {
+        en: `**If only** = a stronger *I wish*: *If only I had listened!*`,
+        uk: `**If only** = сильніше *I wish*: *If only I had listened!* — «Якби ж то я послухала!»`,
+        ru: `**If only** = сильнее *I wish*: *If only I had listened!* — «Если бы только я послушала!»`,
+      },
+      more: {
+        en: `**The idea.** **If only** = a stronger, more emotional *I wish* — «Якби ж… / Если бы только…». The grammar after it is exactly the same:
+- now → past form: *If only we had a bigger apartment!*
+- the past → *had + 3rd form*: *If only I had listened to your advice!*
+- with *be* → *were*: *If only he were here.*
+
+It often stands alone as an exclamation.
+
+✅ *If only I had listened to your advice!*
+❌ *If only I listened to your advice!* — if you mean the past
+
+✅ *If only we had a bigger apartment!*
+❌ *If only we have a bigger apartment!*
+
+**Check yourself:** *If only* = *I wish*, with feeling — choose the form the same way.`,
+        uk: `**Суть.** **If only** = сильніше, емоційніше *I wish* — «Якби ж…». Граматика після нього точно така сама:
+- зараз → минула форма: *If only we had a bigger apartment!*
+- минуле → *had + третя форма*: *If only I had listened to your advice!*
+- з *be* → *were*: *If only he were here.*
+
+Часто стоїть окремо, як вигук.
+
+✅ *If only I had listened to your advice!*
+❌ *If only I listened to your advice!* — якщо йдеться про минуле
+
+✅ *If only we had a bigger apartment!*
+❌ *If only we have a bigger apartment!*
+
+**Перевір себе:** *If only* = *I wish* з почуттям — форму вибирай так само.`,
+        ru: `**Суть.** **If only** = более сильное, эмоциональное *I wish* — «Если бы только…». Грамматика после него точно такая же:
+- сейчас → прошедшая форма: *If only we had a bigger apartment!*
+- прошлое → *had + третья форма*: *If only I had listened to your advice!*
+- с *be* → *were*: *If only he were here.*
+
+Часто стоит отдельно, как восклицание.
+
+✅ *If only I had listened to your advice!*
+❌ *If only I listened to your advice!* — если речь о прошлом
+
+✅ *If only we had a bigger apartment!*
+❌ *If only we have a bigger apartment!*
+
+**Проверь себя:** *If only* = *I wish* с чувством — форму выбирай так же.`,
+      },
+    },
+  ],
   examples: ['I wish I had more time.', 'I wish I could speak French.', "I wish I hadn't said that.", 'I wish you would stop interrupting me.', 'If only I had listened to my mother!'],
   trap: {
     uk: 'Шкода, що я не вчила англійську в школі.',
