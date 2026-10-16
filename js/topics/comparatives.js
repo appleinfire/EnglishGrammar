@@ -5,29 +5,435 @@ APP.addTopic({
   group: 'Adjectives & adverbs',
   icon: '📏',
   about: '-er / more, than, the most, as… as',
-  rule: {
-    en: `- **Short** adjectives (one syllable, or two ending in *-y*) → **-er / the -est**: *cheap → cheaper → the cheapest; big → bigger; easy → easier*.
-- **Long** adjectives → **more / the most**: *more expensive, the most comfortable*. Never both: *cheaper*, not *more cheaper*.
-- Irregular: *good → better → the best, bad → worse → the worst, far → farther / further, many / much → more, little → less*.
-- Compare with **than**: *older than me, more than before*. (Not *that, as, then*.)
-- The superlative takes **the**: *the best restaurant in town, the most beautiful place I've ever seen*. Usually *in* + a place.
-- Equal: **as … as** — *as tall as his father*. Not equal: **not as … as** — *It isn't as cold here as in Chicago.* Same: **the same as** (not *the same like*).
-- Stronger: **much / a lot / far** + comparative: *much cheaper* (not *very cheaper*). Growing: *colder and colder, more and more expensive*.`,
-    uk: `- **Короткі** прикметники (один склад або два з *-y* в кінці) → **-er / the -est**: *cheap → cheaper → the cheapest; big → bigger; easy → easier*.
-- **Довгі** прикметники → **more / the most**: *more expensive, the most comfortable*. Ніколи разом: *cheaper*, а не *more cheaper*.
-- Неправильні: *good → better → the best, bad → worse → the worst, far → farther / further, many / much → more, little → less*.
-- Порівнюємо через **than** («ніж, за»): *older than me, more than before*. (Не *that, as, then*.)
-- Найвищий ступінь — з **the**: *the best restaurant in town, the most beautiful place I've ever seen*. Зазвичай *in* + місце.
-- Однаково: **as … as** — *as tall as his father*. Не однаково: **not as … as** — *It isn't as cold here as in Chicago.* Такий самий: **the same as** (не *the same like*).
-- Сильніше: **much / a lot / far** + порівняльний ступінь: *much cheaper* (не *very cheaper*). Наростання: *colder and colder, more and more expensive*.`,
-    ru: `- **Короткие** прилагательные (один слог или два с *-y* на конце) → **-er / the -est**: *cheap → cheaper → the cheapest; big → bigger; easy → easier*.
-- **Длинные** прилагательные → **more / the most**: *more expensive, the most comfortable*. Никогда вместе: *cheaper*, а не *more cheaper*.
-- Неправильные: *good → better → the best, bad → worse → the worst, far → farther / further, many / much → more, little → less*.
-- Сравниваем через **than** («чем»): *older than me, more than before*. (Не *that, as, then*.)
-- Превосходная степень — с **the**: *the best restaurant in town, the most beautiful place I've ever seen*. Обычно *in* + место.
-- Одинаково: **as … as** — *as tall as his father*. Не одинаково: **not as … as** — *It isn't as cold here as in Chicago.* Такой же: **the same as** (не *the same like*).
-- Сильнее: **much / a lot / far** + сравнительная степень: *much cheaper* (не *very cheaper*). Нарастание: *colder and colder, more and more expensive*.`,
-  },
+  points: [
+    {
+      for: ['er'],
+      rule: {
+        en: `**Short** adjectives (one syllable, or two ending in *-y*) → **-er / the -est**: *cheap → cheaper → the cheapest; big → bigger; easy → easier*.`,
+        uk: `**Короткі** прикметники (один склад або два з *-y* в кінці) → **-er / the -est**: *cheap → cheaper → the cheapest; big → bigger; easy → easier*.`,
+        ru: `**Короткие** прилагательные (один слог или два с *-y* на конце) → **-er / the -est**: *cheap → cheaper → the cheapest; big → bigger; easy → easier*.`,
+      },
+      more: {
+        en: `**The idea.** To compare, English changes the adjective. Short adjectives get an ending:
+- **-er** to compare two things: *cheap → cheaper*
+- **the -est** for number one of all: *cheap → the cheapest*
+
+"Short" means one syllable (*cheap, big, old, tall, fast*) or two syllables ending in *-y* (*easy, busy, happy*).
+
+**Spelling:**
+- one vowel + one consonant at the end → double it: *big → bigger, hot → hotter*
+- *-y* → *-ier*: *easy → easier, busy → busier*
+- *-e* → just *-r*: *nice → nicer, large → larger*
+
+✅ *This phone is cheaper than my old one.*
+❌ *This phone is more cheap than my old one.*
+
+✅ *It's the tallest building in the city.*
+❌ *It's the most tall building in the city.*
+
+**Check yourself:** clap the syllables. *cheap* — one clap → *-er*. *ex-pen-sive* — three → *more*.`,
+        uk: `**Суть.** Щоб порівняти, англійська змінює прикметник. Короткі прикметники отримують закінчення:
+- **-er** — щоб порівняти дві речі: *cheap → cheaper*
+- **the -est** — номер один серед усіх: *cheap → the cheapest*
+
+«Короткий» — це один склад (*cheap, big, old, tall, fast*) або два склади із закінченням *-y* (*easy, busy, happy*).
+
+**Правопис:**
+- одна голосна + одна приголосна в кінці → подвоюємо: *big → bigger, hot → hotter*
+- *-y* → *-ier*: *easy → easier, busy → busier*
+- *-e* → лише *-r*: *nice → nicer, large → larger*
+
+✅ *This phone is cheaper than my old one.*
+❌ *This phone is more cheap than my old one.*
+
+✅ *It's the tallest building in the city.*
+❌ *It's the most tall building in the city.*
+
+**Перевір себе:** проплескай склади. *cheap* — один хлопок → *-er*. *ex-pen-sive* — три → *more*.`,
+        ru: `**Суть.** Чтобы сравнить, английский меняет прилагательное. Короткие прилагательные получают окончание:
+- **-er** — чтобы сравнить две вещи: *cheap → cheaper*
+- **the -est** — номер один среди всех: *cheap → the cheapest*
+
+«Короткое» — это один слог (*cheap, big, old, tall, fast*) или два слога с окончанием *-y* (*easy, busy, happy*).
+
+**Правописание:**
+- одна гласная + одна согласная в конце → удваиваем: *big → bigger, hot → hotter*
+- *-y* → *-ier*: *easy → easier, busy → busier*
+- *-e* → только *-r*: *nice → nicer, large → larger*
+
+✅ *This phone is cheaper than my old one.*
+❌ *This phone is more cheap than my old one.*
+
+✅ *It's the tallest building in the city.*
+❌ *It's the most tall building in the city.*
+
+**Проверь себя:** прохлопай слоги. *cheap* — один хлопок → *-er*. *ex-pen-sive* — три → *more*.`,
+      },
+    },
+    {
+      for: ['more'],
+      rule: {
+        en: `**Long** adjectives → **more / the most**: *more expensive, the most comfortable*. Never both: *cheaper*, not *more cheaper*.`,
+        uk: `**Довгі** прикметники → **more / the most**: *more expensive, the most comfortable*. Ніколи разом: *cheaper*, а не *more cheaper*.`,
+        ru: `**Длинные** прилагательные → **more / the most**: *more expensive, the most comfortable*. Никогда вместе: *cheaper*, а не *more cheaper*.`,
+      },
+      more: {
+        en: `**The idea.** Long adjectives (two or more syllables, not ending in *-y*) don't take an ending — the word would get too long. They use a separate word instead, like «більш зручний / более удобный»:
+- **more** + adjective: *more expensive, more comfortable, more convenient*
+- **the most** + adjective: *the most beautiful, the most interesting*
+
+**Only one marker:** either *-er* or *more* — never both.
+
+✅ *Flying is more expensive than driving.*
+❌ *Flying is expensiver than driving.*
+
+✅ *This sofa is more comfortable than the old one.*
+❌ *This sofa is more comfortabler than the old one.*
+
+✅ *It's cheaper online.*
+❌ *It's more cheaper online.*
+
+**Check yourself:** choose *-er* or *more* by the length of the word, and use just one of them.`,
+        uk: `**Суть.** Довгі прикметники (два склади і більше, не на *-y*) не беруть закінчення — слово вийшло б задовгим. Замість цього окреме слово, як у «більш зручний»:
+- **more** + прикметник: *more expensive, more comfortable, more convenient*
+- **the most** + прикметник: *the most beautiful, the most interesting*
+
+**Лише один показник:** або *-er*, або *more* — ніколи обидва.
+
+✅ *Flying is more expensive than driving.*
+❌ *Flying is expensiver than driving.*
+
+✅ *This sofa is more comfortable than the old one.*
+❌ *This sofa is more comfortabler than the old one.*
+
+✅ *It's cheaper online.*
+❌ *It's more cheaper online.*
+
+**Перевір себе:** вибирай *-er* чи *more* за довжиною слова — і лише щось одне.`,
+        ru: `**Суть.** Длинные прилагательные (два слога и больше, не на *-y*) не берут окончание — слово получилось бы слишком длинным. Вместо этого отдельное слово, как в «более удобный»:
+- **more** + прилагательное: *more expensive, more comfortable, more convenient*
+- **the most** + прилагательное: *the most beautiful, the most interesting*
+
+**Только один показатель:** либо *-er*, либо *more* — никогда оба.
+
+✅ *Flying is more expensive than driving.*
+❌ *Flying is expensiver than driving.*
+
+✅ *This sofa is more comfortable than the old one.*
+❌ *This sofa is more comfortabler than the old one.*
+
+✅ *It's cheaper online.*
+❌ *It's more cheaper online.*
+
+**Проверь себя:** выбирай *-er* или *more* по длине слова — и только что-то одно.`,
+      },
+    },
+    {
+      for: ['irr'],
+      rule: {
+        en: `Irregular: *good → better → the best, bad → worse → the worst, far → farther / further, many / much → more, little → less*.`,
+        uk: `Неправильні: *good → better → the best, bad → worse → the worst, far → farther / further, many / much → more, little → less*.`,
+        ru: `Неправильные: *good → better → the best, bad → worse → the worst, far → farther / further, many / much → more, little → less*.`,
+      },
+      more: {
+        en: `**The idea.** A few very common words don't follow the rules — just like «добрий → кращий / хороший → лучше» (not «добріший / хорошее»). Learn them as sets:
+- *good → better → the best*
+- *bad → worse → the worst*
+- *far → farther / further → the farthest / the furthest*
+- *many / much → more → the most*
+- *little → less → the least*
+
+✅ *Your English is better than mine.*
+❌ *Your English is more good than mine.*
+
+✅ *The traffic is worse than yesterday.*
+❌ *The traffic is badder than yesterday.*
+
+✅ *I have less free time now.*
+❌ *I have littler free time now.*
+
+**Check yourself:** *good* and *bad* never take *-er* or *more*: it's always *better / worse*.`,
+        uk: `**Суть.** Кілька дуже вживаних слів не підкоряються правилам — так само, як «добрий → кращий» (а не «добріший»). Їх вчать групами:
+- *good → better → the best*
+- *bad → worse → the worst*
+- *far → farther / further → the farthest / the furthest*
+- *many / much → more → the most*
+- *little → less → the least*
+
+✅ *Your English is better than mine.*
+❌ *Your English is more good than mine.*
+
+✅ *The traffic is worse than yesterday.*
+❌ *The traffic is badder than yesterday.*
+
+✅ *I have less free time now.*
+❌ *I have littler free time now.*
+
+**Перевір себе:** *good* і *bad* ніколи не беруть *-er* чи *more*: завжди *better / worse*.`,
+        ru: `**Суть.** Несколько очень частых слов не подчиняются правилам — так же, как «хороший → лучше» (а не «хорошее»). Их учат группами:
+- *good → better → the best*
+- *bad → worse → the worst*
+- *far → farther / further → the farthest / the furthest*
+- *many / much → more → the most*
+- *little → less → the least*
+
+✅ *Your English is better than mine.*
+❌ *Your English is more good than mine.*
+
+✅ *The traffic is worse than yesterday.*
+❌ *The traffic is badder than yesterday.*
+
+✅ *I have less free time now.*
+❌ *I have littler free time now.*
+
+**Проверь себя:** *good* и *bad* никогда не берут *-er* или *more*: всегда *better / worse*.`,
+      },
+    },
+    {
+      for: ['than'],
+      rule: {
+        en: `Compare with **than**: *older than me, more than before*. (Not *that, as, then*.)`,
+        uk: `Порівнюємо через **than** («ніж, за»): *older than me, more than before*. (Не *that, as, then*.)`,
+        ru: `Сравниваем через **than** («чем»): *older than me, more than before*. (Не *that, as, then*.)`,
+      },
+      more: {
+        en: `**The idea.** After a comparative (*bigger, more expensive, better*) the word for «ніж / за / чем» is **than** — only *than*. Not:
+- *that* — it means «що / что»
+- *then* — it means «тоді, потім / тогда, потом»; it sounds almost the same, but it's a different word
+- *as* — it goes in a pair: *as tall as*
+
+After *than* you can put a noun, a pronoun or a whole phrase:
+- *older than me* — in everyday English *me*, not *I*
+- *more than before, cheaper than in Kyiv*
+
+✅ *My sister is older than me.*
+❌ *My sister is older that me.*
+
+✅ *It's more expensive here than in Kyiv.*
+❌ *It's more expensive here then in Kyiv.*
+
+**Check yourself:** if there's *-er* or *more*, the next comparing word is **than**.`,
+        uk: `**Суть.** Після вищого ступеня (*bigger, more expensive, better*) слово «ніж / за» — це **than**, і лише *than*. Не:
+- *that* — це «що»
+- *then* — це «тоді, потім»; звучить майже так само, але це інше слово
+- *as* — воно йде в парі: *as tall as*
+
+Після *than* може стояти іменник, займенник чи ціла фраза:
+- *older than me* — у розмовній англійській *me*, а не *I*
+- *more than before, cheaper than in Kyiv*
+
+✅ *My sister is older than me.*
+❌ *My sister is older that me.*
+
+✅ *It's more expensive here than in Kyiv.*
+❌ *It's more expensive here then in Kyiv.*
+
+**Перевір себе:** якщо є *-er* чи *more*, наступне слово порівняння — **than**.`,
+        ru: `**Суть.** После сравнительной степени (*bigger, more expensive, better*) слово «чем» — это **than**, и только *than*. Не:
+- *that* — это «что»
+- *then* — это «тогда, потом»; звучит почти так же, но это другое слово
+- *as* — оно идёт в паре: *as tall as*
+
+После *than* может стоять существительное, местоимение или целая фраза:
+- *older than me* — в разговорном английском *me*, а не *I*
+- *more than before, cheaper than in Kyiv*
+
+✅ *My sister is older than me.*
+❌ *My sister is older that me.*
+
+✅ *It's more expensive here than in Kyiv.*
+❌ *It's more expensive here then in Kyiv.*
+
+**Проверь себя:** если есть *-er* или *more*, следующее слово сравнения — **than**.`,
+      },
+    },
+    {
+      for: ['super'],
+      rule: {
+        en: `The superlative takes **the**: *the best restaurant in town, the most beautiful place I've ever seen*. Usually *in* + a place.`,
+        uk: `Найвищий ступінь — з **the**: *the best restaurant in town, the most beautiful place I've ever seen*. Зазвичай *in* + місце.`,
+        ru: `Превосходная степень — с **the**: *the best restaurant in town, the most beautiful place I've ever seen*. Обычно *in* + место.`,
+      },
+      more: {
+        en: `**The idea.** The superlative says "number one of all": *the best, the cheapest, the most expensive*. There is only one number one, so it always takes **the** — like *the first* or *the only*.
+
+Then "of all what?":
+- a place or a group → **in**: *the best restaurant in town, the tallest girl in the class*
+- a period of time → **of**: *the coldest day of the year*
+
+It often comes with *ever*: *the most beautiful place I've ever seen*.
+
+✅ *This is the best restaurant in town.*
+❌ *This is best restaurant in town.*
+
+✅ *She's the tallest girl in her class.*
+❌ *She's the tallest girl of her class.*
+
+✅ *It's the coldest day of the year.*
+❌ *It's the most cold day of the year.*
+
+**Check yourself:** *-est* or *most* → put **the** in front of it.`,
+        uk: `**Суть.** Найвищий ступінь каже «номер один серед усіх»: *the best, the cheapest, the most expensive*. Номер один лише один, тому завжди з **the** — як *the first* чи *the only*.
+
+Далі — «серед чого?»:
+- місце чи група → **in**: *the best restaurant in town, the tallest girl in the class*
+- період часу → **of**: *the coldest day of the year*
+
+Часто разом з *ever*: *the most beautiful place I've ever seen* — «найгарніше місце, яке я бачила».
+
+✅ *This is the best restaurant in town.*
+❌ *This is best restaurant in town.*
+
+✅ *She's the tallest girl in her class.*
+❌ *She's the tallest girl of her class.*
+
+✅ *It's the coldest day of the year.*
+❌ *It's the most cold day of the year.*
+
+**Перевір себе:** *-est* чи *most* → перед ним **the**.`,
+        ru: `**Суть.** Превосходная степень говорит «номер один среди всех»: *the best, the cheapest, the most expensive*. Номер один только один, поэтому всегда с **the** — как *the first* или *the only*.
+
+Дальше — «среди чего?»:
+- место или группа → **in**: *the best restaurant in town, the tallest girl in the class*
+- период времени → **of**: *the coldest day of the year*
+
+Часто вместе с *ever*: *the most beautiful place I've ever seen* — «самое красивое место, которое я видела».
+
+✅ *This is the best restaurant in town.*
+❌ *This is best restaurant in town.*
+
+✅ *She's the tallest girl in her class.*
+❌ *She's the tallest girl of her class.*
+
+✅ *It's the coldest day of the year.*
+❌ *It's the most cold day of the year.*
+
+**Проверь себя:** *-est* или *most* → перед ним **the**.`,
+      },
+    },
+    {
+      for: ['as-as'],
+      rule: {
+        en: `Equal: **as … as** — *as tall as his father*. Not equal: **not as … as** — *It isn't as cold here as in Chicago.* Same: **the same as** (not *the same like*).`,
+        uk: `Однаково: **as … as** — *as tall as his father*. Не однаково: **not as … as** — *It isn't as cold here as in Chicago.* Такий самий: **the same as** (не *the same like*).`,
+        ru: `Одинаково: **as … as** — *as tall as his father*. Не одинаково: **not as … as** — *It isn't as cold here as in Chicago.* Такой же: **the same as** (не *the same like*).`,
+      },
+      more: {
+        en: `**The idea.** Not every comparison says "more". Three useful patterns:
+- **the same amount** → *as + adjective + as*: *My son is as tall as his father.* — «такий самий високий, як / такой же высокий, как»
+- **less** → *not as … as*: *It isn't as cold here as in Chicago.* — a soft, polite way to say "less"
+- **the same thing** → *the same as*: *My phone is the same as yours.*
+
+The trap: «такий самий, як / такой же, как» → *the same as*, not *the same like*. And don't mix the patterns: *as … as* or *-er than*, never *as … than*.
+
+✅ *The new apartment isn't as big as the old one.*
+❌ *The new apartment isn't as big than the old one.*
+
+✅ *My bag is the same as yours.*
+❌ *My bag is the same like yours.*
+
+**Check yourself:** *as* at the start → *as* at the end. *The same* → *as*.`,
+        uk: `**Суть.** Не кожне порівняння каже «більше». Три корисні схеми:
+- **однаково** → *as + прикметник + as*: *My son is as tall as his father.* — «такий самий високий, як»
+- **менше** → *not as … as*: *It isn't as cold here as in Chicago.* — м'який, ввічливий спосіб сказати «менше»
+- **те саме** → *the same as*: *My phone is the same as yours.*
+
+Пастка: «такий самий, як» → *the same as*, а не *the same like*. І не змішуй схеми: *as … as* або *-er than*, але ніколи *as … than*.
+
+✅ *The new apartment isn't as big as the old one.*
+❌ *The new apartment isn't as big than the old one.*
+
+✅ *My bag is the same as yours.*
+❌ *My bag is the same like yours.*
+
+**Перевір себе:** *as* на початку → *as* у кінці. *The same* → *as*.`,
+        ru: `**Суть.** Не каждое сравнение говорит «больше». Три полезные схемы:
+- **одинаково** → *as + прилагательное + as*: *My son is as tall as his father.* — «такой же высокий, как»
+- **меньше** → *not as … as*: *It isn't as cold here as in Chicago.* — мягкий, вежливый способ сказать «меньше»
+- **то же самое** → *the same as*: *My phone is the same as yours.*
+
+Ловушка: «такой же, как» → *the same as*, а не *the same like*. И не смешивай схемы: *as … as* или *-er than*, но никогда *as … than*.
+
+✅ *The new apartment isn't as big as the old one.*
+❌ *The new apartment isn't as big than the old one.*
+
+✅ *My bag is the same as yours.*
+❌ *My bag is the same like yours.*
+
+**Проверь себя:** *as* в начале → *as* в конце. *The same* → *as*.`,
+      },
+    },
+    {
+      for: ['double'],
+      rule: {
+        en: `Stronger: **much / a lot / far** + comparative: *much cheaper* (not *very cheaper*). Growing: *colder and colder, more and more expensive*.`,
+        uk: `Сильніше: **much / a lot / far** + порівняльний ступінь: *much cheaper* (не *very cheaper*). Наростання: *colder and colder, more and more expensive*.`,
+        ru: `Сильнее: **much / a lot / far** + сравнительная степень: *much cheaper* (не *very cheaper*). Нарастание: *colder and colder, more and more expensive*.`,
+      },
+      more: {
+        en: `**The idea.** To say "a lot more", put **much**, **a lot** or **far** before the comparative:
+- *much cheaper, a lot bigger, far more expensive* — «набагато дешевший / гораздо дешевле»
+- a small difference: *a little cheaper, a bit cheaper* — «трохи / немного»
+
+**Not *very*.** *Very* goes with an ordinary adjective (*very cheap*), never with a comparative.
+
+**Growing or falling** — repeat the comparative with *and*:
+- *colder and colder* — «все холодніше / всё холоднее»
+- *more and more expensive*
+
+✅ *My new job is much better than the old one.*
+❌ *My new job is very better than the old one.*
+
+✅ *It's getting colder and colder.*
+❌ *It's getting more colder.*
+
+✅ *This one is a lot cheaper.*
+❌ *This one is more cheaper.*
+
+**Check yourself:** *very* and *-er* never go together — use *much* or *a lot*.`,
+        uk: `**Суть.** Щоб сказати «набагато», постав **much**, **a lot** або **far** перед вищим ступенем:
+- *much cheaper, a lot bigger, far more expensive* — «набагато дешевший»
+- невелика різниця: *a little cheaper, a bit cheaper* — «трохи дешевший»
+
+**Не *very*.** *Very* йде зі звичайним прикметником (*very cheap*), а з вищим ступенем — ніколи.
+
+**Зростає чи падає** — повтори вищий ступінь через *and*:
+- *colder and colder* — «все холодніше»
+- *more and more expensive*
+
+✅ *My new job is much better than the old one.*
+❌ *My new job is very better than the old one.*
+
+✅ *It's getting colder and colder.*
+❌ *It's getting more colder.*
+
+✅ *This one is a lot cheaper.*
+❌ *This one is more cheaper.*
+
+**Перевір себе:** *very* і *-er* ніколи не йдуть разом — кажи *much* або *a lot*.`,
+        ru: `**Суть.** Чтобы сказать «гораздо», поставь **much**, **a lot** или **far** перед сравнительной степенью:
+- *much cheaper, a lot bigger, far more expensive* — «гораздо дешевле»
+- небольшая разница: *a little cheaper, a bit cheaper* — «немного дешевле»
+
+**Не *very*.** *Very* идёт с обычным прилагательным (*very cheap*), а со сравнительной степенью — никогда.
+
+**Растёт или падает** — повтори сравнительную степень через *and*:
+- *colder and colder* — «всё холоднее»
+- *more and more expensive*
+
+✅ *My new job is much better than the old one.*
+❌ *My new job is very better than the old one.*
+
+✅ *It's getting colder and colder.*
+❌ *It's getting more colder.*
+
+✅ *This one is a lot cheaper.*
+❌ *This one is more cheaper.*
+
+**Проверь себя:** *very* и *-er* никогда не идут вместе — говори *much* или *a lot*.`,
+      },
+    },
+  ],
   examples: ['This phone is cheaper than my old one.', 'Flying is more expensive than driving.', 'This is the best restaurant in town.', "It isn't as cold here as in Chicago.", 'Prices are getting higher and higher.'],
   trap: {
     uk: 'Тут дорожче, ніж у Києві.',

@@ -5,26 +5,362 @@ APP.addTopic({
   group: 'Tenses',
   icon: '🔁',
   about: 'I work / I\'m working; know, need, like',
-  rule: {
-    en: `- **Present Simple** — routines, facts, things that are usually true: *I work at a hospital. She doesn't drink coffee. The bus leaves at 7:40.* With *usually, often, every day, never*.
-  *he / she / it* → verb **+ s**: *works, goes, costs*. Questions and negatives with **do / does**.
-- **Present Continuous** — **am / is / are + -ing**: happening **now** or **around now**, temporary: *Shh, the baby's sleeping. I'm driving right now. This week I'm working from home.*
-- Verbs of **state** stay simple even now: *know, understand, like, love, want, need, believe, remember, own, belong, mean*: *I know. I need a charger.*
-- **What do you do?** = What's your job? **What are you doing?** = right now.
-Don't mix the two forms: *I work* or *I'm working* — never *I am work*.`,
-    uk: `- **Present Simple** — звички, факти, те, що зазвичай правда: *I work at a hospital. She doesn't drink coffee. The bus leaves at 7:40.* Зі словами *usually, often, every day, never*.
-  *he / she / it* → дієслово **+ s**: *works, goes, costs*. Питання й заперечення — з **do / does**.
-- **Present Continuous** — **am / is / are + -ing**: відбувається **зараз** або **в цей період**, тимчасово: *Shh, the baby's sleeping. I'm driving right now. This week I'm working from home.*
-- Дієслова **стану** не вживаємо з -ing навіть зараз: *know, understand, like, love, want, need, believe, remember, own, belong, mean*: *I know. I need a charger.*
-- **What do you do?** = Ким ви працюєте? **What are you doing?** = Що ви робите зараз?
-Не змішуйте форми: *I work* або *I'm working* — ніколи *I am work*.`,
-    ru: `- **Present Simple** — привычки, факты, то, что обычно верно: *I work at a hospital. She doesn't drink coffee. The bus leaves at 7:40.* Со словами *usually, often, every day, never*.
-  *he / she / it* → глагол **+ s**: *works, goes, costs*. Вопросы и отрицания — с **do / does**.
-- **Present Continuous** — **am / is / are + -ing**: происходит **сейчас** или **в этот период**, временно: *Shh, the baby's sleeping. I'm driving right now. This week I'm working from home.*
-- Глаголы **состояния** не используем с -ing даже сейчас: *know, understand, like, love, want, need, believe, remember, own, belong, mean*: *I know. I need a charger.*
-- **What do you do?** = Кем вы работаете? **What are you doing?** = Что вы делаете сейчас?
-Не смешивайте формы: *I work* или *I'm working* — никогда *I am work*.`,
-  },
+  points: [
+    {
+      for: ['habit'],
+      rule: {
+        en: `**Present Simple** — routines, facts, things that are usually true: *I work at a hospital. She doesn't drink coffee. The bus leaves at 7:40.* With *usually, often, every day, never*.`,
+        uk: `**Present Simple** — звички, факти, те, що зазвичай правда: *I work at a hospital. She doesn't drink coffee. The bus leaves at 7:40.* Зі словами *usually, often, every day, never*.`,
+        ru: `**Present Simple** — привычки, факты, то, что обычно верно: *I work at a hospital. She doesn't drink coffee. The bus leaves at 7:40.* Со словами *usually, often, every day, never*.`,
+      },
+      more: {
+        en: `**The idea.** Ukrainian and Russian have one present tense: «Я працюю / Я работаю» means both "every day" and "right now". English has two, and you choose by asking: **is it a routine or a fact — or is it happening at the moment?**
+
+**Present Simple** is for things that are true in general, not only today:
+- routines and habits: *I get up at 6. We usually go to the park on Sundays.*
+- facts about you: *My husband works at a hospital. I live in Chicago.*
+- timetables: *The bus leaves at 7:40. The store opens at 9.*
+
+**Signal words:** *usually, always, often, sometimes, never, every day, on Mondays, How often…?*
+
+✅ *We usually eat dinner at 7.*
+❌ *We are usually eating dinner at 7.*
+
+✅ *She works at a bank.* — that's her job
+✅ *She's working at a bank this summer.* — only for now
+
+**Check yourself:** can you add *usually* or *every day* and keep the meaning? → Present Simple.`,
+        uk: `**Суть.** В українській один теперішній час: «Я працюю» — це і «щодня», і «зараз». В англійській їх два, і вибір залежить від питання: **це звичка чи факт — чи це відбувається саме зараз?**
+
+**Present Simple** — для того, що правда взагалі, а не лише сьогодні:
+- розпорядок і звички: *I get up at 6. We usually go to the park on Sundays.*
+- факти про тебе: *My husband works at a hospital. I live in Chicago.*
+- розклад: *The bus leaves at 7:40. The store opens at 9.*
+
+**Слова-підказки:** *usually, always, often, sometimes, never, every day, on Mondays, How often…?*
+
+✅ *We usually eat dinner at 7.*
+❌ *We are usually eating dinner at 7.*
+
+✅ *She works at a bank.* — це її робота
+✅ *She's working at a bank this summer.* — лише тимчасово
+
+**Перевір себе:** можна додати *usually* або *every day*, і зміст не зміниться? → Present Simple.`,
+        ru: `**Суть.** В русском одно настоящее время: «Я работаю» — это и «каждый день», и «сейчас». В английском их два, и выбор зависит от вопроса: **это привычка или факт — или это происходит прямо сейчас?**
+
+**Present Simple** — для того, что верно вообще, а не только сегодня:
+- распорядок и привычки: *I get up at 6. We usually go to the park on Sundays.*
+- факты о тебе: *My husband works at a hospital. I live in Chicago.*
+- расписание: *The bus leaves at 7:40. The store opens at 9.*
+
+**Слова-подсказки:** *usually, always, often, sometimes, never, every day, on Mondays, How often…?*
+
+✅ *We usually eat dinner at 7.*
+❌ *We are usually eating dinner at 7.*
+
+✅ *She works at a bank.* — это её работа
+✅ *She's working at a bank this summer.* — только временно
+
+**Проверь себя:** можно добавить *usually* или *every day*, и смысл не изменится? → Present Simple.`,
+      },
+    },
+    {
+      for: ['s-ending'],
+      rule: {
+        en: `*he / she / it* → verb **+ s**: *works, goes, costs*. Questions and negatives with **do / does**.`,
+        uk: `*he / she / it* → дієслово **+ s**: *works, goes, costs*. Питання й заперечення — з **do / does**.`,
+        ru: `*he / she / it* → глагол **+ s**: *works, goes, costs*. Вопросы и отрицания — с **do / does**.`,
+      },
+      more: {
+        en: `**The idea.** In Present Simple the verb has no ending — except with **one** person: *he / she / it*. Then it takes **-s**:
+- *I work, you work, we work, they work*
+- *he works, she works, it works*
+*He / she / it* is also any one person or thing: *my husband works, the bus leaves, this jacket costs $50*.
+
+**Spelling:** *go → goes, do → does, watch → watches, study → studies, have → has*.
+
+**Questions and negatives** take **do / does**. With *he / she / it* the *-s* moves to *does*, so the verb stays without it.
+
+✅ *My son plays soccer.*
+❌ *My son play soccer.*
+
+✅ *She doesn't drink coffee.*
+❌ *She doesn't drinks coffee.*
+
+✅ *Does the store open at 9?*
+❌ *Does the store opens at 9?*
+
+**Check yourself:** one *-s* per sentence — on the verb (*she works*) or on *does* (*does she work?*), never on both.`,
+        uk: `**Суть.** У Present Simple дієслово без закінчення — крім **однієї** особи: *he / she / it*. Тоді воно отримує **-s**:
+- *I work, you work, we work, they work*
+- *he works, she works, it works*
+*He / she / it* — це також будь-яка одна людина чи річ: *my husband works, the bus leaves, this jacket costs $50*.
+
+**Правопис:** *go → goes, do → does, watch → watches, study → studies, have → has*.
+
+**Питання і заперечення** — з **do / does**. З *he / she / it* закінчення *-s* переходить у *does*, а дієслово лишається без нього.
+
+✅ *My son plays soccer.*
+❌ *My son play soccer.*
+
+✅ *She doesn't drink coffee.*
+❌ *She doesn't drinks coffee.*
+
+✅ *Does the store open at 9?*
+❌ *Does the store opens at 9?*
+
+**Перевір себе:** одне *-s* на речення — або в дієслові (*she works*), або в *does* (*does she work?*), але не в обох.`,
+        ru: `**Суть.** В Present Simple глагол без окончания — кроме **одного** лица: *he / she / it*. Тогда он получает **-s**:
+- *I work, you work, we work, they work*
+- *he works, she works, it works*
+*He / she / it* — это также любой один человек или предмет: *my husband works, the bus leaves, this jacket costs $50*.
+
+**Правописание:** *go → goes, do → does, watch → watches, study → studies, have → has*.
+
+**Вопросы и отрицания** — с **do / does**. С *he / she / it* окончание *-s* переходит в *does*, а глагол остаётся без него.
+
+✅ *My son plays soccer.*
+❌ *My son play soccer.*
+
+✅ *She doesn't drink coffee.*
+❌ *She doesn't drinks coffee.*
+
+✅ *Does the store open at 9?*
+❌ *Does the store opens at 9?*
+
+**Проверь себя:** одно *-s* на предложение — либо в глаголе (*she works*), либо в *does* (*does she work?*), но не в обоих.`,
+      },
+    },
+    {
+      for: ['now', 'temporary'],
+      rule: {
+        en: `**Present Continuous** — **am / is / are + -ing**: happening **now** or **around now**, temporary: *Shh, the baby's sleeping. I'm driving right now. This week I'm working from home.*`,
+        uk: `**Present Continuous** — **am / is / are + -ing**: відбувається **зараз** або **в цей період**, тимчасово: *Shh, the baby's sleeping. I'm driving right now. This week I'm working from home.*`,
+        ru: `**Present Continuous** — **am / is / are + -ing**: происходит **сейчас** или **в этот период**, временно: *Shh, the baby's sleeping. I'm driving right now. This week I'm working from home.*`,
+      },
+      more: {
+        en: `**The idea.** **Present Continuous** (*am / is / are + -ing*) is for something **in progress**: it has started and hasn't finished yet. Two cases:
+- happening **right now**, while you speak: *Shh, the baby's sleeping. I'm driving — I'll call you back.*
+- happening **around now**, for a limited time: *This week I'm working from home. These days I'm learning to drive.* — maybe not this second, but it's a temporary situation.
+
+**Signal words:** *now, right now, at the moment, Look!, Listen!, today, this week, these days*.
+
+✅ *I work from home.* — always, that's how my job is
+✅ *I'm working from home this week.* — only for now
+
+✅ *Look! It's snowing!*
+❌ *Look! It snows!*
+
+✅ *I'm staying with my sister this week.*
+❌ *I stay with my sister this week.*
+
+**Check yourself:** is it happening as we speak, or will it stop soon? → *am / is / are + -ing*.`,
+        uk: `**Суть.** **Present Continuous** (*am / is / are + -ing*) — для того, що **в процесі**: почалося і ще не закінчилося. Два випадки:
+- відбувається **просто зараз**, поки ти говориш: *Shh, the baby's sleeping. I'm driving — I'll call you back.*
+- відбувається **у цей період**, тимчасово: *This week I'm working from home. These days I'm learning to drive.* — можливо, не цієї секунди, але це тимчасова ситуація.
+
+**Слова-підказки:** *now, right now, at the moment, Look!, Listen!, today, this week, these days*.
+
+✅ *I work from home.* — завжди, така в мене робота
+✅ *I'm working from home this week.* — лише тимчасово
+
+✅ *Look! It's snowing!*
+❌ *Look! It snows!*
+
+✅ *I'm staying with my sister this week.*
+❌ *I stay with my sister this week.*
+
+**Перевір себе:** це відбувається просто зараз або скоро закінчиться? → *am / is / are + -ing*.`,
+        ru: `**Суть.** **Present Continuous** (*am / is / are + -ing*) — для того, что **в процессе**: началось и ещё не закончилось. Два случая:
+- происходит **прямо сейчас**, пока ты говоришь: *Shh, the baby's sleeping. I'm driving — I'll call you back.*
+- происходит **в этот период**, временно: *This week I'm working from home. These days I'm learning to drive.* — может, не в эту секунду, но это временная ситуация.
+
+**Слова-подсказки:** *now, right now, at the moment, Look!, Listen!, today, this week, these days*.
+
+✅ *I work from home.* — всегда, такая у меня работа
+✅ *I'm working from home this week.* — только временно
+
+✅ *Look! It's snowing!*
+❌ *Look! It snows!*
+
+✅ *I'm staying with my sister this week.*
+❌ *I stay with my sister this week.*
+
+**Проверь себя:** это происходит прямо сейчас или скоро закончится? → *am / is / are + -ing*.`,
+      },
+    },
+    {
+      for: ['state'],
+      rule: {
+        en: `Verbs of **state** stay simple even now: *know, understand, like, love, want, need, believe, remember, own, belong, mean*: *I know. I need a charger.*`,
+        uk: `Дієслова **стану** не вживаємо з -ing навіть зараз: *know, understand, like, love, want, need, believe, remember, own, belong, mean*: *I know. I need a charger.*`,
+        ru: `Глаголы **состояния** не используем с -ing даже сейчас: *know, understand, like, love, want, need, believe, remember, own, belong, mean*: *I know. I need a charger.*`,
+      },
+      more: {
+        en: `**The idea.** Some verbs are not actions but **states**: what you know, feel, want or have. A state doesn't "go on" like an action, so these verbs don't take *-ing* — even when you mean right now:
+- the mind: *know, understand, believe, remember, mean, think* (= believe)
+- feelings: *like, love, hate, want, need, prefer*
+- having: *have* (= own), *own, belong*
+
+✅ *I understand you.*
+❌ *I'm understanding you.*
+
+✅ *I need a charger right now.*
+❌ *I'm needing a charger right now.*
+
+✅ *We have two cars.*
+❌ *We're having two cars.*
+
+**But** some of them can also be actions, and then *-ing* is fine: *We're having dinner* (= eating), *I'm thinking about it* (= considering). *I think so* (= I believe) — no *-ing*.
+
+**Check yourself:** can you "do" it for an hour and then stop, like *cook* or *drive*? If not, it's a state — no *-ing*.`,
+        uk: `**Суть.** Деякі дієслова — не дії, а **стани**: що ти знаєш, відчуваєш, хочеш чи маєш. Стан не «триває» як дія, тому ці дієслова не беруть *-ing* — навіть коли йдеться про «зараз»:
+- розум: *know, understand, believe, remember, mean, think* (= вважати)
+- почуття: *like, love, hate, want, need, prefer*
+- володіння: *have* (= мати), *own, belong*
+
+✅ *I understand you.*
+❌ *I'm understanding you.*
+
+✅ *I need a charger right now.*
+❌ *I'm needing a charger right now.*
+
+✅ *We have two cars.*
+❌ *We're having two cars.*
+
+**Але** деякі з них бувають і діями, тоді *-ing* можна: *We're having dinner* (= вечеряємо), *I'm thinking about it* (= обмірковую). *I think so* (= я так вважаю) — без *-ing*.
+
+**Перевір себе:** чи можна це «робити» годину, а потім зупинитися, як *cook* чи *drive*? Якщо ні — це стан, без *-ing*.`,
+        ru: `**Суть.** Некоторые глаголы — не действия, а **состояния**: что ты знаешь, чувствуешь, хочешь или имеешь. Состояние не «длится» как действие, поэтому эти глаголы не берут *-ing* — даже когда речь о «сейчас»:
+- ум: *know, understand, believe, remember, mean, think* (= считать)
+- чувства: *like, love, hate, want, need, prefer*
+- обладание: *have* (= иметь), *own, belong*
+
+✅ *I understand you.*
+❌ *I'm understanding you.*
+
+✅ *I need a charger right now.*
+❌ *I'm needing a charger right now.*
+
+✅ *We have two cars.*
+❌ *We're having two cars.*
+
+**Но** некоторые из них бывают и действиями, тогда *-ing* можно: *We're having dinner* (= ужинаем), *I'm thinking about it* (= обдумываю). *I think so* (= я так считаю) — без *-ing*.
+
+**Проверь себя:** можно ли это «делать» час, а потом остановиться, как *cook* или *drive*? Если нет — это состояние, без *-ing*.`,
+      },
+    },
+    {
+      for: ['job'],
+      rule: {
+        en: `**What do you do?** = What's your job? **What are you doing?** = right now.`,
+        uk: `**What do you do?** = Ким ви працюєте? **What are you doing?** = Що ви робите зараз?`,
+        ru: `**What do you do?** = Кем вы работаете? **What are you doing?** = Что вы делаете сейчас?`,
+      },
+      more: {
+        en: `**The idea.** These two questions look almost the same, but they ask different things:
+- **What do you do?** = What's your job? Present Simple, because a job is true in general. → *I'm a nurse. I work in IT.*
+- **What are you doing?** = What are you busy with right now? → *I'm cooking dinner.*
+
+«Чим ти займаєшся? / Чем ты занимаешься?» can mean both, so in English you have to choose.
+
+✅ *What do you do? — I'm a teacher.*
+✅ *What are you doing? — I'm looking for my keys.*
+
+❌ *What are you doing?* — when you meet someone and want to know their job
+
+*What do you do for a living?* means the same as *What do you do?*
+
+**Check yourself:** life in general (a job) → *What do you do?* This moment → *What are you doing?*`,
+        uk: `**Суть.** Ці два питання майже однакові, але питають про різне:
+- **What do you do?** = Ким ти працюєш? Present Simple, бо робота — це правда взагалі. → *I'm a nurse. I work in IT.*
+- **What are you doing?** = Що ти робиш просто зараз? → *I'm cooking dinner.*
+
+«Чим ти займаєшся?» може означати обидва, тому англійською треба вибрати.
+
+✅ *What do you do? — I'm a teacher.*
+✅ *What are you doing? — I'm looking for my keys.*
+
+❌ *What are you doing?* — коли знайомишся і хочеш дізнатися про роботу
+
+*What do you do for a living?* означає те саме, що *What do you do?*
+
+**Перевір себе:** про життя взагалі (роботу) → *What do you do?* Про цю хвилину → *What are you doing?*`,
+        ru: `**Суть.** Эти два вопроса почти одинаковые, но спрашивают о разном:
+- **What do you do?** = Кем ты работаешь? Present Simple, потому что работа — это верно вообще. → *I'm a nurse. I work in IT.*
+- **What are you doing?** = Что ты делаешь прямо сейчас? → *I'm cooking dinner.*
+
+«Чем ты занимаешься?» может значить и то, и другое, поэтому по-английски нужно выбрать.
+
+✅ *What do you do? — I'm a teacher.*
+✅ *What are you doing? — I'm looking for my keys.*
+
+❌ *What are you doing?* — когда знакомишься и хочешь узнать про работу
+
+*What do you do for a living?* значит то же, что *What do you do?*
+
+**Проверь себя:** про жизнь вообще (работу) → *What do you do?* Про эту минуту → *What are you doing?*`,
+      },
+    },
+    {
+      for: ['be-ing'],
+      rule: {
+        en: `Don't mix the two forms: *I work* or *I'm working* — never *I am work*.`,
+        uk: `Не змішуйте форми: *I work* або *I'm working* — ніколи *I am work*.`,
+        ru: `Не смешивайте формы: *I work* или *I'm working* — никогда *I am work*.`,
+      },
+      more: {
+        en: `**The idea.** Each of the two forms has its own parts, and they don't mix:
+- **Present Simple:** subject + verb — *I work. She works.* No *am / is / are*.
+- **Present Continuous:** *am / is / are* + verb with **-ing** — *I'm working. She's working.* Both parts are needed.
+
+A very common mistake is to take a part from each: *am* from one form and the plain verb from the other (*I am work*), or to drop *am* (*I working*).
+
+✅ *I work at a pharmacy.*
+❌ *I am work at a pharmacy.*
+
+✅ *I'm working now.*
+❌ *I working now.*
+
+✅ *Where do you live?*
+❌ *Where are you live?*
+
+**Check yourself:** if there is *am / is / are* before a verb, the verb needs *-ing*. If there's no *-ing*, remove *am / is / are*.`,
+        uk: `**Суть.** Кожна з двох форм має свої частини, і вони не змішуються:
+- **Present Simple:** підмет + дієслово — *I work. She works.* Без *am / is / are*.
+- **Present Continuous:** *am / is / are* + дієслово з **-ing** — *I'm working. She's working.* Потрібні обидві частини.
+
+Дуже поширена помилка — взяти по частині з кожної форми: *am* з однієї і просте дієслово з іншої (*I am work*), або загубити *am* (*I working*).
+
+✅ *I work at a pharmacy.*
+❌ *I am work at a pharmacy.*
+
+✅ *I'm working now.*
+❌ *I working now.*
+
+✅ *Where do you live?*
+❌ *Where are you live?*
+
+**Перевір себе:** якщо перед дієсловом стоїть *am / is / are*, дієслову потрібне *-ing*. Якщо *-ing* немає — прибери *am / is / are*.`,
+        ru: `**Суть.** У каждой из двух форм свои части, и они не смешиваются:
+- **Present Simple:** подлежащее + глагол — *I work. She works.* Без *am / is / are*.
+- **Present Continuous:** *am / is / are* + глагол с **-ing** — *I'm working. She's working.* Нужны обе части.
+
+Очень частая ошибка — взять по части из каждой формы: *am* из одной и простой глагол из другой (*I am work*), или потерять *am* (*I working*).
+
+✅ *I work at a pharmacy.*
+❌ *I am work at a pharmacy.*
+
+✅ *I'm working now.*
+❌ *I working now.*
+
+✅ *Where do you live?*
+❌ *Where are you live?*
+
+**Проверь себя:** если перед глаголом стоит *am / is / are*, глаголу нужно *-ing*. Если *-ing* нет — убери *am / is / are*.`,
+      },
+    },
+  ],
   examples: ['My husband works at a hospital.', "Shh! The baby's sleeping.", 'I usually walk to work, but today I\'m taking a taxi.', "I don't remember his name.", 'What do you do? — I\'m a nurse.'],
   trap: {
     uk: 'Я працюю в аптеці.',
