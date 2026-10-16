@@ -5,29 +5,332 @@ APP.addTopic({
   group: 'Modals',
   icon: '🔍',
   about: 'guessing about now and about the past',
-  rule: {
-    en: `Use modals to say **how sure** you are:
-- **must** = I'm almost sure it's **true**: *You've worked all day — you **must be** tired.*
-- **can't / couldn't** = I'm almost sure it's **not true**: *That **can't be** her car — she sold it.* (Not *mustn't* — that means "not allowed".)
-- **might / may / could** = maybe: *She **might be** at the gym.*
-- Happening right now → **be + -ing**: *Don't call — he **must be sleeping**.*
-- About the **past** → modal + **have + 3rd form**: *She **must have left** already. He **can't have seen** it. They **might have missed** the bus.*
-Form: *must have gone, can't have known, might have been* — not *must had*, not *must have went*.`,
-    uk: `Модальними дієсловами показуємо, **наскільки ми впевнені**:
-- **must** = майже впевнена, що це **правда**: *You've worked all day — you **must be** tired* — «ти, мабуть, утомилася».
-- **can't / couldn't** = майже впевнена, що це **неправда**: *That **can't be** her car — she sold it* — «Це не може бути її машина». (Не *mustn't* — це «заборонено».)
-- **might / may / could** = можливо: *She **might be** at the gym.*
-- Відбувається просто зараз → **be + -ing**: *Don't call — he **must be sleeping**.*
-- Про **минуле** → модальне + **have + третя форма**: *She **must have left** already* — «Вона, мабуть, уже пішла». *He **can't have seen** it. They **might have missed** the bus.*
-Форма: *must have gone, can't have known, might have been* — не *must had*, не *must have went*.`,
-    ru: `Модальными глаголами показываем, **насколько мы уверены**:
-- **must** = почти уверена, что это **правда**: *You've worked all day — you **must be** tired* — «ты, наверное, устала».
-- **can't / couldn't** = почти уверена, что это **неправда**: *That **can't be** her car — she sold it* — «Это не может быть её машина». (Не *mustn't* — это «запрещено».)
-- **might / may / could** = возможно: *She **might be** at the gym.*
-- Происходит прямо сейчас → **be + -ing**: *Don't call — he **must be sleeping**.*
-- О **прошлом** → модальный + **have + третья форма**: *She **must have left** already* — «Она, наверное, уже ушла». *He **can't have seen** it. They **might have missed** the bus.*
-Форма: *must have gone, can't have known, might have been* — не *must had*, не *must have went*.`,
-  },
+  points: [
+    {
+      for: ['must'],
+      rule: {
+        en: `Use modals to say **how sure** you are: **must** = I'm almost sure it's **true**: *You've worked all day — you **must be** tired.*`,
+        uk: `Модальними дієсловами показуємо, **наскільки ми впевнені**: **must** = майже впевнена, що це **правда**: *You've worked all day — you **must be** tired* — «ти, мабуть, утомилася».`,
+        ru: `Модальными глаголами показываем, **насколько мы уверены**: **must** = почти уверена, что это **правда**: *You've worked all day — you **must be** tired* — «ты, наверное, устала».`,
+      },
+      more: {
+        en: `**The idea.** Here *must* isn't about rules. It's a **logical conclusion**: you look at the facts and decide it's almost certainly true — «мабуть, напевно / наверное, должно быть»:
+- *You've worked twelve hours. You **must be** exhausted.*
+- *They have three kids and two jobs. They **must be** very busy.*
+- *She **must know** him — they work together.*
+
+It's stronger than *might*: you're about 90% sure.
+
+✅ *You've worked all day — you must be tired.*
+❌ *You've worked all day — you must to be tired.*
+
+✅ *They must know each other.*
+❌ *They must knowing each other.*
+
+**Check yourself:** "judging by the facts, I'm almost sure it's true" → *must + verb*.`,
+        uk: `**Суть.** Тут *must* — не про правила. Це **логічний висновок**: дивишся на факти й вирішуєш, що це майже напевно правда — «мабуть, напевно»:
+- *You've worked twelve hours. You must be exhausted.*
+- *They have three kids and two jobs. They must be very busy.*
+- *She must know him — they work together.*
+
+Це сильніше, ніж *might*: ти впевнена приблизно на 90%.
+
+✅ *You've worked all day — you must be tired.*
+❌ *You've worked all day — you must to be tired.*
+
+✅ *They must know each other.*
+❌ *They must knowing each other.*
+
+**Перевір себе:** «судячи з фактів, я майже впевнена, що це правда» → *must + дієслово*.`,
+        ru: `**Суть.** Здесь *must* — не о правилах. Это **логический вывод**: смотришь на факты и решаешь, что это почти наверняка правда — «наверное, должно быть»:
+- *You've worked twelve hours. You must be exhausted.*
+- *They have three kids and two jobs. They must be very busy.*
+- *She must know him — they work together.*
+
+Это сильнее, чем *might*: ты уверена примерно на 90%.
+
+✅ *You've worked all day — you must be tired.*
+❌ *You've worked all day — you must to be tired.*
+
+✅ *They must know each other.*
+❌ *They must knowing each other.*
+
+**Проверь себя:** «судя по фактам, я почти уверена, что это правда» → *must + глагол*.`,
+      },
+    },
+    {
+      for: ['cant'],
+      rule: {
+        en: `**can't / couldn't** = I'm almost sure it's **not true**: *That **can't be** her car — she sold it.* (Not *mustn't* — that means "not allowed".)`,
+        uk: `**can't / couldn't** = майже впевнена, що це **неправда**: *That **can't be** her car — she sold it* — «Це не може бути її машина». (Не *mustn't* — це «заборонено».)`,
+        ru: `**can't / couldn't** = почти уверена, что это **неправда**: *That **can't be** her car — she sold it* — «Это не может быть её машина». (Не *mustn't* — это «запрещено».)`,
+      },
+      more: {
+        en: `**The idea.** The opposite of *must* (= surely true) is **can't** (= surely **not** true) — «не може бути, щоб / не может быть, чтобы»:
+- *That **can't be** Anna — she's in Florida this week.*
+- *This **can't be** the right address. It's a parking lot!*
+- *couldn't* works the same: *It couldn't be him.*
+
+The trap: the negative of *must* looks like *mustn't*, but **mustn't** means "not allowed". For a conclusion, always *can't*.
+
+✅ *That can't be her car — she sold it.*
+❌ *That mustn't be her car — she sold it.*
+
+✅ *This can't be the right address.*
+❌ *This must not to be the right address.*
+
+**Check yourself:** "I'm sure it's not true" → *can't be*. *mustn't* only for rules.`,
+        uk: `**Суть.** Протилежність *must* (= напевно правда) — **can't** (= напевно **не** правда) — «не може бути, щоб»:
+- *That can't be Anna — she's in Florida this week.*
+- *This can't be the right address. It's a parking lot!*
+- *couldn't* працює так само: *It couldn't be him.*
+
+Пастка: заперечення від *must* схоже на *mustn't*, але **mustn't** означає «не можна». Для висновку — завжди *can't*.
+
+✅ *That can't be her car — she sold it.*
+❌ *That mustn't be her car — she sold it.*
+
+✅ *This can't be the right address.*
+❌ *This must not to be the right address.*
+
+**Перевір себе:** «я впевнена, що це неправда» → *can't be*. *mustn't* — лише для правил.`,
+        ru: `**Суть.** Противоположность *must* (= наверняка правда) — **can't** (= наверняка **не** правда) — «не может быть, чтобы»:
+- *That can't be Anna — she's in Florida this week.*
+- *This can't be the right address. It's a parking lot!*
+- *couldn't* работает так же: *It couldn't be him.*
+
+Ловушка: отрицание от *must* похоже на *mustn't*, но **mustn't** значит «нельзя». Для вывода — всегда *can't*.
+
+✅ *That can't be her car — she sold it.*
+❌ *That mustn't be her car — she sold it.*
+
+✅ *This can't be the right address.*
+❌ *This must not to be the right address.*
+
+**Проверь себя:** «я уверена, что это неправда» → *can't be*. *mustn't* — только для правил.`,
+      },
+    },
+    {
+      for: ['might'],
+      rule: {
+        en: `**might / may / could** = maybe: *She **might be** at the gym.*`,
+        uk: `**might / may / could** = можливо: *She **might be** at the gym.*`,
+        ru: `**might / may / could** = возможно: *She **might be** at the gym.*`,
+      },
+      more: {
+        en: `**The idea.** When you're **not sure** — about 50/50 — use **might / may / could** — «може, можливо / может, возможно»:
+- *I'm not sure where she is. She **might be** at the gym.*
+- *Take your phone. Your boss **may call**.*
+- *It **could be** the battery.*
+
+The scale of how sure you are:
+- *must* — almost sure it's true
+- *might / may / could* — maybe
+- *can't* — almost sure it's not true
+
+✅ *She might be at the gym.*
+❌ *She maybe at the gym.*
+
+✅ *It could be the battery.*
+❌ *It can be the battery.* — *can* is about what's generally possible, not a guess about this case
+
+**Check yourself:** "maybe, I don't know" → *might / may / could + verb*.`,
+        uk: `**Суть.** Коли **не впевнена** — приблизно 50 на 50 — кажи **might / may / could** — «може, можливо»:
+- *I'm not sure where she is. She might be at the gym.*
+- *Take your phone. Your boss may call.*
+- *It could be the battery.*
+
+Шкала впевненості:
+- *must* — майже впевнена, що правда
+- *might / may / could* — можливо
+- *can't* — майже впевнена, що неправда
+
+✅ *She might be at the gym.*
+❌ *She maybe at the gym.*
+
+✅ *It could be the battery.*
+❌ *It can be the battery.* — *can* — про те, що можливо взагалі, а не здогадка про цей випадок
+
+**Перевір себе:** «можливо, не знаю» → *might / may / could + дієслово*.`,
+        ru: `**Суть.** Когда **не уверена** — примерно 50 на 50 — говори **might / may / could** — «может, возможно»:
+- *I'm not sure where she is. She might be at the gym.*
+- *Take your phone. Your boss may call.*
+- *It could be the battery.*
+
+Шкала уверенности:
+- *must* — почти уверена, что правда
+- *might / may / could* — возможно
+- *can't* — почти уверена, что неправда
+
+✅ *She might be at the gym.*
+❌ *She maybe at the gym.*
+
+✅ *It could be the battery.*
+❌ *It can be the battery.* — *can* — о том, что возможно вообще, а не догадка об этом случае
+
+**Проверь себя:** «возможно, не знаю» → *might / may / could + глагол*.`,
+      },
+    },
+    {
+      for: ['cont'],
+      rule: {
+        en: `Happening right now → **be + -ing**: *Don't call — he **must be sleeping**.*`,
+        uk: `Відбувається просто зараз → **be + -ing**: *Don't call — he **must be sleeping**.*`,
+        ru: `Происходит прямо сейчас → **be + -ing**: *Don't call — he **must be sleeping**.*`,
+      },
+      more: {
+        en: `**The idea.** If your guess is about something happening **right now**, at this moment, use **be + -ing** after the modal:
+- *Don't call him now. He **must be sleeping**.*
+- *She isn't answering. She **might be driving**.*
+- *They **can't be working** — it's Sunday.*
+
+Without *-ing* it sounds like a general fact, not what's happening now: *He must sleep* = he has to sleep (a rule).
+
+✅ *Don't call him now. He must be sleeping.*
+❌ *Don't call him now. He must sleep.*
+
+✅ *She might be driving.*
+❌ *She might drive.* — sounds like "maybe she'll drive (some time)"
+
+**Check yourself:** a guess about this very moment → *must / might / can't + be + -ing*.`,
+        uk: `**Суть.** Якщо здогадка про те, що відбувається **просто зараз**, у цю мить, після модального кажи **be + -ing**:
+- *Don't call him now. He must be sleeping.*
+- *She isn't answering. She might be driving.*
+- *They can't be working — it's Sunday.*
+
+Без *-ing* це звучить як загальний факт, а не те, що відбувається зараз: *He must sleep* = він мусить спати (правило).
+
+✅ *Don't call him now. He must be sleeping.*
+❌ *Don't call him now. He must sleep.*
+
+✅ *She might be driving.*
+❌ *She might drive.* — звучить як «можливо, вона колись поведе машину»
+
+**Перевір себе:** здогадка про цю саму мить → *must / might / can't + be + -ing*.`,
+        ru: `**Суть.** Если догадка о том, что происходит **прямо сейчас**, в этот момент, после модального говори **be + -ing**:
+- *Don't call him now. He must be sleeping.*
+- *She isn't answering. She might be driving.*
+- *They can't be working — it's Sunday.*
+
+Без *-ing* это звучит как общий факт, а не то, что происходит сейчас: *He must sleep* = он должен спать (правило).
+
+✅ *Don't call him now. He must be sleeping.*
+❌ *Don't call him now. He must sleep.*
+
+✅ *She might be driving.*
+❌ *She might drive.* — звучит как «может, она когда-нибудь поведёт машину»
+
+**Проверь себя:** догадка об этом самом моменте → *must / might / can't + be + -ing*.`,
+      },
+    },
+    {
+      for: ['past'],
+      rule: {
+        en: `About the **past** → modal + **have + 3rd form**: *She **must have left** already. He **can't have seen** it. They **might have missed** the bus.*`,
+        uk: `Про **минуле** → модальне + **have + третя форма**: *She **must have left** already* — «Вона, мабуть, уже пішла». *He **can't have seen** it. They **might have missed** the bus.*`,
+        ru: `О **прошлом** → модальный + **have + третья форма**: *She **must have left** already* — «Она, наверное, уже ушла». *He **can't have seen** it. They **might have missed** the bus.*`,
+      },
+      more: {
+        en: `**The idea.** To guess about the **past**, keep the same modal and add **have + 3rd form**:
+- *must have done* = I'm almost sure it happened: *The lights are off. They **must have gone** to bed.*
+- *can't have done* = I'm almost sure it didn't happen: *He **can't have seen** us — he didn't say hello.*
+- *might / may / could have done* = maybe it happened: *They **might have missed** the bus.*
+
+In Ukrainian and Russian «Вона, мабуть, забула / Она, наверное, забыла» just uses the past — so people say *She must forgot*. English keeps *must* and shows the past with *have + 3rd form*.
+
+✅ *She must have forgotten.*
+❌ *She must forgot.*
+
+✅ *He can't have seen us.*
+❌ *He can't saw us.*
+
+**Check yourself:** a guess about the past → modal + *have* + 3rd form.`,
+        uk: `**Суть.** Щоб здогадатися про **минуле**, лиши той самий модальний і додай **have + третя форма**:
+- *must have done* = майже впевнена, що сталося: *The lights are off. They must have gone to bed.*
+- *can't have done* = майже впевнена, що не сталося: *He can't have seen us — he didn't say hello.*
+- *might / may / could have done* = можливо, сталося: *They might have missed the bus.*
+
+Українською «Вона, мабуть, забула» — просто минулий час, тож кажуть *She must forgot*. Англійська лишає *must* і показує минуле через *have + третя форма*.
+
+✅ *She must have forgotten.*
+❌ *She must forgot.*
+
+✅ *He can't have seen us.*
+❌ *He can't saw us.*
+
+**Перевір себе:** здогадка про минуле → модальне + *have* + третя форма.`,
+        ru: `**Суть.** Чтобы догадаться о **прошлом**, оставь тот же модальный и добавь **have + третья форма**:
+- *must have done* = почти уверена, что случилось: *The lights are off. They must have gone to bed.*
+- *can't have done* = почти уверена, что не случилось: *He can't have seen us — he didn't say hello.*
+- *might / may / could have done* = возможно, случилось: *They might have missed the bus.*
+
+По-русски «Она, наверное, забыла» — просто прошедшее время, поэтому говорят *She must forgot*. Английский оставляет *must* и показывает прошлое через *have + третья форма*.
+
+✅ *She must have forgotten.*
+❌ *She must forgot.*
+
+✅ *He can't have seen us.*
+❌ *He can't saw us.*
+
+**Проверь себя:** догадка о прошлом → модальный + *have* + третья форма.`,
+      },
+    },
+    {
+      for: ['form'],
+      rule: {
+        en: `Form: *must have gone, can't have known, might have been* — not *must had*, not *must have went*.`,
+        uk: `Форма: *must have gone, can't have known, might have been* — не *must had*, не *must have went*.`,
+        ru: `Форма: *must have gone, can't have known, might have been* — не *must had*, не *must have went*.`,
+      },
+      more: {
+        en: `**The idea.** The past form is always three pieces: **modal + have + 3rd form**:
+- *must have gone, might have taken, can't have known, could have been*
+
+The usual slips:
+- *had* instead of *have*: *must had* — after a modal it's always *have*
+- the 2nd form instead of the 3rd: *must have went* → **must have gone**
+- an extra *to*: *must to have* — modals never take *to*
+
+✅ *She looks happy. She must have gotten the job.*
+❌ *She looks happy. She must had gotten the job.*
+
+✅ *They must have gone on vacation.*
+❌ *They must have went on vacation.*
+
+**Check yourself:** modal → *have* (never *had*) → the 3rd form (*gone, been, seen*).`,
+        uk: `**Суть.** Минула форма — завжди три шматочки: **модальне + have + третя форма**:
+- *must have gone, might have taken, can't have known, could have been*
+
+Звичні помилки:
+- *had* замість *have*: *must had* — після модального завжди *have*
+- друга форма замість третьої: *must have went* → **must have gone**
+- зайве *to*: *must to have* — модальні ніколи не беруть *to*
+
+✅ *She looks happy. She must have gotten the job.*
+❌ *She looks happy. She must had gotten the job.*
+
+✅ *They must have gone on vacation.*
+❌ *They must have went on vacation.*
+
+**Перевір себе:** модальне → *have* (ніколи не *had*) → третя форма (*gone, been, seen*).`,
+        ru: `**Суть.** Прошедшая форма — всегда три кусочка: **модальный + have + третья форма**:
+- *must have gone, might have taken, can't have known, could have been*
+
+Обычные ошибки:
+- *had* вместо *have*: *must had* — после модального всегда *have*
+- вторая форма вместо третьей: *must have went* → **must have gone**
+- лишнее *to*: *must to have* — модальные никогда не берут *to*
+
+✅ *She looks happy. She must have gotten the job.*
+❌ *She looks happy. She must had gotten the job.*
+
+✅ *They must have gone on vacation.*
+❌ *They must have went on vacation.*
+
+**Проверь себя:** модальный → *have* (никогда не *had*) → третья форма (*gone, been, seen*).`,
+      },
+    },
+  ],
   examples: ["You've worked all day — you must be tired.", "That can't be her car — she sold it.", 'She might be at the gym.', 'She must have left already.', "He can't have seen us."],
   trap: {
     uk: 'Вона, мабуть, забула.',

@@ -5,26 +5,304 @@ APP.addTopic({
   group: 'Passive',
   icon: '🛠️',
   about: 'passive in all tenses, get fired, have your hair cut',
-  rule: {
-    en: `The passive is **be + 3rd form** in any tense:
-- now / finished: *My car **is being repaired**. The results **have been sent**. The money **had been taken**.*
-- after a modal: **modal + be + 3rd form** — *It **must be signed**.* Past: **modal + have been + 3rd form** — *It **should have been sent** yesterday.*
-- **get + 3rd form** — everyday speech, things that happen to us: *He **got fired**. We **got stuck**. I **get paid** on Fridays.*
-- **have / get + thing + 3rd form** — someone does it **for you**: *I **had my hair cut**. I need to **get my car fixed**.*
-- What people say or think: ***It is said that** he's rich* = *He **is said to be** rich.* Past: *He **is said to have made** his money in real estate.* Also: *is believed / thought / reported / expected to…*`,
-    uk: `Пасив — це **be + третя форма** у будь-якому часі:
-- зараз / вже: *My car **is being repaired*** — «Мою машину ремонтують». *The results **have been sent**. The money **had been taken**.*
-- після модального: **модальне + be + третя форма** — *It **must be signed**.* Минуле: **модальне + have been + третя форма** — *It **should have been sent** yesterday* — «Це треба було надіслати вчора».
-- **get + третя форма** — розмовне, про те, що з нами стається: *He **got fired*** — «Його звільнили». *We **got stuck**. I **get paid** on Fridays.*
-- **have / get + річ + третя форма** — це робить **хтось для вас**: *I **had my hair cut*** — «Я підстриглася (у перукаря)». *I need to **get my car fixed**.*
-- Що люди кажуть чи думають: ***It is said that** he's rich* = *He **is said to be** rich* — «Кажуть, він багатий». Про минуле: *He **is said to have made** his money in real estate.* Також: *is believed / thought / reported / expected to…*`,
-    ru: `Пассив — это **be + третья форма** в любом времени:
-- сейчас / уже: *My car **is being repaired*** — «Мою машину ремонтируют». *The results **have been sent**. The money **had been taken**.*
-- после модального: **модальный + be + третья форма** — *It **must be signed**.* Прошлое: **модальный + have been + третья форма** — *It **should have been sent** yesterday* — «Это нужно было отправить вчера».
-- **get + третья форма** — разговорное, о том, что с нами случается: *He **got fired*** — «Его уволили». *We **got stuck**. I **get paid** on Fridays.*
-- **have / get + вещь + третья форма** — это делает **кто-то для вас**: *I **had my hair cut*** — «Я подстриглась (у парикмахера)». *I need to **get my car fixed**.*
-- Что люди говорят или думают: ***It is said that** he's rich* = *He **is said to be** rich* — «Говорят, он богат». О прошлом: *He **is said to have made** his money in real estate.* Также: *is believed / thought / reported / expected to…*`,
-  },
+  points: [
+    {
+      for: ['tense', 'form', 'tenses'],
+      rule: {
+        en: `The passive is **be + 3rd form** in any tense: now / finished: *My car **is being repaired**. The results **have been sent**. The money **had been taken**.*`,
+        uk: `Пасив — це **be + третя форма** у будь-якому часі: зараз / вже: *My car **is being repaired*** — «Мою машину ремонтують». *The results **have been sent**. The money **had been taken**.*`,
+        ru: `Пассив — это **be + третья форма** в любом времени: сейчас / уже: *My car **is being repaired*** — «Мою машину ремонтируют». *The results **have been sent**. The money **had been taken**.*`,
+      },
+      more: {
+        en: `**The idea.** The passive works in **every** tense. The 3rd form stays the same — you only change **be**, exactly as in an active sentence:
+- in progress now: *My car **is being repaired**.* (like *is repairing* → *is being repaired*)
+- in progress in the past: *Our street **was being repaved**.*
+- done, up to now: *The results **have been sent**.*
+- done before a past moment: *The money **had been taken**.*
+
+The classic mistake: *My car is repairing* — that says the car is repairing something. The car doesn't do anything; something is done **to** it.
+
+✅ *My car is being repaired now.*
+❌ *My car is repairing now.*
+
+✅ *Sorry, the elevator is being repaired.*
+❌ *Sorry, the elevator is repaired right now.* — sounds like it's already fixed
+
+✅ *Your application has been approved.*
+❌ *Your application has approved.*
+
+**Check yourself:** does the subject do it, or is it done to it? Done to it → the right form of *be* + 3rd form; in progress → *being*.`,
+        uk: `**Суть.** Пасив працює в **будь-якому** часі. Третя форма лишається тією ж — змінюєш лише **be**, точно як в активному реченні:
+- триває зараз: *My car is being repaired.* (як *is repairing* → *is being repaired*)
+- тривало в минулому: *Our street was being repaved.*
+- зроблено, досі: *The results have been sent.*
+- зроблено до моменту в минулому: *The money had been taken.*
+
+Класична помилка: *My car is repairing* — це означає, що машина щось ремонтує. Машина нічого не робить; щось роблять **з нею**.
+
+✅ *My car is being repaired now.*
+❌ *My car is repairing now.*
+
+✅ *Sorry, the elevator is being repaired.*
+❌ *Sorry, the elevator is repaired right now.* — звучить, ніби його вже полагодили
+
+✅ *Your application has been approved.*
+❌ *Your application has approved.*
+
+**Перевір себе:** підмет це робить, чи це роблять з ним? Роблять з ним → потрібна форма *be* + третя форма; триває → *being*.`,
+        ru: `**Суть.** Пассив работает в **любом** времени. Третья форма остаётся той же — меняешь только **be**, точно как в активном предложении:
+- идёт сейчас: *My car is being repaired.* (как *is repairing* → *is being repaired*)
+- шло в прошлом: *Our street was being repaved.*
+- сделано, до сих пор: *The results have been sent.*
+- сделано до момента в прошлом: *The money had been taken.*
+
+Классическая ошибка: *My car is repairing* — это значит, что машина что-то ремонтирует. Машина ничего не делает; что-то делают **с ней**.
+
+✅ *My car is being repaired now.*
+❌ *My car is repairing now.*
+
+✅ *Sorry, the elevator is being repaired.*
+❌ *Sorry, the elevator is repaired right now.* — звучит, будто его уже починили
+
+✅ *Your application has been approved.*
+❌ *Your application has approved.*
+
+**Проверь себя:** подлежащее это делает, или это делают с ним? Делают с ним → нужная форма *be* + третья форма; идёт процесс → *being*.`,
+      },
+    },
+    {
+      for: ['modal'],
+      rule: {
+        en: `after a modal: **modal + be + 3rd form** — *It **must be signed**.* Past: **modal + have been + 3rd form** — *It **should have been sent** yesterday.*`,
+        uk: `після модального: **модальне + be + третя форма** — *It **must be signed**.* Минуле: **модальне + have been + третя форма** — *It **should have been sent** yesterday* — «Це треба було надіслати вчора».`,
+        ru: `после модального: **модальный + be + третья форма** — *It **must be signed**.* Прошлое: **модальный + have been + третья форма** — *It **should have been sent** yesterday* — «Это нужно было отправить вчера».`,
+      },
+      more: {
+        en: `**The idea.** After a modal (*must, can, should, will, might*), the passive is **be + 3rd form** — *be* stays bare:
+- *This form must be filled out in black ink.*
+- *The package should be delivered tomorrow.*
+- *Your passport can't be renewed online.*
+
+About the **past** — what should have happened, or what was possible — use **modal + have been + 3rd form**:
+- *The letter should have been sent yesterday.* — but it wasn't
+- *The accident could have been avoided.*
+
+✅ *This form must be signed.*
+❌ *This form must signed.*
+
+✅ *It should have been sent yesterday.*
+❌ *It should been sent yesterday.*
+
+**Check yourself:** modal + *be* + 3rd form; about the past: modal + *have been* + 3rd form.`,
+        uk: `**Суть.** Після модального (*must, can, should, will, might*) пасив — це **be + третя форма**, *be* без змін:
+- *This form must be filled out in black ink.*
+- *The package should be delivered tomorrow.*
+- *Your passport can't be renewed online.*
+
+Про **минуле** — що мало статися або що було можливо — **модальне + have been + третя форма**:
+- *The letter should have been sent yesterday.* — але його не надіслали
+- *The accident could have been avoided.* — «Аварії можна було уникнути»
+
+✅ *This form must be signed.*
+❌ *This form must signed.*
+
+✅ *It should have been sent yesterday.*
+❌ *It should been sent yesterday.*
+
+**Перевір себе:** модальне + *be* + третя форма; про минуле: модальне + *have been* + третя форма.`,
+        ru: `**Суть.** После модального (*must, can, should, will, might*) пассив — это **be + третья форма**, *be* без изменений:
+- *This form must be filled out in black ink.*
+- *The package should be delivered tomorrow.*
+- *Your passport can't be renewed online.*
+
+О **прошлом** — что должно было случиться или что было возможно — **модальный + have been + третья форма**:
+- *The letter should have been sent yesterday.* — но его не отправили
+- *The accident could have been avoided.* — «Аварии можно было избежать»
+
+✅ *This form must be signed.*
+❌ *This form must signed.*
+
+✅ *It should have been sent yesterday.*
+❌ *It should been sent yesterday.*
+
+**Проверь себя:** модальный + *be* + третья форма; о прошлом: модальный + *have been* + третья форма.`,
+      },
+    },
+    {
+      for: ['get'],
+      rule: {
+        en: `**get + 3rd form** — everyday speech, things that happen to us: *He **got fired**. We **got stuck**. I **get paid** on Fridays.*`,
+        uk: `**get + третя форма** — розмовне, про те, що з нами стається: *He **got fired*** — «Його звільнили». *We **got stuck**. I **get paid** on Fridays.*`,
+        ru: `**get + третья форма** — разговорное, о том, что с нами случается: *He **got fired*** — «Его уволили». *We **got stuck**. I **get paid** on Fridays.*`,
+      },
+      more: {
+        en: `**The idea.** In everyday speech Americans often use **get** instead of *be* for the passive — especially for things that **happen to** people, often unexpectedly or with a change:
+- *He got fired.* — «Його звільнили / Его уволили»
+- *My sister got married last summer.*
+- *We got stuck in traffic.*
+- *I get paid on Fridays.*
+- *My bike got stolen.*
+
+*get* already does the job of *be* — don't use both.
+
+✅ *He was late every day, so he got fired.*
+❌ *He was late every day, so he was got fired.*
+
+✅ *We got stuck in traffic for an hour.*
+❌ *We got stucked in traffic for an hour.*
+
+**Check yourself:** something happened to someone → *got + 3rd form* (casual) or *was + 3rd form* (neutral) — never both.`,
+        uk: `**Суть.** У щоденному мовленні американці часто вживають **get** замість *be* для пасиву — особливо про те, що **стається з** людьми, часто несподівано або зі зміною:
+- *He got fired.* — «Його звільнили»
+- *My sister got married last summer.*
+- *We got stuck in traffic.*
+- *I get paid on Fridays.*
+- *My bike got stolen.*
+
+*get* уже виконує роботу *be* — обидва разом не вживай.
+
+✅ *He was late every day, so he got fired.*
+❌ *He was late every day, so he was got fired.*
+
+✅ *We got stuck in traffic for an hour.*
+❌ *We got stucked in traffic for an hour.*
+
+**Перевір себе:** з кимось щось сталося → *got + третя форма* (розмовно) або *was + третя форма* (нейтрально) — ніколи обидва.`,
+        ru: `**Суть.** В повседневной речи американцы часто используют **get** вместо *be* для пассива — особенно о том, что **случается с** людьми, часто неожиданно или с переменой:
+- *He got fired.* — «Его уволили»
+- *My sister got married last summer.*
+- *We got stuck in traffic.*
+- *I get paid on Fridays.*
+- *My bike got stolen.*
+
+*get* уже выполняет работу *be* — оба вместе не используй.
+
+✅ *He was late every day, so he got fired.*
+❌ *He was late every day, so he was got fired.*
+
+✅ *We got stuck in traffic for an hour.*
+❌ *We got stucked in traffic for an hour.*
+
+**Проверь себя:** с кем-то что-то случилось → *got + третья форма* (разговорно) или *was + третья форма* (нейтрально) — никогда оба.`,
+      },
+    },
+    {
+      for: ['causative'],
+      rule: {
+        en: `**have / get + thing + 3rd form** — someone does it **for you**: *I **had my hair cut**. I need to **get my car fixed**.*`,
+        uk: `**have / get + річ + третя форма** — це робить **хтось для вас**: *I **had my hair cut*** — «Я підстриглася (у перукаря)». *I need to **get my car fixed**.*`,
+        ru: `**have / get + вещь + третья форма** — это делает **кто-то для вас**: *I **had my hair cut*** — «Я подстриглась (у парикмахера)». *I need to **get my car fixed**.*`,
+      },
+      more: {
+        en: `**The idea.** When a **professional does something for you**, English says **have / get + the thing + 3rd form**:
+- *I had my hair cut yesterday.* — at the hairdresser's
+- *I'm going to get my car fixed before the trip.*
+- *You should get your eyes checked.*
+- *We're having the kitchen painted.*
+
+In Ukrainian and Russian «Я підстриглася / Я подстриглась», «Я полагодила машину / Я починила машину» sound like you did it — and everyone understands. In English *I fixed my car* means you fixed it **yourself**.
+
+Mind the order: the **thing** comes **before** the 3rd form: *have my hair cut* (not *have cut my hair*).
+
+✅ *I had my hair cut yesterday.*
+❌ *I had cut my hair yesterday.*
+
+✅ *I need to get my car fixed.*
+❌ *I need to fix my car.* — unless you'll do it yourself
+
+**Check yourself:** someone else did it for you → *have / get* + thing + 3rd form.`,
+        uk: `**Суть.** Коли **фахівець робить щось для тебе**, англійською кажуть **have / get + річ + третя форма**:
+- *I had my hair cut yesterday.* — у перукаря
+- *I'm going to get my car fixed before the trip.*
+- *You should get your eyes checked.*
+- *We're having the kitchen painted.*
+
+Українською «Я підстриглася», «Я полагодила машину» звучать так, ніби ти це зробила сама, — і всі розуміють. Англійською *I fixed my car* означає, що ти полагодила **сама**.
+
+Зверни увагу на порядок: **річ** стоїть **перед** третьою формою: *have my hair cut* (не *have cut my hair*).
+
+✅ *I had my hair cut yesterday.*
+❌ *I had cut my hair yesterday.*
+
+✅ *I need to get my car fixed.*
+❌ *I need to fix my car.* — якщо не ремонтуватимеш сама
+
+**Перевір себе:** це зробив для тебе хтось інший → *have / get* + річ + третя форма.`,
+        ru: `**Суть.** Когда **специалист делает что-то для тебя**, по-английски говорят **have / get + вещь + третья форма**:
+- *I had my hair cut yesterday.* — у парикмахера
+- *I'm going to get my car fixed before the trip.*
+- *You should get your eyes checked.*
+- *We're having the kitchen painted.*
+
+По-русски «Я подстриглась», «Я починила машину» звучат так, будто ты сделала это сама, — и все понимают. По-английски *I fixed my car* значит, что ты починила **сама**.
+
+Обрати внимание на порядок: **вещь** стоит **перед** третьей формой: *have my hair cut* (не *have cut my hair*).
+
+✅ *I had my hair cut yesterday.*
+❌ *I had cut my hair yesterday.*
+
+✅ *I need to get my car fixed.*
+❌ *I need to fix my car.* — если не будешь чинить сама
+
+**Проверь себя:** это сделал для тебя кто-то другой → *have / get* + вещь + третья форма.`,
+      },
+    },
+    {
+      for: ['report'],
+      rule: {
+        en: `What people say or think: ***It is said that** he's rich* = *He **is said to be** rich.* Past: *He **is said to have made** his money in real estate.* Also: *is believed / thought / reported / expected to…*`,
+        uk: `Що люди кажуть чи думають: ***It is said that** he's rich* = *He **is said to be** rich* — «Кажуть, він багатий». Про минуле: *He **is said to have made** his money in real estate.* Також: *is believed / thought / reported / expected to…*`,
+        ru: `Что люди говорят или думают: ***It is said that** he's rich* = *He **is said to be** rich* — «Говорят, он богат». О прошлом: *He **is said to have made** his money in real estate.* Также: *is believed / thought / reported / expected to…*`,
+      },
+      more: {
+        en: `**The idea.** News and formal English often report what **people say or believe** without naming anyone — «кажуть, що / говорят, что», «вважається, що / считается, что». Two patterns:
+- **It is said / believed / thought / reported that** + a whole sentence: *It is believed that the fire started in the kitchen.*
+- **Person + is said / believed / thought + to + verb**: *The new mayor is said to be very honest.*
+
+About the **past**, the second pattern takes **to have + 3rd form**: *He is said to have made his money in real estate.*
+
+Don't mix them: *He is said that…* has two subjects fighting for one place.
+
+✅ *The new mayor is said to be very honest.*
+❌ *The new mayor is said that he is very honest.*
+
+✅ *He is believed to have left the country.*
+❌ *He is believed to leave the country.* — if you mean he already left
+
+**Check yourself:** start with *It* → *that* + sentence. Start with the person → *to* + verb (*to have done* for the past).`,
+        uk: `**Суть.** Новини й офіційна англійська часто передають, що **люди кажуть чи думають**, нікого не називаючи — «кажуть, що», «вважається, що». Дві схеми:
+- **It is said / believed / thought / reported that** + ціле речення: *It is believed that the fire started in the kitchen.*
+- **Людина + is said / believed / thought + to + дієслово**: *The new mayor is said to be very honest.*
+
+Про **минуле** друга схема бере **to have + третя форма**: *He is said to have made his money in real estate.*
+
+Не змішуй їх: у *He is said that…* два підмети борються за одне місце.
+
+✅ *The new mayor is said to be very honest.*
+❌ *The new mayor is said that he is very honest.*
+
+✅ *He is believed to have left the country.*
+❌ *He is believed to leave the country.* — якщо маєш на увазі, що він уже поїхав
+
+**Перевір себе:** починаєш з *It* → *that* + речення. Починаєш з людини → *to* + дієслово (*to have done* для минулого).`,
+        ru: `**Суть.** Новости и официальный английский часто передают, что **люди говорят или думают**, никого не называя — «говорят, что», «считается, что». Две схемы:
+- **It is said / believed / thought / reported that** + целое предложение: *It is believed that the fire started in the kitchen.*
+- **Человек + is said / believed / thought + to + глагол**: *The new mayor is said to be very honest.*
+
+О **прошлом** вторая схема берёт **to have + третья форма**: *He is said to have made his money in real estate.*
+
+Не смешивай их: в *He is said that…* два подлежащих борются за одно место.
+
+✅ *The new mayor is said to be very honest.*
+❌ *The new mayor is said that he is very honest.*
+
+✅ *He is believed to have left the country.*
+❌ *He is believed to leave the country.* — если имеешь в виду, что он уже уехал
+
+**Проверь себя:** начинаешь с *It* → *that* + предложение. Начинаешь с человека → *to* + глагол (*to have done* для прошлого).`,
+      },
+    },
+  ],
   examples: ['My car is being repaired.', 'It should have been sent yesterday.', 'He got fired last week.', 'I had my hair cut.', 'He is said to be very rich.'],
   trap: {
     uk: 'Мою машину зараз ремонтують.',

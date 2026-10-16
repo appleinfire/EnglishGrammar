@@ -5,29 +5,365 @@ APP.addTopic({
   group: 'Articles & nouns',
   icon: '🗺️',
   about: 'articles with groups, places, institutions and ideas',
-  rule: {
-    en: `Harder article rules:
-- **the + adjective** = a group of people, plural verb: *the rich, the poor, the elderly, the homeless, the unemployed* — *The elderly **need** more support.*
-- **the + singular noun** = a whole kind (inventions, animals): ***The smartphone** has changed our lives. **The cheetah** is the fastest animal.*
-- Places used for their purpose → **no article**: *go to **school / college / church / work / bed**, be in **jail***. The building itself → **the**: *I stopped by **the school** to talk to the teacher.* AmE: *in **the hospital***.
-- Abstract ideas in general → **no article**: ***Life** is short. **Money** can't buy happiness.* A specific one → **the**: ***the history** of this city.*
-- Geography: **the** with oceans, rivers, mountain ranges, plural or "united" countries: *the Pacific, the Mississippi, the Rockies, the Netherlands, the US*. **No article**: most countries, states, cities, single lakes and mountains: *Florida, Lake Michigan, Mount Rainier*.
-- **the** before superlatives, *only, same, first*: *the best, the only person, one of the most famous…*`,
-    uk: `Складніші правила артиклів:
-- **the + прикметник** = група людей, дієслово в множині: *the rich, the poor, the elderly, the homeless, the unemployed* — *The elderly **need** more support* — «Літнім людям потрібно більше підтримки».
-- **the + іменник в однині** = весь вид (винаходи, тварини): ***The smartphone** has changed our lives* — «Смартфон змінив наше життя».
-- Місця, куди ходять за їх призначенням → **без артикля**: *go to **school / college / church / work / bed**, be in **jail***. Сама будівля → **the**: *I stopped by **the school** to talk to the teacher.* В американській: *in **the hospital***.
-- Абстрактні поняття загалом → **без артикля**: ***Life** is short. **Money** can't buy happiness.* Конкретне → **the**: ***the history** of this city.*
-- Географія: **the** з океанами, річками, гірськими хребтами, країнами в множині чи «об'єднаними»: *the Pacific, the Mississippi, the Rockies, the Netherlands, the US*. **Без артикля**: більшість країн, штати, міста, окремі озера й гори: *Florida, Lake Michigan, Mount Rainier*.
-- **the** перед найвищим ступенем, *only, same, first*: *the best, the only person, one of the most famous…*`,
-    ru: `Более сложные правила артиклей:
-- **the + прилагательное** = группа людей, глагол во множественном числе: *the rich, the poor, the elderly, the homeless, the unemployed* — *The elderly **need** more support* — «Пожилым нужно больше поддержки».
-- **the + существительное в единственном числе** = весь вид (изобретения, животные): ***The smartphone** has changed our lives* — «Смартфон изменил нашу жизнь».
-- Места, куда ходят по их назначению → **без артикля**: *go to **school / college / church / work / bed**, be in **jail***. Само здание → **the**: *I stopped by **the school** to talk to the teacher.* В американском: *in **the hospital***.
-- Абстрактные понятия в целом → **без артикля**: ***Life** is short. **Money** can't buy happiness.* Конкретное → **the**: ***the history** of this city.*
-- География: **the** с океанами, реками, горными хребтами, странами во множественном числе или «объединёнными»: *the Pacific, the Mississippi, the Rockies, the Netherlands, the US*. **Без артикля**: большинство стран, штаты, города, отдельные озёра и горы: *Florida, Lake Michigan, Mount Rainier*.
-- **the** перед превосходной степенью, *only, same, first*: *the best, the only person, one of the most famous…*`,
-  },
+  points: [
+    {
+      for: ['adj'],
+      rule: {
+        en: `**the + adjective** = a group of people, plural verb: *the rich, the poor, the elderly, the homeless, the unemployed* — *The elderly **need** more support.*`,
+        uk: `**the + прикметник** = група людей, дієслово в множині: *the rich, the poor, the elderly, the homeless, the unemployed* — *The elderly **need** more support* — «Літнім людям потрібно більше підтримки».`,
+        ru: `**the + прилагательное** = группа людей, глагол во множественном числе: *the rich, the poor, the elderly, the homeless, the unemployed* — *The elderly **need** more support* — «Пожилым нужно больше поддержки».`,
+      },
+      more: {
+        en: `**The idea.** **the + adjective** can mean a whole **group of people** — like «багаті, бідні, літні / богатые, бедные, пожилые» in Ukrainian and Russian, where an adjective works as a noun:
+- *the rich, the poor, the elderly, the homeless, the unemployed, the young*
+
+Three rules:
+- it needs **the**: *the poor*, not just *poor*
+- **no -s**: *the elderly*, not *the elderlies*
+- the verb is **plural**: *The elderly **need** more support.*
+
+Or just say it with *people*: *poor people, elderly people*.
+
+✅ *The rich get richer and the poor get poorer.*
+❌ *Rich get richer and poor get poorer.*
+
+✅ *The city should do more to help the homeless.*
+❌ *The city should do more to help homeless.*
+
+**Check yourself:** an adjective meaning "all people like that" → *the* + adjective, plural verb.`,
+        uk: `**Суть.** **the + прикметник** може означати цілу **групу людей** — як українське «багаті, бідні, літні», де прикметник працює як іменник:
+- *the rich, the poor, the elderly, the homeless, the unemployed, the young*
+
+Три правила:
+- потрібне **the**: *the poor*, а не просто *poor*
+- **без -s**: *the elderly*, а не *the elderlies*
+- дієслово в **множині**: *The elderly need more support.*
+
+Або просто скажи з *people*: *poor people, elderly people*.
+
+✅ *The rich get richer and the poor get poorer.*
+❌ *Rich get richer and poor get poorer.*
+
+✅ *The city should do more to help the homeless.*
+❌ *The city should do more to help homeless.*
+
+**Перевір себе:** прикметник у значенні «усі такі люди» → *the* + прикметник, дієслово в множині.`,
+        ru: `**Суть.** **the + прилагательное** может означать целую **группу людей** — как русское «богатые, бедные, пожилые», где прилагательное работает как существительное:
+- *the rich, the poor, the elderly, the homeless, the unemployed, the young*
+
+Три правила:
+- нужно **the**: *the poor*, а не просто *poor*
+- **без -s**: *the elderly*, а не *the elderlies*
+- глагол во **множественном**: *The elderly need more support.*
+
+Или просто скажи с *people*: *poor people, elderly people*.
+
+✅ *The rich get richer and the poor get poorer.*
+❌ *Rich get richer and poor get poorer.*
+
+✅ *The city should do more to help the homeless.*
+❌ *The city should do more to help homeless.*
+
+**Проверь себя:** прилагательное в значении «все такие люди» → *the* + прилагательное, глагол во множественном.`,
+      },
+    },
+    {
+      for: ['generic'],
+      rule: {
+        en: `**the + singular noun** = a whole kind (inventions, animals): ***The smartphone** has changed our lives. **The cheetah** is the fastest animal.*`,
+        uk: `**the + іменник в однині** = весь вид (винаходи, тварини): ***The smartphone** has changed our lives* — «Смартфон змінив наше життя».`,
+        ru: `**the + существительное в единственном числе** = весь вид (изобретения, животные): ***The smartphone** has changed our lives* — «Смартфон изменил нашу жизнь».`,
+      },
+      more: {
+        en: `**The idea.** **the + singular noun** can mean a **whole kind** of thing — not one particular phone, but "the phone as an invention"; not one cheetah, but cheetahs as a species:
+- *The telephone was invented in 1876.*
+- *The smartphone has changed our lives.*
+- *The cheetah is the fastest land animal.*
+
+It sounds a bit formal, like in an encyclopedia. In everyday speech you can also use the **plural with no article**: *Cheetahs are fast. Smartphones have changed our lives.*
+
+What doesn't work: a singular noun alone, or *a* for the whole kind.
+
+✅ *The telephone was invented in 1876.*
+❌ *Telephone was invented in 1876.*
+
+✅ *The cheetah is the fastest land animal.*
+❌ *Cheetah is the fastest land animal.*
+
+**Check yourself:** an invention or a species as a whole → *the* + singular, or a plural with no article.`,
+        uk: `**Суть.** **the + іменник в однині** може означати **цілий вид** — не конкретний телефон, а «телефон як винахід»; не одного гепарда, а гепардів як вид:
+- *The telephone was invented in 1876.*
+- *The smartphone has changed our lives.*
+- *The cheetah is the fastest land animal.*
+
+Це звучить трохи офіційно, як в енциклопедії. У розмові можна вжити **множину без артикля**: *Cheetahs are fast. Smartphones have changed our lives.*
+
+Не працює: іменник в однині без нічого або *a* для цілого виду.
+
+✅ *The telephone was invented in 1876.*
+❌ *Telephone was invented in 1876.*
+
+✅ *The cheetah is the fastest land animal.*
+❌ *Cheetah is the fastest land animal.*
+
+**Перевір себе:** винахід чи вид тварин загалом → *the* + однина, або множина без артикля.`,
+        ru: `**Суть.** **the + существительное в единственном числе** может означать **целый вид** — не конкретный телефон, а «телефон как изобретение»; не одного гепарда, а гепардов как вид:
+- *The telephone was invented in 1876.*
+- *The smartphone has changed our lives.*
+- *The cheetah is the fastest land animal.*
+
+Это звучит немного официально, как в энциклопедии. В разговоре можно использовать **множественное без артикля**: *Cheetahs are fast. Smartphones have changed our lives.*
+
+Не работает: существительное в единственном числе без ничего или *a* для целого вида.
+
+✅ *The telephone was invented in 1876.*
+❌ *Telephone was invented in 1876.*
+
+✅ *The cheetah is the fastest land animal.*
+❌ *Cheetah is the fastest land animal.*
+
+**Проверь себя:** изобретение или вид животных в целом → *the* + единственное, или множественное без артикля.`,
+      },
+    },
+    {
+      for: ['inst'],
+      rule: {
+        en: `Places used for their purpose → **no article**: *go to **school / college / church / work / bed**, be in **jail***. The building itself → **the**: *I stopped by **the school** to talk to the teacher.* AmE: *in **the hospital***.`,
+        uk: `Місця, куди ходять за їх призначенням → **без артикля**: *go to **school / college / church / work / bed**, be in **jail***. Сама будівля → **the**: *I stopped by **the school** to talk to the teacher.* В американській: *in **the hospital***.`,
+        ru: `Места, куда ходят по их назначению → **без артикля**: *go to **school / college / church / work / bed**, be in **jail***. Само здание → **the**: *I stopped by **the school** to talk to the teacher.* В американском: *in **the hospital***.`,
+      },
+      more: {
+        en: `**The idea.** Some places are about their **purpose** — what people go there **for** — and then there's no article:
+- *go to **school*** (to study), *go to **college***, *go to **church*** (to pray), *go to **work***, *go to **bed*** (to sleep), *be in **jail*** (as a prisoner)
+
+When you mean the **building** — you go there for a different reason — the article comes back:
+- *I stopped by **the school** to talk to the teacher.* — I'm a parent, not a student
+- *My kids walk to school every day.* — they study there
+
+American English is special with hospitals: *in **the** hospital, to **the** hospital*.
+
+✅ *After high school she went to college in Ohio.*
+❌ *After high school she went to the college in Ohio.*
+
+✅ *My kids walk to school every day.*
+❌ *My kids walk to the school every day.*
+
+**Check yourself:** going there for its main purpose → no article. Visiting the building → *the*.`,
+        uk: `**Суть.** Деякі місця — про своє **призначення**, про те, **навіщо** туди ходять, — і тоді артикля немає:
+- *go to school* (вчитися), *go to college*, *go to church* (молитися), *go to work*, *go to bed* (спати), *be in jail* (як в'язень)
+
+Коли маєш на увазі **будівлю** — ідеш туди з іншою метою — артикль повертається:
+- *I stopped by the school to talk to the teacher.* — я батьки, а не учениця
+- *My kids walk to school every day.* — вони там навчаються
+
+В американській англійській особливо з лікарнями: *in the hospital, to the hospital*.
+
+✅ *After high school she went to college in Ohio.*
+❌ *After high school she went to the college in Ohio.*
+
+✅ *My kids walk to school every day.*
+❌ *My kids walk to the school every day.*
+
+**Перевір себе:** ідеш туди за його головним призначенням → без артикля. Заходиш у будівлю → *the*.`,
+        ru: `**Суть.** Некоторые места — о своём **назначении**, о том, **зачем** туда ходят, — и тогда артикля нет:
+- *go to school* (учиться), *go to college*, *go to church* (молиться), *go to work*, *go to bed* (спать), *be in jail* (как заключённый)
+
+Когда имеешь в виду **здание** — идёшь туда с другой целью — артикль возвращается:
+- *I stopped by the school to talk to the teacher.* — я родитель, а не ученица
+- *My kids walk to school every day.* — они там учатся
+
+В американском английском особенно с больницами: *in the hospital, to the hospital*.
+
+✅ *After high school she went to college in Ohio.*
+❌ *After high school she went to the college in Ohio.*
+
+✅ *My kids walk to school every day.*
+❌ *My kids walk to the school every day.*
+
+**Проверь себя:** идёшь туда по его главному назначению → без артикля. Заходишь в здание → *the*.`,
+      },
+    },
+    {
+      for: ['abstract'],
+      rule: {
+        en: `Abstract ideas in general → **no article**: ***Life** is short. **Money** can't buy happiness.* A specific one → **the**: ***the history** of this city.*`,
+        uk: `Абстрактні поняття загалом → **без артикля**: ***Life** is short. **Money** can't buy happiness.* Конкретне → **the**: ***the history** of this city.*`,
+        ru: `Абстрактные понятия в целом → **без артикля**: ***Life** is short. **Money** can't buy happiness.* Конкретное → **the**: ***the history** of this city.*`,
+      },
+      more: {
+        en: `**The idea.** Ideas and feelings **in general** — life, love, money, history, education, happiness — take **no article**:
+- *Life is too short to worry about small things.*
+- *Money can't buy happiness.*
+- *She studies history.*
+
+When it becomes **specific** — a particular life, the history **of** something, the education someone gets — **the** appears. A phrase with *of* or a clause after the noun is a typical sign:
+- *the history **of** this city*
+- *the education **my kids get here***
+- *the love **she feels for him***
+
+✅ *Life is too short.*
+❌ *The life is too short.*
+
+✅ *The education my kids get here is better than mine was.*
+❌ *Education my kids get here is better than mine was.*
+
+**Check yourself:** the idea as such → no article. "Which one?" is answered after the noun (*of…, that…*) → *the*.`,
+        uk: `**Суть.** Ідеї й почуття **загалом** — життя, любов, гроші, історія, освіта, щастя — **без артикля**:
+- *Life is too short to worry about small things.*
+- *Money can't buy happiness.*
+- *She studies history.*
+
+Коли це стає **конкретним** — певне життя, історія **чогось**, освіта, яку хтось отримує, — з'являється **the**. Типова ознака — фраза з *of* або підрядне після іменника:
+- *the history of this city*
+- *the education my kids get here*
+- *the love she feels for him*
+
+✅ *Life is too short.*
+❌ *The life is too short.*
+
+✅ *The education my kids get here is better than mine was.*
+❌ *Education my kids get here is better than mine was.*
+
+**Перевір себе:** ідея як така → без артикля. Після іменника відповідь на «яка саме?» (*of…, that…*) → *the*.`,
+        ru: `**Суть.** Идеи и чувства **вообще** — жизнь, любовь, деньги, история, образование, счастье — **без артикля**:
+- *Life is too short to worry about small things.*
+- *Money can't buy happiness.*
+- *She studies history.*
+
+Когда это становится **конкретным** — определённая жизнь, история **чего-то**, образование, которое кто-то получает, — появляется **the**. Типичный признак — фраза с *of* или придаточное после существительного:
+- *the history of this city*
+- *the education my kids get here*
+- *the love she feels for him*
+
+✅ *Life is too short.*
+❌ *The life is too short.*
+
+✅ *The education my kids get here is better than mine was.*
+❌ *Education my kids get here is better than mine was.*
+
+**Проверь себя:** идея как таковая → без артикля. После существительного ответ на «какая именно?» (*of…, that…*) → *the*.`,
+      },
+    },
+    {
+      for: ['geo'],
+      rule: {
+        en: `Geography: **the** with oceans, rivers, mountain ranges, plural or "united" countries: *the Pacific, the Mississippi, the Rockies, the Netherlands, the US*. **No article**: most countries, states, cities, single lakes and mountains: *Florida, Lake Michigan, Mount Rainier*.`,
+        uk: `Географія: **the** з океанами, річками, гірськими хребтами, країнами в множині чи «об'єднаними»: *the Pacific, the Mississippi, the Rockies, the Netherlands, the US*. **Без артикля**: більшість країн, штати, міста, окремі озера й гори: *Florida, Lake Michigan, Mount Rainier*.`,
+        ru: `География: **the** с океанами, реками, горными хребтами, странами во множественном числе или «объединёнными»: *the Pacific, the Mississippi, the Rockies, the Netherlands, the US*. **Без артикля**: большинство стран, штаты, города, отдельные озёра и горы: *Florida, Lake Michigan, Mount Rainier*.`,
+      },
+      more: {
+        en: `**The idea.** Geography has its own habits. A helpful way to remember: **the** goes with things that are **big, long or made of many parts**:
+- oceans and seas: *the Pacific, the Caribbean, the Black Sea*
+- rivers: *the Mississippi, the Dnipro*
+- mountain **ranges** (many mountains): *the Rockies, the Alps*
+- plural or "united" countries: *the US, the Netherlands, the Bahamas, the Philippines*
+
+**No article** with single, named places:
+- most countries, states, cities: *Ukraine, Florida, Chicago*
+- a single lake or mountain: *Lake Michigan, Lake Tahoe, Mount Rainier*
+
+✅ *We drove along the Mississippi for two days.*
+❌ *We drove along Mississippi for two days.*
+
+✅ *We went hiking near Lake Tahoe.*
+❌ *We went hiking near the Lake Tahoe.*
+
+**Check yourself:** water that flows or surrounds, a chain of mountains, a plural name → *the*. One lake, one mountain, a city or a state → no article.`,
+        uk: `**Суть.** У географії свої звички. Як запам'ятати: **the** йде з тим, що **велике, довге або складається з багатьох частин**:
+- океани й моря: *the Pacific, the Caribbean, the Black Sea*
+- річки: *the Mississippi, the Dnipro*
+- гірські **хребти** (багато гір): *the Rockies, the Alps*
+- країни в множині чи з «об'єднанням»: *the US, the Netherlands, the Bahamas, the Philippines*
+
+**Без артикля** — окремі названі місця:
+- більшість країн, штатів, міст: *Ukraine, Florida, Chicago*
+- одне озеро чи одна гора: *Lake Michigan, Lake Tahoe, Mount Rainier*
+
+✅ *We drove along the Mississippi for two days.*
+❌ *We drove along Mississippi for two days.*
+
+✅ *We went hiking near Lake Tahoe.*
+❌ *We went hiking near the Lake Tahoe.*
+
+**Перевір себе:** вода, що тече чи оточує, гірський ланцюг, назва в множині → *the*. Одне озеро, одна гора, місто чи штат → без артикля.`,
+        ru: `**Суть.** У географии свои привычки. Как запомнить: **the** идёт с тем, что **большое, длинное или состоит из многих частей**:
+- океаны и моря: *the Pacific, the Caribbean, the Black Sea*
+- реки: *the Mississippi, the Dnipro*
+- горные **хребты** (много гор): *the Rockies, the Alps*
+- страны во множественном числе или с «объединением»: *the US, the Netherlands, the Bahamas, the Philippines*
+
+**Без артикля** — отдельные названные места:
+- большинство стран, штатов, городов: *Ukraine, Florida, Chicago*
+- одно озеро или одна гора: *Lake Michigan, Lake Tahoe, Mount Rainier*
+
+✅ *We drove along the Mississippi for two days.*
+❌ *We drove along Mississippi for two days.*
+
+✅ *We went hiking near Lake Tahoe.*
+❌ *We went hiking near the Lake Tahoe.*
+
+**Проверь себя:** вода, которая течёт или окружает, горная цепь, название во множественном → *the*. Одно озеро, одна гора, город или штат → без артикля.`,
+      },
+    },
+    {
+      for: ['superl'],
+      rule: {
+        en: `**the** before superlatives, *only, same, first*: *the best, the only person, one of the most famous…*`,
+        uk: `**the** перед найвищим ступенем, *only, same, first*: *the best, the only person, one of the most famous…*`,
+        ru: `**the** перед превосходной степенью, *only, same, first*: *the best, the only person, one of the most famous…*`,
+      },
+      more: {
+        en: `**The idea.** Some words point to **only one** — number one, the single one, the same one. There can't be "some" of those, so they always take **the**:
+- superlatives: *the best, the tallest, the most famous*
+- *the only, the same, the first, the last, the next*
+
+Even inside a longer phrase: *one of **the** most famous singers, **the** first person in her family to go to college*.
+
+✅ *This is the best pizza in town.*
+❌ *This is best pizza in town.*
+
+✅ *She was the first person in her family to go to college.*
+❌ *She was first person in her family to go to college.*
+
+✅ *It's one of the most beautiful places I've seen.*
+❌ *It's one of most beautiful places I've seen.*
+
+**Check yourself:** *best, most, only, same, first, last* → *the* in front.`,
+        uk: `**Суть.** Деякі слова вказують на **єдиного** — номер один, той самий, єдиний. «Якихось» таких бути не може, тому вони завжди з **the**:
+- найвищий ступінь: *the best, the tallest, the most famous*
+- *the only, the same, the first, the last, the next*
+
+Навіть усередині довшої фрази: *one of the most famous singers, the first person in her family to go to college*.
+
+✅ *This is the best pizza in town.*
+❌ *This is best pizza in town.*
+
+✅ *She was the first person in her family to go to college.*
+❌ *She was first person in her family to go to college.*
+
+✅ *It's one of the most beautiful places I've seen.*
+❌ *It's one of most beautiful places I've seen.*
+
+**Перевір себе:** *best, most, only, same, first, last* → перед ними *the*.`,
+        ru: `**Суть.** Некоторые слова указывают на **единственного** — номер один, тот самый, единственный. «Каких-то» таких быть не может, поэтому они всегда с **the**:
+- превосходная степень: *the best, the tallest, the most famous*
+- *the only, the same, the first, the last, the next*
+
+Даже внутри более длинной фразы: *one of the most famous singers, the first person in her family to go to college*.
+
+✅ *This is the best pizza in town.*
+❌ *This is best pizza in town.*
+
+✅ *She was the first person in her family to go to college.*
+❌ *She was first person in her family to go to college.*
+
+✅ *It's one of the most beautiful places I've seen.*
+❌ *It's one of most beautiful places I've seen.*
+
+**Проверь себя:** *best, most, only, same, first, last* → перед ними *the*.`,
+      },
+    },
+  ],
   examples: ['The rich get richer and the poor get poorer.', 'The smartphone has changed our lives.', 'My kids walk to school.', 'Life in America is different.', 'We flew over the Rocky Mountains to Lake Tahoe.'],
   trap: {
     uk: 'Багаті стають багатшими, а бідні — біднішими.',
