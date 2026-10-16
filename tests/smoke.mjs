@@ -65,9 +65,9 @@ ok(await page.evaluate(() => APP.state.settings.l1 === 'ru'), 'translation langu
 // A topic: the rule in English, the translation behind 🌐
 await page.click('[data-act=go][data-arg="topic:pp"]');
 ok(await page.isVisible('text=Typical mistake'), 'topic page shows the rule and the typical mistake');
-ok(!(await page.isVisible('.trb .l1 >> nth=0')), 'translation is hidden at first');
-await page.click('.trbtn >> nth=0');
-ok(await page.isVisible('.trb .l1 >> nth=0') && (await page.textContent('.trb .l1 >> nth=0')).includes('Используем'), '🌐 shows the Russian translation');
+ok(!(await page.isVisible('.rule.points > .trb > .l1')), 'translation is hidden at first');
+await page.click('.rule.points > .trb > .trbtn');
+ok(await page.isVisible('.rule.points > .trb > .l1') && (await page.textContent('.rule.points > .trb > .l1')).includes('Используем'), '🌐 shows the Russian translation');
 
 // A topic whose rule is split into points: a cheat sheet, a tap on a line opens its explanation (with 🌐)
 await page.click('[data-act=go][data-arg=topics]');
