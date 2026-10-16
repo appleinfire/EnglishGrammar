@@ -9,9 +9,9 @@ APP.addTopic({
     {
       for: ['cont'],
       rule: {
-        en: `Three future forms for a **point in the future**: **will be + -ing** (Future Continuous) — **in progress** at that moment: *This time tomorrow I'**ll be flying** to Kyiv. Don't call at 8 — we'**ll be eating**.*`,
-        uk: `Три форми майбутнього для **конкретного моменту в майбутньому**: **will be + -ing** (Future Continuous) — дія **триватиме** в той момент: *This time tomorrow I'**ll be flying** to Kyiv* — «Завтра о цій порі я летітиму до Києва».`,
-        ru: `Три формы будущего для **конкретного момента в будущем**: **will be + -ing** (Future Continuous) — действие **будет длиться** в тот момент: *This time tomorrow I'**ll be flying** to Kyiv* — «Завтра в это время я буду лететь в Киев».`,
+        en: `**will be + -ing** (Future Continuous) — **in progress** at a moment in the future: *This time tomorrow I'**ll be flying** to Kyiv. Don't call at 8 — we'**ll be eating**.*`,
+        uk: `**will be + -ing** (Future Continuous) — дія **триватиме** в певний момент у майбутньому: *This time tomorrow I'**ll be flying** to Kyiv* — «Завтра о цій порі я летітиму до Києва».`,
+        ru: `**will be + -ing** (Future Continuous) — действие **будет длиться** в определённый момент в будущем: *This time tomorrow I'**ll be flying** to Kyiv* — «Завтра в это время я буду лететь в Киев».`,
       },
       more: {
         en: `**The idea.** These forms look at a **point in the future** — *this time tomorrow, at 8 tonight, by Friday* — and say what's going on at that moment.

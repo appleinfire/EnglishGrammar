@@ -5,26 +5,274 @@ APP.addTopic({
   group: 'Conditionals',
   icon: '🎩',
   about: "suggest that he go, it's time, would rather, as if, had better",
-  rule: {
-    en: `Some expressions need a special verb form:
-- **suggest / recommend / insist / require / it's important / it's essential + that** → **base form** for every person: *I suggest that he **go**. It's essential that she **be** there. They insisted that we **not pay** in cash.* (Very common in American English; British English often uses *should go*.)
-- **It's time / It's high time / It's about time + subject + past**: *It's time we **left**.* Or *It's time **to leave**.*
-- **would rather + base form** (your own choice): *I'd rather **stay** home **than** go out.* **would rather + someone + past** (what you want others to do): *I'd rather you **didn't smoke** here.*
-- **as if / as though + past** when it isn't true: *He talks as if he **were** the boss.* When it's probably true → normal tense: *It looks as if it's going to rain.*
-- **had better + base form** (advice with a warning): *You'**d better go**. You'**d better not be** late.*`,
-    uk: `Деякі вирази вимагають особливої форми дієслова:
-- **suggest / recommend / insist / require / it's important / it's essential + that** → **початкова форма** для всіх осіб: *I suggest that he **go**. It's essential that she **be** there* — «Важливо, щоб вона там була». (Дуже поширено в американській; британці часто кажуть *should go*.)
-- **It's time / It's high time / It's about time + підмет + минулий час**: *It's time we **left*** — «Нам пора йти». Або *It's time **to leave**.*
-- **would rather + дієслово** (власний вибір): *I'd rather **stay** home **than** go out* — «Я б краще залишилася вдома». **would rather + хтось + минулий час** (чого хочемо від інших): *I'd rather you **didn't smoke** here* — «Я б не хотіла, щоб ти тут курив».
-- **as if / as though + минулий час**, коли це неправда: *He talks as if he **were** the boss* — «Він говорить так, ніби він начальник». Коли це, мабуть, правда → звичайний час: *It looks as if it's going to rain.*
-- **had better + дієслово** (порада з попередженням): *You'**d better go*** — «Тобі краще піти». *You'**d better not be** late.*`,
-    ru: `Некоторые выражения требуют особой формы глагола:
-- **suggest / recommend / insist / require / it's important / it's essential + that** → **начальная форма** для всех лиц: *I suggest that he **go**. It's essential that she **be** there* — «Важно, чтобы она там была». (Очень распространено в американском; британцы часто говорят *should go*.)
-- **It's time / It's high time / It's about time + подлежащее + прошедшее время**: *It's time we **left*** — «Нам пора идти». Или *It's time **to leave**.*
-- **would rather + глагол** (собственный выбор): *I'd rather **stay** home **than** go out* — «Я бы лучше осталась дома». **would rather + кто-то + прошедшее** (чего хотим от других): *I'd rather you **didn't smoke** here* — «Я бы предпочла, чтобы ты здесь не курил».
-- **as if / as though + прошедшее**, когда это неправда: *He talks as if he **were** the boss* — «Он говорит так, будто он начальник». Когда это, скорее всего, правда → обычное время: *It looks as if it's going to rain.*
-- **had better + глагол** (совет с предупреждением): *You'**d better go*** — «Тебе лучше уйти». *You'**d better not be** late.*`,
-  },
+  points: [
+    {
+      for: ['mand'],
+      rule: {
+        en: `Some expressions need a special verb form: **suggest / recommend / insist / require / it's important / it's essential + that** → **base form** for every person: *I suggest that he **go**. It's essential that she **be** there. They insisted that we **not pay** in cash.* (Very common in American English; British English often uses *should go*.)`,
+        uk: `Деякі вирази вимагають особливої форми дієслова: **suggest / recommend / insist / require / it's important / it's essential + that** → **початкова форма** для всіх осіб: *I suggest that he **go**. It's essential that she **be** there* — «Важливо, щоб вона там була». (Дуже поширено в американській; британці часто кажуть *should go*.)`,
+        ru: `Некоторые выражения требуют особой формы глагола: **suggest / recommend / insist / require / it's important / it's essential + that** → **начальная форма** для всех лиц: *I suggest that he **go**. It's essential that she **be** there* — «Важно, чтобы она там была». (Очень распространено в американском; британцы часто говорят *should go*.)`,
+      },
+      more: {
+        en: `**The idea.** After words that express a **demand, advice or importance** — *suggest, recommend, insist, require, it's important / essential that* — English uses the **base form** of the verb for every person. No *-s*, no past, no *to*:
+- *The doctor suggested that he **get** more exercise.* (not *gets*)
+- *It's important that every student **have** a photo ID.* (not *has*)
+- *It's essential that she **be** there.* (not *is*)
+- negative: just **not** + base form: *They insisted that we **not pay** in cash.*
+
+It's like «щоб він… / чтобы он…» in Ukrainian and Russian — a wish, not a fact. Very common in American English; British English often says *should get*.
+
+✅ *The doctor suggested that he get more exercise.*
+❌ *The doctor suggested that he gets more exercise.*
+
+✅ *It's essential that she be on time.*
+❌ *It's essential that she is on time.*
+
+**Check yourself:** *suggest / insist / it's important that* + person → the verb as in the dictionary, even with *he / she*.`,
+        uk: `**Суть.** Після слів, що виражають **вимогу, пораду чи важливість** — *suggest, recommend, insist, require, it's important / essential that*, — англійська вживає **базову форму** дієслова для всіх осіб. Без *-s*, без минулого, без *to*:
+- *The doctor suggested that he get more exercise.* (не *gets*)
+- *It's important that every student have a photo ID.* (не *has*)
+- *It's essential that she be there.* (не *is*)
+- заперечення: просто **not** + базова форма: *They insisted that we not pay in cash.*
+
+Це як українське «щоб він…» — бажання, а не факт. Дуже поширено в американській англійській; британська часто каже *should get*.
+
+✅ *The doctor suggested that he get more exercise.*
+❌ *The doctor suggested that he gets more exercise.*
+
+✅ *It's essential that she be on time.*
+❌ *It's essential that she is on time.*
+
+**Перевір себе:** *suggest / insist / it's important that* + особа → дієслово як у словнику, навіть з *he / she*.`,
+        ru: `**Суть.** После слов, выражающих **требование, совет или важность** — *suggest, recommend, insist, require, it's important / essential that*, — английский использует **базовую форму** глагола для всех лиц. Без *-s*, без прошедшего, без *to*:
+- *The doctor suggested that he get more exercise.* (не *gets*)
+- *It's important that every student have a photo ID.* (не *has*)
+- *It's essential that she be there.* (не *is*)
+- отрицание: просто **not** + базовая форма: *They insisted that we not pay in cash.*
+
+Это как русское «чтобы он…» — желание, а не факт. Очень распространено в американском английском; британский часто говорит *should get*.
+
+✅ *The doctor suggested that he get more exercise.*
+❌ *The doctor suggested that he gets more exercise.*
+
+✅ *It's essential that she be on time.*
+❌ *It's essential that she is on time.*
+
+**Проверь себя:** *suggest / insist / it's important that* + лицо → глагол как в словаре, даже с *he / she*.`,
+      },
+    },
+    {
+      for: ['time'],
+      rule: {
+        en: `**It's time / It's high time / It's about time + subject + past**: *It's time we **left**.* Or *It's time **to leave**.*`,
+        uk: `**It's time / It's high time / It's about time + підмет + минулий час**: *It's time we **left*** — «Нам пора йти». Або *It's time **to leave**.*`,
+        ru: `**It's time / It's high time / It's about time + подлежащее + прошедшее время**: *It's time we **left*** — «Нам пора идти». Или *It's time **to leave**.*`,
+      },
+      more: {
+        en: `**The idea.** **It's time / It's high time / It's about time** + subject + **past** = "we should already be doing it" — «Час уже… / Пора уже…». The past form doesn't mean the past here — it means "it should have happened by now":
+- *It's late. It's time we **went** home.*
+- *It's about time you **got** a real job.* — a bit of criticism
+- *It's high time they **fixed** this road.*
+
+Or simply **It's time to + verb**: *It's time to go.*
+
+✅ *It's time we went home.*
+❌ *It's time we go home.*
+
+✅ *It's about time you got a job.*
+❌ *It's about time you get a job.*
+
+**Check yourself:** *It's time* + a person → past form. Without a person → *to* + verb.`,
+        uk: `**Суть.** **It's time / It's high time / It's about time** + підмет + **минулий час** = «нам уже давно пора це робити» — «Час уже…». Минула форма тут не означає минуле — вона означає «це вже мало б статися»:
+- *It's late. It's time we went home.*
+- *It's about time you got a real job.* — з легким докором
+- *It's high time they fixed this road.*
+
+Або просто **It's time to + дієслово**: *It's time to go.*
+
+✅ *It's time we went home.*
+❌ *It's time we go home.*
+
+✅ *It's about time you got a job.*
+❌ *It's about time you get a job.*
+
+**Перевір себе:** *It's time* + особа → минула форма. Без особи → *to* + дієслово.`,
+        ru: `**Суть.** **It's time / It's high time / It's about time** + подлежащее + **прошедшее время** = «нам уже давно пора это делать» — «Пора уже…». Прошедшая форма здесь не значит прошлое — она значит «это уже должно было случиться»:
+- *It's late. It's time we went home.*
+- *It's about time you got a real job.* — с лёгким упрёком
+- *It's high time they fixed this road.*
+
+Или просто **It's time to + глагол**: *It's time to go.*
+
+✅ *It's time we went home.*
+❌ *It's time we go home.*
+
+✅ *It's about time you got a job.*
+❌ *It's about time you get a job.*
+
+**Проверь себя:** *It's time* + лицо → прошедшая форма. Без лица → *to* + глагол.`,
+      },
+    },
+    {
+      for: ['rather'],
+      rule: {
+        en: `**would rather + base form** (your own choice): *I'd rather **stay** home **than** go out.* **would rather + someone + past** (what you want others to do): *I'd rather you **didn't smoke** here.*`,
+        uk: `**would rather + дієслово** (власний вибір): *I'd rather **stay** home **than** go out* — «Я б краще залишилася вдома». **would rather + хтось + минулий час** (чого хочемо від інших): *I'd rather you **didn't smoke** here* — «Я б не хотіла, щоб ти тут курив».`,
+        ru: `**would rather + глагол** (собственный выбор): *I'd rather **stay** home **than** go out* — «Я бы лучше осталась дома». **would rather + кто-то + прошедшее** (чего хотим от других): *I'd rather you **didn't smoke** here* — «Я бы предпочла, чтобы ты здесь не курил».`,
+      },
+      more: {
+        en: `**The idea.** **would rather** ('d rather) = «краще б я… / я бы лучше…», a preference. Two patterns:
+- **your own choice** → *would rather + base form* (no *to*), and **than** for the other option: *I'd rather **stay** home **than** go out.*
+- **what you want someone else to do** → *would rather + person + past form*: *I'd rather you **didn't tell** anyone.* — a soft, polite request
+
+The past form here again means "not real yet", not the past.
+
+✅ *I'd rather stay home tonight.*
+❌ *I'd rather to stay home tonight.*
+
+✅ *I'd rather you didn't smoke here.*
+❌ *I'd rather you don't smoke here.*
+
+✅ *I'd rather walk than take the bus.*
+❌ *I'd rather walk that take the bus.*
+
+**Check yourself:** about you → *'d rather + base verb*. About someone else → *'d rather + person + past*.`,
+        uk: `**Суть.** **would rather** ('d rather) = «краще б я…», перевага. Дві схеми:
+- **твій власний вибір** → *would rather + базова форма* (без *to*), а для іншого варіанту — **than**: *I'd rather stay home than go out.*
+- **чого хочеш від іншої людини** → *would rather + особа + минула форма*: *I'd rather you didn't tell anyone.* — м'яке, ввічливе прохання
+
+Минула форма тут знову означає «ще нереально», а не минуле.
+
+✅ *I'd rather stay home tonight.*
+❌ *I'd rather to stay home tonight.*
+
+✅ *I'd rather you didn't smoke here.*
+❌ *I'd rather you don't smoke here.*
+
+✅ *I'd rather walk than take the bus.*
+❌ *I'd rather walk that take the bus.*
+
+**Перевір себе:** про себе → *'d rather + базове дієслово*. Про іншого → *'d rather + особа + минула форма*.`,
+        ru: `**Суть.** **would rather** ('d rather) = «я бы лучше…», предпочтение. Две схемы:
+- **твой собственный выбор** → *would rather + базовая форма* (без *to*), а для другого варианта — **than**: *I'd rather stay home than go out.*
+- **чего хочешь от другого человека** → *would rather + лицо + прошедшая форма*: *I'd rather you didn't tell anyone.* — мягкая, вежливая просьба
+
+Прошедшая форма здесь снова значит «ещё нереально», а не прошлое.
+
+✅ *I'd rather stay home tonight.*
+❌ *I'd rather to stay home tonight.*
+
+✅ *I'd rather you didn't smoke here.*
+❌ *I'd rather you don't smoke here.*
+
+✅ *I'd rather walk than take the bus.*
+❌ *I'd rather walk that take the bus.*
+
+**Проверь себя:** о себе → *'d rather + базовый глагол*. О другом → *'d rather + лицо + прошедшая форма*.`,
+      },
+    },
+    {
+      for: ['asif'],
+      rule: {
+        en: `**as if / as though + past** when it isn't true: *He talks as if he **were** the boss.* When it's probably true → normal tense: *It looks as if it's going to rain.*`,
+        uk: `**as if / as though + минулий час**, коли це неправда: *He talks as if he **were** the boss* — «Він говорить так, ніби він начальник». Коли це, мабуть, правда → звичайний час: *It looks as if it's going to rain.*`,
+        ru: `**as if / as though + прошедшее**, когда это неправда: *He talks as if he **were** the boss* — «Он говорит так, будто он начальник». Когда это, скорее всего, правда → обычное время: *It looks as if it's going to rain.*`,
+      },
+      more: {
+        en: `**The idea.** **as if / as though** = «ніби, наче / как будто». The tense after it depends on whether it's true:
+- **not true**, imaginary → step back to the **past** (*were* for everyone in formal style): *He talks as if he **were** the boss.* — he isn't
+- **probably true** → normal tense: *It looks as if it**'s going to** rain.* — it probably will. *She looks as though she **hasn't slept** for days.*
+
+✅ *He talks as if he were the boss, but he isn't.*
+❌ *He talks as if he is the boss, but he isn't.*
+
+✅ *It looks as if it's going to rain.*
+❌ *It looks as if it would rain.*
+
+**Check yourself:** it's not really so → past (*were, knew, had*). It probably is so → the normal tense.`,
+        uk: `**Суть.** **as if / as though** = «ніби, наче». Час після нього залежить від того, чи це правда:
+- **неправда**, уявне → крок назад у **минуле** (*were* для всіх в офіційному стилі): *He talks as if he were the boss.* — він не начальник
+- **ймовірно, правда** → звичайний час: *It looks as if it's going to rain.* — мабуть, піде дощ. *She looks as though she hasn't slept for days.*
+
+✅ *He talks as if he were the boss, but he isn't.*
+❌ *He talks as if he is the boss, but he isn't.*
+
+✅ *It looks as if it's going to rain.*
+❌ *It looks as if it would rain.*
+
+**Перевір себе:** насправді це не так → минулий (*were, knew, had*). Ймовірно, так і є → звичайний час.`,
+        ru: `**Суть.** **as if / as though** = «как будто, словно». Время после него зависит от того, правда ли это:
+- **неправда**, воображаемое → шаг назад в **прошедшее** (*were* для всех в официальном стиле): *He talks as if he were the boss.* — он не начальник
+- **вероятно, правда** → обычное время: *It looks as if it's going to rain.* — похоже, пойдёт дождь. *She looks as though she hasn't slept for days.*
+
+✅ *He talks as if he were the boss, but he isn't.*
+❌ *He talks as if he is the boss, but he isn't.*
+
+✅ *It looks as if it's going to rain.*
+❌ *It looks as if it would rain.*
+
+**Проверь себя:** на самом деле это не так → прошедшее (*were, knew, had*). Вероятно, так и есть → обычное время.`,
+      },
+    },
+    {
+      for: ['better'],
+      rule: {
+        en: `**had better + base form** (advice with a warning): *You'**d better go**. You'**d better not be** late.*`,
+        uk: `**had better + дієслово** (порада з попередженням): *You'**d better go*** — «Тобі краще піти». *You'**d better not be** late.*`,
+        ru: `**had better + глагол** (совет с предупреждением): *You'**d better go*** — «Тебе лучше уйти». *You'**d better not be** late.*`,
+      },
+      more: {
+        en: `**The idea.** **had better** ('d better) = strong advice with a warning — "do it, or there'll be trouble": «краще б тобі… / тебе лучше…, а то…»:
+- *It's going to rain. You'd better take an umbrella.*
+- *You'd better not be late for the interview.*
+
+Three details people get wrong:
+- don't lose the **'d** — *You better go* is very casual; in writing it's *You'd better*
+- **no to**: *had better go*, not *had better to go*
+- negative is **had better not**: *You'd better not be late*, not *You'd better don't*
+
+✅ *You'd better go to the doctor.*
+❌ *You better to go to the doctor.*
+
+✅ *You'd better not be late for the interview.*
+❌ *You'd better don't be late for the interview.*
+
+**Check yourself:** *'d better* + bare verb; *not* goes right after *better*.`,
+        uk: `**Суть.** **had better** ('d better) = сильна порада з попередженням — «зроби, а то будуть проблеми»: «краще б тобі…, а то…»:
+- *It's going to rain. You'd better take an umbrella.*
+- *You'd better not be late for the interview.*
+
+Три деталі, у яких помиляються:
+- не губи **'d** — *You better go* дуже розмовне; на письмі — *You'd better*
+- **без to**: *had better go*, а не *had better to go*
+- заперечення — **had better not**: *You'd better not be late*, а не *You'd better don't*
+
+✅ *You'd better go to the doctor.*
+❌ *You better to go to the doctor.*
+
+✅ *You'd better not be late for the interview.*
+❌ *You'd better don't be late for the interview.*
+
+**Перевір себе:** *'d better* + голе дієслово; *not* — одразу після *better*.`,
+        ru: `**Суть.** **had better** ('d better) = сильный совет с предупреждением — «сделай, а то будут проблемы»: «тебе лучше…, а то…»:
+- *It's going to rain. You'd better take an umbrella.*
+- *You'd better not be late for the interview.*
+
+Три детали, в которых ошибаются:
+- не теряй **'d** — *You better go* очень разговорно; на письме — *You'd better*
+- **без to**: *had better go*, а не *had better to go*
+- отрицание — **had better not**: *You'd better not be late*, а не *You'd better don't*
+
+✅ *You'd better go to the doctor.*
+❌ *You better to go to the doctor.*
+
+✅ *You'd better not be late for the interview.*
+❌ *You'd better don't be late for the interview.*
+
+**Проверь себя:** *'d better* + голый глагол; *not* — сразу после *better*.`,
+      },
+    },
+  ],
   examples: ['I suggest that he go to the doctor.', "It's time we left.", "I'd rather you didn't smoke here.", 'He talks as if he were the boss.', "You'd better not be late."],
   trap: {
     uk: 'Тобі краще сходити до лікаря.',

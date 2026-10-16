@@ -9,8 +9,35 @@
   I.lang = () => ((APP.state && APP.state.settings && I.LANGS[APP.state.settings.l1]) ? APP.state.settings.l1 : 'uk');
 
   // Tiny text format: every line is a paragraph, a blank line = a wider gap before the next one, "- " = bullet,
-  // a line starting with ✅ or ❌ = an example sentence, **bold**, *italic*.
-  I.inline = (s) => U.esc(s).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>').replace(/\*(.+?)\*/g, '<i>$1</i>');
+  // a line starting with ✅ or ❌ = an example sentence, **bold**, *italic*. Bold may start or end an italic
+  // phrase: ***Never have I** seen…* = italic with a bold start, *in spite **of*** = italic with a bold end.
+  const marks = (s) => {
+    const out = [], open = [];
+    let ok = true;
+    const tag = (t) => {
+      const k = open.lastIndexOf(t);
+      if (k < 0) { open.push(t); out.push(`<${t}>`); return; }
+      if (k !== open.length - 1) ok = false; // closes across another tag: close both, reopen the inner one
+      const inner = open.splice(k);
+      for (let j = inner.length - 1; j >= 0; j--) out.push(`</${inner[j]}>`);
+      for (const x of inner.slice(1)) { open.push(x); out.push(`<${x}>`); }
+    };
+    for (const p of U.esc(s).split(/(\*{1,3})/)) {
+      if (p === '**') tag('b');
+      else if (p === '*') tag('i');
+      else if (p === '***') {
+        if (!open.length) { tag('i'); tag('b'); }
+        else if (open[open.length - 1] === 'b') { tag('b'); tag('i'); }
+        else { tag('i'); tag('b'); }
+      } else out.push(p);
+    }
+    if (open.length) ok = false;
+    for (let j = open.length - 1; j >= 0; j--) out.push(`</${open[j]}>`);
+    return { html: out.join(''), ok };
+  };
+  I.inline = (s) => marks(s).html;
+  // false when a line's ** / * do not pair up (the content test checks every text with it)
+  I.marksOk = (text) => String(text || '').split('\n').every((line) => marks(line).ok);
   I.fmt = (text) => {
     const out = [];
     let ul = null, gap = false;
