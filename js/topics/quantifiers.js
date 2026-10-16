@@ -5,26 +5,398 @@ APP.addTopic({
   group: 'Articles & nouns',
   icon: '🧺',
   about: 'countable and uncountable, there is / there are',
-  rule: {
-    en: `- **Countable** nouns have a plural: *a day → days, a person → people*. **Uncountable** nouns have no plural and no *a*: *money, time, water, advice, information, news, furniture, luggage, homework*. (*The news **is**…; some advice, a piece of advice.*)
-- **many** + plural (*many people*), **much** + uncountable (*much time*). In positive sentences people usually say **a lot of / lots of**: *We have a lot of homework.* **How many** chairs? **How much** money? **How much** is it?
-- **some** — positive sentences, offers, requests: *Would you like some coffee? Can I have some water?* **any** — negatives and questions: *I don't have any cash. Are there any messages?*
-- **no** = *not any*: *There's no milk* = *There isn't any milk.* Never both: *I don't have **any** time* (not *don't have no*).
-- **a few** + plural (*a few minutes*), **a little** + uncountable (*a little Spanish*). Without *a*: **few / little** = not enough: *Very few people know.*
-- **there is** + singular / uncountable, **there are** + plural: *There are two pharmacies on our street.* (Ukrainian / Russian *є / есть* → *there is*, not *it has*.)`,
-    uk: `- **Злічувані** іменники мають множину: *a day → days, a person → people*. **Незлічувані** — без множини і без *a*: *money, time, water, advice, information, news, furniture, luggage, homework*. (*The news **is**…; some advice, a piece of advice* — «порада».)
-- **many** + множина (*many people*), **much** + незлічуване (*much time*). У стверджувальних реченнях частіше кажуть **a lot of / lots of**: *We have a lot of homework.* **How many** chairs? **How much** money? **How much** is it? — «Скільки коштує?»
-- **some** — стверджувальні речення, пропозиції, прохання: *Would you like some coffee? Can I have some water?* **any** — заперечення й питання: *I don't have any cash. Are there any messages?*
-- **no** = *not any*: *There's no milk* = *There isn't any milk.* Ніколи разом: *I don't have **any** time* (не *don't have no*).
-- **a few** + множина (*a few minutes*), **a little** + незлічуване (*a little Spanish*). Без *a*: **few / little** = мало, недостатньо: *Very few people know.*
-- **there is** + однина / незлічуване, **there are** + множина: *There are two pharmacies on our street.* (Українське «є» → *there is*, а не *it has*.)`,
-    ru: `- **Исчисляемые** существительные имеют множественное число: *a day → days, a person → people*. **Неисчисляемые** — без множественного и без *a*: *money, time, water, advice, information, news, furniture, luggage, homework*. (*The news **is**…; some advice, a piece of advice* — «совет».)
-- **many** + множественное (*many people*), **much** + неисчисляемое (*much time*). В утвердительных предложениях чаще говорят **a lot of / lots of**: *We have a lot of homework.* **How many** chairs? **How much** money? **How much** is it? — «Сколько стоит?»
-- **some** — утвердительные предложения, предложения, просьбы: *Would you like some coffee? Can I have some water?* **any** — отрицания и вопросы: *I don't have any cash. Are there any messages?*
-- **no** = *not any*: *There's no milk* = *There isn't any milk.* Никогда вместе: *I don't have **any** time* (не *don't have no*).
-- **a few** + множественное (*a few minutes*), **a little** + неисчисляемое (*a little Spanish*). Без *a*: **few / little** = мало, недостаточно: *Very few people know.*
-- **there is** + единственное / неисчисляемое, **there are** + множественное: *There are two pharmacies on our street.* (Русское «есть» → *there is*, а не *it has*.)`,
-  },
+  points: [
+    {
+      for: ['uncount'],
+      rule: {
+        en: `**Countable** nouns have a plural: *a day → days, a person → people*. **Uncountable** nouns have no plural and no *a*: *money, time, water, advice, information, news, furniture, luggage, homework*. (*The news **is**…; some advice, a piece of advice.*)`,
+        uk: `**Злічувані** іменники мають множину: *a day → days, a person → people*. **Незлічувані** — без множини і без *a*: *money, time, water, advice, information, news, furniture, luggage, homework*. (*The news **is**…; some advice, a piece of advice* — «порада».)`,
+        ru: `**Исчисляемые** существительные имеют множественное число: *a day → days, a person → people*. **Неисчисляемые** — без множественного и без *a*: *money, time, water, advice, information, news, furniture, luggage, homework*. (*The news **is**…; some advice, a piece of advice* — «совет».)`,
+      },
+      more: {
+        en: `**The idea.** Some things you can count one by one: *one apple, two apples, three apples*. These nouns are **countable**. Other things are like a mass: you can't count them, you can only have more or less of them: *water, money, time*. These nouns are **uncountable**, and three rules go with them:
+- no *a / an*: *money*, not *a money*
+- no *-s*: *advice*, not *advices*
+- the verb is singular: *The news **is** good.*
+
+**The trap.** Some words are countable in Ukrainian and Russian but uncountable in English. Learn them as a list: *advice, information, news, homework, furniture, luggage, work* (but *a job* is countable).
+
+**How to count them anyway.** Use a "unit" word: *a piece of advice, two pieces of furniture, a piece of news*. Or just say *some*: *some advice, some information*.
+
+✅ *She gave me some good advice.*
+❌ *She gave me a good advice.*
+
+✅ *The news is bad today.*
+❌ *The news are bad today.*
+
+✅ *I have a lot of homework.*
+❌ *I have a lot of homeworks.*
+
+**Check yourself:** can you put a number before the word — *one, two, three…*? *Three chairs* ✅ → countable. *Three furnitures* ❌ → uncountable.`,
+        uk: `**Суть.** Деякі речі можна порахувати поштучно: *one apple, two apples, three apples*. Такі іменники **злічувані**. Інші — як маса: їх не порахуєш, їх може бути лише більше чи менше: *water, money, time*. Це **незлічувані** іменники, і для них діють три правила:
+- без *a / an*: *money*, а не *a money*
+- без *-s*: *advice*, а не *advices*
+- дієслово в однині: *The news **is** good.*
+
+**Пастка.** Деякі слова в українській злічувані, а в англійській — ні. Їх варто запам'ятати списком: *advice* (порада), *information, news* (новини), *homework, furniture, luggage, work* (але *a job* — злічуване).
+
+**Як усе ж порахувати.** Через слово-«одиницю»: *a piece of advice* (одна порада), *two pieces of furniture, a piece of news*. Або просто *some*: *some advice, some information*.
+
+✅ *She gave me some good advice.*
+❌ *She gave me a good advice.*
+
+✅ *The news is bad today.*
+❌ *The news are bad today.*
+
+✅ *I have a lot of homework.*
+❌ *I have a lot of homeworks.*
+
+**Перевір себе:** чи можна поставити перед словом число — *one, two, three…*? *Three chairs* ✅ → злічуване. *Three furnitures* ❌ → незлічуване.`,
+        ru: `**Суть.** Некоторые вещи можно посчитать поштучно: *one apple, two apples, three apples*. Такие существительные **исчисляемые**. Другие — как масса: их не посчитаешь, их может быть только больше или меньше: *water, money, time*. Это **неисчисляемые** существительные, и для них действуют три правила:
+- без *a / an*: *money*, а не *a money*
+- без *-s*: *advice*, а не *advices*
+- глагол в единственном числе: *The news **is** good.*
+
+**Ловушка.** Некоторые слова в русском исчисляемые, а в английском — нет. Их стоит запомнить списком: *advice* (совет), *information, news* (новости), *homework, furniture, luggage, work* (но *a job* — исчисляемое).
+
+**Как всё-таки посчитать.** Через слово-«единицу»: *a piece of advice* (один совет), *two pieces of furniture, a piece of news*. Или просто *some*: *some advice, some information*.
+
+✅ *She gave me some good advice.*
+❌ *She gave me a good advice.*
+
+✅ *The news is bad today.*
+❌ *The news are bad today.*
+
+✅ *I have a lot of homework.*
+❌ *I have a lot of homeworks.*
+
+**Проверь себя:** можно ли поставить перед словом число — *one, two, three…*? *Three chairs* ✅ → исчисляемое. *Three furnitures* ❌ → неисчисляемое.`,
+      },
+    },
+    {
+      for: ['much-many', 'a-lot'],
+      rule: {
+        en: `**many** + plural (*many people*), **much** + uncountable (*much time*). In positive sentences people usually say **a lot of / lots of**: *We have a lot of homework.* **How many** chairs? **How much** money? **How much** is it?`,
+        uk: `**many** + множина (*many people*), **much** + незлічуване (*much time*). У стверджувальних реченнях частіше кажуть **a lot of / lots of**: *We have a lot of homework.* **How many** chairs? **How much** money? **How much** is it? — «Скільки коштує?»`,
+        ru: `**many** + множественное (*many people*), **much** + неисчисляемое (*much time*). В утвердительных предложениях чаще говорят **a lot of / lots of**: *We have a lot of homework.* **How many** chairs? **How much** money? **How much** is it? — «Сколько стоит?»`,
+      },
+      more: {
+        en: `**The idea.** *Many* and *much* both mean «багато / много». English has two words for it, and the noun decides which one:
+- things you can count → **many**: *many people, many times, How many kids do you have?*
+- a mass you can't count → **much**: *much time, much money, How much water do we need?*
+
+**How to choose:** if «скільки штук? / сколько штук?» makes sense, it's **many**. If it's an amount of time, money or water, it's **much**. *How much is it?* («Скільки коштує? / Сколько стоит?») is about money, so it's always *much*.
+
+**What people really say.** In a positive sentence *much* sounds stiff: *We have much work* — people don't say that. They say **a lot of** or **lots of**, and it works with both kinds of nouns, so you don't have to choose:
+- *We have a lot of work. She has a lot of friends.*
+*Much / many* sound natural in questions and negatives (*Do you have much time? We don't have many options.*) and after *how, too, so* (*too many people, so much noise*).
+
+Don't drop the **of**: *a lot of problems*, not *a lot problems*.
+
+✅ *How many people came?*
+❌ *How much people came?*
+
+✅ *There were too many cars.*
+❌ *There were too much cars.*
+
+✅ *We have a lot of homework.*
+❌ *We have a lot homework.*`,
+        uk: `**Суть.** *Many* і *much* обидва означають «багато». В англійській для цього два слова, і вибір залежить від іменника:
+- те, що можна порахувати → **many**: *many people, many times, How many kids do you have?*
+- маса, яку не порахуєш → **much**: *much time, much money, How much water do we need?*
+
+**Як вибрати:** якщо можна спитати «скільки штук?» — це **many**. Якщо йдеться про кількість часу, грошей, води — це **much**. *How much is it?* («Скільки коштує?») — про гроші, тому завжди *much*.
+
+**Як кажуть насправді.** У стверджувальному реченні *much* звучить штучно: *We have much work* — так не кажуть. Кажуть **a lot of** або **lots of**, і це працює з будь-якими іменниками — вибирати не треба:
+- *We have a lot of work. She has a lot of friends.*
+*Much / many* звучать природно в питаннях і запереченнях (*Do you have much time? We don't have many options.*) і після *how, too, so* (*too many people, so much noise*).
+
+Не губи **of**: *a lot of problems*, а не *a lot problems*.
+
+✅ *How many people came?*
+❌ *How much people came?*
+
+✅ *There were too many cars.*
+❌ *There were too much cars.*
+
+✅ *We have a lot of homework.*
+❌ *We have a lot homework.*`,
+        ru: `**Суть.** *Many* и *much* оба значат «много». В английском для этого два слова, и выбор зависит от существительного:
+- то, что можно посчитать → **many**: *many people, many times, How many kids do you have?*
+- масса, которую не посчитаешь → **much**: *much time, much money, How much water do we need?*
+
+**Как выбрать:** если можно спросить «сколько штук?» — это **many**. Если речь о количестве времени, денег, воды — это **much**. *How much is it?* («Сколько стоит?») — про деньги, поэтому всегда *much*.
+
+**Как говорят на самом деле.** В утвердительном предложении *much* звучит натянуто: *We have much work* — так не говорят. Говорят **a lot of** или **lots of**, и это работает с любыми существительными — выбирать не нужно:
+- *We have a lot of work. She has a lot of friends.*
+*Much / many* звучат естественно в вопросах и отрицаниях (*Do you have much time? We don't have many options.*) и после *how, too, so* (*too many people, so much noise*).
+
+Не теряй **of**: *a lot of problems*, а не *a lot problems*.
+
+✅ *How many people came?*
+❌ *How much people came?*
+
+✅ *There were too many cars.*
+❌ *There were too much cars.*
+
+✅ *We have a lot of homework.*
+❌ *We have a lot homework.*`,
+      },
+    },
+    {
+      for: ['some-any'],
+      rule: {
+        en: `**some** — positive sentences, offers, requests: *Would you like some coffee? Can I have some water?* **any** — negatives and questions: *I don't have any cash. Are there any messages?*`,
+        uk: `**some** — стверджувальні речення, пропозиції, прохання: *Would you like some coffee? Can I have some water?* **any** — заперечення й питання: *I don't have any cash. Are there any messages?*`,
+        ru: `**some** — утвердительные предложения, предложения, просьбы: *Would you like some coffee? Can I have some water?* **any** — отрицания и вопросы: *I don't have any cash. Are there any messages?*`,
+      },
+      more: {
+        en: `**The idea.** *Some* and *any* mean an amount you don't name: «трохи, кілька, якісь / немного, несколько, какие-то». In Ukrainian and Russian you often say nothing here — «Хочеш кави? / Хочешь кофе?» — but in English you usually need the word: *Do you want **some** coffee?*
+
+**The basic rule:** the type of sentence decides.
+- positive → **some**: *I have **some** money.*
+- negative → **any**: *I don't have **any** money.*
+- question → **any**: *Do you have **any** money?*
+
+**The exception: offers and requests take some**, even though they are questions. When you offer or ask for something, you expect "yes":
+- *Would you like **some** tea?* (an offer)
+- *Can I have **some** water?* (a request)
+A real question, when you don't know the answer, takes *any*: *Are there **any** messages for me? Do you have **any** questions?*
+
+**Check yourself:** am I offering or asking for something? → *some*. Am I finding out, or saying "no"? → *any*.
+
+Note: *any* in a positive sentence means «будь-який / любой»: *Call me any time. Take any seat.*`,
+        uk: `**Суть.** *Some* і *any* означають кількість, яку не називають: «трохи, кілька, якісь». Українською тут часто взагалі немає слова — «Хочеш кави?», — а англійською воно зазвичай потрібне: *Do you want **some** coffee?*
+
+**Основне правило:** усе вирішує тип речення.
+- стверджувальне → **some**: *I have **some** money.*
+- заперечення → **any**: *I don't have **any** money.*
+- питання → **any**: *Do you have **any** money?*
+
+**Виняток: у пропозиціях і проханнях — some**, хоча це питання. Коли щось пропонуєш або просиш, ти чекаєш на «так»:
+- *Would you like **some** tea?* (пропозиція)
+- *Can I have **some** water?* (прохання)
+Справжнє питання, коли відповіді не знаєш, — з *any*: *Are there **any** messages for me? Do you have **any** questions?*
+
+**Перевір себе:** я щось пропоную чи прошу? → *some*. Я дізнаюся або кажу «ні»? → *any*.
+
+Примітка: *any* у стверджувальному реченні означає «будь-який»: *Call me any time. Take any seat.*`,
+        ru: `**Суть.** *Some* и *any* означают количество, которое не называют: «немного, несколько, какие-то». По-русски здесь часто вообще нет слова — «Хочешь кофе?», — а по-английски оно обычно нужно: *Do you want **some** coffee?*
+
+**Основное правило:** всё решает тип предложения.
+- утвердительное → **some**: *I have **some** money.*
+- отрицание → **any**: *I don't have **any** money.*
+- вопрос → **any**: *Do you have **any** money?*
+
+**Исключение: в предложениях и просьбах — some**, хотя это вопросы. Когда что-то предлагаешь или просишь, ты ждёшь ответа «да»:
+- *Would you like **some** tea?* (предложение)
+- *Can I have **some** water?* (просьба)
+Настоящий вопрос, когда ответа не знаешь, — с *any*: *Are there **any** messages for me? Do you have **any** questions?*
+
+**Проверь себя:** я что-то предлагаю или прошу? → *some*. Я узнаю или говорю «нет»? → *any*.
+
+Заметка: *any* в утвердительном предложении значит «любой»: *Call me any time. Take any seat.*`,
+      },
+    },
+    {
+      for: ['no-any'],
+      rule: {
+        en: `**no** = *not any*: *There's no milk* = *There isn't any milk.* Never both: *I don't have **any** time* (not *don't have no*).`,
+        uk: `**no** = *not any*: *There's no milk* = *There isn't any milk.* Ніколи разом: *I don't have **any** time* (не *don't have no*).`,
+        ru: `**no** = *not any*: *There's no milk* = *There isn't any milk.* Никогда вместе: *I don't have **any** time* (не *don't have no*).`,
+      },
+      more: {
+        en: `**The idea.** An English sentence has only **one** "no". In Ukrainian and Russian two negatives together are normal: «У мене **немає жодного** часу / У меня **нет никакого** времени». In English the second one is a mistake.
+
+So put the "no" in **one** place, the one you like:
+- in the verb: *I **don't** have **any** time.* (*don't* says "no", and *any* just means «якогось / какого-то»)
+- or in the noun: *I have **no** time.* (the verb is positive, the "no" is in *no*)
+Both mean the same.
+
+✅ *I don't have any money.* = *I have no money.*
+❌ *I don't have no money.*
+
+✅ *There isn't any milk.* = *There's no milk.*
+❌ *There isn't no milk.*
+
+**The same with nothing, nobody, never:**
+✅ *I don't know anything.* = *I know nothing.*
+❌ *I don't know nothing.*
+
+✅ *I didn't see anybody.* = *I saw nobody.*
+❌ *I didn't see nobody.*
+
+**Check yourself:** count the "no" words — *not / n't, no, nothing, nobody, never*. If there are two, change the second one to *any-*: *any, anything, anybody, ever*.
+
+**Which one to use?** *don't… any* is the everyday way. *No* sounds stronger: *There's **no** way!* («Нізащо! / Ни за что!»), *There are **no** seats left.*`,
+        uk: `**Суть.** В англійському реченні лише **одне** «ні». В українській два заперечення поруч — це нормально: «У мене **немає жодного** часу». В англійській друге заперечення — помилка.
+
+Тож «ні» ставимо в **одне** місце — на вибір:
+- у дієслово: *I **don't** have **any** time.* (*don't* — це «ні», а *any* — просто «якогось»)
+- або в іменник: *I have **no** time.* (дієслово стверджувальне, «ні» сидить у *no*)
+Значення однакове.
+
+✅ *I don't have any money.* = *I have no money.*
+❌ *I don't have no money.*
+
+✅ *There isn't any milk.* = *There's no milk.*
+❌ *There isn't no milk.*
+
+**Так само з nothing, nobody, never:**
+✅ *I don't know anything.* = *I know nothing.*
+❌ *I don't know nothing.*
+
+✅ *I didn't see anybody.* = *I saw nobody.*
+❌ *I didn't see nobody.*
+
+**Перевір себе:** порахуй слова-заперечення — *not / n't, no, nothing, nobody, never*. Якщо їх два, друге заміни на *any-*: *any, anything, anybody, ever*.
+
+**Що вибрати?** *don't… any* — звичайний розмовний варіант. *No* звучить сильніше: *There's **no** way!* («Нізащо!»), *There are **no** seats left.*`,
+        ru: `**Суть.** В английском предложении только **одно** «нет». В русском два отрицания рядом — это нормально: «У меня **нет никакого** времени». В английском второе отрицание — ошибка.
+
+Поэтому «нет» ставим в **одно** место — на выбор:
+- в глагол: *I **don't** have **any** time.* (*don't* — это «нет», а *any* — просто «какого-то»)
+- или в существительное: *I have **no** time.* (глагол утвердительный, «нет» сидит в *no*)
+Смысл одинаковый.
+
+✅ *I don't have any money.* = *I have no money.*
+❌ *I don't have no money.*
+
+✅ *There isn't any milk.* = *There's no milk.*
+❌ *There isn't no milk.*
+
+**Так же с nothing, nobody, never:**
+✅ *I don't know anything.* = *I know nothing.*
+❌ *I don't know nothing.*
+
+✅ *I didn't see anybody.* = *I saw nobody.*
+❌ *I didn't see nobody.*
+
+**Проверь себя:** посчитай слова-отрицания — *not / n't, no, nothing, nobody, never*. Если их два, второе замени на *any-*: *any, anything, anybody, ever*.
+
+**Что выбрать?** *don't… any* — обычный разговорный вариант. *No* звучит сильнее: *There's **no** way!* («Ни за что!»), *There are **no** seats left.*`,
+      },
+    },
+    {
+      for: ['few-little'],
+      rule: {
+        en: `**a few** + plural (*a few minutes*), **a little** + uncountable (*a little Spanish*). Without *a*: **few / little** = not enough: *Very few people know.*`,
+        uk: `**a few** + множина (*a few minutes*), **a little** + незлічуване (*a little Spanish*). Без *a*: **few / little** = мало, недостатньо: *Very few people know.*`,
+        ru: `**a few** + множественное (*a few minutes*), **a little** + неисчисляемое (*a little Spanish*). Без *a*: **few / little** = мало, недостаточно: *Very few people know.*`,
+      },
+      more: {
+        en: `**Two questions to choose the right word.**
+
+**1. What noun?** The same as with *many / much*:
+- countable, plural → **few**: *a few minutes, a few friends, a few questions*
+- uncountable → **little**: *a little time, a little salt, a little Spanish*
+Here *little* means «трохи / немного», not «маленький».
+
+**2. With *a* or without?** The small word *a* changes the feeling:
+- **a few / a little** = «кілька, трохи — і це добре / несколько, немного — и это хорошо»: *I have **a few** friends here.* (I'm fine.)
+- **few / little** = «мало, замало / мало, недостаточно»: *I have **few** friends here.* (I'm lonely.)
+*A* makes it positive; no *a* makes it negative.
+
+✅ *Can you wait a few minutes?*
+❌ *Can you wait a little minutes?*
+
+✅ *I need a little help.*
+❌ *I need a few help.*
+
+✅ *We have very little time — hurry up!* (not enough)
+✅ *Very few people know this.* (almost nobody)
+
+**In real life** *few / little* without *a* sounds a bit formal. People usually say *not many / not much*: *Not many people know this. We don't have much time.*`,
+        uk: `**Два питання, щоб вибрати правильне слово.**
+
+**1. Який іменник?** Так само, як з *many / much*:
+- злічуваний, у множині → **few**: *a few minutes, a few friends, a few questions*
+- незлічуваний → **little**: *a little time, a little salt, a little Spanish*
+Тут *little* означає «трохи», а не «маленький».
+
+**2. З *a* чи без?** Маленьке *a* змінює відчуття:
+- **a few / a little** = «кілька, трохи — і це добре»: *I have **a few** friends here.* (У мене все гаразд.)
+- **few / little** = «мало, замало»: *I have **few** friends here.* (Мені самотньо.)
+З *a* — позитивно, без *a* — негативно.
+
+✅ *Can you wait a few minutes?*
+❌ *Can you wait a little minutes?*
+
+✅ *I need a little help.*
+❌ *I need a few help.*
+
+✅ *We have very little time — hurry up!* (замало)
+✅ *Very few people know this.* (майже ніхто)
+
+**У житті** *few / little* без *a* звучить трохи книжно. Зазвичай кажуть *not many / not much*: *Not many people know this. We don't have much time.*`,
+        ru: `**Два вопроса, чтобы выбрать правильное слово.**
+
+**1. Какое существительное?** Так же, как с *many / much*:
+- исчисляемое, во множественном → **few**: *a few minutes, a few friends, a few questions*
+- неисчисляемое → **little**: *a little time, a little salt, a little Spanish*
+Здесь *little* значит «немного», а не «маленький».
+
+**2. С *a* или без?** Маленькое *a* меняет ощущение:
+- **a few / a little** = «несколько, немного — и это хорошо»: *I have **a few** friends here.* (У меня всё в порядке.)
+- **few / little** = «мало, недостаточно»: *I have **few** friends here.* (Мне одиноко.)
+С *a* — позитивно, без *a* — негативно.
+
+✅ *Can you wait a few minutes?*
+❌ *Can you wait a little minutes?*
+
+✅ *I need a little help.*
+❌ *I need a few help.*
+
+✅ *We have very little time — hurry up!* (мало, не хватает)
+✅ *Very few people know this.* (почти никто)
+
+**В жизни** *few / little* без *a* звучит немного книжно. Обычно говорят *not many / not much*: *Not many people know this. We don't have much time.*`,
+      },
+    },
+    {
+      for: ['there'],
+      rule: {
+        en: `**there is** + singular / uncountable, **there are** + plural: *There are two pharmacies on our street.* (Ukrainian / Russian *є / есть* → *there is*, not *it has*.)`,
+        uk: `**there is** + однина / незлічуване, **there are** + множина: *There are two pharmacies on our street.* (Українське «є» → *there is*, а не *it has*.)`,
+        ru: `**there is** + единственное / неисчисляемое, **there are** + множественное: *There are two pharmacies on our street.* (Русское «есть» → *there is*, а не *it has*.)`,
+      },
+      more: {
+        en: `**The idea.** *There is / there are* says that something **exists** or **is somewhere**: «є / есть». In Ukrainian and Russian you often start with the place: «На нашій вулиці є аптека / На нашей улице есть аптека». In English you start with **there is**, and the place goes to the end:
+*There's a pharmacy on our street.*
+
+**is or are?** Look at the noun after it:
+- one thing or uncountable → **there is** (*there's*): *There's a problem. There's some milk in the fridge.*
+- plural → **there are**: *There are two pharmacies. There are no seats left.*
+After *a lot of*, look at the noun too: *There is a lot of traffic* (*traffic* is uncountable), but *There are a lot of cars.*
+
+**Past and questions:** *there was / there were*. In a question *is / are* goes first: *Is there a bank near here? Are there any messages for me?*
+
+**The trap: «є / есть» is not *it has*.** «Біля нас є парк / Рядом есть парк» → *There's a park near us.* ❌ *It has a park near us* — here *it* means nothing. *Have* needs an owner: *We have a park near our house* ✅, *Our town has two parks* ✅.`,
+        uk: `**Суть.** *There is / there are* каже, що щось **існує** або **десь є**. Українською ми часто починаємо з місця: «На нашій вулиці є аптека». Англійською починаємо з **there is**, а місце йде в кінець:
+*There's a pharmacy on our street.*
+
+**is чи are?** Дивись на іменник після нього:
+- одна річ або незлічуване → **there is** (*there's*): *There's a problem. There's some milk in the fridge.*
+- множина → **there are**: *There are two pharmacies. There are no seats left.*
+Після *a lot of* теж дивись на іменник: *There is a lot of traffic* (*traffic* незлічуване), але *There are a lot of cars.*
+
+**Минулий час і питання:** *there was / there were*. У питанні *is / are* стає першим: *Is there a bank near here? Are there any messages for me?*
+
+**Пастка: «є» — це не *it has*.** «Біля нас є парк» → *There's a park near us.* ❌ *It has a park near us* — тут *it* нічого не означає. *Have* потребує власника: *We have a park near our house* ✅, *Our town has two parks* ✅.`,
+        ru: `**Суть.** *There is / there are* говорит, что что-то **существует** или **где-то есть**. По-русски мы часто начинаем с места: «На нашей улице есть аптека». По-английски начинаем с **there is**, а место уходит в конец:
+*There's a pharmacy on our street.*
+
+**is или are?** Смотри на существительное после него:
+- одна вещь или неисчисляемое → **there is** (*there's*): *There's a problem. There's some milk in the fridge.*
+- множественное → **there are**: *There are two pharmacies. There are no seats left.*
+После *a lot of* тоже смотри на существительное: *There is a lot of traffic* (*traffic* неисчисляемое), но *There are a lot of cars.*
+
+**Прошедшее время и вопросы:** *there was / there were*. В вопросе *is / are* встаёт первым: *Is there a bank near here? Are there any messages for me?*
+
+**Ловушка: «есть» — это не *it has*.** «Рядом с нами есть парк» → *There's a park near us.* ❌ *It has a park near us* — здесь *it* ничего не значит. Для *have* нужен владелец: *We have a park near our house* ✅, *Our town has two parks* ✅.`,
+      },
+    },
+  ],
   examples: ['How many people came to the party?', "I don't have much time today.", 'Would you like some coffee?', 'Can you wait a few minutes?', 'There are two pharmacies on our street.'],
   trap: {
     uk: 'Вона дала мені хорошу пораду.',

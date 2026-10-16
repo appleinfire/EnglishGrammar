@@ -1,6 +1,10 @@
 // The content registry. Every file in js/topics/ calls APP.addTopic({...}) with one topic:
 //   id, title, level ('A2'…'C1'), group, icon, about
 //   rule:   { en, uk, ru }   short explanation; lines starting with "- " are bullets, **bold**, *italic*
+//   or points: [ { for, rule, more } ]   the rule as separate points, each explained in depth (instead of rule):
+//           for: [ pattern / error ids it explains ], rule: { en, uk, ru } one line of the cheat sheet,
+//           more: { en, uk, ru } the longer explanation (the idea, the trap, examples ✅ ❌, how to check yourself).
+//           The cheat sheet (topic.rule) is built from the points' lines. "Why?" after an exercise opens its point.
 //   examples: [ 'English sentence', … ]   (each gets a 🔊 button)
 //   trap:   { uk, ru, wrong, right, note: { en, uk, ru } }   the typical mistake of Ukrainian/Russian speakers
 //   errors: { id: { en, uk, ru } }   one explanation per type of mistake (items point to them)
@@ -70,6 +74,11 @@
     for (const [k, v] of Object.entries(t.errors || {})) errors[t.id + ':' + k] = Object.assign({ id: t.id + ':' + k, topic: t.id }, v);
     Object.assign(C.errors, errors);
     const topic = Object.assign({}, t, { errors, items: [] });
+    if (t.points) {
+      topic.points = t.points.map((p, n) => Object.assign({ n, topic: t.id }, p));
+      topic.rule = {};
+      for (const l of ['en', 'uk', 'ru']) topic.rule[l] = t.points.map((p) => '- ' + (p.rule[l] || '')).join('\n');
+    }
     for (const raw of t.items || []) {
       const it = item(raw, t.id, '');
       topic.items.push(it);
@@ -122,4 +131,15 @@
 
   C.patterns = (topicId) => [...new Set(C.byId[topicId].items.map((i) => i.pt))];
   C.error = (id) => C.errors[id] || null;
+  // The point of a topic's rule that explains a pattern or a type of mistake (null when the topic has no points).
+  C.point = (topicId, key) => {
+    const T = C.byId[topicId];
+    return (T && T.points && T.points.find((p) => p.for.includes(key))) || null;
+  };
+  C.errorPoint = (err) => {
+    const E = C.errors[err];
+    return E ? C.point(E.topic, E.id.slice(E.topic.length + 1)) : null;
+  };
+  // What "Why?" explains after an exercise: the mistake she made, else the pattern the exercise trains.
+  C.explain = (it, err) => (err && C.errorPoint(err)) || C.point(it.topic, it.pt) || (it.e && C.errorPoint(it.e)) || null;
 })();

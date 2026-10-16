@@ -153,6 +153,23 @@ textarea.field { resize: vertical; }
 .rule li, .trb li { margin: 0.3em 0; }
 .trb .l1 { margin-top: 8px; padding: 10px 12px; border-radius: 10px; background: var(--accent-soft); font-size: 0.95rem; }
 .trbtn { border: 0; background: none; color: var(--accent); font-weight: 600; font-size: 0.86rem; padding: 6px 0 0; }
+.trb .sp { margin-top: 0.95em; }
+.trb p.ex { margin: 0.15em 0; font-family: var(--serif); font-size: 1.04rem; }
+.trb p.ex.sp { margin-top: 0.6em; }
+/* a rule as points: a short line each, a tap opens the longer explanation */
+.point { border-bottom: 1px solid var(--line); }
+.point > summary { display: block; list-style: none; cursor: pointer; padding: 10px 0; }
+.point > summary::-webkit-details-marker { display: none; }
+.ptext { display: block; margin: 0; }
+.xp { display: inline-block; margin-top: 6px; color: var(--accent); font-weight: 600; font-size: 0.86rem; }
+.xp .xc, .point[open] .xp .xo { display: none; }
+.point[open] .xp .xc { display: inline; }
+.point[open] > summary { padding-bottom: 4px; }
+.trb.more { margin: 0 0 14px; padding: 4px 0 4px 12px; border-left: 3px solid var(--accent); }
+.trb.more ul { padding-left: 1.1em; }
+.points > .trb { margin-top: 6px; }
+.points.solo .ptext { padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid var(--line); font-weight: 500; }
+.points.solo .trb.more { margin-bottom: 0; }
 .examples ul { list-style: none; margin: 0; padding: 0; }
 .examples li { display: flex; gap: 10px; align-items: center; padding: 6px 0; border-bottom: 1px solid var(--line); font-family: var(--serif); font-size: 1.05rem; }
 .examples li:last-child { border-bottom: 0; }
@@ -254,6 +271,7 @@ textarea.field { resize: vertical; }
 .diagres { list-style: none; padding: 0; margin: 8px 0; }
 .diagres li { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid var(--line); }
 .errcard .btn { margin-top: 10px; }
+.errcard .row { margin-top: 0; }
 .kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; text-align: center; }
 .kpis b { display: block; font-size: 1.35rem; }
 .kpis small { color: var(--ink-soft); font-size: 0.76rem; }

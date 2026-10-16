@@ -80,6 +80,23 @@ for (const T of C.topics) {
   const where = (s) => `${T.id}: ${s}`;
   for (const k of ['title', 'level', 'group', 'icon', 'about']) need(T[k], where('missing ' + k));
   for (const l of LANGS) need(T.rule && T.rule[l], where('rule in ' + l));
+  if (T.points) {
+    // Every point in three languages; every pattern and every type of mistake is explained by exactly one point.
+    const keys = Object.keys(T.errors).map((e) => e.slice(T.id.length + 1)).concat(C.patterns(T.id));
+    const seen = {};
+    T.points.forEach((p, n) => {
+      need(Array.isArray(p.for) && p.for.length, where(`point ${n + 1} needs "for"`));
+      for (const l of LANGS) need(p.rule && p.rule[l] && !p.rule[l].includes('\n'), where(`point ${n + 1}: rule in ${l} (one line)`));
+      for (const l of LANGS) need(p.more && p.more[l] && p.more[l].length > ((p.rule && p.rule[l]) || '').length, where(`point ${n + 1}: explanation in ${l}`));
+      for (const l of LANGS) for (const x of [p.rule, p.more]) need(!APP.i18n.fmt((x && x[l]) || '').includes('*'), where(`point ${n + 1}: unpaired * in ${l}`));
+      for (const k of p.for || []) {
+        need(keys.includes(k), where(`point ${n + 1}: "${k}" is not a pattern or an error of the topic`));
+        need(!seen[k], where(`"${k}" is in two points`));
+        seen[k] = true;
+      }
+    });
+    for (const k of new Set(keys)) need(C.point(T.id, k), where(`no point explains "${k}"`));
+  }
   need(T.examples && T.examples.length >= 3, where('at least 3 examples'));
   need(T.trap && T.trap.uk && T.trap.ru && T.trap.wrong && T.trap.right, where('trap'));
   for (const l of LANGS) need(T.trap && T.trap.note && T.trap.note[l], where('trap note in ' + l));
