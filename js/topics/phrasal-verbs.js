@@ -5,26 +5,289 @@ APP.addTopic({
   group: 'Verb patterns',
   icon: '🧩',
   about: 'where it / them goes; look after, run out of',
-  rule: {
-    en: `A phrasal verb = verb + a small word (*up, off, out, back, on…*). The small word changes the meaning: *fill out a form, pick up the kids, call back, find out, give up*.
-- **Separable** verbs: a noun can go after or in the middle — *turn off the light / turn the light off*. A **pronoun** (*it, them, her*) always goes **in the middle**: *turn **it** off, pick **them** up, call **her** back* — never *turn off it*.
-- **Inseparable** verbs keep the parts together: *look **after** the kids → look after **them**; look **for** my keys → look for **them**; get **on** the bus*.
-- **Three-part** verbs never separate: *run out of milk, get along with my boss, look forward to the trip*.
-- Change the **verb** for the tense, not the small word: *I picked them up, she gave up, we ran out of gas*.
-Everyday ones: *fill out (a form), sign up (for a class), pick up / drop off (someone), call back, find out, put on / take off (clothes), try on, turn on / off, give up (stop), look up (a word)*.`,
-    uk: `Фразове дієслово = дієслово + маленьке слово (*up, off, out, back, on…*). Маленьке слово змінює значення: *fill out a form* — «заповнити анкету», *pick up the kids* — «забрати дітей», *call back* — «передзвонити», *find out* — «дізнатися», *give up* — «кинути, здатися».
-- **Роздільні** дієслова: іменник може стояти після або посередині — *turn off the light / turn the light off*. **Займенник** (*it, them, her*) — завжди **посередині**: *turn **it** off, pick **them** up, call **her** back* — ніколи *turn off it*.
-- **Нероздільні** дієслова не розриваються: *look **after** the kids → look after **them*** («доглядати»); *look **for** my keys → look for **them*** («шукати»); *get **on** the bus*.
-- **Тричастинні** ніколи не розриваються: *run out of milk* («закінчилося молоко»), *get along with my boss*, *look forward to the trip*.
-- Для часу змінюємо **дієслово**, а не маленьке слово: *I picked them up, she gave up, we ran out of gas*.
-Щоденні: *fill out (a form), sign up (for a class), pick up / drop off (someone), call back, find out, put on / take off (clothes), try on, turn on / off, give up, look up (a word)*.`,
-    ru: `Фразовый глагол = глагол + маленькое слово (*up, off, out, back, on…*). Маленькое слово меняет значение: *fill out a form* — «заполнить анкету», *pick up the kids* — «забрать детей», *call back* — «перезвонить», *find out* — «узнать», *give up* — «бросить, сдаться».
-- **Разделяемые** глаголы: существительное может стоять после или в середине — *turn off the light / turn the light off*. **Местоимение** (*it, them, her*) — всегда **в середине**: *turn **it** off, pick **them** up, call **her** back* — никогда *turn off it*.
-- **Неразделяемые** глаголы не разрываются: *look **after** the kids → look after **them*** («присматривать»); *look **for** my keys → look for **them*** («искать»); *get **on** the bus*.
-- **Трёхчастные** никогда не разрываются: *run out of milk* («закончилось молоко»), *get along with my boss*, *look forward to the trip*.
-- Для времени меняем **глагол**, а не маленькое слово: *I picked them up, she gave up, we ran out of gas*.
-Ежедневные: *fill out (a form), sign up (for a class), pick up / drop off (someone), call back, find out, put on / take off (clothes), try on, turn on / off, give up, look up (a word)*.`,
-  },
+  points: [
+    {
+      for: ['particle'],
+      rule: {
+        en: `A phrasal verb = verb + a small word (*up, off, out, back, on…*). The small word changes the meaning: *fill out a form, pick up the kids, call back, find out, give up*. Everyday ones: *fill out (a form), sign up (for a class), pick up / drop off (someone), call back, find out, put on / take off (clothes), try on, turn on / off, give up (stop), look up (a word)*.`,
+        uk: `Фразове дієслово = дієслово + маленьке слово (*up, off, out, back, on…*). Маленьке слово змінює значення: *fill out a form* — «заповнити анкету», *pick up the kids* — «забрати дітей», *call back* — «передзвонити», *find out* — «дізнатися», *give up* — «кинути, здатися». Щоденні: *fill out (a form), sign up (for a class), pick up / drop off (someone), call back, find out, put on / take off (clothes), try on, turn on / off, give up, look up (a word)*.`,
+        ru: `Фразовый глагол = глагол + маленькое слово (*up, off, out, back, on…*). Маленькое слово меняет значение: *fill out a form* — «заполнить анкету», *pick up the kids* — «забрать детей», *call back* — «перезвонить», *find out* — «узнать», *give up* — «бросить, сдаться». Ежедневные: *fill out (a form), sign up (for a class), pick up / drop off (someone), call back, find out, put on / take off (clothes), try on, turn on / off, give up, look up (a word)*.`,
+      },
+      more: {
+        en: `**The idea.** A phrasal verb is a verb + a small word: *up, off, out, back, on, down*. Together they're **one new word**, often with a meaning you can't guess from the parts — like Ukrainian and Russian prefixes: «писати → виписати, переписати / писать → выписать, переписать».
+- *fill out* a form — «заповнити / заполнить»
+- *pick up* / *drop off* someone — «забрати / відвезти — забрать / отвезти»
+- *call back* — «передзвонити / перезвонить»
+- *find out* — «дізнатися / узнать»
+- *give up* — «кинути, здатися / бросить, сдаться»
+- *try on* clothes — «приміряти / примерить»
+- *look up* a word — «пошукати / посмотреть в словаре»
+
+If you change or lose the small word, the meaning changes or disappears: *fill a form* is not what Americans say; *call* ≠ *call back*.
+
+✅ *Please fill out this form and sign it.*
+❌ *Please fill this form and sign it.*
+
+✅ *She's busy. Can she call you back?*
+❌ *She's busy. Can she call you again?* — sounds odd for «передзвонити / перезвонить»
+
+**Check yourself:** learn each one with its small word, like one word: *fill-out, pick-up, find-out*.`,
+        uk: `**Суть.** Фразове дієслово — це дієслово + маленьке слово: *up, off, out, back, on, down*. Разом вони — **одне нове слово**, часто зі значенням, якого не вгадаєш з частин, — як українські префікси: «писати → виписати, переписати».
+- *fill out* a form — «заповнити»
+- *pick up* / *drop off* someone — «забрати / відвезти»
+- *call back* — «передзвонити»
+- *find out* — «дізнатися»
+- *give up* — «кинути, здатися»
+- *try on* clothes — «приміряти»
+- *look up* a word — «пошукати в словнику»
+
+Якщо змінити чи загубити маленьке слово, значення зміниться або зникне: *fill a form* американці не кажуть; *call* ≠ *call back*.
+
+✅ *Please fill out this form and sign it.*
+❌ *Please fill this form and sign it.*
+
+✅ *She's busy. Can she call you back?*
+❌ *She's busy. Can she call you again?* — дивно для «передзвонити»
+
+**Перевір себе:** вчи кожне разом з маленьким словом, як одне слово: *fill-out, pick-up, find-out*.`,
+        ru: `**Суть.** Фразовый глагол — это глагол + маленькое слово: *up, off, out, back, on, down*. Вместе они — **одно новое слово**, часто со значением, которое не угадаешь по частям, — как русские приставки: «писать → выписать, переписать».
+- *fill out* a form — «заполнить»
+- *pick up* / *drop off* someone — «забрать / отвезти»
+- *call back* — «перезвонить»
+- *find out* — «узнать»
+- *give up* — «бросить, сдаться»
+- *try on* clothes — «примерить»
+- *look up* a word — «посмотреть в словаре»
+
+Если изменить или потерять маленькое слово, значение изменится или пропадёт: *fill a form* американцы не говорят; *call* ≠ *call back*.
+
+✅ *Please fill out this form and sign it.*
+❌ *Please fill this form and sign it.*
+
+✅ *She's busy. Can she call you back?*
+❌ *She's busy. Can she call you again?* — странно для «перезвонить»
+
+**Проверь себя:** учи каждый вместе с маленьким словом, как одно слово: *fill-out, pick-up, find-out*.`,
+      },
+    },
+    {
+      for: ['pronoun'],
+      rule: {
+        en: `**Separable** verbs: a noun can go after or in the middle — *turn off the light / turn the light off*. A **pronoun** (*it, them, her*) always goes **in the middle**: *turn **it** off, pick **them** up, call **her** back* — never *turn off it*.`,
+        uk: `**Роздільні** дієслова: іменник може стояти після або посередині — *turn off the light / turn the light off*. **Займенник** (*it, them, her*) — завжди **посередині**: *turn **it** off, pick **them** up, call **her** back* — ніколи *turn off it*.`,
+        ru: `**Разделяемые** глаголы: существительное может стоять после или в середине — *turn off the light / turn the light off*. **Местоимение** (*it, them, her*) — всегда **в середине**: *turn **it** off, pick **them** up, call **her** back* — никогда *turn off it*.`,
+      },
+      more: {
+        en: `**The idea.** Many phrasal verbs can be **split**. With a noun, both orders are fine:
+- *turn off the light* = *turn the light off*
+- *pick up the kids* = *pick the kids up*
+
+But with a **pronoun** (*it, them, her, him, me, you*) there's only one way — the pronoun goes **in the middle**:
+- *turn **it** off, pick **them** up, call **her** back, try **them** on*
+
+A short pronoun can't stand at the very end after the small word — it sounds wrong to English ears.
+
+✅ *The TV is too loud. Can you turn it down?*
+❌ *The TV is too loud. Can you turn down it?*
+
+✅ *These are your new shoes. Try them on!*
+❌ *These are your new shoes. Try on them!*
+
+**Check yourself:** *it / them / her* → sandwich it: verb + pronoun + small word.`,
+        uk: `**Суть.** Багато фразових дієслів можна **розділити**. З іменником підходять обидва порядки:
+- *turn off the light* = *turn the light off*
+- *pick up the kids* = *pick the kids up*
+
+А із **займенником** (*it, them, her, him, me, you*) — лише один спосіб: займенник стоїть **посередині**:
+- *turn it off, pick them up, call her back, try them on*
+
+Короткий займенник не може стояти в самому кінці після маленького слова — для англійського вуха це звучить неправильно.
+
+✅ *The TV is too loud. Can you turn it down?*
+❌ *The TV is too loud. Can you turn down it?*
+
+✅ *These are your new shoes. Try them on!*
+❌ *These are your new shoes. Try on them!*
+
+**Перевір себе:** *it / them / her* → роби «бутерброд»: дієслово + займенник + маленьке слово.`,
+        ru: `**Суть.** Многие фразовые глаголы можно **разделить**. С существительным подходят оба порядка:
+- *turn off the light* = *turn the light off*
+- *pick up the kids* = *pick the kids up*
+
+А с **местоимением** (*it, them, her, him, me, you*) — только один способ: местоимение стоит **посередине**:
+- *turn it off, pick them up, call her back, try them on*
+
+Короткое местоимение не может стоять в самом конце после маленького слова — для английского уха это звучит неправильно.
+
+✅ *The TV is too loud. Can you turn it down?*
+❌ *The TV is too loud. Can you turn down it?*
+
+✅ *These are your new shoes. Try them on!*
+❌ *These are your new shoes. Try on them!*
+
+**Проверь себя:** *it / them / her* → делай «бутерброд»: глагол + местоимение + маленькое слово.`,
+      },
+    },
+    {
+      for: ['insep'],
+      rule: {
+        en: `**Inseparable** verbs keep the parts together: *look **after** the kids → look after **them**; look **for** my keys → look for **them**; get **on** the bus*.`,
+        uk: `**Нероздільні** дієслова не розриваються: *look **after** the kids → look after **them*** («доглядати»); *look **for** my keys → look for **them*** («шукати»); *get **on** the bus*.`,
+        ru: `**Неразделяемые** глаголы не разрываются: *look **after** the kids → look after **them*** («присматривать»); *look **for** my keys → look for **them*** («искать»); *get **on** the bus*.`,
+      },
+      more: {
+        en: `**The idea.** Some phrasal verbs **never split**: the small word works like a preposition and stays glued to the verb. The noun or pronoun always comes **after** both parts:
+- **look after** (take care of): *look after the kids → look after them*
+- **look for** (search): *look for my keys → look for them*
+- **get on / get off** (a bus, a train, a plane): *get on the bus → get on it*
+- **come across** (find by chance): *I came across an old photo.*
+
+✅ *My mom looks after the kids when I work.*
+❌ *My mom looks the kids after when I work.*
+
+✅ *I'm looking for my glasses. Have you seen them?*
+❌ *I'm looking my glasses for.*
+
+**Check yourself:** *look after, look for, get on / off, come across* → both parts together, then the object.`,
+        uk: `**Суть.** Деякі фразові дієслова **ніколи не розділяються**: маленьке слово працює як прийменник і «приклеєне» до дієслова. Іменник чи займенник завжди йде **після** обох частин:
+- **look after** (доглядати): *look after the kids → look after them*
+- **look for** (шукати): *look for my keys → look for them*
+- **get on / get off** (сісти / вийти — автобус, потяг, літак): *get on the bus → get on it*
+- **come across** (випадково натрапити): *I came across an old photo.*
+
+✅ *My mom looks after the kids when I work.*
+❌ *My mom looks the kids after when I work.*
+
+✅ *I'm looking for my glasses. Have you seen them?*
+❌ *I'm looking my glasses for.*
+
+**Перевір себе:** *look after, look for, get on / off, come across* → обидві частини разом, потім додаток.`,
+        ru: `**Суть.** Некоторые фразовые глаголы **никогда не разделяются**: маленькое слово работает как предлог и «приклеено» к глаголу. Существительное или местоимение всегда идёт **после** обеих частей:
+- **look after** (присматривать): *look after the kids → look after them*
+- **look for** (искать): *look for my keys → look for them*
+- **get on / get off** (сесть / выйти — автобус, поезд, самолёт): *get on the bus → get on it*
+- **come across** (случайно наткнуться): *I came across an old photo.*
+
+✅ *My mom looks after the kids when I work.*
+❌ *My mom looks the kids after when I work.*
+
+✅ *I'm looking for my glasses. Have you seen them?*
+❌ *I'm looking my glasses for.*
+
+**Проверь себя:** *look after, look for, get on / off, come across* → обе части вместе, потом дополнение.`,
+      },
+    },
+    {
+      for: ['three'],
+      rule: {
+        en: `**Three-part** verbs never separate: *run out of milk, get along with my boss, look forward to the trip*.`,
+        uk: `**Тричастинні** ніколи не розриваються: *run out of milk* («закінчилося молоко»), *get along with my boss*, *look forward to the trip*.`,
+        ru: `**Трёхчастные** никогда не разрываются: *run out of milk* («закончилось молоко»), *get along with my boss*, *look forward to the trip*.`,
+      },
+      more: {
+        en: `**The idea.** Three-part verbs (verb + two small words) are always one block. They **never split**, and the object goes at the **end**:
+- **run out of** — «закінчитися / закончиться»: *We've run out of milk.*
+- **get along with** — «ладнати з / ладить с»: *I get along with my coworkers.*
+- **look forward to** — «чекати з нетерпінням / ждать с нетерпением»: *I'm looking forward to the trip.* (+ noun or *-ing*)
+- **catch up with** — «наздогнати / догнать»
+
+The easiest mistake is to drop one of the small words.
+
+✅ *We've run out of milk. Can you buy some?*
+❌ *We've run out milk.*
+
+✅ *I really get along with my boss.*
+❌ *I really get along my boss.*
+
+**Check yourself:** count the small words — three-part verbs need both: *out of, along with, forward to*.`,
+        uk: `**Суть.** Дієслова з трьох частин (дієслово + два маленькі слова) — завжди один блок. Вони **ніколи не розділяються**, а додаток іде в **кінці**:
+- **run out of** — «закінчитися»: *We've run out of milk.*
+- **get along with** — «ладнати з»: *I get along with my coworkers.*
+- **look forward to** — «чекати з нетерпінням»: *I'm looking forward to the trip.* (+ іменник або *-ing*)
+- **catch up with** — «наздогнати»
+
+Найпростіша помилка — загубити одне з маленьких слів.
+
+✅ *We've run out of milk. Can you buy some?*
+❌ *We've run out milk.*
+
+✅ *I really get along with my boss.*
+❌ *I really get along my boss.*
+
+**Перевір себе:** порахуй маленькі слова — потрібні обидва: *out of, along with, forward to*.`,
+        ru: `**Суть.** Глаголы из трёх частей (глагол + два маленьких слова) — всегда один блок. Они **никогда не разделяются**, а дополнение идёт в **конце**:
+- **run out of** — «закончиться»: *We've run out of milk.*
+- **get along with** — «ладить с»: *I get along with my coworkers.*
+- **look forward to** — «ждать с нетерпением»: *I'm looking forward to the trip.* (+ существительное или *-ing*)
+- **catch up with** — «догнать»
+
+Самая простая ошибка — потерять одно из маленьких слов.
+
+✅ *We've run out of milk. Can you buy some?*
+❌ *We've run out milk.*
+
+✅ *I really get along with my boss.*
+❌ *I really get along my boss.*
+
+**Проверь себя:** посчитай маленькие слова — нужны оба: *out of, along with, forward to*.`,
+      },
+    },
+    {
+      for: ['tense'],
+      rule: {
+        en: `Change the **verb** for the tense, not the small word: *I picked them up, she gave up, we ran out of gas*.`,
+        uk: `Для часу змінюємо **дієслово**, а не маленьке слово: *I picked them up, she gave up, we ran out of gas*.`,
+        ru: `Для времени меняем **глагол**, а не маленькое слово: *I picked them up, she gave up, we ran out of gas*.`,
+      },
+      more: {
+        en: `**The idea.** The small word never changes. All the grammar — past, *-s*, *-ing* — goes on the **verb**:
+- *pick up → picked up, picks up, picking up*
+- *give up → gave up, given up*
+- *run out → ran out*
+- *take off → took off*
+
+Irregular verbs keep their irregular forms: *give → gave*, *run → ran*, *take → took*.
+
+✅ *Yesterday my husband picked up the kids.*
+❌ *Yesterday my husband pick upped the kids.*
+
+✅ *He gave up smoking last year.*
+❌ *He give up smoking last year.*
+
+**Check yourself:** change the verb as if it were alone (*gave, ran, took*) and leave the small word as it is.`,
+        uk: `**Суть.** Маленьке слово ніколи не змінюється. Уся граматика — минулий час, *-s*, *-ing* — іде на **дієслово**:
+- *pick up → picked up, picks up, picking up*
+- *give up → gave up, given up*
+- *run out → ran out*
+- *take off → took off*
+
+Неправильні дієслова зберігають свої форми: *give → gave*, *run → ran*, *take → took*.
+
+✅ *Yesterday my husband picked up the kids.*
+❌ *Yesterday my husband pick upped the kids.*
+
+✅ *He gave up smoking last year.*
+❌ *He give up smoking last year.*
+
+**Перевір себе:** зміни дієслово так, ніби воно саме (*gave, ran, took*), а маленьке слово залиш як є.`,
+        ru: `**Суть.** Маленькое слово никогда не меняется. Вся грамматика — прошедшее время, *-s*, *-ing* — идёт на **глагол**:
+- *pick up → picked up, picks up, picking up*
+- *give up → gave up, given up*
+- *run out → ran out*
+- *take off → took off*
+
+Неправильные глаголы сохраняют свои формы: *give → gave*, *run → ran*, *take → took*.
+
+✅ *Yesterday my husband picked up the kids.*
+❌ *Yesterday my husband pick upped the kids.*
+
+✅ *He gave up smoking last year.*
+❌ *He give up smoking last year.*
+
+**Проверь себя:** измени глагол так, будто он один (*gave, ran, took*), а маленькое слово оставь как есть.`,
+      },
+    },
+  ],
   examples: ['Can you turn it off, please?', "I'll pick the kids up at three.", 'Please fill out this form.', 'Who looks after your kids when you work?', "We've run out of milk."],
   trap: {
     uk: 'Вимкни його, будь ласка.',

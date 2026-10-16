@@ -5,29 +5,335 @@ APP.addTopic({
   group: 'Future',
   icon: '🔮',
   about: "I'll get it! We're going to move. I'm seeing the doctor.",
-  rule: {
-    en: `English has no single future tense. Choose by **when you decided** and **how sure** you are:
-- **will** — deciding **now**, offers, promises: *The phone is ringing. — I'll get it! Don't worry, I'll pay.* Also opinions about the future: *I'm sure you'll pass. It'll probably be cheaper online.*
-- **be going to** — a plan you made **before**: *We're going to move this summer.* Also what you **see** coming: *Look at those clouds! It's going to rain.*
-- **Present Continuous** — an **arrangement** with a time, a place, other people (it's in your calendar): *I'm seeing the doctor at 3 tomorrow.*
-- After **when, as soon as, before, after, until, if** use the **present**, not *will*: *I'll call you when I **get** home.*
-Form: *will* + verb (no *to*); *am / is / are going to* + verb.
-Never the Present Simple for an offer or decision: *I'll help you*, not *I help you*.`,
-    uk: `Одного майбутнього часу в англійській немає. Обираємо за тим, **коли вирішили** і **наскільки впевнені**:
-- **will** — вирішуємо **зараз**, пропозиції, обіцянки: *The phone is ringing. — I'll get it! Don't worry, I'll pay.* Також думка про майбутнє: *I'm sure you'll pass. It'll probably be cheaper online.*
-- **be going to** — план, складений **раніше**: *We're going to move this summer.* Також те, що **видно** заздалегідь: *Look at those clouds! It's going to rain.*
-- **Present Continuous** — **домовленість** із часом, місцем, іншими людьми (є в календарі): *I'm seeing the doctor at 3 tomorrow.*
-- Після **when, as soon as, before, after, until, if** — **теперішній** час, а не *will*: *I'll call you when I **get** home* — «коли прийду».
-Форма: *will* + дієслово (без *to*); *am / is / are going to* + дієслово.
-Ніколи не Present Simple для пропозиції чи рішення: *I'll help you*, а не *I help you* («я допоможу»).`,
-    ru: `Одного будущего времени в английском нет. Выбираем по тому, **когда решили** и **насколько уверены**:
-- **will** — решаем **сейчас**, предложения, обещания: *The phone is ringing. — I'll get it! Don't worry, I'll pay.* Также мнение о будущем: *I'm sure you'll pass. It'll probably be cheaper online.*
-- **be going to** — план, составленный **раньше**: *We're going to move this summer.* Также то, что **видно** заранее: *Look at those clouds! It's going to rain.*
-- **Present Continuous** — **договорённость** со временем, местом, другими людьми (есть в календаре): *I'm seeing the doctor at 3 tomorrow.*
-- После **when, as soon as, before, after, until, if** — **настоящее** время, а не *will*: *I'll call you when I **get** home* — «когда приду».
-Форма: *will* + глагол (без *to*); *am / is / are going to* + глагол.
-Никогда не Present Simple для предложения или решения: *I'll help you*, а не *I help you* («я помогу»).`,
-  },
+  points: [
+    {
+      for: ['decide', 'decision', 'predict'],
+      rule: {
+        en: `English has no single future tense. Choose by **when you decided** and **how sure** you are: **will** — deciding **now**, offers, promises: *The phone is ringing. — I'll get it! Don't worry, I'll pay.* Also opinions about the future: *I'm sure you'll pass. It'll probably be cheaper online.*`,
+        uk: `Одного майбутнього часу в англійській немає. Обираємо за тим, **коли вирішили** і **наскільки впевнені**: **will** — вирішуємо **зараз**, пропозиції, обіцянки: *The phone is ringing. — I'll get it! Don't worry, I'll pay.* Також думка про майбутнє: *I'm sure you'll pass. It'll probably be cheaper online.*`,
+        ru: `Одного будущего времени в английском нет. Выбираем по тому, **когда решили** и **насколько уверены**: **will** — решаем **сейчас**, предложения, обещания: *The phone is ringing. — I'll get it! Don't worry, I'll pay.* Также мнение о будущем: *I'm sure you'll pass. It'll probably be cheaper online.*`,
+      },
+      more: {
+        en: `**The idea.** Ukrainian and Russian have one future: «зроблю / сделаю». English has three ways, and you choose by **when you decided** and **how sure** you are.
+
+**will** — you decide **right now**, at the moment of speaking:
+- reacting: *The phone is ringing. — I'll get it!*
+- offers and promises: *I'll help you. Don't worry, I'll pay.*
+- choosing: *Then I'll have the salad.*
+
+**will** is also for opinions and predictions — what you think or expect: *I'm sure you'll pass. It'll probably be cheaper online. She'll be here in ten minutes.*
+
+✅ *It's cold in here. — I'll close the window.*
+❌ *It's cold in here. — I'm going to close the window.* — sounds like you'd planned it before
+
+✅ *Don't worry, I'm sure you'll pass the exam.*
+❌ *Don't worry, I'm sure you pass the exam.*
+
+**Check yourself:** did you decide just now, or is it your opinion about the future? → *will*.`,
+        uk: `**Суть.** Українською майбутній час один: «зроблю». В англійській три способи, і вибір залежить від того, **коли ти вирішила** і **наскільки впевнена**.
+
+**will** — вирішуєш **просто зараз**, у момент розмови:
+- реакція: *The phone is ringing. — I'll get it!*
+- пропозиції й обіцянки: *I'll help you. Don't worry, I'll pay.*
+- вибір: *Then I'll have the salad.*
+
+**will** — також для думок і прогнозів — що ти думаєш чи очікуєш: *I'm sure you'll pass. It'll probably be cheaper online. She'll be here in ten minutes.*
+
+✅ *It's cold in here. — I'll close the window.*
+❌ *It's cold in here. — I'm going to close the window.* — звучить, ніби ти це запланувала заздалегідь
+
+✅ *Don't worry, I'm sure you'll pass the exam.*
+❌ *Don't worry, I'm sure you pass the exam.*
+
+**Перевір себе:** вирішила щойно, або це твоя думка про майбутнє? → *will*.`,
+        ru: `**Суть.** По-русски будущее время одно: «сделаю». В английском три способа, и выбор зависит от того, **когда ты решила** и **насколько уверена**.
+
+**will** — решаешь **прямо сейчас**, в момент разговора:
+- реакция: *The phone is ringing. — I'll get it!*
+- предложения и обещания: *I'll help you. Don't worry, I'll pay.*
+- выбор: *Then I'll have the salad.*
+
+**will** — также для мнений и прогнозов — что ты думаешь или ожидаешь: *I'm sure you'll pass. It'll probably be cheaper online. She'll be here in ten minutes.*
+
+✅ *It's cold in here. — I'll close the window.*
+❌ *It's cold in here. — I'm going to close the window.* — звучит, будто ты это запланировала заранее
+
+✅ *Don't worry, I'm sure you'll pass the exam.*
+❌ *Don't worry, I'm sure you pass the exam.*
+
+**Проверь себя:** решила только что, или это твоё мнение о будущем? → *will*.`,
+      },
+    },
+    {
+      for: ['will-plan', 'plan', 'evidence'],
+      rule: {
+        en: `**be going to** — a plan you made **before**: *We're going to move this summer.* Also what you **see** coming: *Look at those clouds! It's going to rain.*`,
+        uk: `**be going to** — план, складений **раніше**: *We're going to move this summer.* Також те, що **видно** заздалегідь: *Look at those clouds! It's going to rain.*`,
+        ru: `**be going to** — план, составленный **раньше**: *We're going to move this summer.* Также то, что **видно** заранее: *Look at those clouds! It's going to rain.*`,
+      },
+      more: {
+        en: `**The idea.** **be going to** is for a future you already **see** in your head or in front of you:
+- a **plan** or intention you made **before** speaking: *We're going to move this summer. I've decided — I'm going to learn to drive.* — «ми збираємося / мы собираемся»
+- something you **see coming** right now: *Look at those clouds! It's going to rain. Careful — you're going to drop the plate!*
+
+Form: *am / is / are + going to + verb*.
+
+✅ *She's going to study nursing. She's already applied.*
+❌ *She will study nursing. She's already applied.* — the decision was made before
+
+✅ *Look at those clouds! It's going to rain.*
+❌ *Look at those clouds! It rains.*
+
+**Check yourself:** was it decided before, or can you see it happening? → *going to*.`,
+        uk: `**Суть.** **be going to** — для майбутнього, яке ти вже **бачиш**: у голові чи перед очима:
+- **план** чи намір, який з'явився **до** розмови: *We're going to move this summer. I've decided — I'm going to learn to drive.* — «ми збираємося»
+- те, що **от-от станеться** — це видно вже зараз: *Look at those clouds! It's going to rain. Careful — you're going to drop the plate!*
+
+Форма: *am / is / are + going to + дієслово*.
+
+✅ *She's going to study nursing. She's already applied.*
+❌ *She will study nursing. She's already applied.* — рішення ухвалене раніше
+
+✅ *Look at those clouds! It's going to rain.*
+❌ *Look at those clouds! It rains.*
+
+**Перевір себе:** вирішено заздалегідь, або видно, що це ось-ось станеться? → *going to*.`,
+        ru: `**Суть.** **be going to** — для будущего, которое ты уже **видишь**: в голове или перед глазами:
+- **план** или намерение, появившееся **до** разговора: *We're going to move this summer. I've decided — I'm going to learn to drive.* — «мы собираемся»
+- то, что **вот-вот случится** — это видно уже сейчас: *Look at those clouds! It's going to rain. Careful — you're going to drop the plate!*
+
+Форма: *am / is / are + going to + глагол*.
+
+✅ *She's going to study nursing. She's already applied.*
+❌ *She will study nursing. She's already applied.* — решение принято раньше
+
+✅ *Look at those clouds! It's going to rain.*
+❌ *Look at those clouds! It rains.*
+
+**Проверь себя:** решено заранее, или видно, что это вот-вот случится? → *going to*.`,
+      },
+    },
+    {
+      for: ['arrange'],
+      rule: {
+        en: `**Present Continuous** — an **arrangement** with a time, a place, other people (it's in your calendar): *I'm seeing the doctor at 3 tomorrow.*`,
+        uk: `**Present Continuous** — **домовленість** із часом, місцем, іншими людьми (є в календарі): *I'm seeing the doctor at 3 tomorrow.*`,
+        ru: `**Present Continuous** — **договорённость** со временем, местом, другими людьми (есть в календаре): *I'm seeing the doctor at 3 tomorrow.*`,
+      },
+      more: {
+        en: `**The idea.** For an **arrangement** — something fixed with other people, with a time and a place, in your calendar — English uses the **Present Continuous**, even though it's about the future:
+- *I'm seeing the doctor at 3 tomorrow.* — the appointment is booked
+- *We're flying to Kyiv on June 3rd.* — we have the tickets
+- *What are you doing on Saturday?* — asking about plans
+
+It's like Ukrainian and Russian «Завтра я йду до лікаря / Завтра я иду к врачу» — the present for a fixed future.
+
+✅ *I'm meeting the lawyer on Thursday.*
+❌ *I meet the lawyer on Thursday.*
+
+✅ *We're flying on June 3rd. We already have the tickets.*
+❌ *We will fly on June 3rd. We already have the tickets.*
+
+**Check yourself:** could you write it in a calendar, with a time and other people? → *am / is / are + -ing*.`,
+        uk: `**Суть.** Для **домовленості** — того, що узгоджено з іншими людьми, з часом і місцем, у календарі — англійська вживає **Present Continuous**, хоча йдеться про майбутнє:
+- *I'm seeing the doctor at 3 tomorrow.* — запис уже є
+- *We're flying to Kyiv on June 3rd.* — квитки куплені
+- *What are you doing on Saturday?* — питання про плани
+
+Це як українське «Завтра я йду до лікаря» — теперішній час для визначеного майбутнього.
+
+✅ *I'm meeting the lawyer on Thursday.*
+❌ *I meet the lawyer on Thursday.*
+
+✅ *We're flying on June 3rd. We already have the tickets.*
+❌ *We will fly on June 3rd. We already have the tickets.*
+
+**Перевір себе:** можна записати це в календар — з часом та іншими людьми? → *am / is / are + -ing*.`,
+        ru: `**Суть.** Для **договорённости** — того, что согласовано с другими людьми, со временем и местом, в календаре — английский использует **Present Continuous**, хотя речь о будущем:
+- *I'm seeing the doctor at 3 tomorrow.* — запись уже есть
+- *We're flying to Kyiv on June 3rd.* — билеты куплены
+- *What are you doing on Saturday?* — вопрос о планах
+
+Это как русское «Завтра я иду к врачу» — настоящее время для определённого будущего.
+
+✅ *I'm meeting the lawyer on Thursday.*
+❌ *I meet the lawyer on Thursday.*
+
+✅ *We're flying on June 3rd. We already have the tickets.*
+❌ *We will fly on June 3rd. We already have the tickets.*
+
+**Проверь себя:** можно записать это в календарь — со временем и другими людьми? → *am / is / are + -ing*.`,
+      },
+    },
+    {
+      for: ['time-clause', 'time'],
+      rule: {
+        en: `After **when, as soon as, before, after, until, if** use the **present**, not *will*: *I'll call you when I **get** home.*`,
+        uk: `Після **when, as soon as, before, after, until, if** — **теперішній** час, а не *will*: *I'll call you when I **get** home* — «коли прийду».`,
+        ru: `После **when, as soon as, before, after, until, if** — **настоящее** время, а не *will*: *I'll call you when I **get** home* — «когда приду».`,
+      },
+      more: {
+        en: `**The idea.** A sentence about the future often has two parts: the main action and **when / if** it happens. Only the main part takes *will*. After **when, as soon as, before, after, until, if** English uses the **present**, even though it means the future:
+- *I'll call you **when I get** home.*
+- *I'll text you **as soon as I land**.*
+- *Wait here **until I come** back.*
+- ***If it rains**, we'll stay home.*
+
+Ukrainian and Russian use the future in both parts: «Я подзвоню, коли прийду / Я позвоню, когда приду». In English the *when*-part stays in the present.
+
+✅ *I'll call you when I get home.*
+❌ *I'll call you when I will get home.*
+
+✅ *We'll start as soon as everyone arrives.*
+❌ *We'll start as soon as everyone will arrive.*
+
+**Check yourself:** *when / if / until / as soon as* → no *will* right after it.`,
+        uk: `**Суть.** Речення про майбутнє часто має дві частини: головну дію і **коли / якщо** вона станеться. Лише головна частина бере *will*. Після **when, as soon as, before, after, until, if** англійська вживає **теперішній** час, хоча мова про майбутнє:
+- *I'll call you when I get home.*
+- *I'll text you as soon as I land.*
+- *Wait here until I come back.*
+- *If it rains, we'll stay home.*
+
+Українською в обох частинах майбутній: «Я подзвоню, коли прийду». Англійською частина з *when* лишається в теперішньому.
+
+✅ *I'll call you when I get home.*
+❌ *I'll call you when I will get home.*
+
+✅ *We'll start as soon as everyone arrives.*
+❌ *We'll start as soon as everyone will arrive.*
+
+**Перевір себе:** *when / if / until / as soon as* → одразу після нього без *will*.`,
+        ru: `**Суть.** Предложение о будущем часто состоит из двух частей: главного действия и **когда / если** оно случится. Только главная часть берёт *will*. После **when, as soon as, before, after, until, if** английский использует **настоящее** время, хотя речь о будущем:
+- *I'll call you when I get home.*
+- *I'll text you as soon as I land.*
+- *Wait here until I come back.*
+- *If it rains, we'll stay home.*
+
+По-русски в обеих частях будущее: «Я позвоню, когда приду». По-английски часть с *when* остаётся в настоящем.
+
+✅ *I'll call you when I get home.*
+❌ *I'll call you when I will get home.*
+
+✅ *We'll start as soon as everyone arrives.*
+❌ *We'll start as soon as everyone will arrive.*
+
+**Проверь себя:** *when / if / until / as soon as* → сразу после него без *will*.`,
+      },
+    },
+    {
+      for: ['form'],
+      rule: {
+        en: `Form: *will* + verb (no *to*); *am / is / are going to* + verb.`,
+        uk: `Форма: *will* + дієслово (без *to*); *am / is / are going to* + дієслово.`,
+        ru: `Форма: *will* + глагол (без *to*); *am / is / are going to* + глагол.`,
+      },
+      more: {
+        en: `**The idea.** The forms are short, but people often add or lose a piece:
+- **will + verb** — no *to*, no ending, the same for everyone: *I'll call. She'll be here.* (not *will to call*, not *will calls*)
+- **am / is / are + going to + verb**: *I'm going to call.* — *be* is needed: not *I going to*
+- negative: *won't* (= *will not*), *I'm not going to*
+
+**probably** goes **after** *will* but **before** *won't*: *It'll probably rain. It probably won't rain.*
+
+✅ *She'll be here in ten minutes.*
+❌ *She will to be here in ten minutes.*
+
+✅ *I'm going to call him tonight.*
+❌ *I going to call him tonight.*
+
+✅ *It'll probably be cheaper online.*
+❌ *It probably will be cheaper online.* — possible, but *will probably* is the usual order
+
+**Check yourself:** *will* + bare verb; *going to* needs *am / is / are* in front.`,
+        uk: `**Суть.** Форми короткі, але часто додають або гублять шматочок:
+- **will + дієслово** — без *to*, без закінчення, однаково для всіх: *I'll call. She'll be here.* (не *will to call*, не *will calls*)
+- **am / is / are + going to + дієслово**: *I'm going to call.* — *be* обов'язкове: не *I going to*
+- заперечення: *won't* (= *will not*), *I'm not going to*
+
+**probably** стоїть **після** *will*, але **перед** *won't*: *It'll probably rain. It probably won't rain.*
+
+✅ *She'll be here in ten minutes.*
+❌ *She will to be here in ten minutes.*
+
+✅ *I'm going to call him tonight.*
+❌ *I going to call him tonight.*
+
+✅ *It'll probably be cheaper online.*
+❌ *It probably will be cheaper online.* — можливо, але звичний порядок — *will probably*
+
+**Перевір себе:** *will* + голе дієслово; перед *going to* потрібне *am / is / are*.`,
+        ru: `**Суть.** Формы короткие, но часто добавляют или теряют кусочек:
+- **will + глагол** — без *to*, без окончания, одинаково для всех: *I'll call. She'll be here.* (не *will to call*, не *will calls*)
+- **am / is / are + going to + глагол**: *I'm going to call.* — *be* обязателен: не *I going to*
+- отрицание: *won't* (= *will not*), *I'm not going to*
+
+**probably** стоит **после** *will*, но **перед** *won't*: *It'll probably rain. It probably won't rain.*
+
+✅ *She'll be here in ten minutes.*
+❌ *She will to be here in ten minutes.*
+
+✅ *I'm going to call him tonight.*
+❌ *I going to call him tonight.*
+
+✅ *It'll probably be cheaper online.*
+❌ *It probably will be cheaper online.* — возможно, но привычный порядок — *will probably*
+
+**Проверь себя:** *will* + голый глагол; перед *going to* нужен *am / is / are*.`,
+      },
+    },
+    {
+      for: ['present-for-will'],
+      rule: {
+        en: `Never the Present Simple for an offer or decision: *I'll help you*, not *I help you*.`,
+        uk: `Ніколи не Present Simple для пропозиції чи рішення: *I'll help you*, а не *I help you* («я допоможу»).`,
+        ru: `Никогда не Present Simple для предложения или решения: *I'll help you*, а не *I help you* («я помогу»).`,
+      },
+      more: {
+        en: `**The idea.** In Ukrainian and Russian the present often works for a quick offer: «Я допоможу! / Давай я помогу!», «Я відчиню / Я открою». In English an offer, a promise or a decision made now needs **will**. The Present Simple sounds like a habit:
+- *I help you.* = I usually help you (every time)
+- *I'll help you.* = an offer, right now
+
+✅ *That bag looks heavy. I'll help you.*
+❌ *That bag looks heavy. I help you.*
+
+✅ *Don't worry, I'll pay.*
+❌ *Don't worry, I pay.*
+
+✅ *Which one do you want? — I'll take the blue one.*
+❌ *Which one do you want? — I take the blue one.*
+
+**Check yourself:** offering, promising or deciding right now? → *I'll…*`,
+        uk: `**Суть.** Українською для швидкої пропозиції часто йде теперішній: «Я відчиню», «Давай я допоможу!». Англійською пропозиція, обіцянка чи рішення в моменті потребує **will**. Present Simple звучить як звичка:
+- *I help you.* = я зазвичай тобі допомагаю (щоразу)
+- *I'll help you.* = пропозиція, просто зараз
+
+✅ *That bag looks heavy. I'll help you.*
+❌ *That bag looks heavy. I help you.*
+
+✅ *Don't worry, I'll pay.*
+❌ *Don't worry, I pay.*
+
+✅ *Which one do you want? — I'll take the blue one.*
+❌ *Which one do you want? — I take the blue one.*
+
+**Перевір себе:** пропонуєш, обіцяєш чи вирішуєш просто зараз? → *I'll…*`,
+        ru: `**Суть.** По-русски для быстрого предложения часто идёт настоящее: «Я открою», «Давай я помогу!». По-английски предложение, обещание или решение в моменте требует **will**. Present Simple звучит как привычка:
+- *I help you.* = я обычно тебе помогаю (каждый раз)
+- *I'll help you.* = предложение, прямо сейчас
+
+✅ *That bag looks heavy. I'll help you.*
+❌ *That bag looks heavy. I help you.*
+
+✅ *Don't worry, I'll pay.*
+❌ *Don't worry, I pay.*
+
+✅ *Which one do you want? — I'll take the blue one.*
+❌ *Which one do you want? — I take the blue one.*
+
+**Проверь себя:** предлагаешь, обещаешь или решаешь прямо сейчас? → *I'll…*`,
+      },
+    },
+  ],
   examples: ["The phone is ringing. — I'll get it!", "We're going to move this summer.", "I'm seeing the doctor at 3 tomorrow.", "Look at those clouds! It's going to rain.", "I'll call you when I get home."],
   trap: {
     uk: 'Я подзвоню тобі, коли прийду додому.',

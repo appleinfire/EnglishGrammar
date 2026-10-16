@@ -5,29 +5,319 @@ APP.addTopic({
   group: 'Reported speech',
   icon: '💬',
   about: 'said / told me, asked if…, told me to…',
-  rule: {
-    en: `Passing on what someone said:
-- **say** (no person): *She said (that) she was busy.* **tell** + person: *She told **me** (that) she was busy.* Not *said me*.
-- After *said / told* in the past, move the tense **one step back**: *am → was, live → lived, will → would, can → could, have lost → had lost, lost → had lost*.
-  If it is still true now, keeping the present is fine in speech: *He said he lives in Ohio.*
-- Questions: **asked + if / whether** (yes/no) or **asked + question word**, then **statement order**, no *do / did*: *She asked **if I was** ready. He asked **where I worked**.*
-- Requests and orders: **told / asked + person + to + verb**; negative **not to**: *The doctor told me **to drink** more water. She asked us **not to park** here.*
-- Words of time and place change: *tomorrow → the next day, yesterday → the day before, here → there, today → that day*.`,
-    uk: `Переказуємо чужі слова:
-- **say** (без особи): *She said (that) she was busy.* **tell** + особа: *She told **me** (that) she was busy.* Не *said me*.
-- Після *said / told* у минулому зсуваємо час **на крок назад**: *am → was, live → lived, will → would, can → could, have lost → had lost, lost → had lost*.
-  Якщо це досі правда, у розмові можна залишити теперішній: *He said he lives in Ohio.*
-- Питання: **asked + if / whether** («чи») або **asked + питальне слово**, далі **порядок ствердження**, без *do / did*: *She asked **if I was** ready. He asked **where I worked**.*
-- Прохання й накази: **told / asked + особа + to + дієслово**; заперечення — **not to**: *The doctor told me **to drink** more water. She asked us **not to park** here.*
-- Слова часу й місця змінюються: *tomorrow → the next day, yesterday → the day before, here → there, today → that day*.`,
-    ru: `Пересказываем чужие слова:
-- **say** (без лица): *She said (that) she was busy.* **tell** + лицо: *She told **me** (that) she was busy.* Не *said me*.
-- После *said / told* в прошлом сдвигаем время **на шаг назад**: *am → was, live → lived, will → would, can → could, have lost → had lost, lost → had lost*.
-  Если это всё ещё правда, в разговоре можно оставить настоящее: *He said he lives in Ohio.*
-- Вопросы: **asked + if / whether** («ли») или **asked + вопросительное слово**, дальше **порядок утверждения**, без *do / did*: *She asked **if I was** ready. He asked **where I worked**.*
-- Просьбы и приказы: **told / asked + лицо + to + глагол**; отрицание — **not to**: *The doctor told me **to drink** more water. She asked us **not to park** here.*
-- Слова времени и места меняются: *tomorrow → the next day, yesterday → the day before, here → there, today → that day*.`,
-  },
+  points: [
+    {
+      for: ['say-tell'],
+      rule: {
+        en: `Passing on what someone said: **say** (no person): *She said (that) she was busy.* **tell** + person: *She told **me** (that) she was busy.* Not *said me*.`,
+        uk: `Переказуємо чужі слова: **say** (без особи): *She said (that) she was busy.* **tell** + особа: *She told **me** (that) she was busy.* Не *said me*.`,
+        ru: `Пересказываем чужие слова: **say** (без лица): *She said (that) she was busy.* **tell** + лицо: *She told **me** (that) she was busy.* Не *said me*.`,
+      },
+      more: {
+        en: `**The idea.** *say* and *tell* both mean «сказати / сказать», but they're built differently:
+- **tell** + **person**: *She told **me**… He told **us**… Tell **him** the truth.*
+- **say** — no person after it: *She said (that)… He said goodbye.*
+
+The trap: «Він сказав мені / Он сказал мне» → *He said me* ❌. With a person it's *told*: *He told me*. (*said to me* is possible but much less common.)
+
+*that* after *said / told* can be dropped: *She told me (that) she was busy.*
+
+✅ *He told me that he would be late.*
+❌ *He said me that he would be late.*
+
+✅ *She said she was busy.*
+❌ *She told she was busy.*
+
+**Check yourself:** is there a person right after the verb (*me, us, Anna*)? → *told*. No person → *said*.`,
+        uk: `**Суть.** *say* і *tell* обидва означають «сказати», але будуються по-різному:
+- **tell** + **людина**: *She told me… He told us… Tell him the truth.*
+- **say** — без людини після нього: *She said (that)… He said goodbye.*
+
+Пастка: «Він сказав мені» → *He said me* ❌. З людиною — *told*: *He told me*. (*said to me* можна, але набагато рідше.)
+
+*that* після *said / told* можна опустити: *She told me (that) she was busy.*
+
+✅ *He told me that he would be late.*
+❌ *He said me that he would be late.*
+
+✅ *She said she was busy.*
+❌ *She told she was busy.*
+
+**Перевір себе:** одразу після дієслова є людина (*me, us, Anna*)? → *told*. Немає → *said*.`,
+        ru: `**Суть.** *say* и *tell* оба значат «сказать», но строятся по-разному:
+- **tell** + **человек**: *She told me… He told us… Tell him the truth.*
+- **say** — без человека после него: *She said (that)… He said goodbye.*
+
+Ловушка: «Он сказал мне» → *He said me* ❌. С человеком — *told*: *He told me*. (*said to me* можно, но гораздо реже.)
+
+*that* после *said / told* можно опустить: *She told me (that) she was busy.*
+
+✅ *He told me that he would be late.*
+❌ *He said me that he would be late.*
+
+✅ *She said she was busy.*
+❌ *She told she was busy.*
+
+**Проверь себя:** сразу после глагола есть человек (*me, us, Anna*)? → *told*. Нет → *said*.`,
+      },
+    },
+    {
+      for: ['backshift', 'will-would'],
+      rule: {
+        en: `After *said / told* in the past, move the tense **one step back**: *am → was, live → lived, will → would, can → could, have lost → had lost, lost → had lost*. If it is still true now, keeping the present is fine in speech: *He said he lives in Ohio.*`,
+        uk: `Після *said / told* у минулому зсуваємо час **на крок назад**: *am → was, live → lived, will → would, can → could, have lost → had lost, lost → had lost*. Якщо це досі правда, у розмові можна залишити теперішній: *He said he lives in Ohio.*`,
+        ru: `После *said / told* в прошлом сдвигаем время **на шаг назад**: *am → was, live → lived, will → would, can → could, have lost → had lost, lost → had lost*. Если это всё ещё правда, в разговоре можно оставить настоящее: *He said he lives in Ohio.*`,
+      },
+      more: {
+        en: `**The idea.** When you retell later what someone said, English moves the tense **one step back** into the past — it matches *said*. In Ukrainian and Russian the tense stays: «Вона сказала, що втомилася / Она сказала, что устала».
+- *"I'm tired."* → *She said she **was** tired.*
+- *"We live in Ohio."* → *They said they **lived** in Ohio.*
+- *"I'm working."* → *He said he **was working**.*
+- *"I've lost my keys."* → *She said she **had lost** her keys.*
+- *"I'll call you."* → *He said he **would** call me.*
+- *"I can help."* → *She said she **could** help.*
+
+If it's still true now, you can keep the present in speech: *He said he lives in Ohio* (he still does).
+
+✅ *He told me that he would be late.*
+❌ *He told me that he will be late.*
+
+✅ *She said she was tired.*
+❌ *She said she is tired.* — possible only if she's still tired now
+
+**Check yourself:** *said* in the past → one step back: *am → was, will → would, can → could, have done → had done*.`,
+        uk: `**Суть.** Коли потім переказуєш, що хтось сказав, англійська зсуває час **на крок назад** у минуле — під *said*. Українською час лишається: «Вона сказала, що втомилася».
+- *"I'm tired."* → *She said she was tired.*
+- *"We live in Ohio."* → *They said they lived in Ohio.*
+- *"I'm working."* → *He said he was working.*
+- *"I've lost my keys."* → *She said she had lost her keys.*
+- *"I'll call you."* → *He said he would call me.*
+- *"I can help."* → *She said she could help.*
+
+Якщо це й досі правда, у розмові можна лишити теперішній: *He said he lives in Ohio* (він і зараз там живе).
+
+✅ *He told me that he would be late.*
+❌ *He told me that he will be late.*
+
+✅ *She said she was tired.*
+❌ *She said she is tired.* — можливо, лише якщо вона й досі втомлена
+
+**Перевір себе:** *said* у минулому → крок назад: *am → was, will → would, can → could, have done → had done*.`,
+        ru: `**Суть.** Когда потом пересказываешь, что кто-то сказал, английский сдвигает время **на шаг назад** в прошлое — под *said*. По-русски время остаётся: «Она сказала, что устала».
+- *"I'm tired."* → *She said she was tired.*
+- *"We live in Ohio."* → *They said they lived in Ohio.*
+- *"I'm working."* → *He said he was working.*
+- *"I've lost my keys."* → *She said she had lost her keys.*
+- *"I'll call you."* → *He said he would call me.*
+- *"I can help."* → *She said she could help.*
+
+Если это до сих пор правда, в разговоре можно оставить настоящее: *He said he lives in Ohio* (он и сейчас там живёт).
+
+✅ *He told me that he would be late.*
+❌ *He told me that he will be late.*
+
+✅ *She said she was tired.*
+❌ *She said she is tired.* — возможно, только если она до сих пор устала
+
+**Проверь себя:** *said* в прошлом → шаг назад: *am → was, will → would, can → could, have done → had done*.`,
+      },
+    },
+    {
+      for: ['rq-order', 'rq-if'],
+      rule: {
+        en: `Questions: **asked + if / whether** (yes/no) or **asked + question word**, then **statement order**, no *do / did*: *She asked **if I was** ready. He asked **where I worked**.*`,
+        uk: `Питання: **asked + if / whether** («чи») або **asked + питальне слово**, далі **порядок ствердження**, без *do / did*: *She asked **if I was** ready. He asked **where I worked**.*`,
+        ru: `Вопросы: **asked + if / whether** («ли») или **asked + вопросительное слово**, дальше **порядок утверждения**, без *do / did*: *She asked **if I was** ready. He asked **where I worked**.*`,
+      },
+      more: {
+        en: `**The idea.** A reported question is **not a question any more** — it's a statement about what someone asked. So:
+- **statement order**: subject, then verb
+- **no do / does / did**
+- no question mark
+
+With a question word: *"Where do you work?"* → *He asked **where I worked**.*
+A yes/no question gets **if** or **whether**: *"Are you ready?"* → *She asked **if I was** ready.*
+
+And the tense moves back, as in all reported speech.
+
+✅ *She asked me where I lived.*
+❌ *She asked me where did I live.*
+
+✅ *The officer asked if I was married.*
+❌ *The officer asked was I married.*
+
+✅ *He asked if I liked my job.*
+❌ *He asked do I like my job.*
+
+**Check yourself:** after *asked* — *if / where / what…* + subject + verb, like a normal sentence.`,
+        uk: `**Суть.** Непряме питання — **вже не питання**, а твердження про те, що хтось спитав. Тому:
+- **порядок твердження**: підмет, потім дієслово
+- **без do / does / did**
+- без знака питання
+
+З питальним словом: *"Where do you work?"* → *He asked where I worked.*
+Питання на «так / ні» отримує **if** або **whether** («чи»): *"Are you ready?"* → *She asked if I was ready.*
+
+І час зсувається назад, як у будь-якій непрямій мові.
+
+✅ *She asked me where I lived.*
+❌ *She asked me where did I live.*
+
+✅ *The officer asked if I was married.*
+❌ *The officer asked was I married.*
+
+✅ *He asked if I liked my job.*
+❌ *He asked do I like my job.*
+
+**Перевір себе:** після *asked* — *if / where / what…* + підмет + дієслово, як у звичайному реченні.`,
+        ru: `**Суть.** Косвенный вопрос — **уже не вопрос**, а утверждение о том, что кто-то спросил. Поэтому:
+- **порядок утверждения**: подлежащее, потом глагол
+- **без do / does / did**
+- без вопросительного знака
+
+С вопросительным словом: *"Where do you work?"* → *He asked where I worked.*
+Вопрос на «да / нет» получает **if** или **whether** («ли»): *"Are you ready?"* → *She asked if I was ready.*
+
+И время сдвигается назад, как в любой косвенной речи.
+
+✅ *She asked me where I lived.*
+❌ *She asked me where did I live.*
+
+✅ *The officer asked if I was married.*
+❌ *The officer asked was I married.*
+
+✅ *He asked if I liked my job.*
+❌ *He asked do I like my job.*
+
+**Проверь себя:** после *asked* — *if / where / what…* + подлежащее + глагол, как в обычном предложении.`,
+      },
+    },
+    {
+      for: ['command', 'commands'],
+      rule: {
+        en: `Requests and orders: **told / asked + person + to + verb**; negative **not to**: *The doctor told me **to drink** more water. She asked us **not to park** here.*`,
+        uk: `Прохання й накази: **told / asked + особа + to + дієслово**; заперечення — **not to**: *The doctor told me **to drink** more water. She asked us **not to park** here.*`,
+        ru: `Просьбы и приказы: **told / asked + лицо + to + глагол**; отрицание — **not to**: *The doctor told me **to drink** more water. She asked us **not to park** here.*`,
+      },
+      more: {
+        en: `**The idea.** When you report an order, a request or advice — «сказав / попросив, щоб я… — сказал / попросил, чтобы я…» — English uses a simple pattern:
+**told / asked + person + to + verb**
+- *"Drink more water."* → *The doctor told me **to drink** more water.*
+- *"Please wait here."* → *She asked us **to wait** there.*
+
+Negative: **not to + verb**:
+- *"Don't be late again."* → *My boss told me **not to be** late again.*
+
+In Ukrainian and Russian it's «щоб / чтобы» + a clause, so people say *told me that I drink* or *told me don't*.
+
+✅ *The doctor told me to drink more water.*
+❌ *The doctor told me that I drink more water.*
+
+✅ *She told me not to worry.*
+❌ *She told me don't worry.*
+
+**Check yourself:** an order or a request → *told / asked + me + (not) to + verb*.`,
+        uk: `**Суть.** Коли переказуєш наказ, прохання чи пораду — «сказав / попросив, щоб я…» — англійська вживає просту схему:
+**told / asked + людина + to + дієслово**
+- *"Drink more water."* → *The doctor told me to drink more water.*
+- *"Please wait here."* → *She asked us to wait there.*
+
+Заперечення: **not to + дієслово**:
+- *"Don't be late again."* → *My boss told me not to be late again.*
+
+Українською тут «щоб» + речення, тому кажуть *told me that I drink* або *told me don't*.
+
+✅ *The doctor told me to drink more water.*
+❌ *The doctor told me that I drink more water.*
+
+✅ *She told me not to worry.*
+❌ *She told me don't worry.*
+
+**Перевір себе:** наказ чи прохання → *told / asked + me + (not) to + дієслово*.`,
+        ru: `**Суть.** Когда пересказываешь приказ, просьбу или совет — «сказал / попросил, чтобы я…» — английский использует простую схему:
+**told / asked + человек + to + глагол**
+- *"Drink more water."* → *The doctor told me to drink more water.*
+- *"Please wait here."* → *She asked us to wait there.*
+
+Отрицание: **not to + глагол**:
+- *"Don't be late again."* → *My boss told me not to be late again.*
+
+По-русски здесь «чтобы» + предложение, поэтому говорят *told me that I drink* или *told me don't*.
+
+✅ *The doctor told me to drink more water.*
+❌ *The doctor told me that I drink more water.*
+
+✅ *She told me not to worry.*
+❌ *She told me don't worry.*
+
+**Проверь себя:** приказ или просьба → *told / asked + me + (not) to + глагол*.`,
+      },
+    },
+    {
+      for: ['time-words'],
+      rule: {
+        en: `Words of time and place change: *tomorrow → the next day, yesterday → the day before, here → there, today → that day*.`,
+        uk: `Слова часу й місця змінюються: *tomorrow → the next day, yesterday → the day before, here → there, today → that day*.`,
+        ru: `Слова времени и места меняются: *tomorrow → the next day, yesterday → the day before, here → there, today → that day*.`,
+      },
+      more: {
+        en: `**The idea.** Words like *tomorrow, yesterday, here* depend on **when and where** you speak. If you retell the words on another day or in another place, they have to change too — otherwise the meaning is wrong:
+- *tomorrow → the next day* (or *the following day*)
+- *yesterday → the day before*
+- *today → that day*
+- *here → there*
+- *this → that*
+
+*"I'll do it tomorrow,"* he said on Monday. → On Friday: *He said he would do it **the next day**.* (= Tuesday, not tomorrow from Friday)
+
+Ukrainian and Russian do the same in careful speech: «завтра → наступного дня / на следующий день».
+
+✅ *He said he would do it the next day.*
+❌ *He said he would do it tomorrow.* — if you're retelling it days later
+
+✅ *She said she would meet me there at 5.*
+❌ *She said she would meet me here at 5.* — if you're not at that place now
+
+**Check yourself:** has the day or the place changed since it was said? → change *tomorrow, here, today* too.`,
+        uk: `**Суть.** Слова на кшталт *tomorrow, yesterday, here* залежать від того, **коли і де** ти говориш. Якщо переказуєш слова іншого дня чи в іншому місці, їх теж треба змінити — інакше зміст буде неправильним:
+- *tomorrow → the next day* (або *the following day*)
+- *yesterday → the day before*
+- *today → that day*
+- *here → there*
+- *this → that*
+
+*"I'll do it tomorrow,"* сказав він у понеділок. → У п'ятницю: *He said he would do it the next day.* (= у вівторок, а не завтра від п'ятниці)
+
+Українська робить те саме в уважному мовленні: «завтра → наступного дня».
+
+✅ *He said he would do it the next day.*
+❌ *He said he would do it tomorrow.* — якщо переказуєш через кілька днів
+
+✅ *She said she would meet me there at 5.*
+❌ *She said she would meet me here at 5.* — якщо ти зараз не в тому місці
+
+**Перевір себе:** відтоді, як це сказали, змінився день чи місце? → зміни й *tomorrow, here, today*.`,
+        ru: `**Суть.** Слова вроде *tomorrow, yesterday, here* зависят от того, **когда и где** ты говоришь. Если пересказываешь слова в другой день или в другом месте, их тоже нужно изменить — иначе смысл будет неправильным:
+- *tomorrow → the next day* (или *the following day*)
+- *yesterday → the day before*
+- *today → that day*
+- *here → there*
+- *this → that*
+
+*"I'll do it tomorrow,"* сказал он в понедельник. → В пятницу: *He said he would do it the next day.* (= во вторник, а не завтра от пятницы)
+
+Русский делает то же в аккуратной речи: «завтра → на следующий день».
+
+✅ *He said he would do it the next day.*
+❌ *He said he would do it tomorrow.* — если пересказываешь через несколько дней
+
+✅ *She said she would meet me there at 5.*
+❌ *She said she would meet me here at 5.* — если ты сейчас не в том месте
+
+**Проверь себя:** с тех пор, как это сказали, изменился день или место? → измени и *tomorrow, here, today*.`,
+      },
+    },
+  ],
   examples: ['She told me she was busy.', 'He said he would call back.', 'The officer asked if I was married.', 'She asked me where I worked.', 'The doctor told me not to eat after eight.'],
   trap: {
     uk: 'Він сказав, що запізниться.',

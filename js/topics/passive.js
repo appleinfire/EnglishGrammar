@@ -5,32 +5,362 @@ APP.addTopic({
   group: 'Passive',
   icon: '🏗️',
   about: 'be + 3rd form; have something done',
-  rule: {
-    en: `**be + past participle** (3rd form). Use it when **who did it** is unknown, unimportant or obvious:
-*My wallet was stolen. Credit cards are accepted here. The meeting has been canceled.*
-- The tense is in **be**: *is made · was made · is being made · has been made · will be made · must be made*.
-- The doer, if needed, after **by**: *It was painted **by** my daughter.*
-- *I **was born** in Kharkiv.* (Always passive.)
-- Someone does a service for you: **have / get + thing + 3rd form**: *I **had my hair cut**. We need to **get the car repaired**.*
-- Verbs like *happen, die, arrive, rise* have **no passive**: *It happened. She died.*
-Ukrainian and Russian often say *«Його побудували / Его построили»* (they built it). In English, that is usually passive: *It was built.*`,
-    uk: `**be + третя форма дієслова**. Вживаємо, коли **хто це зробив** — невідомо, неважливо або й так зрозуміло:
-*My wallet was stolen* — «У мене вкрали гаманець». *Credit cards are accepted here. The meeting has been canceled.*
-- Час показує **be**: *is made · was made · is being made · has been made · will be made · must be made*.
-- Виконавця, якщо треба, додаємо через **by**: *It was painted **by** my daughter.*
-- *I **was born** in Kharkiv* — «Я народилася». (Завжди пасив.)
-- Хтось робить послугу для вас: **have / get + річ + третя форма**: *I **had my hair cut*** — «Я підстриглася (у перукаря)». *We need to **get the car repaired**.*
-- Дієслова *happen, die, arrive, rise* **не мають пасиву**: *It happened. She died.*
-Українською часто кажемо *«Його побудували»*. Англійською це зазвичай пасив: *It was built.*`,
-    ru: `**be + третья форма глагола**. Используем, когда **кто это сделал** — неизвестно, неважно или и так понятно:
-*My wallet was stolen* — «У меня украли кошелёк». *Credit cards are accepted here. The meeting has been canceled.*
-- Время показывает **be**: *is made · was made · is being made · has been made · will be made · must be made*.
-- Исполнителя, если нужно, добавляем через **by**: *It was painted **by** my daughter.*
-- *I **was born** in Kharkiv* — «Я родилась». (Всегда пассив.)
-- Кто-то оказывает вам услугу: **have / get + вещь + третья форма**: *I **had my hair cut*** — «Я подстриглась (у парикмахера)». *We need to **get the car repaired**.*
-- Глаголы *happen, die, arrive, rise* **не имеют пассива**: *It happened. She died.*
-По-русски часто говорим *«Его построили»*. По-английски это обычно пассив: *It was built.*`,
-  },
+  points: [
+    {
+      for: ['be-missing', 'participle', 'present', 'past'],
+      rule: {
+        en: `**be + past participle** (3rd form). Use it when **who did it** is unknown, unimportant or obvious: *My wallet was stolen. Credit cards are accepted here. The meeting has been canceled.*`,
+        uk: `**be + третя форма дієслова**. Вживаємо, коли **хто це зробив** — невідомо, неважливо або й так зрозуміло: *My wallet was stolen* — «У мене вкрали гаманець». *Credit cards are accepted here. The meeting has been canceled.*`,
+        ru: `**be + третья форма глагола**. Используем, когда **кто это сделал** — неизвестно, неважно или и так понятно: *My wallet was stolen* — «У меня украли кошелёк». *Credit cards are accepted here. The meeting has been canceled.*`,
+      },
+      more: {
+        en: `**The idea.** In a normal (active) sentence the subject **does** the action: *Someone stole my wallet.* In the **passive** the subject **receives** the action — something is done to it: *My wallet was stolen.* You use it when **who did it** doesn't matter, isn't known, or is obvious.
+
+The passive always has two parts:
+- **be** — in the right tense: *is, are, was, were, has been, will be…*
+- + the **past participle** (3rd form): *made, stolen, written, delivered*
+
+Without *be*, the sentence means the thing did it by itself: *The package delivered* = the package delivered something.
+
+✅ *The package was delivered yesterday.*
+❌ *The package delivered yesterday.*
+
+✅ *English is spoken in many countries.*
+❌ *English is speak in many countries.*
+
+**Check yourself:** did the subject do it, or was it done to it? Done to it → *be* + 3rd form, both parts.`,
+        uk: `**Суть.** У звичайному (активному) реченні підмет **виконує** дію: *Someone stole my wallet.* У **пасиві** підмет **зазнає** дії — щось роблять з ним: *My wallet was stolen.* Його вживають, коли **хто це зробив** — неважливо, невідомо або й так зрозуміло.
+
+Пасив завжди має дві частини:
+- **be** — у потрібному часі: *is, are, was, were, has been, will be…*
+- + **третя форма** дієслова: *made, stolen, written, delivered*
+
+Без *be* речення означає, що річ зробила це сама: *The package delivered* = посилка щось доставила.
+
+✅ *The package was delivered yesterday.*
+❌ *The package delivered yesterday.*
+
+✅ *English is spoken in many countries.*
+❌ *English is speak in many countries.*
+
+**Перевір себе:** підмет це зробив, чи це зробили з ним? Зробили з ним → *be* + третя форма, обидві частини.`,
+        ru: `**Суть.** В обычном (активном) предложении подлежащее **совершает** действие: *Someone stole my wallet.* В **пассиве** подлежащее **подвергается** действию — с ним что-то делают: *My wallet was stolen.* Его используют, когда **кто это сделал** — неважно, неизвестно или и так понятно.
+
+У пассива всегда две части:
+- **be** — в нужном времени: *is, are, was, were, has been, will be…*
+- + **третья форма** глагола: *made, stolen, written, delivered*
+
+Без *be* предложение значит, что вещь сделала это сама: *The package delivered* = посылка что-то доставила.
+
+✅ *The package was delivered yesterday.*
+❌ *The package delivered yesterday.*
+
+✅ *English is spoken in many countries.*
+❌ *English is speak in many countries.*
+
+**Проверь себя:** подлежащее это сделало, или это сделали с ним? Сделали с ним → *be* + третья форма, обе части.`,
+      },
+    },
+    {
+      for: ['tense-be', 'perfect', 'modal'],
+      rule: {
+        en: `The tense is in **be**: *is made · was made · is being made · has been made · will be made · must be made*.`,
+        uk: `Час показує **be**: *is made · was made · is being made · has been made · will be made · must be made*.`,
+        ru: `Время показывает **be**: *is made · was made · is being made · has been made · will be made · must be made*.`,
+      },
+      more: {
+        en: `**The idea.** The 3rd form never changes. The whole tense lives in **be** — change *be* exactly as you would in an active sentence:
+- now / usually: *is / are made*
+- the past: *was / were made*
+- right now: *is being made*
+- up to now: *has / have been made*
+- the future: *will be made*
+- after a modal: *must / can / should **be** made*
+
+✅ *Your car has been repaired. You can pick it up now.*
+❌ *Your car has repaired. You can pick it up now.*
+
+✅ *The form must be signed in black ink.*
+❌ *The form must signed in black ink.*
+
+✅ *Your package will be delivered tomorrow.*
+❌ *Your package will delivered tomorrow.*
+
+**Check yourself:** find the tense word (*has, will, must*) — is *be / been* right after it? Then the 3rd form.`,
+        uk: `**Суть.** Третя форма ніколи не змінюється. Увесь час живе в **be** — змінюй *be* так само, як в активному реченні:
+- зараз / зазвичай: *is / are made*
+- минуле: *was / were made*
+- просто зараз: *is being made*
+- досі: *has / have been made*
+- майбутнє: *will be made*
+- після модального: *must / can / should be made*
+
+✅ *Your car has been repaired. You can pick it up now.*
+❌ *Your car has repaired. You can pick it up now.*
+
+✅ *The form must be signed in black ink.*
+❌ *The form must signed in black ink.*
+
+✅ *Your package will be delivered tomorrow.*
+❌ *Your package will delivered tomorrow.*
+
+**Перевір себе:** знайди слово часу (*has, will, must*) — одразу після нього є *be / been*? Далі третя форма.`,
+        ru: `**Суть.** Третья форма никогда не меняется. Всё время живёт в **be** — меняй *be* так же, как в активном предложении:
+- сейчас / обычно: *is / are made*
+- прошлое: *was / were made*
+- прямо сейчас: *is being made*
+- до сих пор: *has / have been made*
+- будущее: *will be made*
+- после модального: *must / can / should be made*
+
+✅ *Your car has been repaired. You can pick it up now.*
+❌ *Your car has repaired. You can pick it up now.*
+
+✅ *The form must be signed in black ink.*
+❌ *The form must signed in black ink.*
+
+✅ *Your package will be delivered tomorrow.*
+❌ *Your package will delivered tomorrow.*
+
+**Проверь себя:** найди слово времени (*has, will, must*) — сразу после него есть *be / been*? Дальше третья форма.`,
+      },
+    },
+    {
+      for: ['by'],
+      rule: {
+        en: `The doer, if needed, after **by**: *It was painted **by** my daughter.*`,
+        uk: `Виконавця, якщо треба, додаємо через **by**: *It was painted **by** my daughter.*`,
+        ru: `Исполнителя, если нужно, добавляем через **by**: *It was painted **by** my daughter.*`,
+      },
+      more: {
+        en: `**The idea.** Usually the passive doesn't say who did it. But if you want to name the doer, put it after **by** — «ким / кем»:
+- *This picture was painted **by** my daughter.*
+- *The song was written **by** a famous singer.*
+- *I was bitten **by** a dog.*
+
+Ukrainian and Russian show the doer with the case ending («моєю донькою / моей дочерью»), so people try *from* or *with*. In English it's always **by**. (*with* is for a tool: *It was cut with a knife*.)
+
+✅ *This picture was painted by my daughter.*
+❌ *This picture was painted from my daughter.*
+
+✅ *The song was written by a famous singer.*
+❌ *The song was written with a famous singer.*
+
+**Check yourself:** the person who did it → **by**. A tool → *with*.`,
+        uk: `**Суть.** Зазвичай пасив не каже, хто це зробив. Але якщо хочеш назвати виконавця, постав його після **by** — «ким»:
+- *This picture was painted by my daughter.*
+- *The song was written by a famous singer.*
+- *I was bitten by a dog.*
+
+Українською виконавця показує відмінок («моєю донькою»), тож пробують *from* чи *with*. Англійською — завжди **by**. (*with* — для інструмента: *It was cut with a knife*.)
+
+✅ *This picture was painted by my daughter.*
+❌ *This picture was painted from my daughter.*
+
+✅ *The song was written by a famous singer.*
+❌ *The song was written with a famous singer.*
+
+**Перевір себе:** людина, яка це зробила → **by**. Інструмент → *with*.`,
+        ru: `**Суть.** Обычно пассив не говорит, кто это сделал. Но если хочешь назвать исполнителя, поставь его после **by** — «кем»:
+- *This picture was painted by my daughter.*
+- *The song was written by a famous singer.*
+- *I was bitten by a dog.*
+
+По-русски исполнителя показывает падеж («моей дочерью»), поэтому пробуют *from* или *with*. По-английски — всегда **by**. (*with* — для инструмента: *It was cut with a knife*.)
+
+✅ *This picture was painted by my daughter.*
+❌ *This picture was painted from my daughter.*
+
+✅ *The song was written by a famous singer.*
+❌ *The song was written with a famous singer.*
+
+**Проверь себя:** человек, который это сделал → **by**. Инструмент → *with*.`,
+      },
+    },
+    {
+      for: ['born'],
+      rule: {
+        en: `*I **was born** in Kharkiv.* (Always passive.)`,
+        uk: `*I **was born** in Kharkiv* — «Я народилася». (Завжди пасив.)`,
+        ru: `*I **was born** in Kharkiv* — «Я родилась». (Всегда пассив.)`,
+      },
+      more: {
+        en: `**The idea.** In English you don't "born" — you **were born**: someone gave birth to you, so it's a passive. It's always **was / were born**, for everyone:
+- *I was born in Kharkiv.*
+- *Where were you born?*
+- *My son was born in Texas.*
+- *When was she born?*
+
+«Я народилася / Я родилась» is an active verb, so people say *I born* or *I am born*.
+
+✅ *I was born in Kharkiv.*
+❌ *I born in Kharkiv.*
+
+✅ *Where were you born?*
+❌ *Where did you born?*
+
+✅ *My son was born in 2020.*
+❌ *My son is born in 2020.*
+
+**Check yourself:** *born* always comes with *was / were*.`,
+        uk: `**Суть.** Англійською не «народжуються» самі — тебе **народили**, тому це пасив. Завжди **was / were born**, для всіх:
+- *I was born in Kharkiv.*
+- *Where were you born?*
+- *My son was born in Texas.*
+- *When was she born?*
+
+«Я народилася» — активне дієслово, тому кажуть *I born* або *I am born*.
+
+✅ *I was born in Kharkiv.*
+❌ *I born in Kharkiv.*
+
+✅ *Where were you born?*
+❌ *Where did you born?*
+
+✅ *My son was born in 2020.*
+❌ *My son is born in 2020.*
+
+**Перевір себе:** *born* завжди йде з *was / were*.`,
+        ru: `**Суть.** По-английски не «рождаются» сами — тебя **родили**, поэтому это пассив. Всегда **was / were born**, для всех:
+- *I was born in Kharkiv.*
+- *Where were you born?*
+- *My son was born in Texas.*
+- *When was she born?*
+
+«Я родилась» — активный глагол, поэтому говорят *I born* или *I am born*.
+
+✅ *I was born in Kharkiv.*
+❌ *I born in Kharkiv.*
+
+✅ *Where were you born?*
+❌ *Where did you born?*
+
+✅ *My son was born in 2020.*
+❌ *My son is born in 2020.*
+
+**Проверь себя:** *born* всегда идёт с *was / were*.`,
+      },
+    },
+    {
+      for: ['have-done'],
+      rule: {
+        en: `Someone does a service for you: **have / get + thing + 3rd form**: *I **had my hair cut**. We need to **get the car repaired**.*`,
+        uk: `Хтось робить послугу для вас: **have / get + річ + третя форма**: *I **had my hair cut*** — «Я підстриглася (у перукаря)». *We need to **get the car repaired**.*`,
+        ru: `Кто-то оказывает вам услугу: **have / get + вещь + третья форма**: *I **had my hair cut*** — «Я подстриглась (у парикмахера)». *We need to **get the car repaired**.*`,
+      },
+      more: {
+        en: `**The idea.** When **someone else** does a service for you — a hairdresser, a mechanic, a plumber — English says **have / get + the thing + 3rd form**:
+- *I had my hair cut yesterday.* — at the hairdresser's
+- *We need to get the car repaired.*
+- *She's having her nails done.*
+
+In Ukrainian and Russian «Я підстриглася / Я подстриглась» sounds like you did it yourself — but everyone understands. In English *I cut my hair* really means you cut it **yourself**, with scissors.
+
+The order matters: **have + thing + 3rd form** (not *have cut my hair*).
+
+✅ *I had my hair cut yesterday.*
+❌ *I cut my hair yesterday.* — unless you did it yourself
+
+✅ *We need to have the car repaired before the trip.*
+❌ *We need to repair the car before the trip.* — sounds like you'll do it yourselves
+
+**Check yourself:** did a professional do it for you? → *have / get + thing + 3rd form*.`,
+        uk: `**Суть.** Коли послугу для тебе робить **хтось інший** — перукар, механік, сантехнік, — англійською кажуть **have / get + річ + третя форма**:
+- *I had my hair cut yesterday.* — у перукаря
+- *We need to get the car repaired.*
+- *She's having her nails done.*
+
+Українською «Я підстриглася» звучить так, ніби ти зробила це сама, — але всі розуміють. Англійською *I cut my hair* справді означає, що ти підстригла **себе сама**, ножицями.
+
+Порядок важливий: **have + річ + третя форма** (не *have cut my hair*).
+
+✅ *I had my hair cut yesterday.*
+❌ *I cut my hair yesterday.* — якщо не стригла сама
+
+✅ *We need to have the car repaired before the trip.*
+❌ *We need to repair the car before the trip.* — звучить, ніби ремонтуватимете самі
+
+**Перевір себе:** це зробив для тебе фахівець? → *have / get + річ + третя форма*.`,
+        ru: `**Суть.** Когда услугу для тебя делает **кто-то другой** — парикмахер, механик, сантехник, — по-английски говорят **have / get + вещь + третья форма**:
+- *I had my hair cut yesterday.* — у парикмахера
+- *We need to get the car repaired.*
+- *She's having her nails done.*
+
+По-русски «Я подстриглась» звучит так, будто ты сделала это сама, — но все понимают. По-английски *I cut my hair* действительно значит, что ты подстригла **себя сама**, ножницами.
+
+Порядок важен: **have + вещь + третья форма** (не *have cut my hair*).
+
+✅ *I had my hair cut yesterday.*
+❌ *I cut my hair yesterday.* — если не стригла сама
+
+✅ *We need to have the car repaired before the trip.*
+❌ *We need to repair the car before the trip.* — звучит, будто будете чинить сами
+
+**Проверь себя:** это сделал для тебя специалист? → *have / get + вещь + третья форма*.`,
+      },
+    },
+    {
+      for: ['active-passive', 'active'],
+      rule: {
+        en: `Verbs like *happen, die, arrive, rise* have **no passive**: *It happened. She died.* Ukrainian and Russian often say *«Його побудували / Его построили»* (they built it). In English, that is usually passive: *It was built.*`,
+        uk: `Дієслова *happen, die, arrive, rise* **не мають пасиву**: *It happened. She died.* Українською часто кажемо *«Його побудували»*. Англійською це зазвичай пасив: *It was built.*`,
+        ru: `Глаголы *happen, die, arrive, rise* **не имеют пассива**: *It happened. She died.* По-русски часто говорим *«Его построили»*. По-английски это обычно пассив: *It was built.*`,
+      },
+      more: {
+        en: `**The idea.** Ukrainian and Russian often say "they did it" without saying who: «Його побудували в 1937 / Его построили в 1937», «У мене вкрали гаманець / У меня украли кошелёк». English usually turns this into the **passive**: *It was built in 1937. My wallet was stolen.*
+
+Ask: does the subject **do** the action, or does it **receive** it?
+- does it → active: *The doctor examined me.*
+- receives it → passive: *I was examined by the doctor. I was bitten by a dog.*
+
+Some verbs can't be passive at all, because nobody "does" them to anything: **happen, die, arrive, rise, appear**:
+- *What happened?* (not *was happened*)
+- *He died in 2015.* (not *was died*)
+
+✅ *This cheese is made in Wisconsin.*
+❌ *They make this cheese in Wisconsin.* — possible, but the passive sounds natural here
+
+✅ *The accident happened at night.*
+❌ *The accident was happened at night.*
+
+**Check yourself:** «зробили / сделали», and who did it doesn't matter → passive. *happen, die, arrive* → never passive.`,
+        uk: `**Суть.** Українською часто кажуть «зробили», не уточнюючи хто: «Його побудували в 1937», «У мене вкрали гаманець». Англійська зазвичай перетворює це на **пасив**: *It was built in 1937. My wallet was stolen.*
+
+Спитай: підмет **виконує** дію чи **зазнає** її?
+- виконує → актив: *The doctor examined me.*
+- зазнає → пасив: *I was examined by the doctor. I was bitten by a dog.*
+
+Деякі дієслова взагалі не бувають у пасиві, бо їх ніхто ні з чим «не робить»: **happen, die, arrive, rise, appear**:
+- *What happened?* (не *was happened*)
+- *He died in 2015.* (не *was died*)
+
+✅ *This cheese is made in Wisconsin.*
+❌ *They make this cheese in Wisconsin.* — можливо, але тут природніше звучить пасив
+
+✅ *The accident happened at night.*
+❌ *The accident was happened at night.*
+
+**Перевір себе:** «зробили», і неважливо хто → пасив. *happen, die, arrive* → ніколи не пасив.`,
+        ru: `**Суть.** По-русски часто говорят «сделали», не уточняя кто: «Его построили в 1937», «У меня украли кошелёк». Английский обычно превращает это в **пассив**: *It was built in 1937. My wallet was stolen.*
+
+Спроси: подлежащее **совершает** действие или **подвергается** ему?
+- совершает → актив: *The doctor examined me.*
+- подвергается → пассив: *I was examined by the doctor. I was bitten by a dog.*
+
+Некоторые глаголы вообще не бывают в пассиве, потому что их никто ни с чем «не делает»: **happen, die, arrive, rise, appear**:
+- *What happened?* (не *was happened*)
+- *He died in 2015.* (не *was died*)
+
+✅ *This cheese is made in Wisconsin.*
+❌ *They make this cheese in Wisconsin.* — возможно, но здесь естественнее звучит пассив
+
+✅ *The accident happened at night.*
+❌ *The accident was happened at night.*
+
+**Проверь себя:** «сделали», и неважно кто → пассив. *happen, die, arrive* → никогда не пассив.`,
+      },
+    },
+  ],
   examples: ['My wallet was stolen on the subway.', 'Credit cards are accepted here.', 'I was born in Kharkiv.', 'This medicine should be taken with food.', 'I had my hair cut yesterday.'],
   trap: {
     uk: 'Цей сир роблять у Вісконсині.',

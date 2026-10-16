@@ -5,32 +5,378 @@ APP.addTopic({
   group: 'Linking',
   icon: '🧷',
   about: 'the woman who…, the car which…, the city where…',
-  rule: {
-    en: `Join information about a noun with a **relative clause**:
-- **who** — people: *the doctor **who** treated me*. **which** — things and animals: *the car **which** we bought*. **that** — people or things (very common in speech): *the book **that** I read*.
-- **whose** — possession: *the woman **whose** son is in my class*.
-- **where** — places: *the city **where** I was born*. **when** — times: *the day **when** we met*.
-- If *who / which / that* is the **object**, you can drop it: *the man (who) I met, the phone (that) I bought*. Not when it is the subject: *the man **who** called*.
-- **No extra pronoun**: *the book that I bought* — not *that I bought **it***.
-- Extra information about someone already known → **commas** and **who / which**, never *that*: *My sister, who lives in Kyiv, is a doctor.*
-- Not *what* after a noun: *everything **that** I have*, *the thing **that** worries me*.`,
-    uk: `Додаємо інформацію про іменник за допомогою **підрядного означального речення**:
-- **who** — люди: *the doctor **who** treated me* — «лікар, який мене лікував». **which** — речі й тварини: *the car **which** we bought*. **that** — і люди, і речі (дуже часто в розмові): *the book **that** I read*.
-- **whose** — належність («чий»): *the woman **whose** son is in my class*.
-- **where** — місця: *the city **where** I was born*. **when** — час: *the day **when** we met*.
-- Якщо *who / which / that* — **додаток**, його можна пропустити: *the man (who) I met, the phone (that) I bought*. Не можна, коли це підмет: *the man **who** called*.
-- **Без зайвого займенника**: *the book that I bought* — а не *that I bought **it***.
-- Додаткова інформація про вже відому людину чи річ → **коми** і **who / which**, ніколи *that*: *My sister, who lives in Kyiv, is a doctor.*
-- Не *what* після іменника: *everything **that** I have*, *the thing **that** worries me*.`,
-    ru: `Добавляем информацию о существительном с помощью **определительного придаточного**:
-- **who** — люди: *the doctor **who** treated me* — «врач, который меня лечил». **which** — вещи и животные: *the car **which** we bought*. **that** — и люди, и вещи (очень часто в разговоре): *the book **that** I read*.
-- **whose** — принадлежность («чей»): *the woman **whose** son is in my class*.
-- **where** — места: *the city **where** I was born*. **when** — время: *the day **when** we met*.
-- Если *who / which / that* — **дополнение**, его можно опустить: *the man (who) I met, the phone (that) I bought*. Нельзя, когда это подлежащее: *the man **who** called*.
-- **Без лишнего местоимения**: *the book that I bought* — а не *that I bought **it***.
-- Дополнительная информация об уже известном человеке или вещи → **запятые** и **who / which**, никогда *that*: *My sister, who lives in Kyiv, is a doctor.*
-- Не *what* после существительного: *everything **that** I have*, *the thing **that** worries me*.`,
-  },
+  points: [
+    {
+      for: ['who-which'],
+      rule: {
+        en: `Join information about a noun with a **relative clause**: **who** — people: *the doctor **who** treated me*. **which** — things and animals: *the car **which** we bought*. **that** — people or things (very common in speech): *the book **that** I read*.`,
+        uk: `Додаємо інформацію про іменник за допомогою **підрядного означального речення**: **who** — люди: *the doctor **who** treated me* — «лікар, який мене лікував». **which** — речі й тварини: *the car **which** we bought*. **that** — і люди, і речі (дуже часто в розмові): *the book **that** I read*.`,
+        ru: `Добавляем информацию о существительном с помощью **определительного придаточного**: **who** — люди: *the doctor **who** treated me* — «врач, который меня лечил». **which** — вещи и животные: *the car **which** we bought*. **that** — и люди, и вещи (очень часто в разговоре): *the book **that** I read*.`,
+      },
+      more: {
+        en: `**The idea.** A relative clause adds information about a noun, like «який / котрий — который»: *the doctor **who** treated me*. Ukrainian and Russian use one word for everything; English chooses by **what** the noun is:
+- **who** — people: *the woman who lives next door*
+- **which** — things and animals: *the car which we bought*
+- **that** — people **or** things; very common in speech: *the bus that goes downtown, the man that called*
+
+✅ *The doctor who treated me was very kind.*
+❌ *The doctor which treated me was very kind.*
+
+✅ *Is this the bus that goes downtown?*
+❌ *Is this the bus who goes downtown?*
+
+**Check yourself:** a person → *who* (or *that*). A thing or an animal → *which* (or *that*). When unsure, *that* is safe — except after a comma.`,
+        uk: `**Суть.** Підрядне означальне додає інформацію про іменник, як «який / котрий»: *the doctor who treated me*. Українською одне слово для всього; англійська обирає за тим, **що** це за іменник:
+- **who** — люди: *the woman who lives next door*
+- **which** — речі й тварини: *the car which we bought*
+- **that** — люди **або** речі; дуже часто в розмові: *the bus that goes downtown, the man that called*
+
+✅ *The doctor who treated me was very kind.*
+❌ *The doctor which treated me was very kind.*
+
+✅ *Is this the bus that goes downtown?*
+❌ *Is this the bus who goes downtown?*
+
+**Перевір себе:** людина → *who* (або *that*). Річ чи тварина → *which* (або *that*). Якщо сумніваєшся — *that* безпечне, крім випадку після коми.`,
+        ru: `**Суть.** Определительное придаточное добавляет информацию о существительном, как «который»: *the doctor who treated me*. По-русски одно слово для всего; английский выбирает по тому, **что** это за существительное:
+- **who** — люди: *the woman who lives next door*
+- **which** — вещи и животные: *the car which we bought*
+- **that** — люди **или** вещи; очень часто в разговоре: *the bus that goes downtown, the man that called*
+
+✅ *The doctor who treated me was very kind.*
+❌ *The doctor which treated me was very kind.*
+
+✅ *Is this the bus that goes downtown?*
+❌ *Is this the bus who goes downtown?*
+
+**Проверь себя:** человек → *who* (или *that*). Вещь или животное → *which* (или *that*). Если сомневаешься — *that* безопасно, кроме случая после запятой.`,
+      },
+    },
+    {
+      for: ['whose'],
+      rule: {
+        en: `**whose** — possession: *the woman **whose** son is in my class*.`,
+        uk: `**whose** — належність («чий»): *the woman **whose** son is in my class*.`,
+        ru: `**whose** — принадлежность («чей»): *the woman **whose** son is in my class*.`,
+      },
+      more: {
+        en: `**The idea.** **whose** = «чий / чий син — чей / чей сын», belonging to someone. It joins two people or things where one **has** the other:
+- *That's the woman. Her son is in my class.* → *That's the woman **whose** son is in my class.*
+- *We have a neighbor. His dog barks all night.* → *a neighbor **whose** dog barks all night*
+- it works for companies and things too: *a company **whose** office is in Austin*
+
+Don't confuse it with *who's* — that's *who is*: *Who's there?*
+
+✅ *That's the woman whose son is in my daughter's class.*
+❌ *That's the woman who's son is in my daughter's class.*
+
+✅ *We have a neighbor whose dog barks all night.*
+❌ *We have a neighbor which dog barks all night.*
+
+**Check yourself:** could you say "his / her / its" in a separate sentence? → *whose*.`,
+        uk: `**Суть.** **whose** = «чий / чий син», належність. Він з'єднує двох людей чи речі, де один **має** іншого:
+- *That's the woman. Her son is in my class.* → *That's the woman whose son is in my class.*
+- *We have a neighbor. His dog barks all night.* → *a neighbor whose dog barks all night*
+- працює і для компаній та речей: *a company whose office is in Austin*
+
+Не плутай з *who's* — це *who is*: *Who's there?*
+
+✅ *That's the woman whose son is in my daughter's class.*
+❌ *That's the woman who's son is in my daughter's class.*
+
+✅ *We have a neighbor whose dog barks all night.*
+❌ *We have a neighbor which dog barks all night.*
+
+**Перевір себе:** в окремому реченні можна було б сказати «his / her / its»? → *whose*.`,
+        ru: `**Суть.** **whose** = «чей / чей сын», принадлежность. Он соединяет двух людей или вещи, где один **имеет** другого:
+- *That's the woman. Her son is in my class.* → *That's the woman whose son is in my class.*
+- *We have a neighbor. His dog barks all night.* → *a neighbor whose dog barks all night*
+- работает и для компаний и вещей: *a company whose office is in Austin*
+
+Не путай с *who's* — это *who is*: *Who's there?*
+
+✅ *That's the woman whose son is in my daughter's class.*
+❌ *That's the woman who's son is in my daughter's class.*
+
+✅ *We have a neighbor whose dog barks all night.*
+❌ *We have a neighbor which dog barks all night.*
+
+**Проверь себя:** в отдельном предложении можно было бы сказать «his / her / its»? → *whose*.`,
+      },
+    },
+    {
+      for: ['where'],
+      rule: {
+        en: `**where** — places: *the city **where** I was born*. **when** — times: *the day **when** we met*.`,
+        uk: `**where** — місця: *the city **where** I was born*. **when** — час: *the day **when** we met*.`,
+        ru: `**where** — места: *the city **where** I was born*. **when** — время: *the day **when** we met*.`,
+      },
+      more: {
+        en: `**The idea.** **where** = «де / в якому — где / в котором», for places; **when** = «коли / когда», for times:
+- *This is the hospital **where** I was born.* (= in which I was born)
+- *Do you know a store **where** I can buy a good coat?*
+- *I remember the day **when** we met.*
+
+But if the place is the **object** of the verb — you love it, visit it, see it — use *that / which*, because nothing happens *in* it:
+- *Chicago is the city **that** I love.* (I love *it*)
+- *Chicago is the city **where** I live.* (I live *in it*)
+
+✅ *This is the hospital where I was born.*
+❌ *This is the hospital which I was born.*
+
+✅ *It's the city that I love.*
+❌ *It's the city where I love.*
+
+**Check yourself:** can you say "in it / there"? → *where*. Is the place just the object (*love it, visit it*)? → *that / which*.`,
+        uk: `**Суть.** **where** = «де / в якому», для місць; **when** = «коли», для часу:
+- *This is the hospital where I was born.* (= в якій я народилася)
+- *Do you know a store where I can buy a good coat?*
+- *I remember the day when we met.*
+
+Але якщо місце — **додаток** дієслова (ти його любиш, відвідуєш, бачиш), вживай *that / which*, бо в ньому нічого не відбувається:
+- *Chicago is the city that I love.* (я люблю *його*)
+- *Chicago is the city where I live.* (я живу *в ньому*)
+
+✅ *This is the hospital where I was born.*
+❌ *This is the hospital which I was born.*
+
+✅ *It's the city that I love.*
+❌ *It's the city where I love.*
+
+**Перевір себе:** можна сказати «в ньому / там»? → *where*. Місце — просто додаток (*love it, visit it*)? → *that / which*.`,
+        ru: `**Суть.** **where** = «где / в котором», для мест; **when** = «когда», для времени:
+- *This is the hospital where I was born.* (= в которой я родилась)
+- *Do you know a store where I can buy a good coat?*
+- *I remember the day when we met.*
+
+Но если место — **дополнение** глагола (ты его любишь, посещаешь, видишь), используй *that / which*, потому что в нём ничего не происходит:
+- *Chicago is the city that I love.* (я люблю *его*)
+- *Chicago is the city where I live.* (я живу *в нём*)
+
+✅ *This is the hospital where I was born.*
+❌ *This is the hospital which I was born.*
+
+✅ *It's the city that I love.*
+❌ *It's the city where I love.*
+
+**Проверь себя:** можно сказать «в нём / там»? → *where*. Место — просто дополнение (*love it, visit it*)? → *that / which*.`,
+      },
+    },
+    {
+      for: ['omit'],
+      rule: {
+        en: `If *who / which / that* is the **object**, you can drop it: *the man (who) I met, the phone (that) I bought*. Not when it is the subject: *the man **who** called*.`,
+        uk: `Якщо *who / which / that* — **додаток**, його можна пропустити: *the man (who) I met, the phone (that) I bought*. Не можна, коли це підмет: *the man **who** called*.`,
+        ru: `Если *who / which / that* — **дополнение**, его можно опустить: *the man (who) I met, the phone (that) I bought*. Нельзя, когда это подлежащее: *the man **who** called*.`,
+      },
+      more: {
+        en: `**The idea.** In everyday English *who / which / that* often disappears — but only when it's the **object** of the clause (someone else does the action):
+- *the man (who) **I** met* — *I* met him → you can drop *who*
+- *the phone (that) **I** bought* → *the phone I bought*
+
+When it's the **subject** (it does the action itself), it must stay:
+- *the man **who called** me* — he called → *who* stays
+- *the bus **that goes** downtown*
+
+How to see it: after *who / that* comes a new subject (*I, you, she, my mom*) → you can drop it. After it comes a verb directly → keep it.
+
+✅ *The man who called you yesterday is my boss.*
+❌ *The man called you yesterday is my boss.*
+
+✅ *Is that the jacket you bought online?* — *that* dropped, fine
+
+**Check yourself:** a subject right after *who / that*? → can drop. A verb right after? → must keep.`,
+        uk: `**Суть.** У розмовній англійській *who / which / that* часто зникає — але лише коли воно **додаток** (дію виконує хтось інший):
+- *the man (who) I met* — *я* його зустріла → *who* можна прибрати
+- *the phone (that) I bought* → *the phone I bought*
+
+Коли воно **підмет** (саме виконує дію), його не можна прибрати:
+- *the man who called me* — він дзвонив → *who* лишається
+- *the bus that goes downtown*
+
+Як побачити: після *who / that* іде новий підмет (*I, you, she, my mom*) → можна прибрати. Одразу дієслово → лишаємо.
+
+✅ *The man who called you yesterday is my boss.*
+❌ *The man called you yesterday is my boss.*
+
+✅ *Is that the jacket you bought online?* — *that* прибрали, так можна
+
+**Перевір себе:** одразу після *who / that* підмет? → можна прибрати. Одразу дієслово? → обов'язково лишити.`,
+        ru: `**Суть.** В разговорном английском *who / which / that* часто исчезает — но только когда оно **дополнение** (действие совершает кто-то другой):
+- *the man (who) I met* — *я* его встретила → *who* можно убрать
+- *the phone (that) I bought* → *the phone I bought*
+
+Когда оно **подлежащее** (само совершает действие), убрать нельзя:
+- *the man who called me* — он звонил → *who* остаётся
+- *the bus that goes downtown*
+
+Как увидеть: после *who / that* идёт новое подлежащее (*I, you, she, my mom*) → можно убрать. Сразу глагол → оставляем.
+
+✅ *The man who called you yesterday is my boss.*
+❌ *The man called you yesterday is my boss.*
+
+✅ *Is that the jacket you bought online?* — *that* убрали, так можно
+
+**Проверь себя:** сразу после *who / that* подлежащее? → можно убрать. Сразу глагол? → обязательно оставить.`,
+      },
+    },
+    {
+      for: ['extra'],
+      rule: {
+        en: `**No extra pronoun**: *the book that I bought* — not *that I bought **it***.`,
+        uk: `**Без зайвого займенника**: *the book that I bought* — а не *that I bought **it***.`,
+        ru: `**Без лишнего местоимения**: *the book that I bought* — а не *that I bought **it***.`,
+      },
+      more: {
+        en: `**The idea.** *who / which / that* already **stands for** the noun. So you don't repeat it with *it, him, her* at the end:
+- *the book that I bought* — *that* = the book; adding *it* means saying "the book" twice
+- *the man who called* — not *who he called*
+
+In Ukrainian and Russian «книжка, яку я купила / книга, которую я купила» has no extra word either — but English learners often add *it* because the English verb "feels empty" without an object.
+
+✅ *This is the book I bought yesterday.*
+❌ *This is the book which I bought it yesterday.*
+
+✅ *The phone I bought is already broken.*
+❌ *The phone I bought it is already broken.*
+
+**Check yourself:** after the clause, is there an *it / him / her* that means the same noun? Delete it.`,
+        uk: `**Суть.** *who / which / that* уже **замінює** іменник. Тому не треба повторювати його через *it, him, her* у кінці:
+- *the book that I bought* — *that* = книжка; додати *it* — це сказати «книжку» двічі
+- *the man who called* — не *who he called*
+
+Українською «книжка, яку я купила» теж без зайвого слова — але ті, хто вчить англійську, часто додають *it*, бо англійське дієслово ніби «порожнє» без додатка.
+
+✅ *This is the book I bought yesterday.*
+❌ *This is the book which I bought it yesterday.*
+
+✅ *The phone I bought is already broken.*
+❌ *The phone I bought it is already broken.*
+
+**Перевір себе:** після підрядного є *it / him / her*, що означає той самий іменник? Видали.`,
+        ru: `**Суть.** *who / which / that* уже **заменяет** существительное. Поэтому не нужно повторять его через *it, him, her* в конце:
+- *the book that I bought* — *that* = книга; добавить *it* — значит сказать «книгу» дважды
+- *the man who called* — не *who he called*
+
+По-русски «книга, которую я купила» тоже без лишнего слова — но те, кто учит английский, часто добавляют *it*, потому что английский глагол будто «пустой» без дополнения.
+
+✅ *This is the book I bought yesterday.*
+❌ *This is the book which I bought it yesterday.*
+
+✅ *The phone I bought is already broken.*
+❌ *The phone I bought it is already broken.*
+
+**Проверь себя:** после придаточного есть *it / him / her*, означающее то же существительное? Удали.`,
+      },
+    },
+    {
+      for: ['nondef'],
+      rule: {
+        en: `Extra information about someone already known → **commas** and **who / which**, never *that*: *My sister, who lives in Kyiv, is a doctor.*`,
+        uk: `Додаткова інформація про вже відому людину чи річ → **коми** і **who / which**, ніколи *that*: *My sister, who lives in Kyiv, is a doctor.*`,
+        ru: `Дополнительная информация об уже известном человеке или вещи → **запятые** и **who / which**, никогда *that*: *My sister, who lives in Kyiv, is a doctor.*`,
+      },
+      more: {
+        en: `**The idea.** There are two kinds of relative clauses:
+- **needed** to know which one: *The sister **who lives in Kyiv** is a doctor.* — I have several sisters; this tells you which. No commas.
+- **extra** information about someone already clear: *My sister, **who lives in Kyiv**, is a doctor.* — I have one sister; the clause just adds a fact. **Commas** around it.
+
+With commas, only **who** (people) and **which** (things) — never *that*. And you can't drop the word.
+
+✅ *My sister, who lives in Kyiv, is a doctor.*
+❌ *My sister, that lives in Kyiv, is a doctor.*
+
+✅ *Our car, which is ten years old, still runs perfectly.*
+❌ *Our car, that is ten years old, still runs perfectly.*
+
+**Check yourself:** could you put the clause in brackets and still know who you mean? → commas + *who / which*.`,
+        uk: `**Суть.** Підрядні означальні бувають двох видів:
+- **потрібні**, щоб зрозуміти, про кого: *The sister who lives in Kyiv is a doctor.* — у мене кілька сестер, це уточнює, яка. Без ком.
+- **додаткова** інформація про когось, і так зрозумілого: *My sister, who lives in Kyiv, is a doctor.* — сестра одна; підрядне просто додає факт. Навколо — **коми**.
+
+З комами — лише **who** (люди) і **which** (речі), ніколи *that*. І прибрати слово не можна.
+
+✅ *My sister, who lives in Kyiv, is a doctor.*
+❌ *My sister, that lives in Kyiv, is a doctor.*
+
+✅ *Our car, which is ten years old, still runs perfectly.*
+❌ *Our car, that is ten years old, still runs perfectly.*
+
+**Перевір себе:** можна взяти підрядне в дужки, і все одно зрозуміло, про кого? → коми + *who / which*.`,
+        ru: `**Суть.** Определительные придаточные бывают двух видов:
+- **нужные**, чтобы понять, о ком речь: *The sister who lives in Kyiv is a doctor.* — у меня несколько сестёр, это уточняет, какая. Без запятых.
+- **дополнительная** информация о ком-то и так понятном: *My sister, who lives in Kyiv, is a doctor.* — сестра одна; придаточное просто добавляет факт. Вокруг — **запятые**.
+
+С запятыми — только **who** (люди) и **which** (вещи), никогда *that*. И убрать слово нельзя.
+
+✅ *My sister, who lives in Kyiv, is a doctor.*
+❌ *My sister, that lives in Kyiv, is a doctor.*
+
+✅ *Our car, which is ten years old, still runs perfectly.*
+❌ *Our car, that is ten years old, still runs perfectly.*
+
+**Проверь себя:** можно взять придаточное в скобки, и всё равно понятно, о ком речь? → запятые + *who / which*.`,
+      },
+    },
+    {
+      for: ['what'],
+      rule: {
+        en: `Not *what* after a noun: *everything **that** I have*, *the thing **that** worries me*.`,
+        uk: `Не *what* після іменника: *everything **that** I have*, *the thing **that** worries me*.`,
+        ru: `Не *what* после существительного: *everything **that** I have*, *the thing **that** worries me*.`,
+      },
+      more: {
+        en: `**The idea.** «Все, що / Всё, что» and «річ, яка / вещь, которая» make people say *what* — but after a noun or *everything, all, something, nothing*, English uses **that**:
+- *everything **that** I have*
+- *the thing **that** worries me*
+- *something **that** you should know*
+
+*what* already contains the noun — it means "the thing that" — so it goes with **no noun before it**:
+- ***What** I need is a vacation.* = The thing that I need…
+- *I don't understand **what** you mean.*
+
+✅ *Thank you for everything that you did for us.*
+❌ *Thank you for everything what you did for us.*
+
+✅ *That's not the thing that I wanted.*
+❌ *That's not the thing what I wanted.*
+
+**Check yourself:** is there a noun or *everything / something* right before it? → *that*. Nothing before it? → *what*.`,
+        uk: `**Суть.** «Все, що» і «річ, яка» підштовхують сказати *what* — але після іменника або *everything, all, something, nothing* англійська вживає **that**:
+- *everything that I have*
+- *the thing that worries me*
+- *something that you should know*
+
+*what* уже містить іменник — означає «те, що» — тому перед ним **іменника немає**:
+- *What I need is a vacation.* = Те, що мені потрібно…
+- *I don't understand what you mean.*
+
+✅ *Thank you for everything that you did for us.*
+❌ *Thank you for everything what you did for us.*
+
+✅ *That's not the thing that I wanted.*
+❌ *That's not the thing what I wanted.*
+
+**Перевір себе:** безпосередньо перед ним іменник чи *everything / something*? → *that*. Перед ним нічого? → *what*.`,
+        ru: `**Суть.** «Всё, что» и «вещь, которая» подталкивают сказать *what* — но после существительного или *everything, all, something, nothing* английский использует **that**:
+- *everything that I have*
+- *the thing that worries me*
+- *something that you should know*
+
+*what* уже содержит существительное — значит «то, что» — поэтому перед ним **существительного нет**:
+- *What I need is a vacation.* = То, что мне нужно…
+- *I don't understand what you mean.*
+
+✅ *Thank you for everything that you did for us.*
+❌ *Thank you for everything what you did for us.*
+
+✅ *That's not the thing that I wanted.*
+❌ *That's not the thing what I wanted.*
+
+**Проверь себя:** прямо перед ним существительное или *everything / something*? → *that*. Перед ним ничего? → *what*.`,
+      },
+    },
+  ],
   examples: ['The doctor who treated me was very kind.', 'This is the city where I was born.', 'The woman whose son is in my class is a nurse.', 'The phone I bought last week is already broken.', 'My sister, who lives in Kyiv, is a doctor.'],
   trap: {
     uk: 'Це книжка, яку я купила вчора.',

@@ -5,23 +5,298 @@ APP.addTopic({
   group: 'Adjectives & adverbs',
   icon: '🌡️',
   about: 'too expensive, old enough, such a nice day, I\'m bored',
-  rule: {
-    en: `- **too** + adjective = more than is OK, a problem: *This coat is too expensive. It's too cold to swim.* (**very** = a lot, but OK: *It's very cold, but we can go.*)
-- **too much** + uncountable (*too much sugar*), **too many** + plural (*too many people*). Before an adjective, just **too**: *too expensive*, not *too much expensive*.
-- **enough** goes **after** an adjective (*old enough, warm enough*) but **before** a noun (*enough money, enough chairs*). *+ to* + verb: *She's old enough to drive.*
-- **so** + adjective / adverb: *It's so cold!* **such** + (*a*) + adjective + noun: *It's such a nice day! They're such good people.* With a result: *It was so hot that we stayed inside.*
-- **-ed** = how a person **feels**: *I'm bored, interested, tired, confused, surprised.* **-ing** = what **causes** the feeling: *The movie is boring. The news is surprising.*`,
-    uk: `- **too** + прикметник = більше, ніж треба, проблема: *This coat is too expensive* — «надто дороге». *It's too cold to swim.* (**very** = дуже, але це нормально: *It's very cold, but we can go.*)
-- **too much** + незлічуване (*too much sugar*), **too many** + множина (*too many people*). Перед прикметником — просто **too**: *too expensive*, а не *too much expensive*.
-- **enough** стоїть **після** прикметника (*old enough, warm enough*), але **перед** іменником (*enough money, enough chairs*). *+ to* + дієслово: *She's old enough to drive.*
-- **so** + прикметник / прислівник: *It's so cold!* **such** + (*a*) + прикметник + іменник: *It's such a nice day! They're such good people.* З наслідком: *It was so hot that we stayed inside.*
-- **-ed** = що **відчуває** людина: *I'm bored* — «мені нудно», *interested, tired, confused, surprised*. **-ing** = що **викликає** почуття: *The movie is boring* — «фільм нудний». *The news is surprising.*`,
-    ru: `- **too** + прилагательное = больше, чем нужно, проблема: *This coat is too expensive* — «слишком дорогое». *It's too cold to swim.* (**very** = очень, но это нормально: *It's very cold, but we can go.*)
-- **too much** + неисчисляемое (*too much sugar*), **too many** + множественное (*too many people*). Перед прилагательным — просто **too**: *too expensive*, а не *too much expensive*.
-- **enough** стоит **после** прилагательного (*old enough, warm enough*), но **перед** существительным (*enough money, enough chairs*). *+ to* + глагол: *She's old enough to drive.*
-- **so** + прилагательное / наречие: *It's so cold!* **such** + (*a*) + прилагательное + существительное: *It's such a nice day! They're such good people.* Со следствием: *It was so hot that we stayed inside.*
-- **-ed** = что **чувствует** человек: *I'm bored* — «мне скучно», *interested, tired, confused, surprised*. **-ing** = что **вызывает** чувство: *The movie is boring* — «фильм скучный». *The news is surprising.*`,
-  },
+  points: [
+    {
+      for: ['too'],
+      rule: {
+        en: `**too** + adjective = more than is OK, a problem: *This coat is too expensive. It's too cold to swim.* (**very** = a lot, but OK: *It's very cold, but we can go.*)`,
+        uk: `**too** + прикметник = більше, ніж треба, проблема: *This coat is too expensive* — «надто дороге». *It's too cold to swim.* (**very** = дуже, але це нормально: *It's very cold, but we can go.*)`,
+        ru: `**too** + прилагательное = больше, чем нужно, проблема: *This coat is too expensive* — «слишком дорогое». *It's too cold to swim.* (**very** = очень, но это нормально: *It's very cold, but we can go.*)`,
+      },
+      more: {
+        en: `**The idea.** **too** and **very** both translate as «дуже / очень», but they mean different things:
+- **very** = a lot, and it's **fine**: *It's very cold, but we can go for a walk.*
+- **too** = **more than is OK** — there's a **problem**: *It's too cold to go for a walk.* — «занадто / слишком»
+
+So *too* almost always hides a "so I can't…":
+- *This coat is too expensive.* — I can't buy it
+- *The soup is too hot to eat.* — wait a minute
+- **too + adjective + to + verb**: *too tired to drive, too late to call*
+
+✅ *I can't buy this coat. It's too expensive.*
+❌ *I can't buy this coat. It's very expensive.* — possible, but *too* explains why you can't
+
+✅ *This bag is very nice! I love it.*
+❌ *This bag is too nice! I love it.* — sounds like being nice is a problem
+
+**Check yourself:** is there a problem because of it? → *too*. Just "a lot"? → *very*.`,
+        uk: `**Суть.** **too** і **very** обидва перекладаються як «дуже», але означають різне:
+- **very** = дуже, і це **нормально**: *It's very cold, but we can go for a walk.*
+- **too** = **більше, ніж треба** — є **проблема**: *It's too cold to go for a walk.* — «занадто»
+
+Тож за *too* майже завжди ховається «тому я не можу…»:
+- *This coat is too expensive.* — я не можу його купити
+- *The soup is too hot to eat.* — почекай хвилинку
+- **too + прикметник + to + дієслово**: *too tired to drive, too late to call*
+
+✅ *I can't buy this coat. It's too expensive.*
+❌ *I can't buy this coat. It's very expensive.* — можливо, але *too* пояснює, чому не можеш
+
+✅ *This bag is very nice! I love it.*
+❌ *This bag is too nice! I love it.* — звучить, ніби те, що вона гарна, — це проблема
+
+**Перевір себе:** через це є проблема? → *too*. Просто «дуже»? → *very*.`,
+        ru: `**Суть.** **too** и **very** оба переводятся как «очень», но значат разное:
+- **very** = очень, и это **нормально**: *It's very cold, but we can go for a walk.*
+- **too** = **больше, чем нужно** — есть **проблема**: *It's too cold to go for a walk.* — «слишком»
+
+Поэтому за *too* почти всегда прячется «поэтому я не могу…»:
+- *This coat is too expensive.* — я не могу его купить
+- *The soup is too hot to eat.* — подожди минутку
+- **too + прилагательное + to + глагол**: *too tired to drive, too late to call*
+
+✅ *I can't buy this coat. It's too expensive.*
+❌ *I can't buy this coat. It's very expensive.* — возможно, но *too* объясняет, почему не можешь
+
+✅ *This bag is very nice! I love it.*
+❌ *This bag is too nice! I love it.* — звучит, будто то, что она красивая, — это проблема
+
+**Проверь себя:** из-за этого есть проблема? → *too*. Просто «очень»? → *very*.`,
+      },
+    },
+    {
+      for: ['too-much'],
+      rule: {
+        en: `**too much** + uncountable (*too much sugar*), **too many** + plural (*too many people*). Before an adjective, just **too**: *too expensive*, not *too much expensive*.`,
+        uk: `**too much** + незлічуване (*too much sugar*), **too many** + множина (*too many people*). Перед прикметником — просто **too**: *too expensive*, а не *too much expensive*.`,
+        ru: `**too much** + неисчисляемое (*too much sugar*), **too many** + множественное (*too many people*). Перед прилагательным — просто **too**: *too expensive*, а не *too much expensive*.`,
+      },
+      more: {
+        en: `**The idea.** Before a **noun**, *too* needs a partner — the same choice as *much / many*:
+- **too much** + uncountable: *too much sugar, too much noise, too much work*
+- **too many** + plural: *too many people, too many cars, too many questions*
+
+Before an **adjective**, just **too** — no *much*:
+- *too expensive, too hot, too late* (not *too much expensive*)
+
+«Занадто дорого / Слишком дорого» → *too expensive*. «Занадто багато людей / Слишком много людей» → *too many people*.
+
+✅ *There were too many people at the mall.*
+❌ *There were too much people at the mall.*
+
+✅ *This phone is too expensive.*
+❌ *This phone is too much expensive.*
+
+**Check yourself:** an adjective after it → just *too*. A noun → *too much* (can't count) or *too many* (can count).`,
+        uk: `**Суть.** Перед **іменником** *too* потребує пари — той самий вибір, що й з *much / many*:
+- **too much** + незлічуване: *too much sugar, too much noise, too much work*
+- **too many** + множина: *too many people, too many cars, too many questions*
+
+Перед **прикметником** — просто **too**, без *much*:
+- *too expensive, too hot, too late* (не *too much expensive*)
+
+«Занадто дорого» → *too expensive*. «Занадто багато людей» → *too many people*.
+
+✅ *There were too many people at the mall.*
+❌ *There were too much people at the mall.*
+
+✅ *This phone is too expensive.*
+❌ *This phone is too much expensive.*
+
+**Перевір себе:** далі прикметник → просто *too*. Іменник → *too much* (не порахуєш) або *too many* (можна порахувати).`,
+        ru: `**Суть.** Перед **существительным** *too* нужна пара — тот же выбор, что и с *much / many*:
+- **too much** + неисчисляемое: *too much sugar, too much noise, too much work*
+- **too many** + множественное: *too many people, too many cars, too many questions*
+
+Перед **прилагательным** — просто **too**, без *much*:
+- *too expensive, too hot, too late* (не *too much expensive*)
+
+«Слишком дорого» → *too expensive*. «Слишком много людей» → *too many people*.
+
+✅ *There were too many people at the mall.*
+❌ *There were too much people at the mall.*
+
+✅ *This phone is too expensive.*
+❌ *This phone is too much expensive.*
+
+**Проверь себя:** дальше прилагательное → просто *too*. Существительное → *too much* (не посчитаешь) или *too many* (можно посчитать).`,
+      },
+    },
+    {
+      for: ['enough'],
+      rule: {
+        en: `**enough** goes **after** an adjective (*old enough, warm enough*) but **before** a noun (*enough money, enough chairs*). *+ to* + verb: *She's old enough to drive.*`,
+        uk: `**enough** стоїть **після** прикметника (*old enough, warm enough*), але **перед** іменником (*enough money, enough chairs*). *+ to* + дієслово: *She's old enough to drive.*`,
+        ru: `**enough** стоит **после** прилагательного (*old enough, warm enough*), но **перед** существительным (*enough money, enough chairs*). *+ to* + глагол: *She's old enough to drive.*`,
+      },
+      more: {
+        en: `**The idea.** **enough** = «достатньо / достаточно». Its place depends on the word it goes with:
+- **after** an adjective or adverb: *old enough, big enough, warm enough, fast enough*
+- **before** a noun: *enough money, enough chairs, enough time*
+
+Then often **to + verb**: *She's old enough to drive. We don't have enough time to finish.*
+
+Ukrainian and Russian put «достатньо / достаточно» before everything, so people say *enough old* — but in English it follows the adjective.
+
+✅ *She isn't old enough to drive.*
+❌ *She isn't enough old to drive.*
+
+✅ *We don't have enough chairs for everyone.*
+❌ *We don't have chairs enough for everyone.*
+
+**Check yourself:** an adjective → *adjective + enough*. A noun → *enough + noun*.`,
+        uk: `**Суть.** **enough** = «достатньо». Його місце залежить від слова, з яким воно йде:
+- **після** прикметника чи прислівника: *old enough, big enough, warm enough, fast enough*
+- **перед** іменником: *enough money, enough chairs, enough time*
+
+Далі часто **to + дієслово**: *She's old enough to drive. We don't have enough time to finish.*
+
+Українською «достатньо» стоїть перед усім, тому кажуть *enough old* — але англійською воно йде після прикметника.
+
+✅ *She isn't old enough to drive.*
+❌ *She isn't enough old to drive.*
+
+✅ *We don't have enough chairs for everyone.*
+❌ *We don't have chairs enough for everyone.*
+
+**Перевір себе:** прикметник → *прикметник + enough*. Іменник → *enough + іменник*.`,
+        ru: `**Суть.** **enough** = «достаточно». Его место зависит от слова, с которым оно идёт:
+- **после** прилагательного или наречия: *old enough, big enough, warm enough, fast enough*
+- **перед** существительным: *enough money, enough chairs, enough time*
+
+Дальше часто **to + глагол**: *She's old enough to drive. We don't have enough time to finish.*
+
+По-русски «достаточно» стоит перед всем, поэтому говорят *enough old* — но по-английски оно идёт после прилагательного.
+
+✅ *She isn't old enough to drive.*
+❌ *She isn't enough old to drive.*
+
+✅ *We don't have enough chairs for everyone.*
+❌ *We don't have chairs enough for everyone.*
+
+**Проверь себя:** прилагательное → *прилагательное + enough*. Существительное → *enough + существительное*.`,
+      },
+    },
+    {
+      for: ['so-such'],
+      rule: {
+        en: `**so** + adjective / adverb: *It's so cold!* **such** + (*a*) + adjective + noun: *It's such a nice day! They're such good people.* With a result: *It was so hot that we stayed inside.*`,
+        uk: `**so** + прикметник / прислівник: *It's so cold!* **such** + (*a*) + прикметник + іменник: *It's such a nice day! They're such good people.* З наслідком: *It was so hot that we stayed inside.*`,
+        ru: `**so** + прилагательное / наречие: *It's so cold!* **such** + (*a*) + прилагательное + существительное: *It's such a nice day! They're such good people.* Со следствием: *It was so hot that we stayed inside.*`,
+      },
+      more: {
+        en: `**The idea.** **so** and **such** both make things stronger — «такий / такой», «так / настолько» — but they take different words after them:
+- **so** + an adjective alone: *It's so cold! You're so kind. The movie was so long.*
+- **such** + a **noun** (with its adjective): *such a nice day, such a good idea* — with *a / an* for a single thing
+- **such** + adjective + plural or uncountable, no *a*: *such good people, such bad weather*
+
+With a result: *It was **so** hot **that** we stayed inside. It was **such** a hot day **that** we stayed inside.*
+
+✅ *It's such a beautiful day!*
+❌ *It's so beautiful day!*
+
+✅ *Thank you! You're so kind.*
+❌ *Thank you! You're such kind.*
+
+✅ *It was such a good movie.*
+❌ *It was a such good movie.* — *a* comes after *such*
+
+**Check yourself:** is there a noun at the end? → *such (a)*. Only an adjective? → *so*.`,
+        uk: `**Суть.** **so** і **such** обидва підсилюють — «такий», «так / настільки», — але після них ідуть різні слова:
+- **so** + лише прикметник: *It's so cold! You're so kind. The movie was so long.*
+- **such** + **іменник** (зі своїм прикметником): *such a nice day, such a good idea* — з *a / an* для однієї речі
+- **such** + прикметник + множина чи незлічуване, без *a*: *such good people, such bad weather*
+
+З наслідком: *It was so hot that we stayed inside. It was such a hot day that we stayed inside.*
+
+✅ *It's such a beautiful day!*
+❌ *It's so beautiful day!*
+
+✅ *Thank you! You're so kind.*
+❌ *Thank you! You're such kind.*
+
+✅ *It was such a good movie.*
+❌ *It was a such good movie.* — *a* стоїть після *such*
+
+**Перевір себе:** у кінці є іменник? → *such (a)*. Лише прикметник? → *so*.`,
+        ru: `**Суть.** **so** и **such** оба усиливают — «такой», «так / настолько», — но после них идут разные слова:
+- **so** + только прилагательное: *It's so cold! You're so kind. The movie was so long.*
+- **such** + **существительное** (со своим прилагательным): *such a nice day, such a good idea* — с *a / an* для одной вещи
+- **such** + прилагательное + множественное или неисчисляемое, без *a*: *such good people, such bad weather*
+
+Со следствием: *It was so hot that we stayed inside. It was such a hot day that we stayed inside.*
+
+✅ *It's such a beautiful day!*
+❌ *It's so beautiful day!*
+
+✅ *Thank you! You're so kind.*
+❌ *Thank you! You're such kind.*
+
+✅ *It was such a good movie.*
+❌ *It was a such good movie.* — *a* стоит после *such*
+
+**Проверь себя:** в конце есть существительное? → *such (a)*. Только прилагательное? → *so*.`,
+      },
+    },
+    {
+      for: ['ed-ing'],
+      rule: {
+        en: `**-ed** = how a person **feels**: *I'm bored, interested, tired, confused, surprised.* **-ing** = what **causes** the feeling: *The movie is boring. The news is surprising.*`,
+        uk: `**-ed** = що **відчуває** людина: *I'm bored* — «мені нудно», *interested, tired, confused, surprised*. **-ing** = що **викликає** почуття: *The movie is boring* — «фільм нудний». *The news is surprising.*`,
+        ru: `**-ed** = что **чувствует** человек: *I'm bored* — «мне скучно», *interested, tired, confused, surprised*. **-ing** = что **вызывает** чувство: *The movie is boring* — «фильм скучный». *The news is surprising.*`,
+      },
+      more: {
+        en: `**The idea.** These adjectives come in pairs, and the ending tells you **who feels** and **what causes** the feeling:
+- **-ed** = how a **person feels**: *I'm bored. She's tired. We were surprised. Are you interested?*
+- **-ing** = the **thing** (or person) that **causes** the feeling: *The movie is boring. It was a tiring day. The news was surprising.*
+
+The classic mistake: *I'm boring* means «Я нудна / Я скучная» — people find **me** boring. You probably mean *I'm bored* — «Мені нудно / Мне скучно».
+
+✅ *I'm bored. Let's go out.*
+❌ *I'm boring. Let's go out.*
+
+✅ *I'm really interested in history.*
+❌ *I'm really interesting in history.*
+
+✅ *This movie is so boring.*
+❌ *This movie is so bored.*
+
+**Check yourself:** about a person's feelings → *-ed*. About what makes them feel that way → *-ing*.`,
+        uk: `**Суть.** Ці прикметники йдуть парами, і закінчення показує, **хто відчуває** і **що викликає** відчуття:
+- **-ed** = що **людина відчуває**: *I'm bored. She's tired. We were surprised. Are you interested?*
+- **-ing** = **річ** (чи людина), що **викликає** відчуття: *The movie is boring. It was a tiring day. The news was surprising.*
+
+Класична помилка: *I'm boring* означає «Я нудна» — нудно іншим **зі мною**. Мабуть, ти хочеш сказати *I'm bored* — «Мені нудно».
+
+✅ *I'm bored. Let's go out.*
+❌ *I'm boring. Let's go out.*
+
+✅ *I'm really interested in history.*
+❌ *I'm really interesting in history.*
+
+✅ *This movie is so boring.*
+❌ *This movie is so bored.*
+
+**Перевір себе:** про почуття людини → *-ed*. Про те, що їх викликає → *-ing*.`,
+        ru: `**Суть.** Эти прилагательные идут парами, и окончание показывает, **кто чувствует** и **что вызывает** чувство:
+- **-ed** = что **человек чувствует**: *I'm bored. She's tired. We were surprised. Are you interested?*
+- **-ing** = **вещь** (или человек), которая **вызывает** чувство: *The movie is boring. It was a tiring day. The news was surprising.*
+
+Классическая ошибка: *I'm boring* значит «Я скучная» — скучно другим **со мной**. Наверное, ты хочешь сказать *I'm bored* — «Мне скучно».
+
+✅ *I'm bored. Let's go out.*
+❌ *I'm boring. Let's go out.*
+
+✅ *I'm really interested in history.*
+❌ *I'm really interesting in history.*
+
+✅ *This movie is so boring.*
+❌ *This movie is so bored.*
+
+**Проверь себя:** о чувствах человека → *-ed*. О том, что их вызывает → *-ing*.`,
+      },
+    },
+  ],
   examples: ['This coat is too expensive.', "She's old enough to drive.", "It's such a nice day!", "I'm bored. This movie is so boring.", "There were too many people at the store."],
   trap: {
     uk: 'Мені нудно.',

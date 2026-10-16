@@ -5,35 +5,399 @@ APP.addTopic({
   group: 'Tenses',
   icon: '⏳',
   about: 'have / has + 3rd form: experience, news, unfinished time',
-  rule: {
-    en: `**have / has + past participle** (worked, seen, been, gone).
-Use it when the past is connected to **now**:
-- life experience, no time given: *I've been to Chicago. Have you ever tried sushi?*
-- news and results, often with *just, already, yet*: *I've lost my keys* (I don't have them now).
-- a period that is not finished: *today, this week, so far*: *She's called three times today.*
-- *It's the first time I've…*
-Do **not** use it with a finished time (*yesterday, last year, in 2019, ago*) — that is the Past Simple.
-**been or gone?** *She's been to Miami* (she went and came back). *She's gone to Miami* (she is there now).
-In American English, *just, already, yet* often go with the Past Simple: *Did you eat yet? I just finished.* Both are correct.`,
-    uk: `**have / has + третя форма дієслова** (worked, seen, been, gone).
-Вживаємо, коли минуле пов'язане з **теперішнім**:
-- життєвий досвід без вказівки часу: *I've been to Chicago. Have you ever tried sushi?*
-- новини й результат, часто з *just, already, yet*: *I've lost my keys* (ключів у мене зараз немає).
-- період, який ще не закінчився: *today, this week, so far*: *She's called three times today.*
-- *It's the first time I've…* — «це вперше, коли я…»
-**Не** вживаємо із завершеним часом (*yesterday, last year, in 2019, ago*) — там Past Simple.
-**been чи gone?** *She's been to Miami* — була і повернулася. *She's gone to Miami* — поїхала і зараз там.
-В американській англійській з *just, already, yet* часто вживають Past Simple: *Did you eat yet? I just finished.* Обидва варіанти правильні.`,
-    ru: `**have / has + третья форма глагола** (worked, seen, been, gone).
-Используем, когда прошлое связано с **настоящим**:
-- жизненный опыт без указания времени: *I've been to Chicago. Have you ever tried sushi?*
-- новости и результат, часто с *just, already, yet*: *I've lost my keys* (ключей у меня сейчас нет).
-- период, который ещё не закончился: *today, this week, so far*: *She's called three times today.*
-- *It's the first time I've…* — «это первый раз, когда я…»
-**Не** используем с завершённым временем (*yesterday, last year, in 2019, ago*) — там Past Simple.
-**been или gone?** *She's been to Miami* — была и вернулась. *She's gone to Miami* — уехала и сейчас там.
-В американском английском с *just, already, yet* часто используют Past Simple: *Did you eat yet? I just finished.* Оба варианта верны.`,
-  },
+  points: [
+    {
+      for: ['form', 'has-have', 'present'],
+      rule: {
+        en: `**have / has + past participle** (*worked, seen, been, gone*). Use it when the past is connected to **now**.`,
+        uk: `**have / has + третя форма дієслова** (*worked, seen, been, gone*). Вживаємо, коли минуле пов'язане з **теперішнім**.`,
+        ru: `**have / has + третья форма глагола** (*worked, seen, been, gone*). Используем, когда прошлое связано с **настоящим**.`,
+      },
+      more: {
+        en: `**The idea.** The Present Perfect looks at the past **from now**. It doesn't tell a story about *then* — it says how the past matters *now*. That's why it's built with *have* in the present:
+- **have** (*I, you, we, they*) or **has** (*he, she, it*, one person or thing)
+- + the **past participle**, the "3rd form" of the verb
+
+For regular verbs the 3rd form is the same as the past: *work → worked → worked*. Irregular verbs often have a different 3rd form — that's the column to learn: *go → went → gone, see → saw → seen, write → wrote → written, eat → ate → eaten*.
+
+Ukrainian and Russian have no such form; it's usually translated with the past («бачила / видела»), sometimes with the present («знаю її з 2019 / знаю её с 2019»).
+
+✅ *I have seen this movie three times.*
+❌ *I have saw this movie three times.*
+
+✅ *My husband has never tried Mexican food.*
+❌ *My husband have never tried Mexican food.*
+
+**Check yourself:** after *have / has* comes the 3rd form — *seen, gone, eaten, drunk*, not *saw, went, ate, drank*.`,
+        uk: `**Суть.** Present Perfect дивиться на минуле **із сьогодні**. Він не розповідає історію про «тоді» — він каже, що минуле означає **зараз**. Тому він будується з *have* у теперішньому часі:
+- **have** (*I, you, we, they*) або **has** (*he, she, it*, одна людина чи річ)
+- + **третя форма** дієслова
+
+У правильних дієслів третя форма така сама, як минула: *work → worked → worked*. У неправильних вона часто інша — саме цю колонку й треба вчити: *go → went → gone, see → saw → seen, write → wrote → written, eat → ate → eaten*.
+
+В українській такої форми немає; зазвичай її перекладають минулим часом («бачила»), іноді теперішнім («знаю її з 2019»).
+
+✅ *I have seen this movie three times.*
+❌ *I have saw this movie three times.*
+
+✅ *My husband has never tried Mexican food.*
+❌ *My husband have never tried Mexican food.*
+
+**Перевір себе:** після *have / has* — третя форма: *seen, gone, eaten, drunk*, а не *saw, went, ate, drank*.`,
+        ru: `**Суть.** Present Perfect смотрит на прошлое **из сегодня**. Он не рассказывает историю про «тогда» — он говорит, что прошлое значит **сейчас**. Поэтому он строится с *have* в настоящем времени:
+- **have** (*I, you, we, they*) или **has** (*he, she, it*, один человек или предмет)
+- + **третья форма** глагола
+
+У правильных глаголов третья форма такая же, как прошедшая: *work → worked → worked*. У неправильных она часто другая — именно эту колонку и нужно учить: *go → went → gone, see → saw → seen, write → wrote → written, eat → ate → eaten*.
+
+В русском такой формы нет; обычно её переводят прошедшим временем («видела»), иногда настоящим («знаю её с 2019»).
+
+✅ *I have seen this movie three times.*
+❌ *I have saw this movie three times.*
+
+✅ *My husband has never tried Mexican food.*
+❌ *My husband have never tried Mexican food.*
+
+**Проверь себя:** после *have / has* — третья форма: *seen, gone, eaten, drunk*, а не *saw, went, ate, drank*.`,
+      },
+    },
+    {
+      for: ['ps-exp', 'exp'],
+      rule: {
+        en: `life experience, no time given: *I've been to Chicago. Have you ever tried sushi?*`,
+        uk: `життєвий досвід без вказівки часу: *I've been to Chicago. Have you ever tried sushi?*`,
+        ru: `жизненный опыт без указания времени: *I've been to Chicago. Have you ever tried sushi?*`,
+      },
+      more: {
+        en: `**The idea.** "Have you ever…?" means "in your whole life up to now". **When** it happened doesn't matter — only **whether** it happened. That's the Present Perfect:
+- *I've been to Chicago.* — at some point in my life
+- *Have you ever tried sushi?*
+- *She has never driven a truck.*
+- *How many times have you been to New York?*
+
+Typical words: *ever* (in questions), *never, before, once, twice, three times*.
+
+«Я ніколи не була в Каліфорнії / Я никогда не была в Калифорнии» → *I've never been to California.* Note: *been to*, not *was in*.
+
+✅ *I've never been to California.*
+❌ *I never was in California.*
+
+✅ *Have you ever tried Thai food?*
+❌ *Do you ever try Thai food?* — that asks about a habit
+
+As soon as you say **when**, switch to the Past Simple: *I've been to Chicago. I went there in 2019.*
+
+**Check yourself:** "in my life, up to now", no time given → Present Perfect.`,
+        uk: `**Суть.** «Have you ever…?» означає «за все життя досі». **Коли** це сталося — неважливо, важливо лише **чи** сталося. Це Present Perfect:
+- *I've been to Chicago.* — колись у житті
+- *Have you ever tried sushi?*
+- *She has never driven a truck.*
+- *How many times have you been to New York?*
+
+Типові слова: *ever* (у питаннях), *never, before, once, twice, three times*.
+
+«Я ніколи не була в Каліфорнії» → *I've never been to California.* Зверни увагу: *been to*, а не *was in*.
+
+✅ *I've never been to California.*
+❌ *I never was in California.*
+
+✅ *Have you ever tried Thai food?*
+❌ *Do you ever try Thai food?* — це питання про звичку
+
+Щойно називаєш **коли** — переходь на Past Simple: *I've been to Chicago. I went there in 2019.*
+
+**Перевір себе:** «за життя, досі», без часу → Present Perfect.`,
+        ru: `**Суть.** «Have you ever…?» значит «за всю жизнь до сих пор». **Когда** это случилось — неважно, важно только **случилось ли**. Это Present Perfect:
+- *I've been to Chicago.* — когда-то в жизни
+- *Have you ever tried sushi?*
+- *She has never driven a truck.*
+- *How many times have you been to New York?*
+
+Типичные слова: *ever* (в вопросах), *never, before, once, twice, three times*.
+
+«Я никогда не была в Калифорнии» → *I've never been to California.* Обрати внимание: *been to*, а не *was in*.
+
+✅ *I've never been to California.*
+❌ *I never was in California.*
+
+✅ *Have you ever tried Thai food?*
+❌ *Do you ever try Thai food?* — это вопрос о привычке
+
+Как только называешь **когда** — переходи на Past Simple: *I've been to Chicago. I went there in 2019.*
+
+**Проверь себя:** «за жизнь, до сих пор», без времени → Present Perfect.`,
+      },
+    },
+    {
+      for: ['news', 'yet-already'],
+      rule: {
+        en: `news and results, often with *just, already, yet*: *I've lost my keys* (I don't have them now). In American English, *just, already, yet* often go with the Past Simple: *Did you eat yet? I just finished.* Both are correct.`,
+        uk: `новини й результат, часто з *just, already, yet*: *I've lost my keys* (ключів у мене зараз немає). В американській англійській з *just, already, yet* часто вживають Past Simple: *Did you eat yet? I just finished.* Обидва варіанти правильні.`,
+        ru: `новости и результат, часто с *just, already, yet*: *I've lost my keys* (ключей у меня сейчас нет). В американском английском с *just, already, yet* часто используют Past Simple: *Did you eat yet? I just finished.* Оба варианта верны.`,
+      },
+      more: {
+        en: `**The idea.** The Present Perfect gives **news**: something happened, and the **result** is here now. What matters is the present situation:
+- *I've lost my keys.* → I don't have them now.
+- *She's cut her finger.* → it's bleeding now.
+- *They've arrived!* → they're here.
+
+Small words that often come with it:
+- **just** = a moment ago: *I've just finished.*
+- **already** = sooner than expected, in positive sentences: *I've already sent it.*
+- **yet** = up to now, in questions and negatives, at the end: *Have you finished yet? Not yet.*
+- **still** + a negative, before the verb: *I still haven't heard from him.*
+
+**American English** often uses the Past Simple for fresh news: *I just lost my keys. Did you eat yet?* Both are correct.
+
+✅ *Oh no, I've lost my phone!*
+❌ *Oh no, I lose my phone!*
+
+✅ *She hasn't finished her homework yet.*
+❌ *She hasn't finished her homework already.*
+
+**Check yourself:** is it news, and does the result matter now? → *have / has + 3rd form*.`,
+        uk: `**Суть.** Present Perfect повідомляє **новину**: щось сталося, і **результат** є зараз. Важлива теперішня ситуація:
+- *I've lost my keys.* → їх зараз немає.
+- *She's cut her finger.* → палець зараз кровить.
+- *They've arrived!* → вони вже тут.
+
+Маленькі слова, що часто йдуть з ним:
+- **just** = щойно: *I've just finished.*
+- **already** = вже, раніше, ніж чекали, у стверджувальних реченнях: *I've already sent it.*
+- **yet** = досі, у питаннях і запереченнях, у кінці: *Have you finished yet? Not yet.*
+- **still** + заперечення, перед дієсловом: *I still haven't heard from him.*
+
+**Американська англійська** часто бере Past Simple для свіжих новин: *I just lost my keys. Did you eat yet?* Обидва варіанти правильні.
+
+✅ *Oh no, I've lost my phone!*
+❌ *Oh no, I lose my phone!*
+
+✅ *She hasn't finished her homework yet.*
+❌ *She hasn't finished her homework already.*
+
+**Перевір себе:** це новина, і результат важливий зараз? → *have / has + третя форма*.`,
+        ru: `**Суть.** Present Perfect сообщает **новость**: что-то случилось, и **результат** есть сейчас. Важна нынешняя ситуация:
+- *I've lost my keys.* → их сейчас нет.
+- *She's cut her finger.* → палец сейчас кровоточит.
+- *They've arrived!* → они уже здесь.
+
+Маленькие слова, которые часто идут с ним:
+- **just** = только что: *I've just finished.*
+- **already** = уже, раньше, чем ждали, в утвердительных предложениях: *I've already sent it.*
+- **yet** = до сих пор, в вопросах и отрицаниях, в конце: *Have you finished yet? Not yet.*
+- **still** + отрицание, перед глаголом: *I still haven't heard from him.*
+
+**Американский английский** часто берёт Past Simple для свежих новостей: *I just lost my keys. Did you eat yet?* Оба варианта правильные.
+
+✅ *Oh no, I've lost my phone!*
+❌ *Oh no, I lose my phone!*
+
+✅ *She hasn't finished her homework yet.*
+❌ *She hasn't finished her homework already.*
+
+**Проверь себя:** это новость, и результат важен сейчас? → *have / has + третья форма*.`,
+      },
+    },
+    {
+      for: ['period-ps', 'period'],
+      rule: {
+        en: `a period that is not finished: *today, this week, so far*: *She's called three times today.*`,
+        uk: `період, який ще не закінчився: *today, this week, so far*: *She's called three times today.*`,
+        ru: `период, который ещё не закончился: *today, this week, so far*: *She's called three times today.*`,
+      },
+      more: {
+        en: `**The idea.** Look at the time period. If it is **not over yet**, use the Present Perfect:
+- *today, this week, this month, this year, so far*
+- *She's called three times today.* — today isn't over; she may call again
+- *I've had three coffees so far.*
+
+If the period is over, use the Past Simple: *She called three times yesterday.*
+
+*This morning* depends on the clock: at 10 a.m. *I've drunk two coffees this morning*; at 4 p.m. *I drank two coffees this morning*.
+
+✅ *I've written three emails this week.*
+❌ *I write three emails this week.*
+
+✅ *How many coffees have you had today?*
+❌ *How many coffees do you have today?*
+
+**Check yourself:** can the number still grow — today, this week? → Present Perfect.`,
+        uk: `**Суть.** Подивись на період часу. Якщо він **ще не закінчився**, вживай Present Perfect:
+- *today, this week, this month, this year, so far*
+- *She's called three times today.* — день ще не скінчився, вона може подзвонити ще
+- *I've had three coffees so far.*
+
+Якщо період закінчився — Past Simple: *She called three times yesterday.*
+
+*This morning* залежить від годинника: о 10 ранку *I've drunk two coffees this morning*; о 4 дня *I drank two coffees this morning*.
+
+✅ *I've written three emails this week.*
+❌ *I write three emails this week.*
+
+✅ *How many coffees have you had today?*
+❌ *How many coffees do you have today?*
+
+**Перевір себе:** число ще може зрости — сьогодні, цього тижня? → Present Perfect.`,
+        ru: `**Суть.** Посмотри на период времени. Если он **ещё не закончился**, используй Present Perfect:
+- *today, this week, this month, this year, so far*
+- *She's called three times today.* — день ещё не кончился, она может позвонить ещё
+- *I've had three coffees so far.*
+
+Если период закончился — Past Simple: *She called three times yesterday.*
+
+*This morning* зависит от часов: в 10 утра *I've drunk two coffees this morning*; в 4 дня *I drank two coffees this morning*.
+
+✅ *I've written three emails this week.*
+❌ *I write three emails this week.*
+
+✅ *How many coffees have you had today?*
+❌ *How many coffees do you have today?*
+
+**Проверь себя:** число ещё может вырасти — сегодня, на этой неделе? → Present Perfect.`,
+      },
+    },
+    {
+      for: ['first-time', 'first'],
+      rule: {
+        en: `*It's the first time I've…*`,
+        uk: `*It's the first time I've…* — «це вперше, коли я…»`,
+        ru: `*It's the first time I've…* — «это первый раз, когда я…»`,
+      },
+      more: {
+        en: `**The idea.** After **It's / This is the first (second, third…) time** English uses the Present Perfect: you count your experiences up to now.
+- *It's the first time I've seen snow.*
+- *This is the second time she's called today.*
+
+In Ukrainian and Russian it's the present: «Я вперше бачу сніг / Я впервые вижу снег» — so people say *I see* or *I'm seeing*. English counts "how many times up to now?" → Present Perfect.
+
+✅ *This is the first time I've flown business class.*
+❌ *This is the first time I fly business class.*
+
+✅ *It's the first time we've been here.*
+❌ *It's the first time we are here.*
+
+**Check yourself:** *the first / the second time* → then *I've / she's + 3rd form*.`,
+        uk: `**Суть.** Після **It's / This is the first (second, third…) time** англійська вживає Present Perfect: ти рахуєш свій досвід досі.
+- *It's the first time I've seen snow.*
+- *This is the second time she's called today.*
+
+Українською тут теперішній час: «Я вперше бачу сніг» — тому кажуть *I see* чи *I'm seeing*. Англійська рахує «скільки разів досі?» → Present Perfect.
+
+✅ *This is the first time I've flown business class.*
+❌ *This is the first time I fly business class.*
+
+✅ *It's the first time we've been here.*
+❌ *It's the first time we are here.*
+
+**Перевір себе:** *the first / the second time* → далі *I've / she's + третя форма*.`,
+        ru: `**Суть.** После **It's / This is the first (second, third…) time** английский использует Present Perfect: ты считаешь свой опыт до сих пор.
+- *It's the first time I've seen snow.*
+- *This is the second time she's called today.*
+
+По-русски здесь настоящее время: «Я впервые вижу снег» — поэтому говорят *I see* или *I'm seeing*. Английский считает «сколько раз до сих пор?» → Present Perfect.
+
+✅ *This is the first time I've flown business class.*
+❌ *This is the first time I fly business class.*
+
+✅ *It's the first time we've been here.*
+❌ *It's the first time we are here.*
+
+**Проверь себя:** *the first / the second time* → дальше *I've / she's + третья форма*.`,
+      },
+    },
+    {
+      for: ['finished'],
+      rule: {
+        en: `Do **not** use it with a finished time (*yesterday, last year, in 2019, ago*) — that is the Past Simple.`,
+        uk: `**Не** вживаємо із завершеним часом (*yesterday, last year, in 2019, ago*) — там Past Simple.`,
+        ru: `**Не** используем с завершённым временем (*yesterday, last year, in 2019, ago*) — там Past Simple.`,
+      },
+      more: {
+        en: `**The idea.** This is the one strict rule: the Present Perfect **never** goes with a finished time. If you say or mean **when** — *yesterday, last week, in 2021, two years ago, when I was a child* — use the Past Simple:
+- *We bought this house in 2021.*
+- *I saw him yesterday.*
+
+The Present Perfect looks from now and doesn't say when. A finished time cuts the connection with now.
+
+✅ *We moved to Texas in 2022.*
+❌ *We have moved to Texas in 2022.*
+
+✅ *I lost my keys yesterday.*
+❌ *I have lost my keys yesterday.*
+
+**Check yourself:** is there a finished time, or a *When…?* question? → Past Simple, always.`,
+        uk: `**Суть.** Це єдине суворе правило: Present Perfect **ніколи** не йде із закінченим часом. Якщо ти називаєш чи маєш на увазі **коли** — *yesterday, last week, in 2021, two years ago, when I was a child* — вживай Past Simple:
+- *We bought this house in 2021.*
+- *I saw him yesterday.*
+
+Present Perfect дивиться із сьогодні і не каже, коли. Закінчений час розриває зв'язок із «зараз».
+
+✅ *We moved to Texas in 2022.*
+❌ *We have moved to Texas in 2022.*
+
+✅ *I lost my keys yesterday.*
+❌ *I have lost my keys yesterday.*
+
+**Перевір себе:** є закінчений час або питання *When…?* → Past Simple, завжди.`,
+        ru: `**Суть.** Это единственное строгое правило: Present Perfect **никогда** не идёт с законченным временем. Если ты называешь или имеешь в виду **когда** — *yesterday, last week, in 2021, two years ago, when I was a child* — используй Past Simple:
+- *We bought this house in 2021.*
+- *I saw him yesterday.*
+
+Present Perfect смотрит из сегодня и не говорит, когда. Законченное время разрывает связь с «сейчас».
+
+✅ *We moved to Texas in 2022.*
+❌ *We have moved to Texas in 2022.*
+
+✅ *I lost my keys yesterday.*
+❌ *I have lost my keys yesterday.*
+
+**Проверь себя:** есть законченное время или вопрос *When…?* → Past Simple, всегда.`,
+      },
+    },
+    {
+      for: ['been-gone', 'gone'],
+      rule: {
+        en: `**been or gone?** *She's been to Miami* (she went and came back). *She's gone to Miami* (she is there now).`,
+        uk: `**been чи gone?** *She's been to Miami* — була і повернулася. *She's gone to Miami* — поїхала і зараз там.`,
+        ru: `**been или gone?** *She's been to Miami* — была и вернулась. *She's gone to Miami* — уехала и сейчас там.`,
+      },
+      more: {
+        en: `**The idea.** *go* has two 3rd forms in the Present Perfect, with different meanings:
+- **has been to** = went there and **came back**: *She's been to Miami twice.* — she's home now; it's her experience
+- **has gone to** = went there and **is still there** or on the way: *Where's Mark? — He's gone to the store.* — he isn't here
+
+✅ *Lisa isn't here. She's gone home.*
+❌ *Lisa isn't here. She's been home.*
+
+✅ *I've been to Paris three times.*
+❌ *I've gone to Paris three times.*
+
+**Check yourself:** is the person back? → *been*. Still away? → *gone*.`,
+        uk: `**Суть.** У *go* в Present Perfect дві третіх форми з різним значенням:
+- **has been to** = їздив(ла) туди і **повернувся(-лася)**: *She's been to Miami twice.* — вона вдома; це її досвід
+- **has gone to** = поїхав(ла) і **досі там** або в дорозі: *Where's Mark? — He's gone to the store.* — його тут немає
+
+✅ *Lisa isn't here. She's gone home.*
+❌ *Lisa isn't here. She's been home.*
+
+✅ *I've been to Paris three times.*
+❌ *I've gone to Paris three times.*
+
+**Перевір себе:** людина повернулася? → *been*. Досі не тут? → *gone*.`,
+        ru: `**Суть.** У *go* в Present Perfect две третьих формы с разным значением:
+- **has been to** = ездил(а) туда и **вернулся(-лась)**: *She's been to Miami twice.* — она дома; это её опыт
+- **has gone to** = уехал(а) и **всё ещё там** или в пути: *Where's Mark? — He's gone to the store.* — его здесь нет
+
+✅ *Lisa isn't here. She's gone home.*
+❌ *Lisa isn't here. She's been home.*
+
+✅ *I've been to Paris three times.*
+❌ *I've gone to Paris three times.*
+
+**Проверь себя:** человек вернулся? → *been*. Всё ещё не здесь? → *gone*.`,
+      },
+    },
+  ],
   examples: ["I've never been to California.", 'Have you ever worked at night?', "She's called the school three times this week.", "It's the first time I've driven on a highway.", "He's gone to the store. He'll be back soon."],
   trap: {
     uk: 'Я ніколи не була в Каліфорнії.',
