@@ -88,7 +88,7 @@ for (const T of C.topics) {
       need(Array.isArray(p.for) && p.for.length, where(`point ${n + 1} needs "for"`));
       for (const l of LANGS) need(p.rule && p.rule[l] && !p.rule[l].includes('\n'), where(`point ${n + 1}: rule in ${l} (one line)`));
       for (const l of LANGS) need(p.more && p.more[l] && p.more[l].length > ((p.rule && p.rule[l]) || '').length, where(`point ${n + 1}: explanation in ${l}`));
-      for (const l of LANGS) for (const x of [p.rule, p.more]) need(!APP.i18n.fmt((x && x[l]) || '').includes('*'), where(`point ${n + 1}: unpaired * in ${l}`));
+      for (const l of LANGS) for (const x of [p.rule, p.more]) need(APP.i18n.marksOk(x && x[l]), where(`point ${n + 1}: ** / * do not pair up in ${l}`));
       for (const k of p.for || []) {
         need(keys.includes(k), where(`point ${n + 1}: "${k}" is not a pattern or an error of the topic`));
         need(!seen[k], where(`"${k}" is in two points`));
@@ -101,6 +101,9 @@ for (const T of C.topics) {
   need(T.trap && T.trap.uk && T.trap.ru && T.trap.wrong && T.trap.right, where('trap'));
   for (const l of LANGS) need(T.trap && T.trap.note && T.trap.note[l], where('trap note in ' + l));
   for (const [id, e] of Object.entries(T.errors)) for (const l of LANGS) need(e[l], where(`error ${id} in ${l}`));
+  // **bold** and *italic* pair up in every text (an unpaired one would run to the end of the line)
+  const texts = [['rule', T.rule], ['trap note', T.trap && T.trap.note]].concat(Object.entries(T.errors).map(([id, e]) => ['error ' + id, e]));
+  for (const [name, x] of texts) for (const l of LANGS) need(APP.i18n.marksOk(x && x[l]), where(`${name}: ** / * do not pair up in ${l}`));
   const used = new Set();
   for (const it of T.items) checkItem(it, (s) => where(`${it.t} "${it.p || it.uk || it.a[0]}": ${s}`)).forEach((e) => used.add(e));
   for (const id of Object.keys(T.errors)) need(used.has(id), where(`error ${id} is never used`));
@@ -124,6 +127,7 @@ for (const D of C.scenes) {
   need(['A2', 'B1', 'B2', 'C1'].includes(D.level), where('level'));
   for (const l of LANGS) need(D.intro && D.intro[l], where('intro in ' + l));
   for (const l of LANGS) need(D.tip && D.tip[l], where('tip in ' + l));
+  for (const k of ['intro', 'tip']) for (const l of LANGS) need(APP.i18n.marksOk(D[k] && D[k][l]), where(`${k}: ** / * do not pair up in ${l}`));
   need(D.phrases && D.phrases.length >= 4, where('at least 4 phrases'));
   (D.phrases || []).forEach((ph, i) => LANGS.forEach((l) => need(ph[l], where(`phrase ${i + 1} in ${l}`))));
   need(D.lines.length >= 8, where('at least 8 lines'));
@@ -151,6 +155,7 @@ for (const it of C.facts) {
   for (const e of [it.e, ...Object.values(it.w)]) need(e.startsWith(it.topic + ':'), w('error ' + e + ' is not an error of ' + it.topic));
   need(THEME_IDS.includes(it.theme), w('theme ' + it.theme));
   for (const l of LANGS) need(it.fact && it.fact[l], w('fact detail in ' + l));
+  for (const l of LANGS) need(APP.i18n.marksOk(it.fact && it.fact[l]), w('fact detail: ** / * do not pair up in ' + l));
 }
 for (const T of C.topics) { const n = C.facts.filter((it) => it.topic === T.id).length; need(n >= 2, `${T.id}: at least 2 facts (has ${n})`); }
 for (const th of THEME_IDS) { const n = C.facts.filter((it) => it.theme === th).length; need(n >= 25, `facts: theme ${th} needs at least 25 (has ${n})`); }
