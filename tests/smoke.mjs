@@ -69,6 +69,29 @@ ok(!(await page.isVisible('.trb .l1 >> nth=0')), 'translation is hidden at first
 await page.click('.trbtn >> nth=0');
 ok(await page.isVisible('.trb .l1 >> nth=0') && (await page.textContent('.trb .l1 >> nth=0')).includes('Используем'), '🌐 shows the Russian translation');
 
+// A topic whose rule is split into points: a cheat sheet, a tap on a line opens its explanation (with 🌐)
+await page.click('[data-act=go][data-arg=topics]');
+await page.click('[data-act=go][data-arg="topic:quant"]');
+ok((await page.locator('.rule .point').count()) === 6 && !(await page.isVisible('.point .trb.more')), 'the rule is a cheat sheet of 6 closed points');
+await page.click('.point >> nth=3 >> summary');
+ok(await page.isVisible('.point >> nth=3 >> .trb.more') && (await page.textContent('.point >> nth=3 >> .trb.more .en')).includes('only one'), 'a tap on a point opens its explanation');
+ok(await page.isVisible('.point >> nth=3 >> .xc') && !(await page.isVisible('.point >> nth=3 >> .xo')), 'the point offers "Hide"');
+await page.click('.point >> nth=3 >> .trbtn');
+ok((await page.textContent('.point >> nth=3 >> .l1')).includes('только одно'), '🌐 translates the explanation');
+ok(!(await page.isVisible('.rule.points > .trb > .l1')), 'the cheat sheet translation stays hidden');
+await page.click('.rule.points > .trb > .trbtn');
+ok((await page.textContent('.rule.points > .trb > .l1')).includes('Исчисляемые'), '🌐 under the list translates the cheat sheet');
+// "Why?" with a point opens that point, and the whole rule from there
+await page.evaluate(() => document.body.insertAdjacentHTML('beforeend', '<button id="why-test" data-act="ruleModal" data-arg="quant:3">why</button>'));
+await page.click('#why-test');
+ok((await page.textContent('#modal .points.solo')).includes('only one') && (await page.isVisible('#modal .trb.more .en')), '"Why?" opens one point, explained');
+await page.click('#modal [data-act=ruleModal][data-arg=quant]');
+ok((await page.locator('#modal .point').count()) === 6, '"All rules of the topic" shows the cheat sheet');
+await page.click('#modal [data-act=closeModal]');
+await page.evaluate(() => document.getElementById('why-test').remove());
+await page.click('[data-act=go][data-arg=topics]');
+await page.click('[data-act=go][data-arg="topic:pp"]');
+
 // A lesson: one mistake, then right answers
 // Choosing a tier at the bottom of the page: the page does not jump to the top, the button follows the choice
 await page.locator('.tierpick').scrollIntoViewIfNeeded();

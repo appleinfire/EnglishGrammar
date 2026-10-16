@@ -308,6 +308,12 @@
       <p class="bad">❌ ${esc(T.trap.wrong)}</p><p class="good">✅ ${esc(T.trap.right)} ${speakBtn(T.trap.right)}</p>
       ${I.block(T.trap.note)}</div>`;
   }
+  // The rule of a topic. With points: a cheat sheet of short lines, a tap on a line opens its longer explanation
+  // (with its own 🌐), and one 🌐 under the list translates the cheat sheet. Without points: one block.
+  function ruleHtml(T, tag) {
+    if (!T.points) return `<${tag} class="rule">${I.block(T.rule)}</${tag}>`;
+    return `<${tag} class="rule points">${T.points.map((p) => `<details class="point"><summary><span class="ptext">${I.inline(p.rule.en)}</span><span class="xp"><span class="xo">Explain ▾</span><span class="xc">Hide ▴</span></span></summary>${I.block(p.more, 'more')}</details>`).join('')}<div class="trb">${I.tr(T.rule)}</div></${tag}>`;
+  }
   function topic(id) {
     const T = C.byId[id];
     if (!T) return topics();
@@ -318,7 +324,7 @@
       <div class="cols">
         <div class="col">
           <p class="muted">${esc(T.level)} · ${esc(T.group)}</p>
-          <section class="rule">${I.block(T.rule)}</section>
+          ${ruleHtml(T, 'section')}
           <section class="examples"><h2>Examples</h2><ul>${T.examples.map((e) => `<li>${speakBtn(e)} <span>${esc(e)}</span></li>`).join('')}</ul></section>
           ${trapHtml(T)}
         </div>
@@ -618,7 +624,7 @@
         ${speakBtn(right, '🔊 Listen')}${speakBtn(right, '🐢 Slow', true)}
         ${V.canRecord ? '<button class="iconbtn sm" data-act="recMe" id="recbtn">🎙 Say it yourself</button><button class="iconbtn sm" data-act="playMe" id="playme" hidden>▶ Me</button>' : ''}
         ${I.gtLink(right)}
-        <button class="linkbtn" data-act="ruleModal" data-arg="${it.topic}">Why? Rule</button>
+        <button class="linkbtn" data-act="ruleModal" data-arg="${whyArg(it, j.ok ? null : rec.err)}">Why? Rule</button>
       </div>`;
     if (!j.ok && free) html += '<button class="linkbtn override" data-act="override">My answer was right too</button>';
     html += '</div>';
@@ -775,7 +781,7 @@
     const top = Object.entries(st.errors).filter(([e, n]) => n > 0 && C.error(e)).sort((a, b) => b[1] - a[1]).slice(0, 8);
     render(header('My mistakes') + `<main class="mistakes">
       ${top.length ? `<p class="muted">The types of mistakes you make most often. Practice one, and its sentences come back in Review until they stick.</p>
-        ${top.map(([e, n]) => { const E = C.error(e), T = C.byId[E.topic]; return `<section class="errcard"><p class="muted">${T.icon} ${esc(T.title)} · <b>${n}×</b></p>${I.block(E)}<button class="btn ghost" data-act="drill" data-arg="${e}">Practice this</button></section>`; }).join('')}`
+        ${top.map(([e, n]) => { const E = C.error(e), T = C.byId[E.topic], P = C.errorPoint(e); return `<section class="errcard"><p class="muted">${T.icon} ${esc(T.title)} · <b>${n}×</b></p>${I.block(E)}<div class="row left"><button class="btn ghost" data-act="drill" data-arg="${e}">Practice this</button>${P ? `<button class="btn ghost" data-act="ruleModal" data-arg="${P.topic}:${P.n}">Explain</button>` : ''}</div></section>`; }).join('')}`
         : '<p class="lead">No mistakes yet. They will show up here, grouped by type, with a button to practice each one.</p>'}
       ${st.recent.length ? `<section><h2>Recent mistakes</h2>${st.recent.slice(0, 15).map((m) => { const it = C.itemById[m.id]; if (!it) return ''; const r = C.sentence(it); return `<div class="mrow"><p class="good">✅ ${esc(r)} ${speakBtn(r)}</p><p class="bad">❌ ${esc(X.asSentence({ it, mode: 'type' }, m.g) || '—')}</p></div>`; }).join('')}</section>` : ''}
     </main>`);
@@ -914,9 +920,16 @@
       <p class="muted">The PIN is not stored on devices. If you forget it, create a new family on this device: the ${WORD}s here move into it.</p>
       <button class="btn ghost" data-act="famDisconnect">${ui.discArmed ? 'Tap again to disconnect this device' : 'Disconnect this device'}</button></section>`;
   }
-  function ruleModal(id) {
+  // "Why?": 'topic:n' opens one point of the rule with its explanation, 'topic' the whole rule.
+  const whyArg = (it, err) => { const P = C.explain(it, err); return P ? P.topic + ':' + P.n : it.topic; };
+  function ruleModal(arg) {
+    const [id, n] = String(arg).split(':');
     const T = C.byId[id];
-    modal(`<h2>${T.icon} ${esc(T.title)}</h2><div class="rule">${I.block(T.rule)}</div><div class="row"><button class="btn" data-act="closeModal">Close</button></div>`);
+    const P = n != null && T.points ? T.points[+n] : null;
+    if (P) return modal(`<h2>${T.icon} ${esc(T.title)}</h2>
+      <div class="rule points solo"><p class="ptext">${I.inline(P.rule.en)}</p>${I.block(P.more, 'more')}</div>
+      <div class="row"><button class="btn ghost" data-act="ruleModal" data-arg="${id}">All rules of the topic</button><button class="btn" data-act="closeModal">Close</button></div>`);
+    modal(`<h2>${T.icon} ${esc(T.title)}</h2>${ruleHtml(T, 'div')}<div class="row"><button class="btn" data-act="closeModal">Close</button></div>`);
   }
 
   // ---------------------------------------------------------------- routing
