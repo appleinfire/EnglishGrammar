@@ -140,6 +140,10 @@
     const E = C.errors[err];
     return E ? C.point(E.topic, E.id.slice(E.topic.length + 1)) : null;
   };
-  // What "Why?" explains after an exercise: the mistake she made, else the pattern the exercise trains.
-  C.explain = (it, err) => (err && C.errorPoint(err)) || C.point(it.topic, it.pt) || (it.e && C.errorPoint(it.e)) || null;
+  // What "Why?" explains after an exercise: the mistake she made, else the type of mistake the exercise is about
+  // (when it is of the same topic: more precise than the pattern), else the pattern it trains.
+  C.explain = (it, err) => {
+    const own = it.e && C.errors[it.e] && C.errors[it.e].topic === it.topic ? C.errorPoint(it.e) : null;
+    return (err && C.errorPoint(err)) || own || C.point(it.topic, it.pt) || (it.e && C.errorPoint(it.e)) || null;
+  };
 })();
