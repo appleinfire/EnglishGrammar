@@ -388,9 +388,9 @@ Fix it by making the right person the subject, or by using a full clause:
     { t: 'fill', pt: 'reduced', l: 1, p: 'Anyone ___ (want) to join the trip should sign up by Friday.', a: 'wanting', w: { wants: 'reduced', 'who wanting': 'reduced', wanted: 'ing' }, e: 'reduced' },
     { t: 'fill', pt: 'ed', l: 1, p: 'The money ___ (raise) at the event will go to the school.', a: 'raised', w: { raising: 'ed', 'is raised': 'reduced' }, e: 'ed' },
     { t: 'fill', pt: 'conj', l: 1, p: 'While ___ (wait) for the bus, I called my mom.', a: 'waiting', w: { wait: 'conj', waited: 'conj' }, e: 'conj' },
-    { t: 'build', pt: 'ing', l: 1, a: 'Feeling nervous, she called her sister.', x: ['felt'], e: 'ing' },
+    { t: 'build', pt: 'ing', l: 1, a: ['Feeling nervous, she called her sister.', 'She called her sister, feeling nervous.'], x: ['felt'], e: 'ing' },
     { t: 'build', pt: 'reduced', l: 1, a: 'The man standing at the door is my boss.', x: ['who'], e: 'reduced' },
-    { t: 'build', pt: 'ed', l: 1, a: 'Written in simple English, the book is easy to read.', x: ['writing'], e: 'ed' },
+    { t: 'build', pt: 'ed', l: 1, a: ['Written in simple English, the book is easy to read.', 'The book, written in simple English, is easy to read.'], x: ['writing'], e: 'ed' },
 
     // ---------- Use
     { t: 'fill', pt: 'having', l: 2, p: '___ (lose) her job, she decided to start her own business.', a: 'Having lost', w: { Lost: 'having', 'Having losing': 'having' }, e: 'having' },
@@ -399,8 +399,8 @@ Fix it by making the right person the subject, or by using a full clause:
     { t: 'fill', pt: 'ing', l: 2, p: 'Not ___ (know) what to do, I called the police.', a: 'knowing', w: { known: 'ing', 'to know': 'ing', know: 'ing' }, e: 'ing' },
     { t: 'fill', pt: 'conj', l: 2, p: "Since ___ (move) here, we've made a lot of friends.", a: ['moving', 'we moved'], w: { moved: 'conj', 'to move': 'conj' }, e: 'conj' },
     { t: 'fill', pt: 'having', l: 2, p: '___ (not / receive) a reply, I sent another email.', a: ['Not having received', 'Having not received'], w: { 'Not received': 'having', "Didn't receive": 'having' }, e: 'having' },
-    { t: 'build', pt: 'having', l: 2, a: 'Having lived abroad, she understands other cultures.', x: ['living'], e: 'having' },
-    { t: 'build', pt: 'conj', l: 2, a: 'After finishing work, I picked up the kids.', x: ['finished'], e: 'conj' },
+    { t: 'build', pt: 'having', l: 2, a: ['Having lived abroad, she understands other cultures.', 'She understands other cultures, having lived abroad.'], x: ['living'], e: 'having' },
+    { t: 'build', pt: 'conj', l: 2, a: ['After finishing work, I picked up the kids.', 'I picked up the kids after finishing work.', 'After finishing work, I picked the kids up.', 'I picked the kids up after finishing work.'], x: ['finished'], e: 'conj' },
     { t: 'fix', pt: 'dangling', l: 2, p: 'Walking to the store, the rain started.', a: ['Walking to the store, I got caught in the rain.', 'While I was walking to the store, the rain started.', 'While I was walking to the store, it started to rain.', 'While I was walking to the store, it started raining.', 'As I was walking to the store, the rain started.', 'As I was walking to the store, it started to rain.', 'When I was walking to the store, it started to rain.'], e: 'dangling' },
     { t: 'fix', pt: 'ed', l: 2, p: 'Building in 1920, the church is the oldest in town.', a: ['Built in 1920, the church is the oldest in town.'], e: 'ed' },
     { t: 'fix', pt: 'conj', l: 2, p: 'Before to sign the contract, read it carefully.', a: ['Before signing the contract, read it carefully.', 'Before you sign the contract, read it carefully.'], e: 'conj' },

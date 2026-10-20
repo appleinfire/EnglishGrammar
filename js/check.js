@@ -69,6 +69,8 @@
     }
     return { len: L[0][0], mx, my };
   }
+  K.lcs = lcs;
+  K.eq = eq;
   K.sameTokens = (x, y) => x.length === y.length && x.every((t, i) => eq(t, y[i]));
 
   // Words that voice recognition often gets wrong; in spoken answers a difference only here is "close".

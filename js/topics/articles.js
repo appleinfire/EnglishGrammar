@@ -475,9 +475,9 @@ American English has its own habits with some places: *in **the** hospital, go t
     { t: 'fill', pt: 'the-known', l: 1, p: "What's ___ name of your doctor?", a: 'the', w: { a: 'a-the' }, e: 'a-the' },
     { t: 'fill', pt: 'phrases', l: 1, p: 'I go to the gym three times ___ week.', a: ['a', 'per', 'each', 'every'], w: { the: 'phrases', in: 'phrases' }, e: 'phrases' },
     { t: 'fill', pt: 'phrases', l: 1, p: "I'll call you in ___ morning.", a: 'the', w: { a: 'phrases' }, e: 'phrases' },
-    { t: 'build', pt: 'general', l: 1, a: 'Coffee is more expensive than tea here.', x: ['the'], e: 'general' },
+    { t: 'build', pt: 'general', l: 1, a: ['Coffee is more expensive than tea here.', 'Here coffee is more expensive than tea.'], x: ['the'], e: 'general' },
     { t: 'build', pt: 'a-first', l: 1, a: 'My husband is an engineer.', x: ['the'], e: 'no-a' },
-    { t: 'build', pt: 'places', l: 1, a: 'I usually walk to work.', x: ['the'], e: 'places' },
+    { t: 'build', pt: 'places', l: 1, a: ['I usually walk to work.', 'Usually I walk to work.'], x: ['the'], e: 'places' },
 
     // ---------- Use
     { t: 'fill', pt: 'the-known', l: 2, p: "There's ___ new restaurant on our street. ___ food there is great.", a: 'a|The', w: { 'the|The': 'a-the', 'a|A': 'a-the' }, e: 'a-the' },

@@ -403,9 +403,9 @@ The main part counts the time up to now: Present Perfect, or *It's been…*:
     { t: 'fill', pt: 'howlong', l: 1, p: 'How long ___ you ___ (have) your dog?', a: 'have|had', w: { 'do|have': 'howlong', 'did|have': 'howlong' }, e: 'howlong' },
     { t: 'fill', pt: 'ago', l: 1, p: 'We met five years ___.', a: 'ago', w: { before: 'ago', since: 'ago' }, e: 'ago' },
     { t: 'fill', pt: 'during', l: 1, p: 'I fell asleep ___ the movie.', a: 'during', w: { for: 'during', while: 'during' }, e: 'during' },
-    { t: 'build', pt: 'since', l: 1, a: "I have been here since nine o'clock.", x: ['for'], e: 'since-for' },
+    { t: 'build', pt: 'since', l: 1, a: ["I have been here since nine o'clock.", "Since nine o'clock I have been here."], x: ['for'], e: 'since-for' },
     { t: 'build', pt: 'howlong', l: 1, a: 'How long have you been waiting?', x: ['do'], e: 'howlong' },
-    { t: 'build', pt: 'ago', l: 1, a: 'She called an hour ago.', x: ['before'], e: 'ago' },
+    { t: 'build', pt: 'ago', l: 1, a: ['She called an hour ago.', 'An hour ago she called.'], x: ['before'], e: 'ago' },
 
     // ---------- Use
     { t: 'fill', pt: 'clause', l: 2, p: "It's been two years since we ___ (move) to Arizona.", a: 'moved', w: { 'have moved': 'since-clause', move: 'since-clause' }, e: 'since-clause' },
@@ -416,7 +416,7 @@ The main part counts the time up to now: Present Perfect, or *It's been…*:
     { t: 'fill', pt: 'since', l: 2, p: "I haven't been to the gym ___ the summer.", a: 'since', w: { for: 'since-for', from: 'since-for', during: 'during' }, e: 'since-for' },
     { t: 'fill', pt: 'clause', l: 2, p: "It's been ages ___ we last talked!", a: 'since', w: { for: 'since-for', when: 'since-for' }, e: 'since-clause' },
     { t: 'fill', pt: 'during', l: 2, p: "We'll be in Kyiv ___ two weeks in August.", a: 'for', w: { during: 'during', since: 'since-for' }, e: 'during' },
-    { t: 'build', pt: 'clause', l: 2, a: 'It has been three months since I started.', x: ['for', 'have'], e: 'since-clause' },
+    { t: 'build', pt: 'clause', l: 2, a: ['It has been three months since I started.', 'Since I started, it has been three months.'], x: ['for', 'have'], e: 'since-clause' },
     { t: 'fix', pt: 'for', l: 2, p: 'I am in this country for three years.', a: ["I've been in this country for three years."], e: 'tense' },
     { t: 'fix', pt: 'howlong', l: 2, p: 'How long do you live in Texas?', a: ['How long have you lived in Texas?', 'How long have you been living in Texas?'], e: 'howlong' },
     { t: 'fix', pt: 'ago', l: 2, p: 'I came to America before two years.', a: ['I came to America two years ago.'], e: 'ago' },

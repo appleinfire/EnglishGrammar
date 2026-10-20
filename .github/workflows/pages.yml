@@ -31,6 +31,7 @@ jobs:
           node tests/shell.test.js
           node tests/content.test.js
           node tests/check.test.js
+          node tests/diagnose.test.js
           node tests/srs.test.js
           node tests/level.test.js
           node tests/report.test.js

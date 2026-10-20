@@ -87,7 +87,7 @@
     if (cur.mode === 'dict') {
       const sentences = all.map((a) => C.sentence(it, a));
       const r = K.check(given, sentences);
-      return Object.assign(r, { right: r.ok ? r.best : sentences[0], american: false });
+      return Object.assign(r, { right: r.best || sentences[0], american: false });
     }
     if (it.t === 'choose') {
       const ok = it.a.includes(given);
@@ -105,7 +105,10 @@
           return { ok: true, typo, best: a, american: american(a), right: C.sentence(it, a) };
         }
       }
-      return { ok: false, best: it.a[0], right: C.sentence(it, it.a[0]) };
+      // compared with the right answer closest to hers
+      const near = K.check(X.asSentence(cur, given), it.a.map((a) => C.sentence(it, a)));
+      const best = it.a.find((a) => C.sentence(it, a) === near.best) || it.a[0];
+      return { ok: false, best, right: C.sentence(it, best) };
     }
     // From the 🎙 button (and not edited since): try every version the recognizer heard, exact matches first;
     // then forgive what recognition often mishears (articles, endings). Saying the wrong sentence of a "fix"
@@ -123,7 +126,7 @@
       if (r) break;
     }
     if (!r) r = K.check(given, all);
-    const best = r.ok ? r.best : it.a[0];
+    const best = r.best || it.a[0]; // when wrong: the right answer closest to hers
     return Object.assign(r, { best, american: r.ok && american(r.best), right: best });
   };
 

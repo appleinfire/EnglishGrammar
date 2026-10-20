@@ -231,6 +231,12 @@ textarea.field { resize: vertical; }
 .cmp .del { background: var(--bad-soft); color: var(--bad); text-decoration: line-through; border-radius: 4px; padding: 0 3px; }
 .cmp .ins { background: var(--good-soft); color: var(--good); font-weight: 700; border-radius: 4px; padding: 0 3px; }
 .why { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line); }
+.fixgroup + .fixgroup { margin-top: 12px; }
+.fixline { margin: 0 0 4px; font-weight: 600; }
+.fixline del { color: var(--bad); }
+.fixline i { font-weight: 400; }
+.fixline b { color: var(--good); }
+.okpart { margin: 0 0 8px; color: var(--good); font-weight: 600; }
 .note { font-size: 0.92rem; color: var(--ink-soft); }
 .tools { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 12px; }
 .gt { font-size: 0.88rem; font-weight: 600; }

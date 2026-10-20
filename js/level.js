@@ -237,12 +237,12 @@
   }
 
   // ---------------------------------------------------------------- answers
-  // Which mistake a wrong answer is: a known wrong answer of this item, else the item's usual mistake.
-  L.errorOf = (it, given) => {
-    const g = K.tokens(given);
-    for (const [ans, err] of Object.entries(it.w)) if (K.sameTokens(g, K.tokens(ans))) return err;
-    return it.e;
-  };
+  // What exactly is wrong in a wrong answer (APP.diag): how = { right, mode } (the right sentence it is compared
+  // with, and 'dict' when she typed what she heard).
+  L.diagnose = (it, given, how = {}) => APP.diag.diagnose(it, given, how.right, how.mode);
+  // Which mistake a wrong answer is: a known wrong answer of this item, else the mistake her answer shows — the
+  // item's usual one when it is in what the exercise trains; null when nothing is known about it.
+  L.errorOf = (it, given, how) => L.diagnose(it, given, how).err;
   // The day's entry of the weekly-report log (kept for 120 days).
   L.LOG_DAYS = 120;
   L.dayLog = (st, day = U.dateKey()) => {
@@ -255,7 +255,7 @@
     return st.log[day];
   };
   // Record one answer in the profile: totals, the topic, the card, the type of mistake, recent mistakes.
-  L.record = (st, it, ok, given, day = U.dateKey()) => {
+  L.record = (st, it, ok, given, day = U.dateKey(), how) => {
     st.stats.answers++;
     if (ok) st.stats.correct++;
     const t = topicState(st, it.topic);
@@ -269,18 +269,19 @@
     if (ok) lg.r[it.topic] = (lg.r[it.topic] || 0) + 1;
     if (fixed) lg.f++;
     if (learned) lg.l++;
-    let err = null, newFact = false;
+    let err = null, newFact = false, diag = null;
     if (ok && it.fact) {
       st.facts = st.facts || {};
       if (!st.facts[it.id]) { st.facts[it.id] = day; newFact = true; }
     }
     if (!ok) {
-      err = L.errorOf(it, given);
+      diag = L.diagnose(it, given, how);
+      err = diag.err;
       if (err) { st.errors[err] = (st.errors[err] || 0) + 1; lg.e[err] = (lg.e[err] || 0) + 1; }
       st.recent.unshift({ id: it.id, g: String(given).slice(0, 200), d: day });
       st.recent = st.recent.slice(0, 40);
     }
-    return { err, fixed, newFact };
+    return { err, fixed, newFact, diag };
   };
   // Adapt the tier of a lesson (or of the topic, in Endless) after an answer. Returns +1, -1 or 0.
   L.adapt = (sess, ok, it) => {
@@ -298,9 +299,9 @@
     if (sess.miss >= 2 && sess.tier > 1) { sess.tier--; sess.run = 0; sess.miss = 0; return -1; }
     return 0;
   };
-  L.answer = (sess, st, it, ok, given, day) => {
+  L.answer = (sess, st, it, ok, given, day, how) => {
     const tier = sess.mode === 'lesson' ? sess.tier : it.l;
-    const rec = L.record(st, it, ok, given, day);
+    const rec = L.record(st, it, ok, given, day, how);
     if (sess.mode === 'endless' && sess.tiers[it.topic] == null) sess.tiers[it.topic] = sess.from[it.topic] = L.tier(st, it.topic);
     sess.log.push({ id: it.id, ok, given, tier, err: rec.err, newFact: rec.newFact });
     sess.prevStreak = sess.streak || 0;

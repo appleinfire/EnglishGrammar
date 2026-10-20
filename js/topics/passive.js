@@ -439,7 +439,7 @@ Some verbs can't be passive at all, because nobody "does" them to anything: **ha
     { t: 'fill', pt: 'modal', l: 2, p: "Children under 12 can't ___ (leave) home alone.", a: 'be left', w: { leave: 'active-passive', 'be leave': 'participle', left: 'be-missing' }, e: 'be-missing' },
     { t: 'fill', pt: 'present', l: 2, p: 'Sorry, the elevator ___ (repair) right now.', a: 'is being repaired', w: { 'is repaired': 'tense-be', 'is repairing': 'active-passive', repaired: 'be-missing' }, e: 'tense-be' },
     { t: 'fill', pt: 'past', l: 2, p: 'When ___ the Statue of Liberty ___ (build)?', a: 'was|built', w: { 'did|build': 'active-passive', 'was|build': 'participle', 'is|built': 'tense-be' }, e: 'tense-be' },
-    { t: 'build', pt: 'have-done', l: 2, a: 'I had my nails done yesterday.', x: ['did'], e: 'have-done' },
+    { t: 'build', pt: 'have-done', l: 2, a: ['I had my nails done yesterday.', 'Yesterday I had my nails done.'], x: ['did'], e: 'have-done' },
     { t: 'fix', pt: 'past', l: 2, p: 'The package delivered yesterday.', a: ['The package was delivered yesterday.'], e: 'be-missing' },
     { t: 'fix', pt: 'past', l: 2, p: 'The windows were broke during the storm.', a: ['The windows were broken during the storm.'], e: 'participle' },
     { t: 'fix', pt: 'born', l: 2, p: 'My daughter born in 2019.', a: ['My daughter was born in 2019.'], e: 'born' },

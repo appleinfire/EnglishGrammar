@@ -382,9 +382,9 @@ Words like **now, today, still** in the result are a good sign it's this mix.
     { t: 'fill', pt: 'mixed-now', l: 1, p: "If she hadn't moved to Texas, she ___ (be) here now.", a: 'would be', w: { 'would have been': 'mixed-now', was: 'mixed-now' }, e: 'mixed-now' },
     { t: 'fill', pt: 'third', l: 1, p: "What would you have done if you ___ (be) in my place?", a: 'had been', w: { were: 'third', 'would have been': 'if-would' }, e: 'third' },
     { t: 'fill', pt: 'mixed-past', l: 1, p: "If I ___ (not / be) so shy, I would have talked to him.", a: ["weren't", "wasn't"], w: { "hadn't been": 'mixed-past', "wouldn't be": 'if-would' }, e: 'mixed-past', n: '*shy* is true about you in general, so the past simple: *If I weren\'t so shy…* (*If I hadn\'t been so shy* is also possible about that one moment.)' },
-    { t: 'build', pt: 'third', l: 1, a: 'If I had known, I would have come.', x: ['would'], e: 'third' },
+    { t: 'build', pt: 'third', l: 1, a: ['If I had known, I would have come.', 'I would have come if I had known.'], x: ['would'], e: 'third' },
     { t: 'build', pt: 'form', l: 1, a: 'She would have loved this place.', x: ['of'], e: 'form' },
-    { t: 'build', pt: 'mixed-now', l: 1, a: 'If I had saved money, I would be rich now.', x: ['have'], e: 'mixed-now' },
+    { t: 'build', pt: 'mixed-now', l: 1, a: ['If I had saved money, I would be rich now.', 'I would be rich now if I had saved money.', 'I would now be rich if I had saved money.'], x: ['have'], e: 'mixed-now' },
 
     // ---------- Use
     { t: 'fill', pt: 'third', l: 2, p: 'If the doctor ___ (see) her earlier, she ___ (not / need) surgery.', a: ["had seen|wouldn't have needed", 'had seen|would not have needed'], w: { "saw|wouldn't need": 'third', "would have seen|wouldn't have needed": 'if-would', "had seen|wouldn't need": 'third' }, e: 'third' },

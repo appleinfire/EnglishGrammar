@@ -344,9 +344,9 @@ Don't mix the two halves: *If I find…, I'd…* doesn't work.
     { t: 'fill', pt: 'were', l: 1, p: "If I ___ (be) you, I wouldn't sign it.", a: 'were', am: 'was', w: { am: 'were', 'would be': 'if-would' }, e: 'were' },
     { t: 'fill', pt: 'unless', l: 1, p: "You can't park here ___ you have a permit.", a: 'unless', w: { if: 'unless' }, e: 'unless' },
     { t: 'fill', pt: 'first', l: 1, p: "I'll be angry if you ___ (not / call) me.", a: "don't call", w: { "won't call": 'if-will', "didn't call": 'real-unreal' }, e: 'if-will' },
-    { t: 'build', pt: 'first', l: 1, a: 'If it is sunny, we will go to the beach.', x: ['would'], e: 'first-form' },
-    { t: 'build', pt: 'second', l: 1, a: 'If I had time, I would help you.', x: ['will'], e: 'second-form' },
-    { t: 'build', pt: 'were', l: 1, a: 'If I were you, I would wait.', x: ['am'], e: 'were' },
+    { t: 'build', pt: 'first', l: 1, a: ['If it is sunny, we will go to the beach.', 'We will go to the beach if it is sunny.'], x: ['would'], e: 'first-form' },
+    { t: 'build', pt: 'second', l: 1, a: ['If I had time, I would help you.', 'I would help you if I had time.'], x: ['will'], e: 'second-form' },
+    { t: 'build', pt: 'were', l: 1, a: ['If I were you, I would wait.', 'I would wait if I were you.'], x: ['am'], e: 'were' },
 
     // ---------- Use
     { t: 'fill', pt: 'real-unreal', l: 2, p: "If I ___ (find) your keys, I'll let you know.", a: 'find', w: { found: 'real-unreal', 'will find': 'if-will' }, e: 'real-unreal' },
@@ -357,7 +357,7 @@ Don't mix the two halves: *If I find…, I'd…* doesn't work.
     { t: 'fill', pt: 'were', l: 2, p: "I wouldn't do that if I ___ (be) you.", a: ['were', 'was'], w: { am: 'were', 'would be': 'if-would' }, e: 'were' },
     { t: 'fill', pt: 'first', l: 2, p: "What will you do if they ___ (not / give) you the job?", a: "don't give", w: { "won't give": 'if-will', "didn't give": 'real-unreal', "doesn't give": 'first-form' }, e: 'if-will' },
     { t: 'fill', pt: 'second', l: 2, p: 'If you could live anywhere, where ___ you live?', a: 'would', w: { will: 'real-unreal', do: 'second-form', did: 'second-form' }, e: 'second-form' },
-    { t: 'build', pt: 'unless', l: 2, a: "I won't go unless you come with me.", x: ["don't"], e: 'unless' },
+    { t: 'build', pt: 'unless', l: 2, a: ["I won't go unless you come with me.", "Unless you come with me, I won't go."], x: ["don't"], e: 'unless' },
     { t: 'fix', pt: 'first', l: 2, p: 'If you will be late, text me.', a: ["If you're late, text me.", "If you're going to be late, text me."], e: 'if-will' },
     { t: 'fix', pt: 'second', l: 2, p: 'If I would have a car, I would drive to work.', a: ['If I had a car, I would drive to work.', "If I had a car, I'd drive to work."], e: 'if-would' },
     { t: 'fix', pt: 'second', l: 2, p: 'If I know the answer, I would tell you.', a: ['If I knew the answer, I would tell you.'], e: 'second-form' },

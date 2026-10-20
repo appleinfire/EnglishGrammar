@@ -352,7 +352,7 @@ The classic mistake: *I'm boring* means «Я нудна / Я скучная» �
     { t: 'fill', pt: 'enough', l: 1, p: "Is the room warm ___ for the baby?", a: 'enough', w: { too: 'enough' }, e: 'enough' },
     { t: 'fill', pt: 'so-such', l: 1, p: "They're ___ nice people!", a: 'such', w: { so: 'so-such', 'such a': 'so-such' }, e: 'so-such' },
     { t: 'fill', pt: 'ed-ing', l: 1, p: 'The instructions were really ___ (confuse).', a: 'confusing', w: { confused: 'ed-ing' }, e: 'ed-ing' },
-    { t: 'build', pt: 'too', l: 1, a: "It's too cold to swim today.", x: ['very'], e: 'too' },
+    { t: 'build', pt: 'too', l: 1, a: ["It's too cold to swim today.", "Today it's too cold to swim."], x: ['very'], e: 'too' },
     { t: 'build', pt: 'enough', l: 1, a: 'We have enough time for coffee.', x: ['too'], e: 'enough' },
     { t: 'build', pt: 'ed-ing', l: 1, a: "I'm bored. Let's go out.", x: ['boring'], e: 'ed-ing' },
 

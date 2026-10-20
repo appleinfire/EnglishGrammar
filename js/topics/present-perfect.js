@@ -475,7 +475,7 @@ Present Perfect смотрит из сегодня и не говорит, ко�
     { t: 'fill', pt: 'first', l: 1, p: "It's the first time we ___ (fly) business class.", a: 'have flown', w: { fly: 'first-time', flew: 'first-time', 'have flew': 'form', 'are flying': 'first-time' }, e: 'first-time' },
     { t: 'build', pt: 'exp', l: 1, a: 'Have you ever been to Canada?', x: ['did'], e: 'ps-exp' },
     { t: 'build', pt: 'news', l: 1, a: "I haven't finished it yet.", x: ['already'], e: 'yet-already' },
-    { t: 'build', pt: 'period', l: 1, a: 'She has called me twice this week.', x: ['calls'], e: 'period-ps' },
+    { t: 'build', pt: 'period', l: 1, a: ['She has called me twice this week.', 'This week she has called me twice.'], x: ['calls'], e: 'period-ps' },
 
     // ---------- Use
     { t: 'fill', pt: 'period', l: 2, p: 'How many times ___ you ___ (call) the insurance company this month?', a: 'have|called', w: { 'did|call': 'period-ps', 'have|call': 'form' }, e: 'period-ps' },

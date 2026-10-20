@@ -2,7 +2,7 @@
 // The profile picker, family sync and save code come from the family app shell (appleinfire/Math templates/app-shell).
 (function () {
   const APP = globalThis.APP, U = APP.U, S = APP.store, CFG = APP.CONFIG;
-  const C = APP.content, L = APP.level, R = APP.srs, I = APP.i18n, V = APP.voice, X = APP.ex, K = APP.check, W = APP.report;
+  const C = APP.content, L = APP.level, R = APP.srs, I = APP.i18n, V = APP.voice, X = APP.ex, K = APP.check, W = APP.report, D = APP.diag;
   const esc = U.esc;
   const WORD = CFG.profileWord;
   const Word = WORD[0].toUpperCase() + WORD.slice(1);
@@ -579,7 +579,7 @@
     const j = X.judge(c, given);
     // Keep what the card and counters looked like, so "My answer was right too" can undo the mistake.
     sess.snap = { card: st.cards[R.key(it)] ? JSON.parse(JSON.stringify(st.cards[R.key(it)])) : null, recentLen: st.recent.length };
-    const rec = L.answer(sess, st, it, j.ok, given);
+    const rec = L.answer(sess, st, it, j.ok, given, undefined, { right: j.right, mode: c.mode });
     S.tally(j.ok);
     addTime();
     S.save();
@@ -614,8 +614,7 @@
       html += `<p class="verdict">❌ Not quite</p>
         <p class="cmp"><small>You</small>${d.given.map((x) => `<span class="${x.bad ? 'del' : ''}">${esc(x.w)}</span>`).join(' ') || '—'}</p>
         <p class="cmp"><small>Right</small>${d.right.map((x) => `<span class="${x.bad ? 'ins' : ''}">${esc(x.w)}</span>`).join(' ')}</p>`;
-      const err = C.error(rec.err);
-      if (err) html += `<div class="why">${I.block(err)}</div>`;
+      html += mistakeHtml(rec.diag, rec.err);
       if (it.a.length > 1 && free) html += `<p class="muted">Also right: ${it.a.slice(1, 3).map((a) => '<i>' + esc(a) + '</i>').join(' · ')}</p>`;
     }
     if (it.n) html += `<div class="why">${I.block({ en: it.n })}</div>`;
@@ -636,6 +635,22 @@
     fb.innerHTML = html + nextBtn;
     if (window.matchMedia && !window.matchMedia('(min-width: 900px)').matches) fb.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     $('#nextbtn').focus({ preventScroll: true });
+  }
+  // What to fix and why: each fix in one line, under it the reason (a type of mistake of a topic, or a general note);
+  // fixes with the same reason share it. Her mistake in what the exercise trains comes first; when that part was
+  // right, she is told so, and only the real mistake is explained.
+  const FIX = { bad: (x) => `<del>${esc(x)}</del>`, good: (x) => `<b>${esc(x)}</b>`, at: (x) => `<i>${esc(x)}</i>` };
+  function mistakeHtml(d, err) {
+    if (!d || !d.ops.length) return C.error(err) ? `<div class="why">${I.block(C.error(err))}</div>` : '';
+    const groups = [];
+    for (const op of d.ops.slice().sort((a, b) => (b.key ? 1 : 0) - (a.key ? 1 : 0))) {
+      const why = D.reason(op);
+      const id = op.err || JSON.stringify(why);
+      let gr = groups.find((x) => x.id === id);
+      if (!gr) groups.push((gr = { id, why, lines: [] }));
+      gr.lines.push(D.fixLine(op, FIX));
+    }
+    return `<div class="why">${d.own ? '' : '<p class="okpart">✓ What this exercise trains is right. The mistake is elsewhere:</p>'}${groups.map((gr) => `<div class="fixgroup">${gr.lines.map((l) => `<p class="fixline">✏️ ${l}</p>`).join('')}${I.block(gr.why)}</div>`).join('')}</div>`;
   }
   // The 🎙 button: speech to text into the answer field. She sees what was heard and can edit it before Check.
   const MIC_ERR = {
