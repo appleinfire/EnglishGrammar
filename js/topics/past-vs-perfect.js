@@ -361,7 +361,7 @@ Don't confuse it with:
     { t: 'fill', pt: 'when', l: 1, p: '___ you ___ (watch) the game on Sunday?', a: 'Did|watch', w: { 'Have|watched': 'pp-finished', 'Did|watched': 'pp-finished' }, e: 'pp-finished' },
     { t: 'choose', pt: 'details', l: 1, p: "I've been to Japan. I ___ there in 2018.", a: 'went', o: ['have gone', 'have been'], w: { 'have gone': 'details', 'have been': 'details' }, e: 'details' },
     { t: 'build', pt: 'ago', l: 1, a: 'We moved here two years ago.', x: ['have', 'before'], e: 'ago-for' },
-    { t: 'build', pt: 'still', l: 1, a: 'I have known her since 2019.', x: ['knew'], e: 'ps-unfinished' },
+    { t: 'build', pt: 'still', l: 1, a: ['I have known her since 2019.', 'Since 2019 I have known her.'], x: ['knew'], e: 'ps-unfinished' },
     { t: 'build', pt: 'q-when', l: 1, a: 'When did you buy this car?', x: ['have'], e: 'when-pp' },
 
     // ---------- Use
@@ -373,7 +373,7 @@ Don't confuse it with:
     { t: 'fill', pt: 'still', l: 2, p: 'How long ___ you ___ (have) this car? — Since 2021.', a: 'have|had', w: { 'did|have': 'ps-unfinished', 'do|have': 'ps-unfinished' }, e: 'ps-unfinished' },
     { t: 'fill', pt: 'still', l: 2, p: 'I ___ (not / see) my parents for two years. The last time was in 2023.', a: ["haven't seen", "haven't been seeing"], w: { "didn't see": 'ps-unfinished', "don't see": 'ps-unfinished' }, e: 'ps-unfinished' },
     { t: 'build', pt: 'q-when', l: 2, a: 'Where did you find it?', x: ['have', 'found'], e: 'when-pp' },
-    { t: 'build', pt: 'over', l: 2, a: 'He worked there for five years.', x: ['ago'], e: 'over' },
+    { t: 'build', pt: 'over', l: 2, a: ['He worked there for five years.', 'For five years he worked there.'], x: ['ago'], e: 'over' },
     { t: 'fix', pt: 'when', l: 2, p: 'I have met him in 2020.', a: 'I met him in 2020.', e: 'pp-finished' },
     { t: 'fix', pt: 'q-when', l: 2, p: 'When have you arrived in the US?', a: 'When did you arrive in the US?', e: 'when-pp' },
     { t: 'fix', pt: 'still', l: 2, p: 'I live in this apartment since 2021.', a: ["I've lived in this apartment since 2021.", "I've been living in this apartment since 2021."], e: 'ps-unfinished' },

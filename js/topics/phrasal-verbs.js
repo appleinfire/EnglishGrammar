@@ -356,7 +356,7 @@ Irregular verbs keep their irregular forms: *give → gave*, *run → ran*, *tak
     { t: 'fill', pt: 'insep', l: 2, p: 'I came ___ an old photo of my grandparents.', a: 'across', w: { over: 'insep', through: 'insep' }, e: 'insep' },
     { t: 'fill', pt: 'pronoun', l: 2, p: "I didn't understand the instructions, so I asked the nurse to go over ___ again.", a: 'them', w: { it: 'pronoun' }, e: 'insep', n: '*go over* (= check, explain again) does not split: *go over them*.' },
     { t: 'fill', pt: 'three', l: 2, p: 'We ran out ___ gas on the highway.', a: 'of', w: { off: 'three', from: 'three' }, e: 'three' },
-    { t: 'build', pt: 'pronoun', l: 2, a: "I'll call her back in ten minutes.", x: ['to'], e: 'pronoun' },
+    { t: 'build', pt: 'pronoun', l: 2, a: ["I'll call her back in ten minutes.", "In ten minutes I'll call her back."], x: ['to'], e: 'pronoun' },
     { t: 'fix', pt: 'pronoun', l: 2, p: 'I found my keys. I picked up them from the floor.', a: ['I found my keys. I picked them up from the floor.', 'I found my keys. I picked them up off the floor.'], e: 'pronoun' },
     { t: 'fix', pt: 'particle', l: 2, p: 'Please fill in this application online and send it.', a: ['Please fill out this application online and send it.', 'Please fill this application out online and send it.'], e: 'particle', n: 'American English says *fill out a form*; British English often says *fill in*.' },
     { t: 'fix', pt: 'insep', l: 2, p: 'My neighbor looks the cat after when we travel.', a: ['My neighbor looks after the cat when we travel.'], e: 'insep' },

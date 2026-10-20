@@ -382,7 +382,7 @@ A number means you're counting finished things, and finished things take the Sim
     { t: 'fill', pt: 'howlong', l: 1, p: 'How long ___ you ___ (wait)?', a: 'have|been waiting', w: { 'are|waiting': 'tense', 'did|wait': 'tense', 'have|waiting': 'form' }, e: 'tense' },
     { t: 'fill', pt: 'duration', l: 1, p: 'My son ___ (learn) to swim since June.', a: 'has been learning', w: { 'is learning': 'tense', learns: 'tense', 'have been learning': 'pp:has-have' }, e: 'tense' },
     { t: 'fill', pt: 'result', l: 1, p: 'I ___ (finish) my homework. Can I go out now?', a: 'have finished', am: 'finished', w: { 'have been finishing': 'result', 'am finishing': 'result' }, e: 'result' },
-    { t: 'build', pt: 'duration', l: 1, a: 'We have been living here since May.', x: ['are'], e: 'tense' },
+    { t: 'build', pt: 'duration', l: 1, a: ['We have been living here since May.', 'Since May we have been living here.'], x: ['are'], e: 'tense' },
     { t: 'build', pt: 'evidence', l: 1, a: 'Have you been running?', x: ['did'], e: 'evidence' },
     { t: 'build', pt: 'howlong', l: 1, a: 'How long has she been working here?', x: ['is'], e: 'tense' },
 
@@ -395,7 +395,7 @@ A number means you're counting finished things, and finished things take the Sim
     { t: 'fill', pt: 'evidence', l: 2, p: 'The ground is wet. It ___ (rain).', a: 'has been raining', am: 'rained', w: { 'is raining': 'evidence', rains: 'evidence' }, e: 'evidence' },
     { t: 'fill', pt: 'duration', l: 2, p: "I'm so tired. I ___ (not / sleep) well lately.", a: ["haven't been sleeping", "haven't slept"], w: { "don't sleep": 'tense', "am not sleeping": 'tense', "didn't sleep": 'tense' }, e: 'tense' },
     { t: 'fill', pt: 'duration', l: 2, p: '___ she ___ (feel) better since the operation?', a: ['Has|been feeling', 'Has|felt'], w: { 'Is|feeling': 'tense', 'Does|feel': 'tense', 'Has|feeling': 'form' }, e: 'tense' },
-    { t: 'build', pt: 'result', l: 2, a: 'I have been cleaning the house all day.', x: ['cleaned'], e: 'result' },
+    { t: 'build', pt: 'result', l: 2, a: ['I have been cleaning the house all day.', 'All day I have been cleaning the house.'], x: ['cleaned'], e: 'result' },
     { t: 'fix', pt: 'form', l: 2, p: 'I have been work here since 2022.', a: ['I have been working here since 2022.'], e: 'form' },
     { t: 'fix', pt: 'duration', l: 2, p: "I am waiting for you since 6 o'clock!", a: ["I have been waiting for you since 6 o'clock!", "I've been waiting for you since six o'clock!"], e: 'tense' },
     { t: 'fix', pt: 'stative', l: 2, p: 'I have been knowing him for ages.', a: ['I have known him for ages.'], e: 'stative' },

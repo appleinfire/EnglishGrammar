@@ -433,8 +433,8 @@ The trap: «для того, щоб / для того, чтобы» makes people
     { t: 'fill', pt: 'despite', l: 1, p: 'Despite ___ (be) tired, she finished the report.', a: 'being', w: { be: 'although-despite', she: 'although-despite' }, e: 'although-despite' },
     { t: 'fill', pt: 'because-of', l: 1, p: 'The school is closed today ___ of the snow.', a: 'because', w: { since: 'because-of', as: 'because-of' }, e: 'because-of' },
     { t: 'fill', pt: 'purpose', l: 1, p: 'We moved to the US ___ give our kids a better future.', a: ['to', 'in order to'], w: { for: 'purpose', 'for to': 'purpose' }, e: 'purpose' },
-    { t: 'build', pt: 'double', l: 1, a: 'Although she was tired, she cooked dinner.', x: ['but'], e: 'double' },
-    { t: 'build', pt: 'despite', l: 1, a: 'Despite the traffic, we arrived on time.', x: ['of'], e: 'despite-of' },
+    { t: 'build', pt: 'double', l: 1, a: ['Although she was tired, she cooked dinner.', 'She cooked dinner although she was tired.'], x: ['but'], e: 'double' },
+    { t: 'build', pt: 'despite', l: 1, a: ['Despite the traffic, we arrived on time.', 'We arrived on time despite the traffic.'], x: ['of'], e: 'despite-of' },
     { t: 'build', pt: 'purpose', l: 1, a: 'I called the clinic to make an appointment.', x: ['for'], e: 'purpose' },
 
     // ---------- Use
@@ -446,7 +446,7 @@ The trap: «для того, щоб / для того, чтобы» makes people
     { t: 'fill', pt: 'result', l: 2, p: 'We took a taxi ___ it was raining hard.', a: ['because', 'since', 'as'], w: { so: 'result' }, e: 'result' },
     { t: 'fill', pt: 'although', l: 2, p: "She speaks English very well, ___ she's only been here a year.", a: ['although', 'even though', 'though'], w: { despite: 'although-despite', however: 'however' }, e: 'although-despite' },
     { t: 'fill', pt: 'despite', l: 2, p: 'He kept working despite ___ (have) a fever.', a: 'having', w: { have: 'although-despite', 'he had': 'although-despite' }, e: 'although-despite' },
-    { t: 'build', pt: 'because-of', l: 2, a: 'We stayed home because of the storm.', x: ['so'], e: 'because-of' },
+    { t: 'build', pt: 'because-of', l: 2, a: ['We stayed home because of the storm.', 'Because of the storm, we stayed home.'], x: ['so'], e: 'because-of' },
     { t: 'fix', pt: 'double', l: 2, p: 'Although he was tired, but he came to the party.', a: ['Although he was tired, he came to the party.', 'He was tired, but he came to the party.'], e: 'double' },
     { t: 'fix', pt: 'despite', l: 2, p: 'Despite of the cold, the kids played outside.', a: ['Despite the cold, the kids played outside.', 'In spite of the cold, the kids played outside.'], e: 'despite-of' },
     { t: 'fix', pt: 'because-of', l: 2, p: 'I was late because the traffic.', a: ['I was late because of the traffic.'], e: 'because-of' },

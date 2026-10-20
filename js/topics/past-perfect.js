@@ -356,7 +356,7 @@ In a story about the past, everything moves one step back: *have → had*.
     { t: 'fill', pt: 'order', l: 1, p: 'She opened the door, ___ (turn) on the light and screamed.', a: 'turned', w: { 'had turned': 'in-order' }, e: 'in-order' },
     { t: 'fill', pt: 'form', l: 1, p: '___ you ___ (meet) him before the interview?', a: ['Had|met', 'Did|meet'], w: { 'Had|meet': 'form', 'Have|met': 'have-had' }, e: 'form' },
     { t: 'fill', pt: 'earlier', l: 1, p: 'The train ___ (already / leave) when we got to the station.', a: 'had already left', w: { 'already left': 'earlier', 'has already left': 'have-had' }, e: 'earlier' },
-    { t: 'build', pt: 'earlier', l: 1, a: 'The movie had already started when we arrived.', x: ['has'], e: 'earlier' },
+    { t: 'build', pt: 'earlier', l: 1, a: ['The movie had already started when we arrived.', 'When we arrived, the movie had already started.'], x: ['has'], e: 'earlier' },
     { t: 'build', pt: 'never', l: 1, a: 'I had never been to a baseball game before.', x: ['have'], e: 'have-had' },
     { t: 'build', pt: 'order', l: 1, a: 'She finished her coffee and left.', x: ['had'], e: 'in-order' },
 
@@ -369,7 +369,7 @@ In a story about the past, everything moves one step back: *have → had*.
     { t: 'fill', pt: 'never', l: 2, p: 'It was the first time I ___ (drive) on a highway.', a: 'had driven', w: { drove: 'by-time', 'have driven': 'have-had', 'had drove': 'form' }, e: 'by-time' },
     { t: 'fill', pt: 'form', l: 2, p: 'The kitchen was clean because my husband ___ (do) the dishes.', a: 'had done', w: { did: 'earlier', 'had did': 'form', 'has done': 'have-had' }, e: 'form' },
     { t: 'fill', pt: 'earlier', l: 2, p: 'We were late because we ___ (miss) the bus.', a: 'had missed', w: { missed: 'earlier', 'have missed': 'have-had' }, e: 'earlier' },
-    { t: 'build', pt: 'by-time', l: 2, a: 'By the time I called, she had already left.', x: ['has'], e: 'by-time' },
+    { t: 'build', pt: 'by-time', l: 2, a: ['By the time I called, she had already left.', 'She had already left by the time I called.'], x: ['has'], e: 'by-time' },
     { t: 'fix', pt: 'form', l: 2, p: 'When I got home, my son had went to bed.', a: ['When I got home, my son had gone to bed.'], e: 'form' },
     { t: 'fix', pt: 'have-had', l: 2, p: 'When we arrived, the store has already closed.', a: ['When we arrived, the store had already closed.'], e: 'have-had' },
     { t: 'fix', pt: 'order', l: 2, p: 'I had woken up, had made coffee and had checked my email.', a: ['I woke up, made coffee and checked my email.'], e: 'in-order' },

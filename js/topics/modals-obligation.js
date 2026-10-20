@@ -377,7 +377,7 @@ Like all modal verbs: no *to* after it, no *-s*, no *do*: *he should go, she sho
     { t: 'fill', pt: 'should', l: 1, p: 'You ___ (not / drink) coffee before bed.', a: "shouldn't drink", w: { "don't should drink": 'form', "shouldn't to drink": 'form' }, e: 'form' },
     { t: 'build', pt: 'form', l: 1, a: 'You must sign this form.', x: ['to'], e: 'form' },
     { t: 'build', pt: 'dont-have', l: 1, a: "You don't have to bring anything.", x: ["mustn't"], e: 'dont-have' },
-    { t: 'build', pt: 'can-could', l: 1, a: "I couldn't find my keys this morning.", x: ["can't"], e: 'can-could' },
+    { t: 'build', pt: 'can-could', l: 1, a: ["I couldn't find my keys this morning.", "This morning I couldn't find my keys."], x: ["can't"], e: 'can-could' },
 
     // ---------- Use
     { t: 'fill', pt: 'have-to', l: 2, p: '___ she ___ (have to) take the test again?', a: 'Does|have to', w: { 'Has|to': 'have-to-form', 'Must|have to': 'have-to-form', 'Does|has to': 'have-to-form' }, e: 'have-to-form' },

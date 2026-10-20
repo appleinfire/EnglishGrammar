@@ -401,7 +401,7 @@ Other slips: *had* instead of *have*, the 2nd form instead of the 3rd, or no *ha
     { t: 'fill', pt: 'supposed', l: 2, p: "You ___ (not / supposed / park) here. It's a fire lane.", a: ["aren't supposed to park", 'are not supposed to park', "'re not supposed to park"], w: { "don't supposed to park": 'supposed', 'not supposed to park': 'supposed', "aren't suppose to park": 'supposed' }, e: 'supposed' },
     { t: 'fill', pt: 'would', l: 2, p: "Too bad she couldn't come. She ___ (would / love) the party.", a: 'would have loved', w: { 'would love': 'would', 'would have love': 'form' }, e: 'would' },
     { t: 'fill', pt: 'need', l: 2, p: 'It was a holiday, so I ___ (not / have / go) to work.', a: ["didn't have to go", 'did not have to go', "didn't need to go"], w: { "mustn't go": 'need', "needn't have gone": 'need', "hadn't to go": 'need' }, e: 'need' },
-    { t: 'build', pt: 'supposed', l: 2, a: 'She was supposed to call me last night.', x: ['suppose'], e: 'supposed' },
+    { t: 'build', pt: 'supposed', l: 2, a: ['She was supposed to call me last night.', 'Last night she was supposed to call me.'], x: ['suppose'], e: 'supposed' },
     { t: 'build', pt: 'would', l: 2, a: 'I would have called, but my phone died.', x: ['will'], e: 'would' },
     { t: 'fix', pt: 'should', l: 2, p: 'I should of listened to my mother.', a: ['I should have listened to my mother.'], e: 'form' },
     { t: 'fix', pt: 'should', l: 2, p: "You must tell me earlier! Now it's too late.", a: ["You should have told me earlier! Now it's too late."], e: 'should' },

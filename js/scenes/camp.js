@@ -25,7 +25,7 @@ APP.addScene({
     { them: 'We also have early drop-off at 7:30 if you work.' },
     { me: { t: 'tl', g: 'mod1', pt: 'have-to', uk: 'Чи потрібно їм брати з собою обід?', ru: 'Им нужно брать с собой обед?', a: ['Do they have to bring lunch?', 'Do they need to bring lunch?', 'Do they have to bring their lunch?', 'Do they need to bring their lunch?', 'Do they have to bring their own lunch?', 'Do they need to bring their own lunch?', 'Do they have to bring lunch with them?', 'Do they need to bring lunch with them?', 'Do they have to take lunch with them?', 'Do they need to take lunch with them?'], e: 'have-to-form' } },
     { them: 'Yes, please pack a lunch and a water bottle. Snacks are on us.' },
-    { me: { t: 'build', g: 'fut', pt: 'plan', a: "I'm going to sign them up online tonight.", x: ['will'], e: 'will-plan' } },
+    { me: { t: 'build', g: 'fut', pt: 'plan', a: ["I'm going to sign them up online tonight.", "Tonight I'm going to sign them up online."], x: ['will'], e: 'will-plan' } },
     { them: 'Wonderful. Spots fill up fast, so the sooner the better!' },
     { me: 'Thanks so much for your help!' },
   ],

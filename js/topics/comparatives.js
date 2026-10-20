@@ -512,7 +512,7 @@ The trap: «такий самий, як / такой же, как» → *the sam
     { t: 'fill', pt: 'er', l: 2, p: 'The ___ (old) I get, the ___ (wise) I become.', a: 'older|wiser', w: { 'more old|more wise': 'er' }, e: 'er' },
     { t: 'fill', pt: 'double', l: 2, p: "This one is ___ cheaper — let's buy it.", a: ['much', 'a lot', 'far', 'way'], w: { very: 'double', more: 'double' }, e: 'double', n: '*very* does not go with comparatives: *much cheaper*, not *very cheaper*.' },
     { t: 'fill', pt: 'irr', l: 2, p: 'We have ___ (many) problems than before.', a: 'more', w: { 'more many': 'irr', manier: 'irr' }, e: 'irr' },
-    { t: 'build', pt: 'irr', l: 2, a: 'Today I feel much better.', x: ['more'], e: 'double' },
+    { t: 'build', pt: 'irr', l: 2, a: ['Today I feel much better.', 'I feel much better today.'], x: ['more'], e: 'double' },
     { t: 'fix', pt: 'double', l: 2, p: 'This hotel is more cheaper than that one.', a: ['This hotel is cheaper than that one.', 'This hotel is much cheaper than that one.'], e: 'double' },
     { t: 'fix', pt: 'than', l: 2, p: 'Kyiv is bigger as Lviv.', a: ['Kyiv is bigger than Lviv.'], e: 'than' },
     { t: 'fix', pt: 'as-as', l: 2, p: 'Your phone is the same like mine.', a: ['Your phone is the same as mine.'], e: 'as-as' },

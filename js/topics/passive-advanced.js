@@ -362,7 +362,7 @@ Don't mix them: *He is said that…* has two subjects fighting for one place.
     { t: 'fill', pt: 'get', l: 1, p: 'My sister ___ (get / marry) last summer.', a: 'got married', w: { 'was get married': 'get', 'got marry': 'form', 'get married': 'get' }, e: 'get' },
     { t: 'fill', pt: 'tenses', l: 1, p: 'Good news — your loan application ___ (approve)!', a: ['has been approved', 'was approved'], w: { 'has approved': 'form', 'is approve': 'form' }, e: 'form' },
     { t: 'fill', pt: 'modal', l: 1, p: 'The bill should ___ (pay) last week. Now there is a late fee.', a: 'have been paid', w: { 'be paid': 'modal', 'have paid': 'modal', 'been paid': 'modal' }, e: 'modal' },
-    { t: 'build', pt: 'causative', l: 1, a: 'We are having the kitchen painted next week.', x: ['paint'], e: 'causative' },
+    { t: 'build', pt: 'causative', l: 1, a: ['We are having the kitchen painted next week.', 'Next week we are having the kitchen painted.'], x: ['paint'], e: 'causative' },
     { t: 'build', pt: 'tenses', l: 1, a: 'The bridge is being repaired.', x: ['repairing'], e: 'tense' },
     { t: 'build', pt: 'get', l: 1, a: 'He got stuck in traffic.', x: ['was'], e: 'get' },
 

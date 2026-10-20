@@ -390,7 +390,7 @@ Compare:
     { t: 'fill', pt: 'used', l: 1, p: 'There ___ (used to / be) a bakery on this corner.', a: 'used to be', w: { 'use to be': 'used-form', 'used to being': 'used-form' }, e: 'used-form' },
     { t: 'build', pt: 'used', l: 1, a: 'I used to work as a teacher.', x: ['was'], e: 'used-form' },
     { t: 'build', pt: 'be-used', l: 1, a: "I'm not used to eating so late.", x: ['eat'], e: 'be-used' },
-    { t: 'build', pt: 'get-used', l: 1, a: "You'll get used to it soon.", x: ['be'], e: 'get-used' },
+    { t: 'build', pt: 'get-used', l: 1, a: ["You'll get used to it soon.", "Soon you'll get used to it."], x: ['be'], e: 'get-used' },
 
     // ---------- Use
     { t: 'fill', pt: 'mix', l: 2, p: 'I ___ (get up) at five when I worked at the bakery. Now I get up at eight.', a: 'used to get up', w: { 'am used to getting up': 'mix', 'was used to get up': 'mix' }, e: 'mix' },
@@ -401,7 +401,7 @@ Compare:
     { t: 'fill', pt: 'present', l: 2, p: '— Do you cook every day? — Yes, I ___ cook dinner at home.', a: ['usually', 'always', 'normally'], w: { 'use to': 'used-present', 'used to': 'used-present' }, e: 'used-present' },
     { t: 'fill', pt: 'used', l: 2, p: "She ___ (not / use to / like) coffee, but now she drinks it every day.", a: "didn't use to like", w: { "didn't used to like": 'used-form', "wasn't used to like": 'mix' }, e: 'used-form' },
     { t: 'fill', pt: 'be-used', l: 2, p: "The kids ___ (not / be used to) American food yet.", a: ["aren't used to", 'are not used to'], w: { "didn't use to": 'mix', "aren't use to": 'be-used' }, e: 'be-used' },
-    { t: 'build', pt: 'would', l: 2, a: 'On Sundays we would visit my grandparents.', x: ['visited'], e: 'would-state' },
+    { t: 'build', pt: 'would', l: 2, a: ['On Sundays we would visit my grandparents.', 'We would visit my grandparents on Sundays.'], x: ['visited'], e: 'would-state' },
     { t: 'fix', pt: 'used', l: 2, p: 'Did you used to live in Odesa?', a: ['Did you use to live in Odesa?'], e: 'used-form' },
     { t: 'fix', pt: 'present', l: 2, p: 'I use to drink tea in the morning.', a: ['I usually drink tea in the morning.', 'I normally drink tea in the morning.'], e: 'used-present' },
     { t: 'fix', pt: 'be-used', l: 2, p: "I'm used to work long hours.", a: ["I'm used to working long hours."], e: 'be-used' },

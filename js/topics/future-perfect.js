@@ -338,9 +338,9 @@ In Ukrainian and Russian both parts are in the future («Коли ти прий�
     { t: 'fill', pt: 'plans', l: 1, p: '___ you ___ (use) the printer this afternoon? I need to print a form.', a: 'Will|be using', w: { 'Will|use': 'plans', 'Do|use': 'plans' }, e: 'plans' },
     { t: 'fill', pt: 'perf', l: 1, p: "Don't wait for me. By the time you read this, I'll have ___ (go).", a: 'gone', w: { went: 'form', go: 'form' }, e: 'form' },
     { t: 'fill', pt: 'cont', l: 1, p: "Don't visit at seven — we'll ___ (eat) dinner.", a: 'be eating', w: { eat: 'cont', eating: 'form' }, e: 'cont' },
-    { t: 'build', pt: 'cont', l: 1, a: 'This time next week I will be lying on a beach.', x: ['lie'], e: 'cont' },
-    { t: 'build', pt: 'perf', l: 1, a: 'By the end of the year we will have paid off the car.', x: ['had'], e: 'perf' },
-    { t: 'build', pt: 'time', l: 1, a: 'I will text you when I get home.', x: ['got'], e: 'time' },
+    { t: 'build', pt: 'cont', l: 1, a: ['This time next week I will be lying on a beach.', 'I will be lying on a beach this time next week.'], x: ['lie'], e: 'cont' },
+    { t: 'build', pt: 'perf', l: 1, a: ['By the end of the year we will have paid off the car.', 'We will have paid off the car by the end of the year.', 'By the end of the year we will have paid the car off.', 'We will have paid the car off by the end of the year.'], x: ['had'], e: 'perf' },
+    { t: 'build', pt: 'time', l: 1, a: ['I will text you when I get home.', 'When I get home, I will text you.'], x: ['got'], e: 'time' },
 
     // ---------- Use
     { t: 'fill', pt: 'time', l: 2, p: "Before you ___ (leave), I'll have packed your lunch.", a: 'leave', w: { 'will leave': 'time', 'will have left': 'time' }, e: 'time' },
@@ -350,7 +350,7 @@ In Ukrainian and Russian both parts are in the future («Коли ти прий�
     { t: 'fill', pt: 'plans', l: 2, p: "___ (you / come) to the party on Saturday? I'm making the list.", a: ['Will you be coming', 'Are you coming'], w: { 'Will you come': 'plans', 'Do you come': 'plans' }, e: 'plans' },
     { t: 'fill', pt: 'pcont', l: 2, p: "Next March we'll have ___ (be) married for ten years.", a: 'been', w: { was: 'form', be: 'form', being: 'form' }, e: 'form' },
     { t: 'fill', pt: 'time', l: 2, p: "We won't start dinner until you ___ (get) here.", a: 'get', w: { 'will get': 'time' }, e: 'time' },
-    { t: 'build', pt: 'pcont', l: 2, a: 'By August I will have been living in Texas for four years.', x: ['since'], e: 'pcont' },
+    { t: 'build', pt: 'pcont', l: 2, a: ['By August I will have been living in Texas for four years.', 'I will have been living in Texas for four years by August.'], x: ['since'], e: 'pcont' },
     { t: 'build', pt: 'plans', l: 2, a: 'Will you be using the car tonight?', x: ['do'], e: 'plans' },
     { t: 'fix', pt: 'time', l: 2, p: 'Text me when you will be at the airport.', a: ["Text me when you're at the airport.", 'Text me when you get to the airport.'], e: 'time' },
     { t: 'fix', pt: 'perf', l: 2, p: 'By Monday I will have wrote the whole report.', a: ['By Monday I will have written the whole report.'], e: 'form' },

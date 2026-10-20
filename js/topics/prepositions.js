@@ -493,9 +493,9 @@ No *to* with **home**: *go home, come home*.
     { t: 'fill', pt: 'place', l: 1, p: 'Wait for me ___ the bus stop.', a: 'at', w: { on: 'place-at', in: 'place-at' }, e: 'place-at' },
     { t: 'fill', pt: 'vehicle', l: 1, p: "I'll call you when I'm ___ the train.", a: 'on', w: { in: 'place-in-on', at: 'place-in-on' }, e: 'place-in-on' },
     { t: 'fill', pt: 'move', l: 1, p: 'My husband goes ___ work by bus.', a: 'to', w: { on: 'movement', at: 'movement', in: 'movement' }, e: 'movement' },
-    { t: 'build', pt: 'time', l: 1, a: 'The party is on Saturday at seven.', x: ['in'], e: 'time-on' },
-    { t: 'build', pt: 'place', l: 1, a: 'She is at home with the kids.', x: ['in'], e: 'place-at' },
-    { t: 'build', pt: 'no-prep', l: 1, a: "We're flying to Kyiv next week.", x: ['on'], e: 'no-prep' },
+    { t: 'build', pt: 'time', l: 1, a: ['The party is on Saturday at seven.', 'The party is at seven on Saturday.', 'On Saturday the party is at seven.'], x: ['in'], e: 'time-on' },
+    { t: 'build', pt: 'place', l: 1, a: ['She is at home with the kids.', 'She is with the kids at home.'], x: ['in'], e: 'place-at' },
+    { t: 'build', pt: 'no-prep', l: 1, a: ["We're flying to Kyiv next week.", "Next week we're flying to Kyiv."], x: ['on'], e: 'no-prep' },
 
     // ---------- Use
     { t: 'fill', pt: 'time', l: 2, p: 'My appointment is ___ June 12th ___ 10:30.', a: 'on|at', w: { 'in|at': 'time-on', 'on|in': 'time-at', 'at|at': 'time-on' }, e: 'time-on' },

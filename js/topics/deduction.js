@@ -391,7 +391,7 @@ The usual slips:
     { t: 'fill', pt: 'cont', l: 1, p: "She isn't answering. She ___ (might / drive).", a: ['might be driving', 'may be driving', 'could be driving'], w: { 'might drive': 'cont', 'might driving': 'cont' }, e: 'cont' },
     { t: 'fill', pt: 'past', l: 1, p: "You ___ (can't / see) him yesterday. He was in Chicago.", a: ["can't have seen", "couldn't have seen"], w: { "can't saw": 'past', "mustn't have seen": 'cant', "can't see": 'past' }, e: 'past' },
     { t: 'fill', pt: 'might', l: 1, p: "I'm not sure why the car won't start. It ___ be the battery.", a: ['might', 'could', 'may'], w: { must: 'might', "can't": 'might' }, e: 'might' },
-    { t: 'build', pt: 'must', l: 1, a: 'You must be hungry after the flight.', x: ['have'], e: 'must' },
+    { t: 'build', pt: 'must', l: 1, a: ['You must be hungry after the flight.', 'After the flight you must be hungry.'], x: ['have'], e: 'must' },
     { t: 'build', pt: 'past', l: 1, a: 'She must have forgotten about the meeting.', x: ['forgot'], e: 'form' },
     { t: 'build', pt: 'cant', l: 1, a: "That can't be true.", x: ["mustn't"], e: 'cant' },
 

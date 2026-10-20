@@ -20,7 +20,8 @@ Built on the family app shell from [Math Expedition](https://github.com/appleinf
 - **Rules: a cheat sheet, and an explanation behind every line.** A topic's rule is a short list, one line per point; *Explain ▾* under a line opens a longer, plain explanation of it: the idea, where the mistake comes from (Ukrainian / Russian), right and wrong examples side by side (✅ ❌), and how to check yourself — with its own 🌐.
 - **Three tiers in every topic:** **Core** (the form, with hints) → **Use** (in context, no hints) → **Pro** (translate from Ukrainian/Russian, fix a mistake, rewrite, say it). A topic is mastered only at Pro. Inside a lesson the tier moves up after 3 right answers in a row and down after 2 mistakes.
 - **Exercise types:** choose (only as a warm-up), fill in the blank, put the words in order, find and fix the mistake, rewrite, translate, listen and type, say it out loud.
-- **Feedback after every answer:** her answer next to the right one with the differences marked, an explanation of *that* mistake (🌐 translation), 🔊 listen / 🐢 slowly, 🎙 record yourself and compare, "Why? Rule" (in a topic with explanations it opens the explanation of the point this exercise trains, or of the mistake she made, with *All rules of the topic* below). Translations can be said many ways, so *My answer was right too* counts an answer the app did not know.
+- **Feedback after every answer:** her answer next to the closest right one with the differences marked, then **what to fix and why**: every difference as one fix (*in → on*, *Add the before weekend*, *Put at before seven*), each with its own reason (🌐 translation). The exercise's explanation is shown only when the mistake is in what the exercise trains; when that part was right (*on Saturday* right, *seven at* wrong), she is told so and gets the explanation of the real mistake: a type of mistake of any topic (*in 2020* → *in* + a year, *Did you went* → no ending after *did*), or a general note (word order, adverbs like *usually*, articles, prepositions, agreement *he is / they are*, verb forms, spelling). That mistake is what counts in *My mistakes*. 🔊 listen / 🐢 slowly, 🎙 record yourself and compare, "Why? Rule" (in a topic with explanations it opens the explanation of the point this exercise trains, or of the mistake she made, with *All rules of the topic* below). Translations can be said many ways, so *My answer was right too* counts an answer the app did not know.
+- **Put the words in order** accepts every natural order of the same words (*The party is on Saturday at seven* or *at seven on Saturday*; *If I had time, I would help* or *I would help if I had time*).
 - **Checking answers** runs on the device: contractions equal full forms (*I've = I have*), iPhone quotes and capitals don't matter, a one-letter typo in a long word is forgiven, grammar endings (*-s, -ed*, *began / begun*) are not. Autocorrect is off in answer fields so the phone doesn't fix the grammar.
 - **American English is the norm:** American voice, and answers like *Did you eat yet? / I just finished* are accepted with a note about the textbook form.
 - **Spaced review:** every pattern she practices becomes a card (Leitner boxes: 1, 3, 7, 14, 30 days). A mistake brings the card back today; a card comes back with a **different sentence of the same pattern**. **Review** mixes all topics.
@@ -67,6 +68,9 @@ js/facts/*.js          one file per theme of Did-you-know facts: an exercise of 
 js/scenes/*.js         one file per dialog: intro, lines (her lines are exercises of a grammar topic), phrases, tip (en/uk/ru)
 js/check.js            judging typed answers: contractions, quotes, typos, word-by-word comparison
 js/srs.js              spaced repetition cards
+js/diagnose.js         what exactly is wrong in a wrong answer: the fixes (change, add, remove, move), whether the mistake is
+                       in what the exercise trains, the type of mistake of each fix (from the content and general patterns)
+                       and the general notes (en/uk/ru)
 js/level.js            tiers, lessons, review, level check, challenge, topic check, drills, Endless, dialogs; recording answers (and the day log)
 js/report.js           the weekly report: one week's numbers, the week before, a focus, the text to share
 js/i18n.js             🌐 translations, Google Translate links, the tiny text format
@@ -91,6 +95,7 @@ node tests/shell.test.js     # merging two copies, storage, save code, family ke
 node tests/content.test.js   # every topic and exercise
 node tests/report.test.js    # day log, weeks, comparison, focus, the home-screen reminder
 node tests/check.test.js     # judging answers
+node tests/diagnose.test.js  # what exactly is wrong in a wrong answer, and why
 node tests/srs.test.js       # review cards
 node tests/level.test.js     # tiers and sessions, Endless, dialogs, facts
 node tests/smoke.mjs         # in Chromium, iPhone and iPad sizes (needs Playwright)

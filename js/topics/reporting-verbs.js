@@ -390,7 +390,7 @@ After any preposition → **-ing**.
     { t: 'fill', pt: 'saytell', l: 1, p: 'Can you ___ me how to get to the post office?', a: 'tell', w: { say: 'saytell', explain: 'saytell' }, e: 'saytell' },
     { t: 'fill', pt: 'objto', l: 1, p: 'The police warned us ___ (not / go) out during the storm.', a: ['not to go', 'to not go'], w: { "don't go": 'objto', 'not go': 'objto', 'not going': 'objto' }, e: 'objto' },
     { t: 'fill', pt: 'noobj', l: 1, p: 'She promised ___ (call) me after the appointment.', a: 'to call', w: { calling: 'noobj', call: 'noobj' }, e: 'noobj' },
-    { t: 'build', pt: 'objto', l: 1, a: 'She asked me to pick up the kids.', x: ['that'], e: 'objto' },
+    { t: 'build', pt: 'objto', l: 1, a: ['She asked me to pick up the kids.', 'She asked me to pick the kids up.'], x: ['that'], e: 'objto' },
     { t: 'build', pt: 'ing', l: 1, a: 'He denied stealing the money.', x: ['to'], e: 'ing' },
     { t: 'build', pt: 'noobj', l: 1, a: 'They agreed to lower the price.', x: ['lowering'], e: 'noobj' },
 

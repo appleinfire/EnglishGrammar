@@ -427,7 +427,7 @@ A very common mistake is to take a part from each: *am* from one form and the pl
     { t: 'fill', pt: 'habit', l: 1, p: '___ you ___ (work) on weekends?', a: 'Do|work', w: { 'Do|working': 'be-ing', 'Does|work': 's-ending' }, e: 'habit' },
     { t: 'fill', pt: 'temporary', l: 1, p: 'These days I ___ (learn) to drive.', a: 'am learning', w: { learn: 'temporary', learning: 'be-ing' }, e: 'temporary' },
     { t: 'build', pt: 'now', l: 1, a: 'What are you doing right now?', x: ['do'], e: 'now' },
-    { t: 'build', pt: 'habit', l: 1, a: 'She usually takes the bus to work.', x: ['is'], e: 'habit' },
+    { t: 'build', pt: 'habit', l: 1, a: ['She usually takes the bus to work.', 'Usually she takes the bus to work.'], x: ['is'], e: 'habit' },
     { t: 'build', pt: 'state', l: 1, a: "I don't know the answer.", x: ['am'], e: 'state' },
 
     // ---------- Use

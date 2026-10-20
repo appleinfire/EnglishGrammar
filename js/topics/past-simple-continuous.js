@@ -469,8 +469,8 @@ And **for** is about **how long**, not «під час / во время»:
     { t: 'fill', pt: 'interrupt', l: 1, p: 'We ___ (have) dinner when the lights went out.', a: 'were having', w: { had: 'interrupt', 'was having': 'was-were' }, e: 'interrupt' },
     { t: 'fill', pt: 'irregular', l: 1, p: 'My parents ___ (take) us to Disneyland when we were kids.', a: 'took', w: { taked: 'irregular', take: 'irregular' }, e: 'irregular' },
     { t: 'fill', pt: 'did-base', l: 1, p: 'He ___ (not / call) me back yesterday.', a: "didn't call", w: { "didn't called": 'did-base', "wasn't call": 'was-were', "doesn't call": 'did-base' }, e: 'did-base' },
-    { t: 'build', pt: 'cont', l: 1, a: 'I was working when you called.', x: ['am'], e: 'cont' },
-    { t: 'build', pt: 'irregular', l: 1, a: 'We saw a great movie last night.', x: ['seen'], e: 'irregular' },
+    { t: 'build', pt: 'cont', l: 1, a: ['I was working when you called.', 'When you called, I was working.'], x: ['am'], e: 'cont' },
+    { t: 'build', pt: 'irregular', l: 1, a: ['We saw a great movie last night.', 'Last night we saw a great movie.'], x: ['seen'], e: 'irregular' },
     { t: 'build', pt: 'did-base', l: 1, a: 'Where did you buy that dress?', x: ['bought'], e: 'did-base' },
 
     // ---------- Use
@@ -482,7 +482,7 @@ And **for** is about **how long**, not «під час / во время»:
     { t: 'fill', pt: 'interrupt', l: 2, p: 'When I ___ (arrive) home, the kids ___ (sleep).', a: 'arrived|were sleeping', w: { 'was arriving|slept': 'interrupt', 'arrived|slept': 'interrupt', 'arrived|was sleeping': 'was-were' }, e: 'interrupt' },
     { t: 'fill', pt: 'was-were', l: 2, p: '___ your parents at the wedding?', a: 'Were', w: { Was: 'was-were', Did: 'was-were' }, e: 'was-were' },
     { t: 'fill', pt: 'irregular', l: 2, p: 'I ___ (feel) sick yesterday, so I ___ (stay) home.', a: 'felt|stayed', w: { 'feeled|stayed': 'irregular', 'fell|stayed': 'irregular' }, e: 'irregular' },
-    { t: 'build', pt: 'while', l: 2, a: 'While she was sleeping, it started to snow.', x: ['during'], e: 'while-when' },
+    { t: 'build', pt: 'while', l: 2, a: ['While she was sleeping, it started to snow.', 'It started to snow while she was sleeping.'], x: ['during'], e: 'while-when' },
     { t: 'fix', pt: 'irregular', l: 2, p: 'I buyed a new phone yesterday.', a: ['I bought a new phone yesterday.'], e: 'irregular' },
     { t: 'fix', pt: 'did-base', l: 2, p: 'Did you went to the doctor?', a: ['Did you go to the doctor?'], e: 'did-base' },
     { t: 'fix', pt: 'was-were', l: 2, p: 'We was at the mall all day.', a: ['We were at the mall all day.'], e: 'was-were' },

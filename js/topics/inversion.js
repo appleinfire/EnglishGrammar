@@ -389,7 +389,7 @@ Two rules:
     { t: 'fill', pt: 'cond', l: 1, p: '___ (be) I in your position, I would accept the offer.', a: 'Were', w: { Was: 'cond', Am: 'cond' }, e: 'cond' },
     { t: 'fill', pt: 'nosooner', l: 1, p: 'No sooner ___ (we / arrive) than it started to rain.', a: ['had we arrived', 'did we arrive'], w: { 'we had arrived': 'order', 'we arrived': 'order' }, e: 'than' },
     { t: 'build', pt: 'neg', l: 1, a: 'Never have I seen so much snow.', x: ['did'], e: 'order' },
-    { t: 'build', pt: 'cond', l: 1, a: 'Had we known, we would have come earlier.', x: ['if'], e: 'cond' },
+    { t: 'build', pt: 'cond', l: 1, a: ['Had we known, we would have come earlier.', 'We would have come earlier had we known.'], x: ['if'], e: 'cond' },
     { t: 'build', pt: 'little', l: 1, a: 'Little did we know what was coming.', x: ['knew'], e: 'aux' },
 
     // ---------- Use

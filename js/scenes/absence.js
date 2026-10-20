@@ -21,7 +21,7 @@ APP.addScene({
     { them: 'No worries at all! He can take it next week.' },
     { me: { t: 'tl', g: 'pres', pt: 's-ending', uk: 'Дякую! Він не любить пропускати тести.', ru: 'Спасибо! Он не любит пропускать тесты.', a: ["Thank you! He doesn't like missing tests.", "Thank you! He doesn't like to miss tests.", "Thanks! He doesn't like missing tests.", "Thanks! He doesn't like to miss tests.", "He doesn't like missing tests.", "He doesn't like to miss tests.", "Thank you! He hates missing tests.", "Thanks! He hates missing tests."], w: { "Thank you! He don't like missing tests.": 's-ending', "Thank you! He doesn't likes missing tests.": 's-ending' }, e: 's-ending' } },
     { them: 'He is such a hard worker. See you soon!' },
-    { me: { t: 'build', g: 'art', pt: 'places', a: 'He will be back at school on Monday.', x: ['the'], e: 'places' } },
+    { me: { t: 'build', g: 'art', pt: 'places', a: ['He will be back at school on Monday.', 'On Monday he will be back at school.'], x: ['the'], e: 'places' } },
     { them: 'Perfect. Have a good weekend!' },
     { me: 'Thank you so much, Ms. Lopez!' },
   ],

@@ -477,7 +477,7 @@ Only *ought* takes *to*: *You ought to rest.*
     { t: 'fill', pt: 'suggest', l: 1, p: "If you're bored, you ___ (could / take) a dance class.", a: 'could take', w: { 'could to take': 'form', 'could taking': 'form' }, e: 'form' },
     { t: 'fill', pt: 'should', l: 1, p: 'You ought ___ (rest) more.', a: 'to rest', w: { rest: 'form', resting: 'form' }, e: 'form' },
     { t: 'build', pt: 'should', l: 1, a: 'You should drink more water.', x: ['to'], e: 'form' },
-    { t: 'build', pt: 'might', l: 1, a: 'It might snow tomorrow.', x: ['maybe'], e: 'maybe' },
+    { t: 'build', pt: 'might', l: 1, a: ['It might snow tomorrow.', 'Tomorrow it might snow.'], x: ['maybe'], e: 'maybe' },
     { t: 'build', pt: 'had-better', l: 1, a: "You'd better hurry up.", x: ['to'], e: 'had-better' },
 
     // ---------- Use

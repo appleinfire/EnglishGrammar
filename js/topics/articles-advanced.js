@@ -424,7 +424,7 @@ Even inside a longer phrase: *one of **the** most famous singers, **the** first 
     { t: 'fill', pt: 'abstract', l: 1, p: '___ education my kids get here is better than mine was.', a: 'The', w: { An: 'abstract' }, e: 'abstract' },
     { t: 'fill', pt: 'adj', l: 1, p: '___ unemployed can get help at the job center.', a: 'The', w: { An: 'adj' }, e: 'adj' },
     { t: 'build', pt: 'adj', l: 1, a: 'The rich should pay more taxes.', x: ['a'], e: 'adj' },
-    { t: 'build', pt: 'inst', l: 1, a: 'She goes to church every Sunday.', x: ['the'], e: 'inst' },
+    { t: 'build', pt: 'inst', l: 1, a: ['She goes to church every Sunday.', 'Every Sunday she goes to church.'], x: ['the'], e: 'inst' },
     { t: 'build', pt: 'geo', l: 1, a: 'We flew over the Rocky Mountains.', x: ['a'], e: 'geo' },
 
     // ---------- Use
